@@ -1,3 +1,12 @@
-# Web Digital Solutions 2020
+# Digital Solutions web 2020
 
-AAhoj
+## Project commands
+
+Port
+`http://localhost:8080`
+
+Develop
+`gridsome develop`
+
+Build
+`gridsome build`
