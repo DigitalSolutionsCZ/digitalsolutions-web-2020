@@ -1,6 +1,24 @@
 module.exports = {
   theme: {
     extend: {
+      fontFamily: {
+        'sans': [
+          'Muli',
+          'system-ui',
+          '-apple-system',
+          'BlinkMacSystemFont',
+          '"Segoe UI"',
+          'Roboto',
+          '"Helvetica Neue"',
+          'Arial',
+          '"Noto Sans"',
+          'sans-serif',
+          '"Apple Color Emoji"',
+          '"Segoe UI Emoji"',
+          '"Segoe UI Symbol"',
+          '"Noto Color Emoji"',
+        ],
+      },
       colors: {
         blue: {
           100: "#50cdff",
@@ -24,19 +42,50 @@ module.exports = {
           800: "#368308",
           900: "#226f00"
         },
-
-        fontSize: {
-          "2xs": ".875rem",
-          xs: "1rem",
-          sm: "1.125rem",
-          base: "1.25rem",
-          lg: "1.625rem",
-          xl: "2.375rem",
-          "2xl": "3.75rem"
-        }
-      }
+        gray: {
+          300: '#f2f2f2',
+        },
+      },
+      linearGradientDirections: {
+        't': 'to top',
+        'tr': 'to top right',
+        'r': 'to right',
+        'br': 'to bottom right',
+        'b': 'to bottom',
+        'bl': 'to bottom left',
+        'l': 'to left',
+        'tl': 'to top left',
+      },
+      linearGradientColors: theme => ({
+        'blue-green': [theme('colors.blue.500') , theme('colors.green.500')],
+      }),
+      fontSize: {
+        xs: ".875rem",
+        sm: "1rem",
+        base: "1.125rem",
+        lg: "1.25rem",
+        xl: "1.625rem",
+        "2xl": "2.375rem",
+        "3xl": "3.75rem"
+      },
+      maxWidth: {
+        "screen-2xl": "1400px",
+      },
+      screens: {
+        xs: '360px',
+        sm: `640px`,
+        md: `768px`,
+        lg: `1024px`,
+        xl: `1280px`,
+      },
     }
   },
-  variants: {},
-  plugins: []
+  variants: {
+    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+    linearGradients: ['responsive', 'hover', 'focus', 'group-hover'],
+    boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+},
+  plugins: [
+    require('tailwindcss-gradients'),
+  ]
 };
