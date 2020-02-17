@@ -1,5 +1,8 @@
+@import "components/richEditor.css";
+
 @tailwind base;
 
 @tailwind components;
 
 @tailwind utilities;
+
