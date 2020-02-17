@@ -53,6 +53,9 @@ module.exports = {
           800: "#368308",
           900: "#226f00"
         },
+        gray: {
+          300: '#f2f2f2',
+        },
       },
       linearGradientDirections: {
         't': 'to top',
@@ -76,57 +79,55 @@ module.exports = {
         "2xl": "2.375rem",
         "3xl": "3.75rem"
       },
+        width: theme => ({
+            auto: 'auto',
+            ...theme('spacing'),
+            '1/24': '4.16667%',
+            '2/24': '8.33333%',
+            '3/24': '12.5%',
+            '4/24': '16.66667%',
+            '5/24': '20.83333%',
+            '6/24': '25%',
+            '7/24': '29.16667%',
+            '8/24': '33.33333%',
+            '9/24': '37.5%',
+            '10/24': '41.66667%',
+            '11/24': '45.83333%',
+            '12/24': '50%',
+            '13/24': '54.16667%',
+            '14/24': '58.33333%',
+            '15/24': '62.5%',
+            '16/24': '66.66667%',
+            '17/24': '70.83333%',
+            '18/24': '75%',
+            '19/24': '79.16667%',
+            '20/24': '83.33333%',
+            '21/24': '87.5%',
+            '22/24': '91.66667%',
+            '23/24': '95.83333%',
+            full: '100%',
+            screen: '100vw',
+        }),
 
-      width: theme => ({
-        auto: 'auto',
-        ...theme('spacing'),
-        '1/24': '4.16667%',
-        '2/24': '8.33333%',
-        '3/24': '12.5%',
-        '4/24': '16.66667%',
-        '5/24': '20.83333%',
-        '6/24': '25%',
-        '7/24': '29.16667%',
-        '8/24': '33.33333%',
-        '9/24': '37.5%',
-        '10/24': '41.66667%',
-        '11/24': '45.83333%',
-        '12/24': '50%',
-        '13/24': '54.16667%',
-        '14/24': '58.33333%',
-        '15/24': '62.5%',
-        '16/24': '66.66667%',
-        '17/24': '70.83333%',
-        '18/24': '75%',
-        '19/24': '79.16667%',
-        '20/24': '83.33333%',
-        '21/24': '87.5%',
-        '22/24': '91.66667%',
-        '23/24': '95.83333%',
-        full: '100%',
-        screen: '100vw',
-      }),
-
-      minWidth: theme => ({
-        ...theme('spacing'),
-      }),
-
+        minWidth: theme => ({
+            ...theme('spacing'),
+        }),
       maxWidth: {
         "screen-2xl": "1480px",
         "screen-3xl": "1600px",
       },
 
-      borderWidth: {
-        '3': '3px'
-      },
+        borderWidth: {
+            '3': '3px'
+        },
 
-      aspectRatio: {
-        'none': 0,
-        'square': [1, 1],
-        '16/9': [16, 9],
-        '4/3': [4, 3],
-        '21/9': [21, 9],
-      }
+        aspectRatio: {
+            'none': 0,
+            'square': [1, 1],
+            '16/9': [16, 9],
+            '4/3': [4, 3],
+            '21/9': [21, 9],
+        }
     },
     screens: {
       xs: '360px',
@@ -140,10 +141,10 @@ module.exports = {
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
     linearGradients: ['responsive', 'hover', 'focus', 'group-hover'],
     boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-    translate: ['responsive', 'hover', 'focus', 'group-hover'],
-    aspectRatio: ['responsive'],
-    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
-  },
+      translate: ['responsive', 'hover', 'focus', 'group-hover'],
+      aspectRatio: ['responsive'],
+      opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+},
   plugins: [
     require('tailwindcss-gradients'),
     require('tailwindcss-aspect-ratio'),
