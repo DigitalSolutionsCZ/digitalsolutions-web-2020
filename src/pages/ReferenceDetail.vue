@@ -130,6 +130,49 @@
                 </div>
             </section>
         </div>
+        <div class="relative mb-16">
+            <div class="absolute w-full h-full overflow-hidden">
+                <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
+            </div>
+            <div class="pt-8 ml-auto mr-auto max-w-screen-lg">
+                <VueSlickCarousel class="bg-gray-600 shadow-xl" v-bind="carouselSettings">
+                    <div class="relative">
+                        <div class="flex flex-col justify-around">
+                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
+                            <div class="flex items-center justify-center h-12 bg-white">
+                                <div class="text-base truncate">Intuice</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="flex flex-col justify-around">
+                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
+                            <div class="flex items-center justify-center h-12 bg-white">
+                                <div class="text-base truncate">Intuice</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <div class="flex flex-col justify-around">
+                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
+                            <div class="flex items-center justify-center h-12 bg-white">
+                                <div class="text-base truncate">Intuice</div>
+                            </div>
+                        </div>
+                    </div>
+                    <template #prevArrow>
+                        <div class="absolute inset-y-0 left-0 flex items-center -ml-10">
+                            <
+                        </div>
+                    </template>
+                    <template #nextArrow>
+                        <div class="absolute inset-y-0 right-0 flex items-center -mr-10">
+                            >
+                        </div>
+                    </template>
+                </VueSlickCarousel>
+            </div>
+        </div>
         <div class="relative mb-6 lg:mb-16">
             <div class="absolute w-full h-full overflow-hidden">
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
