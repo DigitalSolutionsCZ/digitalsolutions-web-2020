@@ -53,9 +53,6 @@ module.exports = {
           800: "#368308",
           900: "#226f00"
         },
-        gray: {
-          300: '#f2f2f2',
-        },
       },
       linearGradientDirections: {
         't': 'to top',
