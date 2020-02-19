@@ -17,6 +17,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 const projectConfig =  {
+  // Include template compiler for Icons template
+  resolve: { alias: { vue: 'vue/dist/vue.esm.js' } },
   module: {
     rules: [
       {
@@ -24,7 +26,7 @@ const projectConfig =  {
         loader: 'svg-sprite-loader',
         options: {
           extract: true,
-          spriteFilename: '~/assets/sprite.svg',
+          spriteFilename: '~/assets/icons/sprite.svg',
           esModule: false,
         }
       },
@@ -45,6 +47,10 @@ module.exports = {
         plugins: postcssPlugins
       }
     }
+  },
+  chainWebpack: config => {
+    const svgRule = config.module.rule('svg')
+    svgRule.uses.clear()
   },
   configureWebpack(config) {
     return merge(projectConfig , config)
