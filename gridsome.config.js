@@ -3,7 +3,8 @@
 
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
-
+const merge = require('webpack-merge')
+const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const tailwind = require("tailwindcss");
 const purgecss = require("@fullhuman/postcss-purgecss");
 const autoprefixer = require("autoprefixer");
