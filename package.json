@@ -8,8 +8,11 @@
   },
   "dependencies": {
     "@ds/vue-plugin-icons": "^0.1.1",
+    "@bhws/gridsome-source-craft-graphql": "0.0.13",
+    "axios": "^0.19.2",
     "gridsome": "^0.7.0",
     "svg-sprite-loader": "^4.2.1",
+    "popper.js": "^1.16.1",
     "tailwindcss-aspect-ratio": "^3.0.0"
   },
   "devDependencies": {
