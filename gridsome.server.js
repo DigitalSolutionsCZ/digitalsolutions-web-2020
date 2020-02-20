@@ -13,4 +13,25 @@ module.exports = function (api) {
   api.createPages(({ createPage }) => {
     // Use the Pages API here: https://gridsome.org/docs/pages-api/
   })
+
+  api.createPages(async ({graphql, createPage}) => {
+    const {data} = await graphql(`{
+      craft {
+        tags(group: "typProduktu") {
+            title,
+            slug,
+            ...on craft_typProduktu_Tag {
+                urlLink
+            }
+        },
+      }
+    }`);
+
+    console.log(data.craft);
+
+    createPage({
+      path: `/${data.craft.entry.urlLink}`,
+      component: './src/templates/Reference.vue'
+    })
+  })
 }
