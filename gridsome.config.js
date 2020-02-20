@@ -42,7 +42,17 @@ const projectConfig =  {
 };
 module.exports = {
   siteName: "Digital Solutions",
-  plugins: [],
+  plugins: [
+    {
+      use: "@bhws/gridsome-source-craft-graphql",
+      options: {
+        url: process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT,
+        fieldName: "craft",
+        typeName: "craft",
+        livePreview: process.env.CRAFT_LIVE_PREVIEW || false,
+      }
+    }
+  ],
   css: {
     loaderOptions: {
       postcss: {

@@ -14,6 +14,7 @@
     "vue-slick-carousel": "^1.0.2"
   },
   "devDependencies": {
+    "@bhws/gridsome-source-craft-graphql": "0.0.13",
     "@fullhuman/postcss-purgecss": "^2.0.6",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
