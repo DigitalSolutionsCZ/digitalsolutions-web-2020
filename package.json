@@ -13,10 +13,11 @@
     "tailwindcss-aspect-ratio": "^3.0.0"
   },
   "devDependencies": {
+    "@bhws/gridsome-source-craft-graphql": "0.0.13",
     "@fullhuman/postcss-purgecss": "^2.0.6",
-    "tailwindcss": "^1.2.0",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
+    "tailwindcss": "^1.2.0",
     "tailwindcss-gradients": "^3.0.0",
     "webpack-merge": "^4.2.2"
   }
