@@ -2,14 +2,13 @@
     <Layout>
         <section class="px-4 bg-white">
             <div class="pt-10 mx-auto max-w-screen-xl">
-                <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black">Naše práce</h1>
-                <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2">
-                    <p>We don’t have to pick our best works as we give our best shot every single time. Here are just some of our stellar projects to help inspire your own.</p>
-                </div>
+                <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black">{{ page.heading }}</h1>
+                <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2" v-html="page.excerpt"/>
                 <div class="mb-10 text-center">
                     <dropdown class="inline-block text-left">
                         <template #header="{open}">
-                            <div href="" class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
+                            <div href=""
+                                 class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
                                 Všechny projekty
                                 <icon
                                     symbol="i_new_window"
@@ -19,11 +18,16 @@
                             </div>
                         </template>
                         <template #content>
-                        <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
-                            <g-link :to="tag.slug" tabindex="0" class="block px-8 py-2 text-sm text-gray-700 hover:text-green-500 focus:text-green-500 transition-color ease-in-out focus:outline-none" :key="tag.slug" v-for="tag in tags">
-                                {{ tag.name }}
-                            </g-link>
-                        </div>
+                            <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
+                                <g-link
+                                    :to="tag.url" tabindex="0"
+                                    class="block px-8 py-2 text-sm text-gray-700 hover:text-green-500 focus:text-green-500 transition-color ease-in-out focus:outline-none"
+                                    :key="tag.slug"
+                                    v-for="tag in tags"
+                                >
+                                    {{ tag.title }}
+                                </g-link>
+                            </div>
                         </template>
                     </dropdown>
 
@@ -43,9 +47,18 @@
                     </template>
                 </div>
                 <div class="flex justify-center">
-                    <g-link class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out" to="/">Předchozí</g-link>
-                    <g-link class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out bg-gradient-r-blue-green" to="/">Načíst 10 dalších...</g-link>
-                    <g-link class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out" to="/">Další</g-link>
+                    <g-link
+                        class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out"
+                        to="/">Předchozí
+                    </g-link>
+                    <g-link
+                        class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out bg-gradient-r-blue-green"
+                        to="/">Načíst 10 dalších...
+                    </g-link>
+                    <g-link
+                        class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out"
+                        to="/">Další
+                    </g-link>
                 </div>
             </div>
         </section>
@@ -61,7 +74,8 @@ import ReferenceFillContact from "../components/Reference/ContactFillCard.vue";
 import Dropdown from "../components/Dropdown.vue";
 import Sublink from "../components/Sublink.vue";
 
-import axios from 'axios';
+import { fetch } from "gridsome";
+
 export default {
     components: {
         Dropdown,
@@ -71,25 +85,28 @@ export default {
         ReferenceFillContact,
         Sublink,
     },
+    computed: {
+        page() {
+            return this.$page.craft.entry
+        },
+        tags() {
+            return [
+                {
+                    id: false,
+                    slug: 'all',
+                    url: '/',
+                    title: "Všechny projekty"
+                },
+                ...this.$page.craft.tags
+            ]
+        }
+    },
+    async mounted() {
+        const {data} = await fetch('/');
+        console.log(data);
+    },
     data: () => ({
-        tags: [
-            {
-                slug: "reference/",
-                name: "Všechny projekty"
-            },
-            {
-                slug: "reference/is",
-                name: "Informační systémy"
-            },
-            {
-                slug: "reference/corporate-webs",
-                name: "Corporate weby"
-            },
-            {
-                slug: "reference/mobile-apps",
-                name: "Mobilní aplikace"
-            }
-        ],
+        activeTag: 'all',
         references: [
             {
                 id: 1,
@@ -203,3 +220,16 @@ export default {
 }
 </script>
 
+<page-query>
+query($slug: String!) {
+    craft {
+        entry(slug: String) {
+            title,
+            ...on craft_reference_reference_Entry {
+                heading,
+                excerpt
+            }
+        }
+    }
+}
+</page-query>
