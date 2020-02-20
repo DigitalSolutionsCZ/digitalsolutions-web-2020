@@ -107,6 +107,10 @@ module.exports = {
         screen: '100vw',
       }),
 
+      minWidth: theme => ({
+        ...theme('spacing'),
+      }),
+
       maxWidth: {
         "screen-2xl": "1400px",
       },
@@ -137,6 +141,7 @@ module.exports = {
     boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
     translate: ['responsive', 'hover', 'focus', 'group-hover'],
     aspectRatio: ['responsive'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   plugins: [
     require('tailwindcss-gradients'),
