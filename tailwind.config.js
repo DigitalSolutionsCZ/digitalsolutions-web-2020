@@ -107,6 +107,10 @@ module.exports = {
         screen: '100vw',
       }),
 
+      minWidth: theme => ({
+        ...theme('spacing'),
+      }),
+
       maxWidth: {
         "screen-2xl": "1480px",
         "screen-3xl": "1600px",

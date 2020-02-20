@@ -2,6 +2,7 @@
     <div>
         <button
             ref="reference"
+            class="relative z-40 focus:outline-none"
             :class="defaultClasses.header"
             @click.passive="toggle"
         >
@@ -11,9 +12,14 @@
 
         <div
             ref="content"
+            class="z-50"
             :class="defaultClasses.content"
         >
             <transition
+                enter-active-class="transform transition-all duration-200 ease-in-out"
+                enter-class="translate-y-6 opacity-0"
+                leave-active-class="transform transition-all duration-200 ease-in-out pointer-events-none"
+                leave-to-class="translate-y-6 opacity-0"
                 v-on:after-enter="afterEnter"
                 v-on:after-leave="afterLeave"
             >
@@ -26,17 +32,6 @@
 
 <script>
 import Popper from 'popper.js';
-
-const defaultClasses = {
-    header: 'relative z-40',
-    content: "z-50",
-    enterClass: "",
-    enterToClass: "",
-    enterActiveClass: "",
-    leaveClass: "",
-    leaveToClass: "",
-    leaveActiveClass: ""
-}
 
 export default {
     props: {
@@ -80,7 +75,7 @@ export default {
             }
         },
         defaultClasses() {
-            return {...defaultClasses, ...this.classes}
+            return this.classes;
         }
     },
     created() {
@@ -93,7 +88,7 @@ export default {
             if (this.open && !(this.$el === e.target || this.$el.contains(e.target) || this.popper.contains(e.target))) {
                 this.close();
             }
-        }
+        };
         document.addEventListener("keyup", escape);
         document.addEventListener("click", clickOutsideEvent);
         this.$once("hook:destroyed", () => {
@@ -109,8 +104,10 @@ export default {
     methods: {
         close() {
             this.open = false;
-            this.closePopper();
             this.$emit("close");
+            this.$nextTick(() => {
+                this.closePopper();
+            })
         },
         expand() {
             this.open = true;
@@ -123,7 +120,7 @@ export default {
         openPopper() {
             document.body.appendChild(this.popper);
             this.$nextTick(() => {
-                this.popperJs = new Popper(this.reference, this.popper, this.popperConfig);
+                this.popperJs = this.popperJs || new Popper(this.reference, this.popper, this.popperConfig);
             })
         },
         closePopper() {

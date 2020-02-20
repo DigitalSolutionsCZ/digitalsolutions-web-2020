@@ -1,5 +1,5 @@
 <template functional>
-    <div class="flex px-2 mb-4 w-full md:w-11/24">
+    <div class="flex px-2 mb-4 w-full md:w-11/24" v-bind="data.attrs" :style="data.style">
         <div
             class="relative flex flex-col items-start w-full mx-auto overflow-hidden bg-white rounded group hover:shadow-xl transition-all duration-200 ease-in-out"
         >
@@ -10,12 +10,7 @@
                 <span class="inline-block mb-8 text-sm text-green-500">{{ props.reference.client }}</span>
                 <div class="text-base text-gray-600 w-21/24" v-html="props.reference.content"/>
             </div>
-            <a
-                href="#nogo"
-                class="inline-flex items-center py-2 pl-16 pr-4 mt-auto mb-20 text-xs font-bold text-black bg-gray-100 rounded-r-full group-hover:text-white group-hover:bg-gradient-r-blue-green transition-all duration-200 ease-in-out"
-            >
-                {{ props.reference.linkText }}
-            </a>
+            <sublink text="Prohlédnout referenci" />
             <div class="absolute bottom-0 left-0 w-full pointer-events-none grid gap-4 grid-cols-11">
                 <div class="pointer-events-auto row-start-1 row-end-1 col-start-7 col-end-11">
                     <g-link
