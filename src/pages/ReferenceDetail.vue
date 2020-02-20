@@ -161,13 +161,19 @@
                         </div>
                     </div>
                     <template #prevArrow>
-                        <div class="absolute inset-y-0 left-0 flex items-center -ml-10">
-                            <
+                        <div class="absolute inset-y-0 left-0 flex items-center -ml-10 cursor-pointer">
+                            <icon
+                                    symbol="chevron_thin_stroke"
+                                    class="w-8 h-8 fill-current transform rotate-180"
+                            ></icon>
                         </div>
                     </template>
                     <template #nextArrow>
-                        <div class="absolute inset-y-0 right-0 flex items-center -mr-10">
-                            >
+                        <div class="absolute inset-y-0 right-0 flex items-center -mr-10 cursor-pointer">
+                            <icon
+                                    symbol="chevron_thin_stroke"
+                                    class="w-8 h-8 fill-current"
+                            ></icon>
                         </div>
                     </template>
                 </VueSlickCarousel>
