@@ -76,21 +76,21 @@
                         <ul class="mb-16">
                             <li class="flex items-center mb-3">
                                 <icon
-                                    symbol="chevron"
+                                    symbol="i_chevron"
                                     class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
                                 </icon>
                                 <span class="text-lg truncate">Bakendarna</span>
                             </li>
                             <li class="flex items-center mb-3">
                                 <icon
-                                        symbol="chevron"
+                                        symbol="i_chevron"
                                         class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
                                 </icon>
                                 <span class="text-lg truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium aspernatur blanditiis culpa dicta distinctio doloribus, earum eligendi error hic incidunt minima nihil odit officiis qui quod recusandae sit voluptate!</span>
                             </li>
                             <li class="flex items-center">
                                 <icon
-                                        symbol="chevron"
+                                        symbol="i_chevron"
                                         class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
                                 </icon>
                                 <span class="text-lg truncate">Bakendarna</span>
@@ -155,7 +155,7 @@
                     <template #prevArrow>
                         <div class="absolute inset-y-0 left-0 flex items-center -ml-10 cursor-pointer">
                             <icon
-                                    symbol="chevron_thin_stroke"
+                                    symbol="i_chevron_thin_stroke"
                                     class="w-8 h-8 fill-current transform rotate-180"
                             ></icon>
                         </div>
@@ -163,7 +163,7 @@
                     <template #nextArrow>
                         <div class="absolute inset-y-0 right-0 flex items-center -mr-10 cursor-pointer">
                             <icon
-                                    symbol="chevron_thin_stroke"
+                                    symbol="i_chevron_thin_stroke"
                                     class="w-8 h-8 fill-current"
                             ></icon>
                         </div>
@@ -204,7 +204,7 @@
                 <div class="flex">
                     <div class="w-1/2">
                         <a href="#nogo" class="inline-flex items-center py-6 text-xl text-white">
-                            <icon symbol="chevron" class="w-3 h-3 mr-2 fill-current transform rotate-180"></icon>
+                            <icon symbol="i_chevron" class="w-3 h-3 mr-2 fill-current transform rotate-180"></icon>
                             Zpět na seznam referencí
                         </a>
                     </div>
@@ -212,7 +212,7 @@
                         <div class="text-right">
                             <a href="#nogo" class="inline-flex items-center py-6 text-xl text-white">
                                 Další reference
-                                <icon symbol="chevron" class="w-3 h-3 ml-2 fill-current"></icon>
+                                <icon symbol="i_chevron" class="w-3 h-3 ml-2 fill-current"></icon>
                             </a>
                         </div>
                     </div>
