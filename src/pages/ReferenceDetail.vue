@@ -1,10 +1,10 @@
 <template>
     <Layout>
-        <div class="ml-auto mr-auto max-w-screen-2xl">
+        <div class="ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap pt-16 pb-16">
                 <div class="w-full px-4 lg:w-1/2 lg:pr-12">
                     <h1 class="mb-6 text-3xl font-extrabold leading-none">Optimalizace procesu vypracování smluv</h1>
-                    <a href="#nogo" class="inline-block mb-5 text-green-500">M&M reality a.s.</a>
+                    <div class="inline-block mb-5 text-green-500">M&M reality a.s.</div>
                     <div class="mb-6 text-base wysiwyg-content">Prodej či nákup nemovitosti je záležitost, kterou je třeba bezchybně smluvně ošetřit. V rámci služby realitní makléři poskytují svým klientům právní servis (ve spolupráci s právním oddělením).</div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2">
@@ -16,7 +16,7 @@
 
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
-            <div class="relative py-8 ml-auto mr-auto max-w-screen-2xl">
+            <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
                 <section class="flex flex-wrap">
                     <div class="self-center w-full px-4 lg:w-14/24 lg:pr-12">
                         <h2 class="mb-8 text-2xl font-bold">Výzva</h2>
@@ -55,7 +55,7 @@
                 </section>
             </div>
         </div>
-        <div class="relative ml-auto mr-auto max-w-screen-2xl">
+        <div class="relative ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap mb-8">
                 <div class="self-center w-full px-4 lg:w-14/24 lg:pr-12">
                     <h2 class="mb-8 text-2xl font-bold">Řešení</h2>
@@ -127,10 +127,12 @@
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="pt-8 ml-auto mr-auto max-w-screen-lg">
-                <VueSlickCarousel class="bg-gray-600 shadow-xl" v-bind="carouselSettings">
+                <VueSlickCarousel class="shadow-xl" v-bind="carouselSettings">
                     <div class="relative">
                         <div class="flex flex-col justify-around">
-                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
+                            <div class="aspect-ratio-16/9 relative">
+                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 h-full w-full" />
+                            </div>
                             <div class="flex items-center justify-center h-12 bg-white">
                                 <div class="text-base truncate">Intuice</div>
                             </div>
@@ -138,15 +140,9 @@
                     </div>
                     <div class="relative">
                         <div class="flex flex-col justify-around">
-                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
-                            <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="text-base truncate">Intuice</div>
+                            <div class="aspect-ratio-16/9 relative">
+                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 h-full w-full" />
                             </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="flex flex-col justify-around">
-                            <img src="https://i.picsum.photos/id/831/300/300.jpg" class="m-auto" />
                             <div class="flex items-center justify-center h-12 bg-white">
                                 <div class="text-base truncate">Intuice</div>
                             </div>
@@ -171,7 +167,7 @@
                 </VueSlickCarousel>
             </div>
         </div>
-        <div class="ml-auto mr-auto max-w-screen-2xl">
+        <div class="ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap pb-16" >
                 <div class="relative w-full px-4 lg:w-1/2 lg:pr-16">
                     <h2 class="mb-8 text-2xl font-bold">Výsledek</h2>
@@ -200,7 +196,7 @@
             </section>
         </div>
         <div class="bg-gradient-r-blue-green">
-            <div class="ml-auto mr-auto max-w-screen-2xl">
+            <div class="ml-auto mr-auto max-w-screen-xl">
                 <div class="flex">
                     <div class="w-1/2">
                         <a href="#nogo" class="inline-flex items-center py-6 text-xl text-white">
