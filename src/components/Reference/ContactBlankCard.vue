@@ -7,7 +7,7 @@
                 <h2 class="mb-3 text-2xl font-bold leading-tight">{{ props.reference.heading }}</h2>
                 <div class="text-base text-gray-600" v-html="props.reference.content" />
             </div>
-            <sublink label="Prohlédnout referenci" />
+            <sub-link label="Prohlédnout referenci" />
         </div>
     </div>
 </template>

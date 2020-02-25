@@ -72,7 +72,7 @@ import ReferenceHalf from "../components/Reference/SmallCard.vue";
 import ReferenceBlankContact from "../components/Reference/ContactBlankCard.vue";
 import ReferenceFillContact from "../components/Reference/ContactFillCard.vue";
 import Dropdown from "../components/Dropdown.vue";
-import Sublink from "../components/Sublink.vue";
+import SubLink from "../components/SubLink.vue";
 
 import { fetch } from "gridsome";
 
@@ -83,7 +83,7 @@ export default {
         ReferenceHalf,
         ReferenceBlankContact,
         ReferenceFillContact,
-        Sublink,
+        SubLink,
     },
     computed: {
         page() {
@@ -221,15 +221,5 @@ export default {
 </script>
 
 <page-query>
-query($slug: String!) {
-    craft {
-        entry(slug: String) {
-            title,
-            ...on craft_reference_reference_Entry {
-                heading,
-                excerpt
-            }
-        }
-    }
-}
+
 </page-query>

@@ -26,12 +26,20 @@ module.exports = function (api) {
         },
       }
     }`);
+    // data.craft.tags.map(tag => {
+    //   console.log(tag.urlLink);
+    //   createPage({
+    //     path: `/${tag.urlLink}`,
+    //     component: './src/templates/Reference.vue'
+    //   })
+    // });
 
-    console.log(data.craft);
 
+    //todo reference dynamic url
     createPage({
-      path: `/${data.craft.entry.urlLink}`,
+      path: `/reference`,
       component: './src/templates/Reference.vue'
     })
+
   })
 }
