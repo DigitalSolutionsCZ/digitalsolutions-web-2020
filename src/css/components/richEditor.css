@@ -1,9 +1,9 @@
 .wysiwyg-content {
     p {
-        @apply mb-8;
+        @apply mb-4;
     }
     ul {
-        @apply mb-8;
+        @apply mb-4;
     }
     li {
         @apply flex mb-3 leading-normal;
@@ -12,5 +12,13 @@
              flex: 0 0 auto;
              @apply mt-2 mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full;
          }
+    }
+    @screen lg {
+        p {
+            @apply mb-8;
+        }
+        ul {
+            @apply mb-8;
+        }
     }
 }
