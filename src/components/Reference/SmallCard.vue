@@ -14,7 +14,7 @@
             <div class="absolute bottom-0 left-0 w-full pointer-events-none grid gap-4 grid-cols-11">
                 <div class="pointer-events-auto row-start-1 row-end-1 col-start-7 col-end-11">
                     <g-link
-                        :to="props.reference.link"Ł
+                        :to="props.reference.link"
                         class="relative block aspect-ratio-4/3 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-200 ease-in-out"
                     >
                         <g-image
