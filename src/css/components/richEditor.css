@@ -13,7 +13,15 @@
              @apply mt-2 mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full;
          }
     }
-    @screen lg {
+    @screen md {
+        p {
+            @apply mb-5;
+        }
+        ul {
+            @apply mb-5;
+        }
+    }
+    @screen xl {
         p {
             @apply mb-8;
         }
