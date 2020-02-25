@@ -74,45 +74,54 @@
                     <div class="mb-8 ml-16">
                         <h3 class="mb-8 text-xl font-bold">Dodané služby</h3>
                         <ul class="mb-16">
-                            <li class="flex items-center mb-3">
-                                <icon
-                                    symbol="i_chevron"
-                                    class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
-                                </icon>
-                                <span class="text-lg truncate">Bakendarna</span>
+                            <li class="mb-3">
+                                <div class="flex items-center mb-1">
+                                    <span class="flex-1 text-lg truncate">Projektové řízení</span>
+                                    <span class="flex-grow-0">20%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 20%"></div>
+                                    <div class="flex-grow border-b border-gray-200"></div>
+                                </div>
                             </li>
-                            <li class="flex items-center mb-3">
-                                <icon
-                                        symbol="i_chevron"
-                                        class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
-                                </icon>
-                                <span class="text-lg truncate">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus accusantium aspernatur blanditiis culpa dicta distinctio doloribus, earum eligendi error hic incidunt minima nihil odit officiis qui quod recusandae sit voluptate!</span>
+                            <li class="mb-3">
+                                <div class="flex items-center mb-1">
+                                    <span class="flex-1 text-lg truncate">Vývoj</span>
+                                    <span class="flex-grow-0">80%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 80%"></div>
+                                    <div class="flex-grow border-b border-gray-200"></div>
+                                </div>
                             </li>
-                            <li class="flex items-center">
-                                <icon
-                                        symbol="i_chevron"
-                                        class="flex-shrink-0 w-3 h-3 mr-2 text-green-500 fill-current">
-                                </icon>
-                                <span class="text-lg truncate">Bakendarna</span>
+                            <li class="mb-3">
+                                <div class="flex items-center mb-1">
+                                    <span class="flex-1 text-lg truncate">Bakendarna</span>
+                                    <span class="flex-grow-0">20%</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 20%"></div>
+                                    <div class="flex-grow border-b border-gray-200"></div>
+                                </div>
                             </li>
                         </ul>
                         <h3 class="mb-8 text-xl font-bold">Technologie</h3>
 
                         <div class="lg:w-20/24">
                             <div class="grid grid-cols-4 gap-4">
-                                <div class="flex items-center justify-center p-2 border border-gray-300">
+                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded">
                                     <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
                                 </div>
-                                <div class="flex items-center justify-center p-2 border border-gray-300">
+                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded">
                                     <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
                                 </div>
-                                <div class="flex items-center justify-center p-2 border border-gray-300">
+                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded">
                                     <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
                                 </div>
-                                <div class="flex items-center justify-center p-2 border border-gray-300">
+                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded">
                                     <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
                                 </div>
-                                <div class="flex items-center justify-center p-2 border border-gray-300">
+                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded">
                                     <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
                                 </div>
                             </div>
@@ -127,11 +136,11 @@
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="pt-8 ml-auto mr-auto max-w-screen-lg">
-                <VueSlickCarousel class="shadow-xl" v-bind="carouselSettings">
+                <VueSlickCarousel class="overflow-hidden rounded shadow-xl" v-bind="carouselSettings">
                     <div class="relative">
                         <div class="flex flex-col justify-around">
-                            <div class="aspect-ratio-16/9 relative">
-                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 h-full w-full" />
+                            <div class="relative aspect-ratio-16/9">
+                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 w-full h-full" />
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
                                 <div class="text-base truncate">Intuice</div>
@@ -140,8 +149,8 @@
                     </div>
                     <div class="relative">
                         <div class="flex flex-col justify-around">
-                            <div class="aspect-ratio-16/9 relative">
-                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 h-full w-full" />
+                            <div class="relative aspect-ratio-16/9">
+                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 w-full h-full" />
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
                                 <div class="text-base truncate">Intuice</div>
@@ -179,10 +188,13 @@
                 <div class="w-full px-4 lg:w-1/2 lg:pl-16" id="client-survey">
                     <div class="lg:w-18/24">
                         <h2 class="mb-8 text-2xl font-bold text-green-500">Vyjádření klienta</h2>
-                        <div class="text-lg wysiwyg-content">
-                            <p>
-                                “We enjoy working with Spiria because they have proven to be experienced, professional and reliable. Since 2004, Spiria has helped us with a variety of complex projects and they continue to be a valued partner for expert development services.”
-                            </p>
+                        <div class="relative">
+                            <icon symbol="i_quotation" class="absolute w-16 h-16 mt-8 ml-6 text-gray-100 fill-current transform -translate-x-full -translate-y-full"></icon>
+                            <div class="relative text-lg wysiwyg-content">
+                                <p>
+                                    “We enjoy working with Spiria because they have proven to be experienced, professional and reliable. Since 2004, Spiria has helped us with a variety of complex projects and they continue to be a valued partner for expert development services.”
+                                </p>
+                            </div>
                         </div>
                         <div class="flex items-center">
                             <img class="flex-shrink-0 w-24 h-24 mr-4 rounded-full" src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="avatar">
