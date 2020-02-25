@@ -1,5 +1,5 @@
 <template functional>
-    <div class="flex w-full px-2 mb-4 md:w-11/24" v-bind="data.attrs" :style="data.style"">
+    <div class="flex w-full px-2 mb-4 md:w-11/24" v-bind="data.attrs" :style="data.style">
         <div
             class="relative flex flex-col items-start mx-auto overflow-hidden text-white rounded bg-gradient-tr-blue-green group"
         >
