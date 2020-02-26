@@ -22,7 +22,7 @@
                   <div class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
                 </div>
               </g-link>
-              <g-link class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center" to="/reference-detail/">
+              <g-link class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center" to="/reference/">
                 <div class="relative">
                   Reference
                   <div class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
