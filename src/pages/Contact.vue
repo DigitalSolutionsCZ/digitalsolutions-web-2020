@@ -120,10 +120,10 @@
                         <div class="w-full">
                             <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Jméno a příjmení">
                         </div>
-                        <div class="pr-4 w-12/24">
+                        <div class="md:pr-4 w-full md:w-12/24">
                             <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Email">
                         </div>
-                        <div class="w-12/24">
+                        <div class="w-full md:w-12/24">
                             <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Telefon">
                         </div>
                         <div class="w-full">
@@ -137,7 +137,7 @@
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
-                <div class="relative pt-24 pb-20 ml-auto mr-auto max-w-screen-xl">
+                <div class="relative xl:pt-24 xl:pb-20  pt-10  ml-auto mr-auto max-w-screen-xl">
                     <h3 class="mb-3 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
                     <div>
                         <div class="flex flex-wrap items-center justify-center">
