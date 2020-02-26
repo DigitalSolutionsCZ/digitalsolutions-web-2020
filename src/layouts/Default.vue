@@ -8,6 +8,7 @@
         <g-link class="nav__link" to="/">Home</g-link>
         <g-link class="nav__link" to="/about/">About</g-link>
         <g-link class="nav__link" to="/reference-detail/">Detail reference</g-link>
+        <g-link class="nav__link" to="/contact/">Kontakt</g-link>
       </nav>
     </header>
     <slot/>
@@ -23,6 +24,11 @@ query {
 </static-query>
 
 <style>
+
+.layout {
+  margin: 0 auto;
+}
+
 .header {
   display: flex;
   justify-content: space-between;

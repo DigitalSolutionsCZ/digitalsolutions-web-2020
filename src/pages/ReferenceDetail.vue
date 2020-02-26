@@ -13,7 +13,6 @@
                 </div>
             </section>
         </div>
-
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
