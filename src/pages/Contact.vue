@@ -25,24 +25,29 @@
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
-                <section class="flex flex-wrap items-center bg-white rounded">
+                <section class="flex flex-wrap bg-white rounded">
                     <div class="w-15/24">
-                        mapa
+                        <a href="https://www.google.com/maps/place/17.+listopadu+203,+530+02+Pardubice+I-Zelen%C3%A9+P%C5%99edm%C4%9Bst%C3%AD,+%C4%8Cesko/@50.0353454,15.769444,19.25z/data=!4m5!3m4!1s0x470dcc95af98e1df:0x85830a9da8603edc!8m2!3d50.0353388!4d15.7697321"
+                           target="_blank"
+                           class="block h-full"
+                        >
+                            <g-image src="~/images/contact-map.jpg" alt="mapa" class="object-cover w-full h-full" fit="cover"/>
+                        </a>
                     </div>
                     <div class="w-9/24">
                         <div class="py-12 pl-8 pr-4">
                             <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">Digital Solutions s.r.o.</div>
                             <div class="text-gray-900">
                                 <div class="flex items-center mb-2 text-base xl:text-lg">
-                                    <icon symbol="i_map_point" class="w-4 h-4 mr-3 text-green-500 fill-current"></icon>
+                                    <icon symbol="i_map_point" class="w-4 h-4 mr-3 text-green-500 fill-current flex-grow-0"></icon>
                                     <span>17. listopadu 203, 530 02 Pardubice</span>
                                 </div>
                                 <div class="flex items-center mb-2 text-base xl:text-lg">
-                                    <icon symbol="i_phone" class="w-4 h-4 mr-3 text-green-500 fill-current"></icon>
+                                    <icon symbol="i_phone" class="w-4 h-4 mr-3 text-green-500 fill-current flex-grow-0"></icon>
                                     <span>+420 775 300 500</span>
                                 </div>
                                 <div class="flex items-center mb-4 text-base xl:text-lg">
-                                    <icon symbol="i_envelope" class="w-4 h-4 mr-3 text-green-500 fill-current"></icon>
+                                    <icon symbol="i_envelope" class="w-4 h-4 mr-3 text-green-500 fill-current flex-grow-0"></icon>
                                     <span>info@digital.cz</span>
                                 </div>
                                 <p>IČ: 25998706, DIČ: CZ25998706</p>
