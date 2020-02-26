@@ -38,17 +38,17 @@
                         <div class="w-full: md:w-9/24">
                             <div class="py-12 pl-8 pr-4">
                                 <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">Digital Solutions s.r.o.</div>
-                                <div class="text-gray-900 text-sm md:text-base xl:text-lg">
+                                <div class="text-sm text-gray-900 md:text-base xl:text-lg">
                                     <div class="flex mb-2">
-                                        <icon symbol="i_map_point" class="flex-grow-0 w-4 h-4 mr-3 mt-1 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_map_point" class="flex-grow-0 w-4 h-4 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <span>17. listopadu 203, 530 02 Pardubice</span>
                                     </div>
                                     <div class="flex mb-2 text-base xl:text-lg">
-                                        <icon symbol="i_phone" class="flex-grow-0 w-4 h-4 mr-3 mt-1 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_phone" class="flex-grow-0 w-4 h-4 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <strong>+420 775 300 500</strong>
                                     </div>
                                     <div class="flex mb-4 text-base xl:text-lg">
-                                        <icon symbol="i_envelope" class="flex-grow-0 w-4 h-4 mr-3  mt-1 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_envelope" class="flex-grow-0 w-4 h-4 mt-1 mr-3 text-green-500 fill-current "></icon>
                                         <span>info@digital.cz</span>
                                     </div>
                                     <p>IČ: 25998706, DIČ: CZ25998706</p>
@@ -118,16 +118,16 @@
                 <div class="mx-auto md:w-10/24">
                     <div class="flex flex-wrap">
                         <div class="w-full">
-                            <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Jméno a příjmení">
+                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Jméno a příjmení">
                         </div>
-                        <div class="md:pr-4 w-full md:w-12/24">
-                            <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Email">
+                        <div class="w-full md:pr-4 md:w-12/24">
+                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Email">
                         </div>
                         <div class="w-full md:w-12/24">
-                            <input type="text" class="w-full h-10 px-3 mb-4 md:mb-8 placeholder-gray-200 border border-gray-200 rounded" placeholder="Telefon">
+                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Telefon">
                         </div>
                         <div class="w-full">
-                            <textarea class="w-full px-3 pt-3 placeholder-gray-200 border border-gray-200 rounded mb-4 md:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
+                            <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
                         </div>
                     </div>
                     <button class="mb-4 md:mb-16">Odeslat</button>
@@ -137,7 +137,7 @@
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
-                <div class="relative xl:pt-24 xl:pb-20  pt-10  ml-auto mr-auto max-w-screen-xl">
+                <div class="relative pt-10 ml-auto mr-auto xl:pt-24 xl:pb-20  max-w-screen-xl">
                     <h3 class="mb-3 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
                     <div>
                         <div class="flex flex-wrap items-center justify-center">

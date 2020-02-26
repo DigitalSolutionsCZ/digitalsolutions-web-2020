@@ -9,6 +9,7 @@
         <g-link class="nav__link" to="/about/">About</g-link>
         <g-link class="nav__link" to="/reference-detail/">Detail reference</g-link>
         <g-link class="nav__link" to="/contact/">Kontakt</g-link>
+        <g-link class="nav__link" to="/demand/">Poptávka</g-link>
       </nav>
     </header>
     <slot/>
