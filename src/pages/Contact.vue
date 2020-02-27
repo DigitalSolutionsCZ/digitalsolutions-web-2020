@@ -1,21 +1,21 @@
 <template>
     <Layout>
-        <div class="ml-auto mr-auto max-w-screen-xl md:w-20/24 xl:w-14/24">
+        <div class="ml-auto mr-auto max-w-screen-xl md:w-18/24 xl:w-14/24">
             <section class="flex flex-wrap pt-6 pb-6 xl:pt-16 xl:pb-16">
                 <div class="px-4 text-center">
                     <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">Buďme v kontaktu</h1>
                     <p class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8">
                         Ať už máte vizi a hledáte pro ni partnera, Máte ve firmě nějakou potřebu nebo byznys problém a chcete navrhnout řešení, máte hotové zadání.
                     </p>
-                    <div class="md:flex">
-                        <div class="md:w-8/24">
-                            <a href="#nogo">Napište nám</a>
+                    <div class="items-center md:flex">
+                        <div class="md:w-9/24">
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold bg-gray-100 rounded-full min-w-40 hover:shadow-lg transition-all duration-200 ease-in-out active">Napište nám</a>
                         </div>
-                        <div class="md:w-8/24">
-                            <div class="text-base text-center">nebo vyplňte</div>
+                        <div class="md:w-6/24">
+                            <div class="mb-3 text-base text-center">nebo vyplňte</div>
                         </div>
-                        <div class="md:w-8/24">
-                            <a href="#nogo">Nezávaznou poptávku</a>
+                        <div class="md:w-9/24">
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold text-white rounded-full min-w-40 hover:shadow-lg transition-all duration-200 ease-in-out bg-gradient-r-blue-green active">Nezávaznou poptávku</a>
                         </div>
                     </div>
                 </div>
@@ -47,7 +47,7 @@
                                         <strong>+420 775 300 500</strong>
                                     </div>
                                     <div class="flex mb-4 text-base xl:text-lg">
-                                        <icon symbol="i_envelope" class="flex-grow-0 w-4 h-4 mt-1 mr-3 text-green-500 fill-current "></icon>
+                                        <icon symbol="i_envelope" class="flex-grow-0 w-4 h-4 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <span>info@digital.cz</span>
                                     </div>
                                     <p>IČ: 25998706, DIČ: CZ25998706</p>

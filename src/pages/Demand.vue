@@ -51,7 +51,8 @@
                                         <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
                                     </div>
                                     <div class="w-full">
-                                        <input type="file" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Přiložit soubory (max. 10MB)">
+                                        <label for="exampleFileUpload" class="text-gray-200 w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8 flex items-center">Přiložit soubory (max. 10MB)</label>
+                                        <input type="file" id="exampleFileUpload" class="absolute invisible">
                                     </div>
                                     <div class="w-full">
                                         <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Představu o rozpočtu">
