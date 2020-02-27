@@ -10,6 +10,7 @@
         <g-link class="nav__link" to="/reference-detail/">Detail reference</g-link>
         <g-link class="nav__link" to="/contact/">Kontakt</g-link>
         <g-link class="nav__link" to="/demand/">Poptávka</g-link>
+        <g-link class="nav__link" to="/services/">Služby</g-link>
       </nav>
     </header>
     <slot/>

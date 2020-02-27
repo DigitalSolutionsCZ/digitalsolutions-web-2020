@@ -108,7 +108,8 @@ module.exports = {
       }),
 
       maxWidth: {
-        "screen-2xl": "1400px",
+        "screen-2xl": "1480px",
+        "screen-3xl": "1600px",
       },
       screens: {
         xs: '360px',

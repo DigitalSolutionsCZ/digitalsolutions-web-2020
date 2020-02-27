@@ -17,7 +17,6 @@
                         <div class="md:w-8/24">
                             <a href="#nogo">Nezávaznou poptávku</a>
                         </div>
-
                     </div>
                 </div>
             </section>
