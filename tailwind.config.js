@@ -111,13 +111,6 @@ module.exports = {
         "screen-2xl": "1480px",
         "screen-3xl": "1600px",
       },
-      screens: {
-        xs: '360px',
-        sm: `640px`,
-        md: `768px`,
-        lg: `1024px`,
-        xl: `1280px`,
-      },
 
       borderWidth: {
         '3': '3px'
@@ -130,7 +123,14 @@ module.exports = {
         '4/3': [4, 3],
         '21/9': [21, 9],
       }
-    }
+    },
+    screens: {
+      xs: '360px',
+      sm: `640px`,
+      md: `768px`,
+      lg: `1024px`,
+      xl: `1280px`,
+    },
   },
   variants: {
     textColor: ['responsive', 'hover', 'focus', 'group-hover'],
@@ -138,6 +138,7 @@ module.exports = {
     boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
     translate: ['responsive', 'hover', 'focus', 'group-hover'],
     aspectRatio: ['responsive'],
+    opacity: ['responsive', 'hover', 'focus', 'group-hover'],
   },
   plugins: [
     require('tailwindcss-gradients'),
