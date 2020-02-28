@@ -1,45 +1,35 @@
-// Server API makes it possible to hook into various parts of Gridsome
-// on server-side and add custom data to the GraphQL data layer.
-// Learn more: https://gridsome.org/docs/server-api/
-
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
+const slugify = require('@sindresorhus/slugify')
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  })
-
-  api.createPages(({ createPage }) => {
-    // Use the Pages API here: https://gridsome.org/docs/pages-api/
-  })
-
   api.createPages(async ({graphql, createPage}) => {
-    const {data} = await graphql(`{
+
+    await referencePage(graphql, createPage);
+
+  })
+}
+
+
+async function referencePage(graphql, createPage) {
+  const referencePage = await graphql(`{
       craft {
-        tags(group: "typProduktu") {
-            title,
-            slug,
-            ...on craft_typProduktu_Tag {
-                urlLink
-            }
-        },
+        entry(slug: "reference") {
+          id,
+          slug,
+          title
+          ...on craft_referencePage_referencePage_Entry {
+            itemUrl
+          }
+        }
       }
     }`);
-    // data.craft.tags.map(tag => {
-    //   console.log(tag.urlLink);
-    //   createPage({
-    //     path: `/${tag.urlLink}`,
-    //     component: './src/templates/Reference.vue'
-    //   })
-    // });
+  const referenceUrl = referencePage.data.craft.entry.itemUrl || '/' + slugify(referencePage.data.craft.entry.title);
 
-
-    //todo reference dynamic url
-    createPage({
-      path: `/reference`,
-      component: './src/templates/Reference.vue'
-    })
-
-  })
+  createPage({
+    path: referenceUrl,
+    component: './src/templates/Reference.vue',
+    context: {
+      id: referencePage.data.craft.entry.id,
+      slug: referencePage.data.craft.entry.slug
+    }
+  });
 }

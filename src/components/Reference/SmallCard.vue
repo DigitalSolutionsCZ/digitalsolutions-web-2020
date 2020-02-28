@@ -10,7 +10,7 @@
                 <span class="inline-block mb-8 text-sm text-green-500">{{ props.reference.client }}</span>
                 <div class="text-base text-gray-600 w-21/24" v-html="props.reference.content"/>
             </div>
-            <sublink label="Prohlédnout referenci" />
+            <sub-link label="Prohlédnout referenci" />
             <div class="absolute bottom-0 left-0 w-full pointer-events-none grid gap-4 grid-cols-11">
                 <div class="pointer-events-auto row-start-1 row-end-1 col-start-7 col-end-11">
                     <g-link

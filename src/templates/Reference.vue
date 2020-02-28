@@ -30,7 +30,6 @@
                             </div>
                         </template>
                     </dropdown>
-
                 </div>
             </div>
         </section>
@@ -74,8 +73,6 @@ import ReferenceFillContact from "../components/Reference/ContactFillCard.vue";
 import Dropdown from "../components/Dropdown.vue";
 import SubLink from "../components/SubLink.vue";
 
-import { fetch } from "gridsome";
-
 export default {
     components: {
         Dropdown,
@@ -97,13 +94,9 @@ export default {
                     url: '/',
                     title: "Všechny projekty"
                 },
-                ...this.$page.craft.tags
+                // ...this.$page.craft.tags
             ]
         }
-    },
-    async mounted() {
-        const {data} = await fetch('/');
-        console.log(data);
     },
     data: () => ({
         activeTag: 'all',
@@ -221,5 +214,14 @@ export default {
 </script>
 
 <page-query>
-
+query($slug: [String]) {
+    craft {
+        entry(slug: $slug) {
+            ...on craft_referencePage_referencePage_Entry {
+                heading,
+                excerpt
+            }
+        }
+    }
+}
 </page-query>

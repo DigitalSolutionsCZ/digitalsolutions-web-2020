@@ -19,6 +19,7 @@
   "devDependencies": {
     "@bhws/gridsome-source-craft-graphql": "0.0.13",
     "@fullhuman/postcss-purgecss": "^2.0.6",
+    "@sindresorhus/slugify": "^0.11.0",
     "postcss-import": "^12.0.1",
     "postcss-nested": "^4.2.1",
     "tailwindcss": "^1.2.0",
