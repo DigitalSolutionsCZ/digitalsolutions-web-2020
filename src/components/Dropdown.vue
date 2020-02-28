@@ -78,7 +78,10 @@ export default {
             return this.classes;
         }
     },
-    created() {
+    mounted() {
+        this.reference = this.$refs.reference;
+        this.popper = this.$refs.content;
+
         const escape = (e) => {
             if (this.open && e.keyCode === 27) {
                 this.close();
@@ -96,10 +99,6 @@ export default {
             document.removeEventListener("keyup", escape);
             document.removeEventListener("click", clickOutsideEvent);
         });
-    },
-    mounted() {
-        this.reference = this.$refs.reference;
-        this.popper = this.$refs.content;
     },
     methods: {
         close() {
