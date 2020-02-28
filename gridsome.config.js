@@ -12,7 +12,6 @@ const moduleImport = require('postcss-import');
 const postcssPlugins = [moduleImport, tailwind(), nested];
 
 if (process.env.NODE_ENV === "production") {
-  postcssPlugins.push(purgecss("./purgecss.config.js"));
   postcssPlugins.push(autoprefixer);
 }
 
