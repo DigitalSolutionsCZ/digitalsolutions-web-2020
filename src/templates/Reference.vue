@@ -5,31 +5,31 @@
                 <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black">{{ page.heading }}</h1>
                 <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2" v-html="page.excerpt"/>
                 <div class="mb-10 text-center">
-                    <dropdown class="inline-block text-left">
-                        <template #header="{open}">
-                            <div href=""
-                                 class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
-                                Všechny projekty
-                                <icon
-                                    symbol="i_new_window"
-                                    class="w-4 h-4 ml-3 -mr-2 text-blue-500 fill-current transform transition-transform duration-200 ease-in-out"
-                                    :class="{'-rotate-180': open}"
-                                />
-                            </div>
-                        </template>
-                        <template #content>
-                            <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
-                                <g-link
-                                    :to="tag.url" tabindex="0"
-                                    class="block px-8 py-2 text-sm text-gray-700 hover:text-green-500 focus:text-green-500 transition-color ease-in-out focus:outline-none"
-                                    :key="tag.slug"
-                                    v-for="tag in tags"
-                                >
-                                    {{ tag.title }}
-                                </g-link>
-                            </div>
-                        </template>
-                    </dropdown>
+<!--                    <dropdown class="inline-block text-left">-->
+<!--                        <template #header="{open}">-->
+<!--                            <div href=""-->
+<!--                                 class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">-->
+<!--                                Všechny projekty-->
+<!--                                <icon-->
+<!--                                    symbol="i_new_window"-->
+<!--                                    class="w-4 h-4 ml-3 -mr-2 text-blue-500 fill-current transform transition-transform duration-200 ease-in-out"-->
+<!--                                    :class="{'-rotate-180': open}"-->
+<!--                                />-->
+<!--                            </div>-->
+<!--                        </template>-->
+<!--                        <template #content>-->
+<!--                            <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">-->
+<!--                                <g-link-->
+<!--                                    :to="tag.url" tabindex="0"-->
+<!--                                    class="block px-8 py-2 text-sm text-gray-700 hover:text-green-500 focus:text-green-500 transition-color ease-in-out focus:outline-none"-->
+<!--                                    :key="tag.slug"-->
+<!--                                    v-for="tag in tags"-->
+<!--                                >-->
+<!--                                    {{ tag.title }}-->
+<!--                                </g-link>-->
+<!--                            </div>-->
+<!--                        </template>-->
+<!--                    </dropdown>-->
                 </div>
             </div>
         </section>
