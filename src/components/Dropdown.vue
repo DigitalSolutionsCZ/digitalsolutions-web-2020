@@ -12,7 +12,7 @@
 
         <div
             ref="content"
-            class="z-50"
+            class="z-50 absolute"
             :class="defaultClasses.content"
         >
             <transition
@@ -105,13 +105,13 @@ export default {
         close() {
             this.open = false;
             this.$emit("close");
-            this.$nextTick(() => {
-                this.closePopper();
-            })
+            // this.$nextTick(() => {
+            //     this.closePopper();
+            // })
         },
         expand() {
             this.open = true;
-            this.openPopper();
+            // this.openPopper();
             this.$emit("open");
         },
         toggle() {

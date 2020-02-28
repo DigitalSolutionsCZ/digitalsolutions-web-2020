@@ -3,6 +3,9 @@
 
 import DefaultLayout from "~/layouts/Default.vue";
 
+import Icon from "~/components/Icon.vue";
+const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
+
 export default function(Vue, { router, head, isClient }) {
   head.link.push({
     rel: 'stylesheet',
@@ -11,4 +14,11 @@ export default function(Vue, { router, head, isClient }) {
 
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
+
+  Vue.component("Icon", Icon);
+
+  req.keys().map(key => {
+    const name = key.match(/\w+/)[0];
+    return Vue.component(name, req(key).default);
+  });
 }
