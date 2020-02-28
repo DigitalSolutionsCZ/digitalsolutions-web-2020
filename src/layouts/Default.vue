@@ -131,3 +131,6 @@ query {
   }
 }
 </static-query>
+
+<style src="../css/main.css" />
+
