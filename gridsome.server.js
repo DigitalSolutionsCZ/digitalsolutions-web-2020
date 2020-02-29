@@ -41,26 +41,29 @@ async function referencePage(graphql, createPage) {
 
     categories.map(category => {
         createReferencePage(createPage, {
-          url: `${referenceUrl}/${category.slug}`,
-          entry: {
-            id: category.id,
-            slug: data.craft.referencePage.slug,
-          },
-          baseUrl: referenceUrl
+            url: `${referenceUrl}/${category.slug}`,
+            entry: {
+                id: category.id,
+                slug: data.craft.referencePage.slug,
+            },
+            baseUrl: referenceUrl
         });
     });
 
-  data.craft.referenceRecords.map(referenceRecord => {
-    const referenceDetailUrl = referenceUrl + referenceRecord.slug;
-    createPage({
-      path: referenceDetailUrl,
-      component: './src/templates/ReferenceDetail.vue',
-      context: {
-        id: referenceRecord.id,
-        slug: referenceRecord.slug
-      }
-    })
-  });
+    data.craft.referenceRecords.map(referenceRecord => {
+        const referenceDetailUrl = referenceUrl + '/' + referenceRecord.slug;
+
+        console.log(referenceDetailUrl);
+
+        createPage({
+            path: referenceDetailUrl,
+            component: './src/templates/ReferenceDetail.vue',
+            context: {
+                id: referenceRecord.id,
+                slug: referenceRecord.slug
+            }
+        })
+    });
 }
 
 
@@ -77,5 +80,5 @@ function createReferencePage(createPage, {baseUrl, url, entry}) {
 }
 
 function slugifyUrlEntry(itemUrl, title) {
-  return itemUrl || '/' + slugify(title);
+    return itemUrl || '/' + slugify(title);
 }
