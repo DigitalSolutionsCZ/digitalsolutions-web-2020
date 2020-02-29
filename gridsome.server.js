@@ -51,8 +51,7 @@ async function referencePage(graphql, createPage) {
     });
 
   data.craft.referenceRecords.map(referenceRecord => {
-    const referenceDetailUrl = referenceUrl + slugifyUrlEntry(referenceRecord.itemUrl, referenceRecord.title);
-    console.log(referenceDetailUrl);
+    const referenceDetailUrl = referenceUrl + referenceRecord.slug;
     createPage({
       path: referenceDetailUrl,
       component: './src/templates/ReferenceDetail.vue',
