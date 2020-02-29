@@ -3,7 +3,7 @@
         <div class="ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
                 <div class="w-full px-4 md:w-1/2 lg:pr-12">
-                    <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">Optimalizace procesu vypracování smluv</h1>
+                    <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                     <div class="inline-block mb-3 text-green-500 md:mb-5">M&M reality a.s.</div>
                     <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content">Prodej či nákup nemovitosti je záležitost, kterou je třeba bezchybně smluvně ošetřit. V rámci služby realitní makléři poskytují svým klientům právní servis (ve spolupráci s právním oddělením).</div>
                 </div>
@@ -241,6 +241,11 @@
     components: {
       VueSlickCarousel
     },
+    computed: {
+      page() {
+        return this.$page.craft.entry
+      },
+    },
     data() {
       return {
         carouselSettings: {
@@ -251,7 +256,7 @@
           centerPadding: '0px',
         }
       }
-    }
+    },
   }
 </script>
 
@@ -259,7 +264,9 @@
 query($slug: [String]) {
     craft {
         entry(slug: $slug) {
-            title
+            ...on craft_referencesItem_referenceFullWidth_Entry {
+                heading
+            }
         }
     }
 }
