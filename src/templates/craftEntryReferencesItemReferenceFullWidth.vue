@@ -261,9 +261,11 @@
 </script>
 
 <page-query>
-query($slug: [String]) {
+query CraftEntry($slug: [String]) {
     craft {
         entry(slug: $slug) {
+            id
+            title
             ...on craft_referencesItem_referenceFullWidth_Entry {
                 heading
             }

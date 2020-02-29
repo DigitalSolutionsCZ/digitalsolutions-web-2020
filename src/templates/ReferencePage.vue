@@ -36,13 +36,23 @@
         <section class="px-4 pt-4 pb-8 bg-gray-100">
             <div class="relative mx-auto max-w-screen-xl">
                 <div class="flex flex-wrap justify-center mb-4 -mx-2">
-                    <template v-for="(reference, index) in references">
-                        <component
-                            :is="'reference-' + reference.type"
-                            :key="reference.id"
-                            :reference="reference"
-                            :style="{zIndex: references.length - index}"
-                        />
+                    <template v-for="(reference, index) in list">
+                        <template v-if="reference.typeHandle === 'referenceFullWidth'">
+                            <component
+                                :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
+                                :key="reference.id"
+                                :reference="reference"
+                                :style="{zIndex: references.length - index}"
+                            />
+                        </template>
+                        <template v-else>
+                            <component
+                                :is="reference.typeHandle"
+                                :key="reference.id"
+                                :reference="reference"
+                                :style="{zIndex: references.length - index}"
+                            />
+                        </template>
                     </template>
                 </div>
                 <div class="flex justify-center">
@@ -66,20 +76,17 @@
 </template>
 
 <script>
-import ReferenceFull from "../components/Reference/LargeCard.vue";
-import ReferenceHalf from "../components/Reference/SmallCard.vue";
-import ReferenceBlankContact from "../components/Reference/ContactBlankCard.vue";
-import ReferenceFillContact from "../components/Reference/ContactFillCard.vue";
 import Dropdown from "../components/Dropdown.vue";
 import SubLink from "../components/SubLink.vue";
+
+import referenceFullWidth from "../components/Reference/referenceFullWidth.vue";
+import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 export default {
     components: {
         Dropdown,
-        ReferenceFull,
-        ReferenceHalf,
-        ReferenceBlankContact,
-        ReferenceFillContact,
+        referenceFullWidth,
+        referenceContactBlock,
         SubLink,
     },
     computed: {
@@ -99,6 +106,9 @@ export default {
                     return category
                 })
             ]
+        },
+        list() {
+            return this.$page.craft.list;
         }
     },
     data: () => ({
@@ -229,6 +239,33 @@ query($slug: [String]) {
             id,
             title,
             url: slug,
+        },
+        list: entries(section: "referencesItem") {
+            id,
+            typeHandle,
+            ...on craft_referencesItem_referenceContactBlock_Entry {
+                heading,
+                description,
+                importantBlock,
+                contactLinkText,
+                contactLink,
+            },
+            ...on craft_referencesItem_referenceFullWidth_Entry {
+                url: itemUrl,
+                heading,
+                smallReference,
+                referenceDetailLinkText,
+                excerpt,
+                referenceMultipleImages {
+                    url
+                },
+                vyberKlienta {
+                    ...on craft_klient_Category {
+                        title
+                    }
+                },
+                referenceLink,
+            }
         }
     }
 }
