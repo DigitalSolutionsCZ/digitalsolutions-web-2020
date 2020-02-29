@@ -55,7 +55,7 @@ async function referencePage(graphql, createPage) {
 
         createPage({
             path: referenceDetailUrl,
-            component: './src/templates/ReferenceDetail.vue',
+            component: './src/templates/craftEntryReferencesItemReferenceFullWidth.vue',
             context: {
                 id: referenceRecord.id,
                 slug: referenceRecord.slug
