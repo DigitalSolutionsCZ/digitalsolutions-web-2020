@@ -69,14 +69,14 @@
             </div>
         </div>
         <div class="px-4">
-            <div class="mx-auto max-w-screen-3xl">
-                <section class="pt-6 lg:pt-16">
+            <div class="relative mx-auto max-w-screen-3xl">
+                <section class="mt-6 mx-auto lg:mt-16  max-w-screen-xl">
                     <h2 class="mb-4 text-lg font-bold text-center md:text-xl xl:text-2xl xl:mb-8">Jak vyvíjíme?</h2>
-                    <div class="flex flex-wrap">
-                        <div class="w-16/24 pr-20">
-                            <div class="w-12/24">
-                                <h3 class="text-base font-bold md:text-lg xl:text-xl mb-3">Software development done right</h3>
-                                <div class="text-sm text-gray-900 md:text-base xl:text-lg mb-3"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
+                    <div class="flex flex-wrap mx-auto xl:w-22/24">
+                        <div class="flex flex-wrap w-full mx-auto mb-4 md:w-16/24 md:mb-16">
+                            <div class="md:pr-8 xl:pr-20">
+                                <h3 class="mb-3 text-base font-bold md:text-lg xl:text-xl">Software development done right</h3>
+                                <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
                                 <div class="text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content">
                                     <p>
                                         Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium, magna nibh suscipit dolor, nec porta enim mi quis ex. Ut ac quam arcu. Sed congue magna odio, et commodo augue imperdiet nec. Nullam vitae lacus lorem. Nunc pretium ipsum laoreet consectetur imperdiet.
@@ -84,22 +84,24 @@
                                     </p>
                                 </div>
                             </div>
-
                         </div>
-                        <div class="w-8/24 self-end">
-                            <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
+                        <div class="w-full mb-4 md:w-8/24 md:mb-16">
+                            <div class="top-0 bottom-0 right-0 w-full px-2 text-right xl:absolute md:flex md:justify-end xl:w-8/24">
+                                  <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" class="xl:absolute inset-0 mx-auto" alt="symfony">
+                            </div>
+
                         </div>
                     </div>
                 </section>
             </div>
             <div class="mx-auto max-w-screen-xl">
-                <div class="flex flex-wrap">
-                    <div class="w-9/24 pr-10">
-                        <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
+                <div class="flex flex-wrap-reverse mx-auto xl:w-22/24">
+                    <div class="mb-4 md:pr-8 xl:pr-20 md:w-7/24 md:mb-16 w-full">
+                        <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" class="mx-auto" alt="symfony">
                     </div>
-                    <div class="w-15/24 self-center">
-                        <h3 class="text-base font-bold md:text-lg xl:text-xl mb-3">Software development done right</h3>
-                        <div class="text-sm text-gray-900 md:text-base xl:text-lg mb-3"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
+                    <div class="self-center mb-4 md:w-17/24  md:mb-16">
+                        <h3 class="mb-3 text-base font-bold md:text-lg xl:text-xl">Software development done right</h3>
+                        <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
                         <div class="text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content">
                             <p>
                                 Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium, magna nibh suscipit dolor, nec porta enim mi quis ex. Ut ac quam arcu. Sed congue magna odio, et commodo augue imperdiet nec. Nullam vitae lacus lorem. Nunc pretium ipsum laoreet consectetur imperdiet.
@@ -113,13 +115,13 @@
         <section class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
-                <div class="relative px-10 pt-8 pb-8 ml-auto mr-auto xl:pt-16 xl:pb-16 max-w-5xl">
+                <div class="relative max-w-5xl px-10 pt-8 pb-8 ml-auto mr-auto xl:pt-16 xl:pb-16">
                     <h3 class="mb-3 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">
                         Pojďme spolu vymyslet něco úžasného, co vás posune o míle vpřed.
                     </h3>
-                    <div class="md:flex w-19/24 mx-auto items-center">
+                    <div class="items-center mx-auto md:flex w-19/24">
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out bg-gradient-r-blue-green active">
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 text-base font-semibold text-white rounded-full min-w-40 hover:shadow-lg transition-all duration-200 ease-in-out bg-gradient-r-blue-green active">
                                 Domluvit schůzku
                             </a>
                         </div>
@@ -127,7 +129,7 @@
                             <div class="text-base text-center">nebo si přečtěte</div>
                         </div>
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 min-w-40 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full hover:shadow-lg transition-all duration-200 ease-in-out active">Něco o nás</a>
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 text-base font-semibold text-gray-800 bg-white rounded-full min-w-40 hover:shadow-lg transition-all duration-200 ease-in-out active">Něco o nás</a>
                         </div>
                     </div>
                 </div>
