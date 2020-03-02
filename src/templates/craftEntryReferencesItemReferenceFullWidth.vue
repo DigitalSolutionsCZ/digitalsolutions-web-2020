@@ -4,7 +4,7 @@
             <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
                 <div class="w-full px-4 md:w-1/2 lg:pr-12">
                     <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="inline-block mb-3 text-green-500 md:mb-5">{{ page.vyberKlienta.title }}</div>
+                    <div class="inline-block mb-3 text-green-500 md:mb-5"></div>
                     <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
                 </div>
                 <div class="w-full px-4 md:w-1/2">
@@ -263,9 +263,6 @@ query CraftEntry($slug: [String]) {
                 description
                 mainImage {
                     url
-                }
-                vyberKlienta {
-                    title
                 }
                 firstRowHeadline
                 firstRowDescription
