@@ -1,3 +1,26 @@
+:root {
+    --logo-color-visibility: visible;
+    --logo-white-visibility: hidden;
+    --header-background: theme('colors.white');
+    --nav-link-color: theme('colors.gray.400');
+    --nav-link-opacity: theme('opacity-0');
+    --nav-link-decoration-background: linear-gradient(to right, theme('colors.blue.500'), theme('colors.green.500'));
+    --nav-button-background: linear-gradient(to right, theme('colors.blue.500'), theme('colors.green.500'));
+    --nav-button-color: theme('colors.white');
+
+}
+
+[data-theme="dark"] {
+    --logo-color-visibility: hidden;
+    --logo-white-visibility: visible;
+    --header-background: transparent;
+    --nav-link-color: theme('colors.white');
+    --nav-link-opacity: theme('opacity.75');
+    --nav-link-decoration-background: theme('colors.white');
+    --nav-button-background: theme('colors.white');
+    --nav-button-color: theme('colors.green.500');
+}
+
 body, html {
     @apply h-full;
 }
