@@ -4,12 +4,11 @@
             <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
                 <div class="w-full px-4 md:w-1/2 lg:pr-12">
                     <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="inline-block mb-3 text-green-500 md:mb-5">M&M reality a.s.</div>
-                    <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content">Prodej či nákup nemovitosti je záležitost, kterou je třeba bezchybně smluvně ošetřit. V rámci služby realitní makléři poskytují svým klientům právní servis (ve spolupráci s právním oddělením).</div>
+                    <div class="inline-block mb-3 text-green-500 md:mb-5">{{ page.vyberKlienta.title }}</div>
+                    <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
                 </div>
                 <div class="w-full px-4 md:w-1/2">
-                    <img src="https://barth-net.cz/data/vehicle/car/photos/image_size_1024_768_inset_75/skoda-fabia-combi-style-1-0tsi-81kw5e455107e561c.JPG"
-                         alt="">
+                    <g-image src="https://barth-net.cz/data/vehicle/car/photos/image_size_1024_768_inset_75/skoda-fabia-combi-style-1-0tsi-81kw5e455107e561c.JPG" alt="" fit="cover"/>
                 </div>
             </section>
         </div>
@@ -18,18 +17,8 @@
             <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
                 <section class="flex flex-wrap">
                     <div class="self-center w-full px-4 md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">Výzva</h2>
-                        <div class="text-xs md:text-sm xl:text-base wysiwyg-content">
-                            <p>
-                                Majitelé nemovitostí chtějí od realitních makléřů špičkovou službu - nemovitost na prohlídce
-                                dobře odprezentovat a předat zájemcům všechny potřebné informace, aby se mohli rozhodnout.
-                                Ti nejlepší makléři začali proto zájemcům předávat tištěný katalog s technickými parametry,
-                                fotkami, listem vlastnicví, vzorem rezervační a kupní smlouvy atd. Vytvořit takový katalog
-                                ručně znamená min. 2 hodiny práce na sběr dat a grafickou sazbu.
-                                Obchodní manažeři u nás tedy poptali nástroj, díky kterému by byli schopni makléři takový
-                                profesionální katalog udělat rychle a jednoduše, a díky tomu ho mohli mít u všech svých
-                                nemovitostí.
-                            </p>
+                        <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
+                        <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription">
                         </div>
                     </div>
                     <div class="self-start w-full px-4 md:w-10/24 group">
@@ -45,8 +34,8 @@
                                     od Hospodářské komory ČR.</p>
                                 </div>
                             </div>
-                            <a href="#client-survey" class="inline-flex items-center py-3 pl-4 mb-4 text-xs font-bold bg-gray-100 rounded-r-full md:py-3 xl:py-2 md:pl-8 xl:pl-16 md:mb-8 xl:mb-16 group-hover:text-white group-hover:bg-gradient-r-blue-green">
-                                Co k zakázce řekl klient?
+                            <a :href="page.referenceClientLink" class="inline-flex items-center py-3 pl-4 mb-4 text-xs font-bold bg-gray-100 rounded-r-full md:py-3 xl:py-2 md:pl-8 xl:pl-16 md:mb-8 xl:mb-16 group-hover:text-white group-hover:bg-gradient-r-blue-green">
+                               {{ page.referenceClientLinkText }}
                             </a>
                         </div>
 
@@ -234,6 +223,8 @@
 <script>
   import VueSlickCarousel from 'vue-slick-carousel';
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+  import { transformSingleArrayToObject } from  '../components/utils';
+
   export default {
     metaInfo: {
       title: 'Reference'
@@ -243,7 +234,7 @@
     },
     computed: {
       page() {
-        return this.$page.craft.entry
+        return transformSingleArrayToObject(this.$page.craft.entry, ['mainImage', 'vyberKlienta']);
       },
     },
     data() {
@@ -268,6 +259,18 @@ query CraftEntry($slug: [String]) {
             title
             ...on craft_referencesItem_referenceFullWidth_Entry {
                 heading
+                excerpt
+                description
+                mainImage {
+                    url
+                }
+                vyberKlienta {
+                    title
+                }
+                firstRowHeadline
+                firstRowDescription
+                referenceClientLinkText
+                referenceClientLink
             }
         }
     }
