@@ -8,7 +8,7 @@
                     <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
                 </div>
                 <div class="w-full px-4 md:w-1/2">
-                    <g-image :src="mapObject(page, ['mainImage', 'url'])" alt="" fit="cover"/>
+                    <g-image :src="mapObject(page, ['mainImage', 0, 'url'])" alt="" fit="cover"/>
                 </div>
             </section>
         </div>
@@ -24,9 +24,9 @@
                     <div class="self-start w-full px-4 md:w-10/24 group">
                         <!--TODO Create component-->
                         <div class="bg-white rounded group-hover:shadow-xl">
-                            <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16" v-if="page.vyberKlienta">
-                                <g-image :src="mapObject(page, ['vyberKlienta', 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
-                                <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.vyberKlienta.description"></div>
+                            <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
+                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
+                                <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
                             </div>
                             <a :href="page.referenceClientLink" class="inline-flex items-center py-3 pl-4 mb-4 text-xs font-bold bg-gray-100 rounded-r-full md:py-3 xl:py-2 md:pl-8 xl:pl-16 md:mb-8 xl:mb-16 group-hover:text-white group-hover:bg-gradient-r-blue-green">
                                {{ page.referenceClientLinkText }}
@@ -90,7 +90,7 @@
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="px-4 pt-8 ml-auto mr-auto max-w-screen-lg">
-                <VueSlickCarousel class="rounded shadow-xl" v-bind="carouselSettings">
+                <VueSlickCarousel class="rounded shadow-xl" v-bind="carouselSettings" v-if="page.gallery">
                     <div class="relative" v-for="slide in page.gallery">
                         <div class="flex flex-col justify-around overflow-hidden rounded">
                             <div class="relative aspect-ratio-16/9" v-if="slide.url">
@@ -175,7 +175,6 @@
 <script>
   import VueSlickCarousel from 'vue-slick-carousel';
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-  import { transformSingleArrayToObject } from  '~/components/utils';
 
   export default {
     metaInfo: {
@@ -186,7 +185,7 @@
     },
     computed: {
       page() {
-        return transformSingleArrayToObject(this.$page.craft.entry, ['mainImage', 'vyberKlienta', 'technologie']);
+        return this.$page.craft.entry;
       },
       services() {
         return this.mapObject(this.$page.craft.entry, ['dodaneSluzby'], (data) => {

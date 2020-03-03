@@ -13,7 +13,6 @@ const ChaHeader = function (element) {
 
 function initChaHeader(element) {
   // set initial status
-  console.log(element)
   for (let j = 0; j < element.sections.length; j++) {
     initSection(element, j);
   }
@@ -159,7 +158,6 @@ export default function init () {
   const clipPathSupported = cssSupports('clip-path', 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)') || cssSupports('-webkit-clip-path', 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)');
   if (chaHeader.length > 0 && clipPathSupported) {
     for (let i = 0; i < chaHeader.length; i++) {
-      console.log(chaHeader)
       new ChaHeader(chaHeader[i]);
     }
   }
