@@ -62,10 +62,10 @@
           <section class="self-center w-full">
             <div class="max-w-6xl mx-auto">
               <div class="text-center">
-                <h1 class="leading-none text-white xl:text-3xl xl:mb-8">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
-                <div class="mb-10 text-white opacity-75">I na ty opravdu velké si sáhnete do<br> 3 měsíců</div>
-                <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg transition-all duration-200 ease-in-out" to="/contact/">
-                  Jak vyvíjíme
+                <h1 class="leading-none text-white xl:text-3xl xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
+                <div class="mb-10 text-white opacity-75">{{ page.homepageSubheader }}</div>
+                <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg transition-all duration-200 ease-in-out" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
+                  {{ page.homepageButtonText }}
                 </g-link>
               </div>
             </div>
@@ -74,24 +74,142 @@
       </section>
     </template>
     <template #content>
+       <section class="relative mb-16">
+         <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+         <div class="relative" data-cha-section>
+           <div class="pt-6 md:pt-8 xl:pt-16">
+             <div class="mx-auto  max-w-screen-xl">
+               <div class="px-4 mx-auto w-22/24 md:w-18/24">
+                 <h2 class="mb-6 text-base text-center md:mb-8 xl:mb-16 md:text-xl xl:text-2xl" v-html="page.homepageReferenceHeader"></h2>
+               </div>
+               <div class="mx-auto md:w-22/24">
+                 <div class="relative z-20 w-full md:px-4" v-for="(reference, index) in page.homepageReference" :key="reference.slug">
+                   <div class="mx-auto bg-white rounded shadow-none group hover:shadow-xl transition-all duration-200 ease-in-out"
+                        :class="[index === page.homepageReference.length - 1 ? 'mb-8' : 'mb-3 md:mb-8 xl:mb-16']"
+                   >
+                     <div class="relative z-20 px-4 pt-8 md:px-8 xl:px-16 md:pt-8 xl:pt-16">
+                       <h2 class="mb-3 text-base font-bold leading-tight md:text-lg xl:text-2xl">{{ reference.header }}</h2>
+                       <div class="mb-4 text-sm text-green-500 md:mb-6 xl:text-base">{{ mapObject(reference, ['client', 0 , 'title']) }}</div>
+                       <div class="flex flex-wrap mb-6">
+                         <div class="w-full md:pr-16 md:w-16/24">
+                           <div class="text-sm wysiwyg-content xl:text-lg" v-html="reference.description"></div>
+                           <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-9 xl:mb-12"></div>
+                           <div class="relative">
+                             <icon symbol="i_quotation" class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 fill-current lg:mt-8 lg:ml-6 transform lg:-translate-x-full lg:-translate-y-full"></icon>
+                             <div class="relative text-sm italic text-gray-700  wysiwyg-content md:text-base" >
+                               <p>!není</p>
+                             </div>
+                           </div>
+                           <div class="flex items-center mb-4 md:mb-6">
+                             <div>
+                               <strong class="text-sm lg:text-lg">{{ mapObject(reference, ['testemonial', 0 , 'title']) }}</strong>
+                               <div class="text-xs lg:text-base">{{ mapObject(reference, ['testemonial', 0 , 'position']) }}</div>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="w-full md:w-8/24">
+                           <div class="flex justify-center">
+                             <img src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png" alt="symfony">
+                           </div>
+                         </div>
+                       </div>
+                     </div>
+                     <sub-link :href="reference.buttonLink" :label="reference.buttonText ? reference.buttonText : 'Prohlédnout referenci'" />
+                   </div>
+                   <div v-if="index !== page.homepageReference.length - 1" class="justify-center hidden md:flex md:mb-8 xl:mb-16">
+                     <g-image src="~/images/identity-horizontal-line.svg"></g-image>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </section>
       <section class="relative" data-cha-section>
-        <!-- your section content 👇-->
-        <div class="container">
-          <div class="text-component line-height-lg">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus et fugiat reiciendis maiores. Illo, ex magnam, soluta, accusamus rerum incidunt provident deserunt enim neque tempora dicta asperiores expedita veritatis rem perferendis modi! Eos, aperiam delectus itaque repudiandae sit necessitatibus mollitia nostrum maiores? Perspiciatis commodi sunt voluptates similique! Dolorem nobis repellat laborum praesentium maxime fugit id non eius doloremque? Corporis suscipit cupiditate eaque vitae voluptates tempora repellat? Laboriosam facere architecto illo repellat. Reprehenderit odio iure nihil obcaecati esse, laboriosam rerum quod quidem natus perferendis, officiis tempore eos veritatis aspernatur cumque corrupti a, minima non tempora! Nam adipisci at repellendus optio earum.</p>
+        <div class="mx-auto max-w-screen-xl">
+          <h2 class="mb-4 text-base font-bold text-center md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">{{ page.homepageAssignmentsHeader }}</h2>
+          <div class="flex flex-wrap">
+            <div class="w-full md:w-8/24 xl:pr-20" v-for="assigment in page.homepageAssignments">
+              <icon symbol="i_quotation" class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 fill-current lg:mt-8 lg:ml-6 transform lg:-translate-x-full lg:-translate-y-full"></icon>
+              <div class="relative text-sm text-gray-700 wysiwyg-content md:text-base" v-html="assigment.description">
+              </div>
+            </div>
           </div>
+          <h2 class="mb-4 text-base font-bold text-center md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">{{ page.contactFormHeader }}</h2>
+          <div v-html="page.homepageAssignmentsFormText"></div>
         </div>
       </section>
     </template>
   </Layout>
 </template>
 
+<page-query>
+query {
+  craft {
+    entry(slug: "homepage") {
+      ... on craft_homepage_homepage_Entry {
+        heading
+        homepageSubheader
+        homepageButtonText
+        homepageButtonLink
+        homepageReferenceHeader
+        homepageAssignmentsHeader
+        contactFormHeader
+        homepageAssignmentsFormText
+        homepageClientLogos {
+          url
+        }
+        homepageAssignments {
+          ...on craft_homepageAssignments_assignments_BlockType {
+            description
+          }
+        }
+        homepageReference {
+          ... on craft_homepageReference_reference_BlockType {
+            header
+            description
+            buttonText
+            buttonLink
+            id
+            testemonial {
+              ... on craft_testemonials_klients_Entry {
+                title
+                position
+              }
+            }
+            client {
+              title
+            }
+            image {
+              url
+            }
+          }
+        }
+      }
+    }
+  }
+}
+</page-query>
+
 <script>
 import init from '../components/ChameleonHeader.js';
+import SubLink from "../components/SubLink.vue";
+import { mapObject } from  '~/components/utils';
 
 export default {
+  components: {
+    SubLink,
+  },
+  computed: {
+    page() {
+      return this.$page.craft.entry;
+    },
+  },
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Homepage'
+  },
+  methods: {
+    mapObject
   },
   mounted() {
     init();

@@ -175,6 +175,7 @@
 <script>
   import VueSlickCarousel from 'vue-slick-carousel';
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+  import { mapObject } from  '~/components/utils';
 
   export default {
     metaInfo: {
@@ -208,21 +209,7 @@
       }
     },
     methods: {
-      mapObject(object, keys, transform) {
-        if(Array.isArray(keys)) {
-          for (const key of keys) {
-            if (object[key] !== null && object[key] !== undefined) {
-              object = object[key]
-            } else {
-              return '';
-            }
-          }
-        }
-        if (transform) {
-          return transform(object);
-        }
-        return object;
-      }
+      mapObject
     }
   }
 </script>
