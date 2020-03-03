@@ -1,25 +1,17 @@
-name: Sync
-
+name: Merge master branch to stage
 on:
   push:
     branches:
       - master
-
 jobs:
-  repo-sync:
+  merge-branch:
     runs-on: ubuntu-latest
-    name: Syncing branches
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Set up Node
-      uses: actions/setup-node@v1
-      with:
-          node-version: 12
-    - name: Opening pull request
-      id: pull
-      uses: tretuna/sync-branches@v1
-      with:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-        FROM_BRANCH: "master"
-        TO_BRANCH: "stage"
+      - uses: actions/checkout@master
+      - name: Merge to stage branch
+        uses: devmasx/merge-branch@v1.1.0
+        with:
+          type: now
+          target_branch: 'stage'
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
