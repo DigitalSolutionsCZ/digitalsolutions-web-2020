@@ -4,11 +4,11 @@
             <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
                 <div class="w-full px-4 md:w-1/2 lg:pr-12">
                     <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="inline-block mb-3 text-green-500 md:mb-5"></div>
+                    <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="page.vyberKlienta">{{ page.vyberKlienta.title }}</div>
                     <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
                 </div>
                 <div class="w-full px-4 md:w-1/2">
-                    <g-image src="https://barth-net.cz/data/vehicle/car/photos/image_size_1024_768_inset_75/skoda-fabia-combi-style-1-0tsi-81kw5e455107e561c.JPG" alt="" fit="cover"/>
+                    <g-image :src="mapObject(page, ['mainImage', 'url'])" alt="" fit="cover"/>
                 </div>
             </section>
         </div>
@@ -16,7 +16,7 @@
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
                 <section class="flex flex-wrap">
-                    <div class="self-center w-full px-4 md:w-14/24 md:pr-12">
+                    <div class="w-full px-4 md:w-14/24 md:pr-12">
                         <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription">
                         </div>
@@ -24,15 +24,9 @@
                     <div class="self-start w-full px-4 md:w-10/24 group">
                         <!--TODO Create component-->
                         <div class="bg-white rounded group-hover:shadow-xl">
-                            <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
-                                <img src="https://www.mmreality.cz/data/imgs/logo.png" alt="logo partnera" class="w-24 mb-4 lg:mb-8">
-                                <div class="text-xs md:text-sm xl:text-base wysiwyg-content">
-                                    <p>
-                                    M&M reality je největší a neúspěšnější česká realitní kancelář. Ročně zodbchoduje
-                                    přes 30 000 nemovitostí a věnuje také developerské a investiční činnosti.
-                                    Klienty obsluhuje 188 poboček a 2 500 makléřů. Opakovaně držitel ceny “Firma roku”
-                                    od Hospodářské komory ČR.</p>
-                                </div>
+                            <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16" v-if="page.vyberKlienta">
+                                <g-image :src="mapObject(page, ['vyberKlienta', 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
+                                <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.vyberKlienta.description"></div>
                             </div>
                             <a :href="page.referenceClientLink" class="inline-flex items-center py-3 pl-4 mb-4 text-xs font-bold bg-gray-100 rounded-r-full md:py-3 xl:py-2 md:pl-8 xl:pl-16 md:mb-8 xl:mb-16 group-hover:text-white group-hover:bg-gradient-r-blue-green">
                                {{ page.referenceClientLinkText }}
@@ -46,49 +40,21 @@
         <div class="relative ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap mb-4 lg:mb-8">
                 <div class="self-center w-full px-4 lg:w-14/24 lg:pr-12">
-                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">Řešení</h2>
-                    <div class="text-xs md:text-sm xl:text-base wysiwyg-content">
-                        <p class="">Vytvořili jsme nástroj, díky kterému můžu makléř vytvořit profesionální katalog skutečně rychle - do
-                            10min. Předvyplníme mu popis a tech. parametry nemovitosti, doplníme list vlastnictví z katastru nemovitostí, přidáme představení makléře podle jeho skutečných referencí a doplníme cross-selling služby. Makléři mají možnost si katalog různě upravovat:
-                        </p>
-                        <ul class="">
-                            <li>otáčet a ořezávat fotky přidávat další stránky z nabídky nebo vlastní PDF soubory, které systém umístí do stránky tak, aby byly vizuálně součástí katalogu měnit pořadí stránek, upravit textové popisy získat náhled výsledného katalogu vytisknout nebo sdílet přes URL-shortener odkaz a další…</li>
-                            <li>Da</li>
-                        </ul>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet debitis ut vel. Cupiditate, eos eum ex, iusto libero necessitatibus, obcaecati officia possimus quis recusandae rerum sed! Accusamus dolore illo perferendis.</p>
+                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
+                    <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
                     </div>
                 </div>
                 <div class="self-start w-full px-4 lg:w-10/24">
                     <div class="mb-2 lg:mb-8 lg:ml-16">
                         <h3 class="mb-4 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
                         <ul class="mb-6 lg:mb-16">
-                            <li class="mb-3">
+                            <li class="mb-3" v-for="service in services">
                                 <div class="flex items-center mb-1">
-                                    <span class="flex-1 text-xs truncate lg:text-lg">Projektové řízení</span>
-                                    <span class="flex-grow-0 text-xs lg:text-sm">20%</span>
+                                    <span class="flex-1 text-xs truncate lg:text-lg">{{ service.title }}</span>
+                                    <span class="flex-grow-0 text-xs lg:text-sm">{{ service.podil }}%</span>
                                 </div>
                                 <div class="flex items-center">
-                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 20%"></div>
-                                    <div class="flex-grow border-b border-gray-200"></div>
-                                </div>
-                            </li>
-                            <li class="mb-3">
-                                <div class="flex items-center mb-1">
-                                    <span class="flex-1 text-xs truncate lg:text-lg">Vývoj</span>
-                                    <span class="flex-grow-0 text-xs lg:text-sm">80%</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 80%"></div>
-                                    <div class="flex-grow border-b border-gray-200"></div>
-                                </div>
-                            </li>
-                            <li class="mb-3">
-                                <div class="flex items-center mb-1">
-                                    <span class="flex-1 text-xs truncate lg:text-lg">Bakendarna</span>
-                                    <span class="flex-grow-0 text-xs lg:text-sm">20%</span>
-                                </div>
-                                <div class="flex items-center">
-                                    <div class="h-1 rounded bg-gradient-l-blue-green" style="width: 20%"></div>
+                                    <div class="h-1 rounded bg-gradient-l-blue-green" :style="{ width: service.podil + '%' }"></div>
                                     <div class="flex-grow border-b border-gray-200"></div>
                                 </div>
                             </li>
@@ -125,23 +91,13 @@
             </div>
             <div class="px-4 pt-8 ml-auto mr-auto max-w-screen-lg">
                 <VueSlickCarousel class="rounded shadow-xl" v-bind="carouselSettings">
-                    <div class="relative">
+                    <div class="relative" v-for="slide in page.gallery">
                         <div class="flex flex-col justify-around overflow-hidden rounded">
-                            <div class="relative aspect-ratio-16/9">
-                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 w-full h-full" />
+                            <div class="relative aspect-ratio-16/9" v-if="slide.url">
+                                <img :src="slide.url" class="absolute inset-0 w-full h-full" />
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="text-base truncate">Intuice</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative">
-                        <div class="flex flex-col justify-around overflow-hidden rounded">
-                            <div class="relative aspect-ratio-16/9">
-                                <img src="https://i.picsum.photos/id/831/300/300.jpg" class="absolute inset-0 w-full h-full" />
-                            </div>
-                            <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="text-base truncate">Intuice</div>
+                                <div class="text-base truncate">!Není!</div>
                             </div>
                         </div>
                     </div>
@@ -167,21 +123,17 @@
         <div class="ml-auto mr-auto max-w-screen-xl">
             <section class="flex flex-wrap pb-6 lg:pb-16" >
                 <div class="relative w-full px-4 mb-6 lg:mb-0 lg:w-1/2 lg:pr-16">
-                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">Výsledek</h2>
-                    <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus et eveniet necessitatibus nisi pariatur, porro quae quia quis recusandae repellendus sequi tenetur ut vero? Animi, dolores, hic. Iusto, omnis, quibusdam?</p>
+                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
+                    <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.thirdRowDescription">
                     </div>
                     <div class="absolute left-0 lg:left-auto right-0 h-1 mx-4 rounded lg-mx-0 lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                 </div>
                 <div class="w-full px-4 lg:w-1/2 lg:pl-16" id="client-survey">
                     <div class="lg:w-18/24">
-                        <h2 class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">Vyjádření klienta</h2>
+                        <h2 class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.thirdRowHeadlineRight }}</h2>
                         <div class="relative">
                             <icon symbol="i_quotation" class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 fill-current lg:mt-8 lg:ml-6 transform lg:-translate-x-full lg:-translate-y-full"></icon>
-                            <div class="relative text-sm md:text-base xl:text-lg wysiwyg-content">
-                                <p>
-                                    “We enjoy working with Spiria because they have proven to be experienced, professional and reliable. Since 2004, Spiria has helped us with a variety of complex projects and they continue to be a valued partner for expert development services.”
-                                </p>
+                            <div class="relative text-sm md:text-base xl:text-lg wysiwyg-content" v-html="page.thirdRowWysiwygRight">
                             </div>
                         </div>
                         <div class="flex items-center">
@@ -234,7 +186,15 @@
     },
     computed: {
       page() {
-        return transformSingleArrayToObject(this.$page.craft.entry, ['mainImage', 'vyberKlienta']);
+        return transformSingleArrayToObject(this.$page.craft.entry, ['mainImage', 'vyberKlienta', 'technologie']);
+      },
+      services() {
+        return this.mapObject(this.$page.craft.entry, ['dodaneSluzby'], (data) => {
+          return data.map(service => ({
+            ...service,
+              title: service.sluzba[0].title
+          }));
+        });
       },
     },
     data() {
@@ -248,6 +208,23 @@
         }
       }
     },
+    methods: {
+      mapObject(object, keys, transform) {
+        if(Array.isArray(keys)) {
+          for (const key of keys) {
+            if (object[key] !== null && object[key] !== undefined) {
+              object = object[key]
+            } else {
+              return '';
+            }
+          }
+        }
+        if (transform) {
+          return transform(object);
+        }
+        return object;
+      }
+    }
   }
 </script>
 
@@ -255,20 +232,48 @@
 query CraftEntry($slug: [String]) {
     craft {
         entry(slug: $slug) {
-            id
-            title
-            ...on craft_referencesItem_referenceFullWidth_Entry {
-                heading
-                excerpt
-                description
-                mainImage {
-                    url
-                }
-                firstRowHeadline
-                firstRowDescription
-                referenceClientLinkText
-                referenceClientLink
+          id
+          title
+          ... on craft_referencesItem_referenceFullWidth_Entry {
+            heading
+            excerpt
+            description
+            mainImage {
+              url
             }
+            vyberKlienta {
+              title
+              id
+              ... on craft_klient_Category {
+                description
+                photo {url}
+              }
+            }
+            firstRowHeadline
+            firstRowDescription
+            referenceClientLinkText
+            referenceClientLink
+            secondRowDescription
+            secondRowHeadline
+            thirdRowHeadline
+            thirdRowDescription
+            thirdRowHeadlineRight
+            thirdRowWysiwygRight
+            dodaneSluzby {
+              ... on craft_dodaneSluzby_sluzba_BlockType {
+                sluzba {
+                  title
+                }
+                podil
+              }
+            }
+            technologie {
+              title
+            }
+            gallery {
+                url
+            }
+          }
         }
     }
 }
