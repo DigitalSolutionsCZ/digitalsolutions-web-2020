@@ -1,0 +1,7 @@
+[build]
+    publish = "dist"
+    command = "gridsome build"
+    environment = { CRAFT_LIVE_PREVIEW = "false", GRIDSOME_CRAFT_GRAPHQL_ENDPOINT = 'https://craftcms.digital.cz/api'}
+
+[context.stage]
+    environment = { CRAFT_LIVE_PREVIEW = "true"}
