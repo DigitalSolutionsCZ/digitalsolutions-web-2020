@@ -1,4 +1,4 @@
-name: CI
+name: Sync
 
 on:
   push:
@@ -7,13 +7,19 @@ on:
 
 jobs:
   repo-sync:
-
     runs-on: ubuntu-latest
-
+    name: Syncing branches
     steps:
-    - uses: actions/checkout@master
-    - name: repo-sync
-      uses: repo-sync/github-sync@v2
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Set up Node
+      uses: actions/setup-node@v1
       with:
-        source_branch: "master"
-        destination_branch: "stage
+          node-version: 12
+    - name: Opening pull request
+      id: pull
+      uses: tretuna/sync-branches@v1-beta.1
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        FROM_BRANCH: "master"
+        TO_BRANCH: "stage"
