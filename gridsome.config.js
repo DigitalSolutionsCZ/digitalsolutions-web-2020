@@ -24,7 +24,7 @@ module.exports = {
         url: process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT,
         fieldName: "craft",
         typeName: "craft",
-        livePreview: process.env.CRAFT_LIVE_PREVIEW || false,
+        livePreview: process.env.GRIDSOME_LIVE_PREVIEW || false,
       }
     }
   ],

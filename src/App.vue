@@ -12,7 +12,7 @@ export default {
     },
     computed: {
         craftEndpoint() {
-            return process.env.CRAFT_LIVE_PREVIEW ? process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT : false
+            return process.env.GRIDSOME_LIVE_PREVIEW ? process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT : false
         }
     },
     metaInfo() {
