@@ -40,6 +40,7 @@ function createReferencePage(createPage, {baseUrl, url, entry}) {
         context: {
             id: entry.id,
             slug: entry.slug,
+            services: baseUrl !== url ? entry.id : null,
             baseUrl: baseUrl
         }
     });
