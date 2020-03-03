@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  repo-sync:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_branch: "master"
+        destination_branch: "stage
