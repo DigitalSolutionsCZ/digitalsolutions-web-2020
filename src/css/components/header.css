@@ -1,5 +1,5 @@
 .cha-header-clip {
-    @apply absolute inset-0 pointer-events-none;
+    @apply absolute inset-0 pointer-events-none z-30;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
