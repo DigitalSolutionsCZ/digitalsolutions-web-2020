@@ -44,7 +44,7 @@
                                 :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
                                 :key="reference.id"
                                 :reference="reference"
-                                :base-url="$context.baseUrl"
+                                :base-url="$context.baseUrl + getDetailUrl(reference.url, reference.title)"
                                 :style="{zIndex: list.length - index}"
                             />
                         </template>
@@ -83,14 +83,17 @@ import Dropdown from "../components/Dropdown.vue";
 import SubLink from "../components/SubLink.vue";
 
 import referenceFullWidth from "../components/Reference/referenceFullWidth.vue";
+import referenceFullWidthSmall from "../components/Reference/referenceFullWidthSmall.vue";
 import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 import { fetch } from 'gridsome'
+import slugify from "@sindresorhus/slugify";
 
 export default {
     components: {
         Dropdown,
         referenceFullWidth,
+        referenceFullWidthSmall,
         referenceContactBlock,
         SubLink,
     },
@@ -105,7 +108,7 @@ export default {
         tags() {
             return [
                 {
-                    id: "6",
+                    id: this.$context.referenceId,
                     slug: 'all',
                     url: this.$context.baseUrl,
                     title: "Všechny projekty"
@@ -131,6 +134,9 @@ export default {
             this.list = response.data.craft.list;
             this.serviceId = response.context.id;
             window.history.pushState(response, null, value);
+        },
+        getDetailUrl(itemUrl, title) {
+            return itemUrl !== "" ?  itemUrl : '/' + slugify(title)
         }
     }
 }
@@ -151,6 +157,7 @@ query($slug: [String], $services: [craft_QueryArgument]) {
             url: slug,
         },
         list: entries(section: "referencesItem",  sluzbyProduktu: $services) {
+            title
             id,
             typeHandle,
             ...on craft_referencesItem_referenceContactBlock_Entry {

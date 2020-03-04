@@ -80,7 +80,6 @@ export default {
     },
     mounted() {
         this.reference = this.$refs.reference;
-        this.popper = this.$refs.content;
 
         const escape = (e) => {
             if (this.open && e.keyCode === 27) {
@@ -88,14 +87,13 @@ export default {
             }
         };
         const clickOutsideEvent = (e) => {
-            if (this.open && !(this.$el === e.target || this.$el.contains(e.target) || this.popper.contains(e.target))) {
+            if (this.open && !(this.$el === e.target || this.$el.contains(e.target))) {
                 this.close();
             }
         };
         document.addEventListener("keyup", escape);
         document.addEventListener("click", clickOutsideEvent);
         this.$once("hook:destroyed", () => {
-            this.popperJs.destroy();
             document.removeEventListener("keyup", escape);
             document.removeEventListener("click", clickOutsideEvent);
         });
@@ -104,13 +102,9 @@ export default {
         close() {
             this.open = false;
             this.$emit("close");
-            // this.$nextTick(() => {
-            //     this.closePopper();
-            // })
         },
         expand() {
             this.open = true;
-            // this.openPopper();
             this.$emit("open");
         },
         toggle() {
