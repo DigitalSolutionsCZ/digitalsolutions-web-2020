@@ -115,25 +115,11 @@
                 </div>
                 <h3 class="mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
                 <div class="mx-auto md:w-10/24">
-                    <div class="flex flex-wrap">
-                        <div class="w-full">
-                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Jméno a příjmení">
-                        </div>
-                        <div class="w-full md:pr-4 md:w-12/24">
-                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Email">
-                        </div>
-                        <div class="w-full md:w-12/24">
-                            <input type="text" class="w-full h-10 px-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8" placeholder="Telefon">
-                        </div>
-                        <div class="w-full">
-                            <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
-                        </div>
-                    </div>
-                    <button class="mb-4 md:mb-16">Odeslat</button>
+                    <contact-form class="mb-4 md:mb-16" />
                 </div>
             </div>
         </div>
-        <div class="relative mb-16">
+        <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
                 <div class="relative pt-10 ml-auto mr-auto xl:pt-24 xl:pb-20  max-w-screen-xl">
@@ -151,4 +137,13 @@
         </div>
     </Layout>
 </template>
+
+<script>
+  import ContactForm from '../components/ContactForm'
+  export default {
+    components: {
+      ContactForm
+    }
+  }
+</script>
 
