@@ -58,8 +58,12 @@
             </header>
           </div>
         </div>
-        <div class="flex h-screen bg-gradient-tr-blue-green">
-          <section class="self-center w-full">
+        <div class="flex h-screen bg-gradient-tr-blue-green overflow-hidden" v-keyframes style="perspective: 900px">
+          <section class="self-center w-full" :data-keyframes="JSON.stringify({
+           0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
+           60: { opacity: .6, transform: 'translateY(30vh) rotateX(0deg)' },
+           80: { opacity: -0.5, transform: 'translateY(70vh) rotateX(100deg)' },
+            })">
             <div class="max-w-6xl mx-auto">
               <div class="text-center">
                 <h1 class="leading-none text-white xl:text-3xl xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>

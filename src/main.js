@@ -4,6 +4,7 @@
 import DefaultLayout from "~/layouts/Default.vue";
 
 import Icon from "~/components/Icon.vue";
+import VueKeyframes from "~/components/VueKeyframes";
 const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
 export default function(Vue, { router, head, isClient }) {
@@ -11,6 +12,8 @@ export default function(Vue, { router, head, isClient }) {
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Muli:400,600,700,800&display=swap'
   });
+
+  Vue.use(VueKeyframes);
 
   // Set default layout as a global component
   Vue.component("Layout", DefaultLayout);
