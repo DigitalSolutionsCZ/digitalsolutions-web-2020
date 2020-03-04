@@ -75,7 +75,7 @@
     </template>
     <template #content>
        <section class="relative mb-16">
-         <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+         <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}" class="absolute inset-0"></div>
          <div class="relative" data-cha-section>
            <div class="pt-6 md:pt-8 xl:pt-16">
              <div class="max-w-screen-xl mx-auto">
@@ -116,7 +116,7 @@
                      <sub-link :href="reference.buttonLink" :label="reference.buttonText ? reference.buttonText : 'Prohlédnout referenci'" />
                    </div>
                    <div v-if="index !== page.homepageReference.length - 1" class="justify-center hidden md:flex md:mb-8 xl:mb-16">
-                     <g-image src="~/images/identity-horizontal-line.svg"></g-image>
+                     <img src="identity-horizontal-line.svg" alt="delimiter" />
                    </div>
                  </div>
                </div>
