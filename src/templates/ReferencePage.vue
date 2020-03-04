@@ -35,28 +35,30 @@
                 </div>
             </div>
         </section>
-        <section class="px-4 pt-4 pb-8 bg-gray-100">
+        <section class="md:px-4 pt-4 pb-8 bg-gray-100" v-if="list.length > 0">
             <div class="relative mx-auto max-w-screen-xl">
-                <div class="flex flex-wrap justify-center mb-4 -mx-2">
-                    <template v-for="(reference, index) in list">
-                        <template v-if="reference.typeHandle === 'referenceFullWidth'">
-                            <component
-                                :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
-                                :key="reference.id"
-                                :reference="reference"
-                                :base-url="$context.baseUrl + getDetailUrl(reference.url, reference.title)"
-                                :style="{zIndex: list.length - index}"
-                            />
+                <div class="flex flex-wrap justify-center mb-4 md:-mx-2">
+                    <transition-group name="list">
+                        <template v-for="(reference, index) in list">
+                            <template v-if="reference.typeHandle === 'referenceFullWidth'">
+                                <component
+                                    :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
+                                    :key="reference.id"
+                                    :reference="reference"
+                                    :base-url="$context.baseUrl + getDetailUrl(reference.url, reference.title)"
+                                    :style="{zIndex: list.length - index}"
+                                />
+                            </template>
+                            <template v-else>
+                                <component
+                                    :is="reference.typeHandle"
+                                    :key="reference.id"
+                                    :reference="reference"
+                                    :style="{zIndex: list.length - index}"
+                                />
+                            </template>
                         </template>
-                        <template v-else>
-                            <component
-                                :is="reference.typeHandle"
-                                :key="reference.id"
-                                :reference="reference"
-                                :style="{zIndex: list.length - index}"
-                            />
-                        </template>
-                    </template>
+                    </transition-group>
                 </div>
                 <div class="flex justify-center"v-if="false">
                     <g-link
@@ -74,7 +76,6 @@
                 </div>
             </div>
         </section>
-        <div class="w-full h-4 bg-gradient-r-blue-green"/>
     </Layout>
 </template>
 
