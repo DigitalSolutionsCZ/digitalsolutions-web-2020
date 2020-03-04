@@ -10,10 +10,8 @@ export default {
     components: {
         CraftLivePreview: () => import ('@bhws/gridsome-source-craft-graphql/CraftLivePreview')
     },
-    computed: {
-        craftEndpoint() {
-            return process.env.GRIDSOME_LIVE_PREVIEW ? process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT : false
-        }
+    computed () {
+        craftEndpoint: () => process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT || false
     },
     metaInfo() {
         return {
@@ -26,6 +24,9 @@ export default {
                 }
             ]
         }
+    },
+    mounted() {
+        console.log(this.craftEndpoint);
     }
 }
 </script>
