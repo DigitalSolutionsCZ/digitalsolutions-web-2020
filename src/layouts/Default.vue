@@ -59,7 +59,7 @@
       </div>
     </slot>
     <footer>
-      <div class="w-full h-4 bg-gradient-l-blue-green"></div>
+      <div class="w-full h-4 bg-gradient-r-blue-green"></div>
       <div class="px-4 overflow-hidden bg-gray-900">
         <div class="mx-auto max-w-screen-xl">
           <div class="flex flex-wrap pt-4 xl:pt-8">
