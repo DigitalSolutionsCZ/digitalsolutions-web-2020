@@ -4,7 +4,12 @@ async function referencePage(data, createPage) {
 
     const referenceUrl = slugifyUrlEntry(data.craft.referencePage.itemUrl, data.craft.referencePage.title);
     const categories = data.craft.categories;
-    createReferencePage(createPage, {url: referenceUrl, entry: {...data.craft.referencePage}, baseUrl: referenceUrl});
+    createReferencePage(createPage, {
+        url: referenceUrl,
+        entry: {...data.craft.referencePage},
+        baseUrl: referenceUrl,
+        referenceId: data.craft.referencePage.id
+    });
 
     categories.map(category => {
         createReferencePage(createPage, {
@@ -13,12 +18,13 @@ async function referencePage(data, createPage) {
                 id: category.id,
                 slug: data.craft.referencePage.slug,
             },
-            baseUrl: referenceUrl
+            baseUrl: referenceUrl,
+            referenceId: data.craft.referencePage.id
         });
     });
 
     data.craft.referenceRecords.map(referenceRecord => {
-        const referenceDetailUrl =  livePreviewEnabled
+        const referenceDetailUrl = livePreviewEnabled
             ? referenceUrl + slugifyUrlEntry(referenceRecord.itemUrl, referenceRecord.title)
             : referenceUrl + '/' + referenceRecord.slug;
 
@@ -33,7 +39,7 @@ async function referencePage(data, createPage) {
     });
 }
 
-function createReferencePage(createPage, {baseUrl, url, entry}) {
+function createReferencePage(createPage, {baseUrl, url, entry, referenceId}) {
     createPage({
         path: url,
         component: './src/templates/ReferencePage.vue',
@@ -41,7 +47,8 @@ function createReferencePage(createPage, {baseUrl, url, entry}) {
             id: entry.id,
             slug: entry.slug,
             services: baseUrl !== url ? entry.id : null,
-            baseUrl: baseUrl
+            baseUrl: baseUrl,
+            referenceId
         }
     });
 }
