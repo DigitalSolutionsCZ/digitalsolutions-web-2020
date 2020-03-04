@@ -1,21 +1,21 @@
 <template functional>
-    <div class="flex px-2 mb-4 w-full md:w-11/24" v-bind="data.attrs" :style="data.style">
+    <div class="flex w-full px-2 mb-4 md:w-11/24" v-bind="data.attrs" :style="data.style">
         <div
-            class="relative flex flex-col items-start w-full mx-auto overflow-hidden bg-white rounded group hover:shadow-xl transition-all duration-200 ease-in-out"
+            class="relative flex flex-col items-start w-full mx-auto overflow-hidden bg-white md:rounded group hover:shadow-xl transition-all duration-200 ease-in-out"
         >
-            <div class="relative z-20 px-16 pt-16 pb-8">
+            <div class="relative z-20 p-4 md:p-8 xl:pb-8 xl:px-16 xl:pt-16">
                 <g-link :to="props.baseUrl">
-                    <h2 class="mb-3 text-xl font-black leading-tight">{{ props.reference.heading }}</h2>
+                    <h2 class="mb-2 text-base font-black xl:mb-3 md:leading-tight md:text-lg xl:text-xl">{{ props.reference.heading }}</h2>
                 </g-link>
-                <span class="inline-block mb-8 text-sm text-green-500" v-if="props.reference.vyberKlienta">{{ props.reference.vyberKlienta[0].title }}</span>
-                <div class="text-base text-gray-600 w-21/24" v-html="props.reference.excerpt"/>
+                <span class="inline-block mb-4 text-sm text-green-500 md:mb-5 xl:mb-8" v-if="props.reference.vyberKlienta">{{ props.reference.vyberKlienta[0].title }}</span>
+                <div class="text-xs text-gray-600 md:text-sm xl:text-base w-full md:w-21/24" v-html="props.reference.excerpt"/>
             </div>
-            <sub-link label="Prohlédnout referenci" />
-            <div class="absolute bottom-0 left-0 w-full pointer-events-none grid gap-4 grid-cols-11" v-if="props.reference.referenceMultipleImages.length > 0">
+            <sub-link :href="props.baseUrl" label="Prohlédnout referenci" />
+            <div class="bottom-0 left-0 self-center pointer-events-none w-18/24 xl:absolute xl:w-full xl:grid gap-4 grid-cols-11" v-if="props.reference.referenceMultipleImages.length > 0">
                 <div class="pointer-events-auto row-start-1 row-end-1 col-start-7 col-end-11">
                     <g-link
                         :to="props.baseUrl"
-                        class="relative block aspect-ratio-4/3 transform translate-y-8 group-hover:translate-y-0 transition-transform duration-200 ease-in-out"
+                        class="relative block aspect-ratio-16/9 xl:aspect-ratio-4/3 transform xl:translate-y-8 group-hover:translate-y-0 transition-transform duration-200 ease-in-out"
                     >
                         <g-image
                             class="absolute inset-0 object-cover w-full h-full"
