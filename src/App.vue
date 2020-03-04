@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="h-full">
         <router-view />
         <CraftLivePreview v-if="craftEndpoint" :endpoint="craftEndpoint" />
     </div>

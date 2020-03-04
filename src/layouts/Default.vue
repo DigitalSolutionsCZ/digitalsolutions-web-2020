@@ -45,7 +45,7 @@
             </div>
             <div class="w-15/24 md:w-3/24 xl:w-2/24">
               <div class="flex items-center justify-end">
-                <g-link class="inline-flex justify-center px-4 py-1 text-sm font-semibold text-green-500 border border-gray-100 rounded-full min-w-40 md:py-2 md:border-none md:text-base md:text-white hover:shadow-lg transition-all duration-200 ease-in-out md:bg-gradient-r-blue-green active" to="/contact/">Kontakt</g-link>
+                <g-link class="inline-flex justify-center px-4 py-1 text-sm font-semibold text-green-500 border border-gray-100 rounded-full min-w-40 md:py-3 md:border-none md:text-base md:text-white hover:shadow-lg transition-all duration-200 ease-in-out md:bg-gradient-r-blue-green active" to="/contact/">Kontakt</g-link>
                 <div class="ml-3 md:hidden">☰</div>
               </div>
             </div>
