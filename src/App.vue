@@ -27,11 +27,6 @@ export default {
             ]
         }
     },
-    mounted() {
-        console.log(process.env.GRIDSOME_LIVE_PREVIEW);
-        console.log(process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT);
-        console.log(this.craftEndpoint);
-    }
 }
 </script>
 
