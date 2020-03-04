@@ -151,7 +151,6 @@ query {
   export default {
     computed: {
       page() {
-        console.log(this.$page.craft.entry)
         return this.$page.craft.entry;
       },
     },
