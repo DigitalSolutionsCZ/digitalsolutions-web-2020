@@ -8,6 +8,7 @@ import VueKeyframes from "~/components/VueKeyframes";
 const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
 export default function(Vue, { router, head, isClient }) {
+  head.bodyAttrs = { class: "flex flex-col h-full" };
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Muli:400,600,700,800&display=swap'

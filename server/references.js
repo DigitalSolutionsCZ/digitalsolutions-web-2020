@@ -1,27 +1,11 @@
-const {slugifyUrlEntry, livePreviewEnabled} = require("./utils");
+const {slugifyUrlEntry, livePreviewEnabled, paginateEntries} = require("./utils");
 
 async function referencePage(data, createPage) {
-
     const referenceUrl = slugifyUrlEntry(data.craft.referencePage.itemUrl, data.craft.referencePage.title);
     const categories = data.craft.categories;
-    createReferencePage(createPage, {
-        url: referenceUrl,
-        entry: {...data.craft.referencePage},
-        baseUrl: referenceUrl,
-        referenceId: data.craft.referencePage.id
-    });
-
-    categories.map(category => {
-        createReferencePage(createPage, {
-            url: `${referenceUrl}/${category.slug}`,
-            entry: {
-                id: category.id,
-                slug: data.craft.referencePage.slug,
-            },
-            baseUrl: referenceUrl,
-            referenceId: data.craft.referencePage.id
-        });
-    });
+    const referencePage = data.craft.referencePage;
+    const references = data.craft.references;
+    const perPage = 10;
 
     data.craft.referenceRecords.map(referenceRecord => {
         const referenceDetailUrl = livePreviewEnabled
@@ -37,20 +21,41 @@ async function referencePage(data, createPage) {
             }
         })
     });
-}
 
-function createReferencePage(createPage, {baseUrl, url, entry, referenceId}) {
-    createPage({
-        path: url,
+    paginateEntries(createPage, {
+        length: references.length,
+        perPage,
         component: './src/templates/ReferencePage.vue',
+        path: referenceUrl,
         context: {
-            id: entry.id,
-            slug: entry.slug,
-            services: baseUrl !== url ? entry.id : null,
-            baseUrl: baseUrl,
-            referenceId
+            id: referencePage.id,
+            slug: referencePage.slug,
+            services: referenceUrl !== referenceUrl ? referencePage.id : null,
+            baseUrl: referenceUrl,
+            referenceId: referencePage.id,
         }
     });
+
+    categories.map(category => {
+        const length = references.filter(reference => {
+            return reference.sluzbyProduktu.some(sluzba => sluzba.id === category.id)
+        }).length;
+
+        paginateEntries(createPage, {
+            length,
+            perPage,
+            component: './src/templates/ReferencePage.vue',
+            path: `${referenceUrl}/${category.slug}`,
+            context: {
+                id: category.id,
+                slug: referencePage.slug,
+                services: `${referenceUrl}/${category.slug}` !== referenceUrl ? category.id : null,
+                baseUrl: referenceUrl,
+                referenceId: referencePage.id,
+            }
+        });
+    });
+
 }
 
 module.exports = {
