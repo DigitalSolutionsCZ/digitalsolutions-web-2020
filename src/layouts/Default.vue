@@ -54,7 +54,7 @@
     </div>
     </slot>
     <slot name="content">
-      <div class="flex-grow mt-12 md:mt-20 xl:mt-24">
+      <div class="flex flex-col flex-grow mt-12 md:mt-20 xl:mt-24">
         <slot/>
       </div>
     </slot>

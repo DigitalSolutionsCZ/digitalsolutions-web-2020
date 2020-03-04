@@ -24,6 +24,22 @@ module.exports = function (api) {
                   ...on craft_referencesItem_referenceFullWidth_Entry {
                     itemUrl
                   }
+                },
+                references: entries(section: "referencesItem") {
+                    title,
+                    slug,
+                    ...on craft_referencesItem_referenceFullWidth_Entry {
+                        sluzbyProduktu {
+                            id,
+                            title
+                        }
+                    },
+                    ...on craft_referencesItem_referenceContactBlock_Entry {
+                        sluzbyProduktu {
+                            id,
+                            title
+                        }
+                    }
                 }
               }
             }`);

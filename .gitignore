@@ -8,3 +8,6 @@ dist
 .env.*
 static/rss.xml
 .idea
+
+my_endpoint_schema.graphql
+.graphqlconfig
