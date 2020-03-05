@@ -1,6 +1,18 @@
 module.exports = {
     theme: {
         extend: {
+            customForms: theme => ({
+                default: {
+                    input: {
+                        borderRadius: theme('borderRadius.default'),
+                        backgroundColor: theme('colors.white'),
+                        paddingTop: null,
+                        paddingRight: null,
+                        paddingBottom: null,
+                        paddingLeft: null,
+                    },
+                },
+            }),
             fontFamily: {
                 'sans': [
                     'Muli',
@@ -146,5 +158,6 @@ module.exports = {
   plugins: [
     require('tailwindcss-gradients'),
     require('tailwindcss-aspect-ratio'),
+    require('@tailwindcss/custom-forms'),
   ]
 };
