@@ -63,7 +63,7 @@
                     </div>
                 </div>
             </div>
-            <div class="relative z-10 flex flex-wrap justify-center mt-auto" v-if="$context.totalPage > 1">
+            <div class="relative z-10 flex flex-wrap justify-center" v-if="$context.totalPage > 1">
                 <a
                     class="flex items-center justify-center px-4 py-3 mx-2 mb-4 text-base font-semibold text-gray-800 transition-all duration-200 ease-in-out bg-white rounded-full min-w-40"
                     :class="[prevUrl ? 'hover:shadow-lg' : 'opacity-50 cursor-not-allowed']"
