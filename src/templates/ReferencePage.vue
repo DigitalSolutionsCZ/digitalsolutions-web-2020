@@ -38,7 +38,7 @@
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4">
             <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}" class="absolute inset-0 bg-center pointer-events-none"></div>
             <div class="relative max-w-screen-xl mx-auto overflow-hidden" v-if="list.length > 0">
-                <transition-group name="list" tag="div" class="flex flex-wrap justify-center mb-4 -mx-2">
+                <div class="flex flex-wrap justify-center mb-4 -mx-2">
                     <div
                         v-for="(reference, index) in list"
                         :key="reference.id"
@@ -61,7 +61,7 @@
                             :reference="reference"
                         />
                     </div>
-                </transition-group>
+                </div>
             </div>
             <div class="relative z-10 flex flex-wrap justify-center mt-auto" v-if="$context.totalPage > 1">
                 <a
