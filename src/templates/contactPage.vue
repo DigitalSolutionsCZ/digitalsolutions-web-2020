@@ -3,8 +3,8 @@
         <div class="max-w-screen-xl ml-auto mr-auto md:w-18/24 xl:w-14/24">
             <section class="flex flex-wrap pt-6 pb-6 xl:pt-16 xl:pb-16">
                 <div class="px-4 text-center">
-                    <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
+                    <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading" />
+                    <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     <div class="items-center md:flex" v-if="page.showContactButtons">
                         <div class="md:w-9/24">
                             <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold transition-all duration-200 ease-in-out bg-gray-100 rounded-full min-w-40 hover:shadow-lg active">Napište nám</a>
@@ -34,18 +34,20 @@
                         </div>
                         <div class="w-full: md:w-9/24">
                             <div class="py-12 pl-8 pr-4">
-                                <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">{{ mapObject(page, ['contactAdress', 0, 'header']) }}</div>
+                                <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">
+                                    {{ mapObject(page, ['contactAdress', 0, 'header']) }}
+                                </div>
                                 <div class="text-sm text-gray-900 md:text-base xl:text-lg">
                                     <div class="flex mb-2">
-                                        <icon symbol="i_map_point" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_map_point" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"/>
                                         <span>{{ mapObject(page, ['contactAdress', 0, 'address']) }}</span>
                                     </div>
                                     <div class="flex mb-2 text-base xl:text-lg">
-                                        <icon symbol="i_phone" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_phone" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"/>
                                         <strong>{{ mapObject(page, ['contactAdress', 0, 'phone']) }}</strong>
                                     </div>
                                     <div class="flex mb-4 text-base xl:text-lg">
-                                        <icon symbol="i_envelope" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
+                                        <icon symbol="i_envelope" class="flex-grow-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"/>
                                         <span>{{ mapObject(page, ['contactAdress', 0, 'email']) }}</span>
                                     </div>
                                     <p>{{ mapObject(page, ['contactAdress', 0, 'description']) }}</p>
@@ -98,69 +100,69 @@
 </template>
 
 <page-query>
-query {
-  craft {
-    entry(slug: "kontakt") {
-      ... on craft_contactPage_contactPage_Entry {
-        heading
-        excerpt
-        itemUrl
-        showContactButtons
-        subheading
-        body
-        contactFormHeader
-        threeTextColumns {
-          ... on craft_threeTextColumns_sloupce_BlockType {
-            id
-            header
-            description
-          }
+    query($slug: [String]) {
+        craft {
+            entry(slug: $slug) {
+                ... on craft_contactPage_contactPage_Entry {
+                    heading
+                    excerpt
+                    itemUrl
+                    showContactButtons
+                    subheading
+                    body
+                    contactFormHeader
+                    threeTextColumns {
+                        ... on craft_threeTextColumns_sloupce_BlockType {
+                            id
+                            header
+                            description
+                        }
+                    }
+                    map {
+                        ...on craft_map_contactMap_BlockType {
+                            contactMapLink
+                            contactMapImage {url}
+                            contactMapNewWindow
+                        }
+                    }
+                    contactAdress {
+                        ...on craft_contactAdress_contactBlock_BlockType {
+                            header
+                            address
+                            phone
+                            email
+                            description
+                        }
+                    }
+                }
+            }
         }
-        map {
-          ...on craft_map_contactMap_BlockType {
-          	contactMapLink
-            contactMapImage {url}
-            contactMapNewWindow
-          }
-        }
-        contactAdress {
-        	...on craft_contactAdress_contactBlock_BlockType {
-            header
-            address
-            phone
-            email
-            description
-          }
-        }
-      }
     }
-  }
-}
 </page-query>
 <script>
   import ContactForm from '../components/ContactForm'
   import { mapObject } from  '~/components/utils';
 
   export default {
-    components: {
-      ContactForm
-    },
-    computed: {
-      page() {
-        return this.$page.craft.entry;
+      components: {
+          ContactForm
       },
-    },
-    methods: {
-      mapObject,
-      getColumnSizeByOrder(index) {
-        const classNames = [
-          'w-full md:w-7/24 xl:w-6/24 md:pr-10 xl:pr-16',
-          'w-full md:w-10/24 xl:w-12/24 md:pr-10 xl:pr-16',
-          'w-full md:w-7/24 xl:w-6/24',
-        ];
-        return classNames[index];
-      }
-    },
+      computed: {
+          page() {
+              return this.$page.craft.entry;
+          },
+      },
+      methods: {
+          mapObject,
+          getColumnSizeByOrder(index) {
+              const classNames = [
+                  'w-full md:w-7/24 xl:w-6/24 md:pr-10 xl:pr-16',
+                  'w-full md:w-10/24 xl:w-12/24 md:pr-10 xl:pr-16',
+                  'w-full md:w-7/24 xl:w-6/24',
+              ];
+              return classNames[index];
+          }
+      },
   }
 </script>
 

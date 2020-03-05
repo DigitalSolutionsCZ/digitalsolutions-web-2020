@@ -1,74 +1,8 @@
 <template>
     <div class="flex flex-col h-full">
-        <slot name="header">
+        <slot name="header" :menu="menu" :contact="link">
             <div class="px-4 fixed inset-x-0 top-0 z-30 bg-white">
-                <header class="mx-auto max-w-screen-3xl">
-                    <div class="flex items-center h-12 md:h-20 xl:h-24">
-                        <div class="sm:w-7/24 w-9/24 xs:w-10/24 md:w-5/24 xl:w-4/24">
-                            <g-link to="/">
-                                <g-image src="~/images/logo-ds.png" alt="logo"></g-image>
-                            </g-link>
-                        </div>
-                        <div class="flex-grow hidden md:block">
-                            <nav class="flex justify-center text-base font-bold cha-nav-link text-gray-400">
-                                <g-link
-                                    class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center"
-                                    to="/about/">
-                                    <div class="relative">
-                                        O nás
-                                        <div
-                                            class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
-                                    </div>
-                                </g-link>
-                                <g-link
-                                    class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center"
-                                    to="/services/">
-                                    <div class="relative">
-                                        Služby
-                                        <div
-                                            class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
-                                    </div>
-                                </g-link>
-                                <g-link
-                                    class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center"
-                                    to="/reference/">
-                                    <div class="relative">
-                                        Reference
-                                        <div
-                                            class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
-                                    </div>
-                                </g-link>
-                                <g-link
-                                    class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center"
-                                    to="/demand/">
-                                    <div class="relative">
-                                        Poptávka
-                                        <div
-                                            class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
-                                    </div>
-                                </g-link>
-                                <g-link
-                                    class="px-4 py-4 md:mr-3 xl:mr-10 hover:text-black group transition-all duration-200 ease-in-out flex items-center"
-                                    to="/contact/">
-                                    <div class="relative">
-                                        Kontakt
-                                        <div
-                                            class="absolute inset-x-0 mt-1 h-1 rounded opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"></div>
-                                    </div>
-                                </g-link>
-                            </nav>
-                        </div>
-                        <div class="w-15/24 md:w-3/24 xl:w-2/24">
-                            <div class="flex items-center justify-end">
-                                <g-link
-                                    class="inline-flex justify-center px-4 py-1 text-sm font-semibold text-green-500 border border-gray-100 rounded-full min-w-40 md:py-3 md:border-none md:text-base md:text-white hover:shadow-lg transition-all duration-200 ease-in-out md:bg-gradient-r-blue-green active"
-                                    to="/contact/">Kontakt
-                                </g-link>
-                                <div class="ml-3 md:hidden">☰</div>
-                            </div>
-                        </div>
-                    </div>
-                </header>
+                <site-header :menu="menu" :contact="link" />
             </div>
         </slot>
         <slot name="content">
@@ -144,13 +78,16 @@
                     <div class="pb-3 text-sm text-gray-300 xl:text-base">© Digital Solutions s.r.o., 2004 - 2020</div>
                 </div>
             </div>
-
         </footer>
     </div>
 </template>
 
 <script>
+import SiteHeader from "~/components/Layouts/Header.vue"
 export default {
+    components: {
+        SiteHeader
+    },
     computed: {
         menu() {
             return this.$static.craft.globalSet.menu;
@@ -164,6 +101,7 @@ export default {
 
 <static-query>
     fragment ItemUrl on craft_EntryInterface {
+        slug,
         ...on craft_referencePage_referencePage_Entry {
             itemUrl
         }

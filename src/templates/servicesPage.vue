@@ -3,8 +3,8 @@
         <div class="max-w-screen-xl ml-auto mr-auto">
             <section class="flex flex-wrap pt-6 xl:pt-16">
                 <div class="w-full px-4 text-center lg:pr-12">
-                    <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="mb-6 text-xs text-gray-700 xs:text-base xl:mb-16" v-html="page.excerpt"></div>
+                    <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"></h1>
+                    <div class="text-xs text-gray-700 xs:text-base md:mb-6 xs:mb-16" v-if="page.excerpt" v-html="page.excerpt"></div>
                 </div>
             </section>
         </div>
@@ -159,14 +159,14 @@ query {
   import { mapObject } from  '~/components/utils';
 
   export default {
-    computed: {
-      page() {
-        return this.$page.craft.entry;
+      computed: {
+          page() {
+              return this.$page.craft.entry;
+          },
       },
-    },
-    methods: {
-      mapObject
-    }
+      methods: {
+          mapObject
+      }
   }
 </script>
 

@@ -1,9 +1,9 @@
 <template>
     <Layout>
         <section class="px-4 bg-white">
-            <div class="max-w-screen-xl pt-10 mx-auto">
-                <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black">{{ page.heading }}</h1>
-                <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2" v-html="page.excerpt"/>
+            <div class="pt-10 mx-auto max-w-screen-xl">
+                <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black" v-if="page.heading" v-html="page.heading" />
+                <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2" v-if="page.excerpt" v-html="page.excerpt"/>
                 <div class="mb-10 text-center">
                     <dropdown class="inline-block text-left" ref="dropdown">
                         <template #header="{open}">

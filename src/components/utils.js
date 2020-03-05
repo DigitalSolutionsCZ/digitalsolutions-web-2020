@@ -1,3 +1,5 @@
+import slugify from "@sindresorhus/slugify";
+
 export function transformSingleArrayToObject(data, keys) {
   for (const key of keys) {
     if (Array.isArray(data[key]) && data[key].length === 1) {
@@ -81,4 +83,14 @@ export function shallowObjectValuesToInt(object) {
     parsedObject[key] = parseInt(object[key]);
   });
   return parsedObject;
+}
+
+/**
+ *
+ * @param url
+ * @param title
+ * @returns String
+ */
+export function getUrl(url, title) {
+  return url !== "" ? url : '/' + slugify(title)
 }
