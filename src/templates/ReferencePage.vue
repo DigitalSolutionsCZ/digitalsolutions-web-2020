@@ -36,7 +36,8 @@
             </div>
         </section>
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4">
-            <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}" class="absolute inset-0 bg-center pointer-events-none"></div>
+            <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
+                 class="absolute inset-0 bg-center pointer-events-none"></div>
             <div class="relative max-w-screen-xl mx-auto overflow-hidden" v-if="list.length > 0">
                 <div class="flex flex-wrap justify-center mb-4 -mx-2">
                     <div
@@ -144,23 +145,40 @@ export default {
         this.prevUrl = this.$context.prevUrl;
         this.nextUrl = this.$context.nextUrl;
         this.moreCount = this.$context.moreCount;
+
+        window.addEventListener('popstate', this.popState);
+
+        this.$once("hook:destroyed", () => {
+            window.removeEventListener("popstate", this.popState);
+        });
     },
     methods: {
+        async popState(value) {
+            const response = await this.fetchData(value.target.location.pathname);
+
+            this.serviceId = response.context.id;
+            this.list = response.data.craft.list;
+        },
         async toSlug(value) {
             const url = value === this.$context.baseUrl ? value : this.$context.baseUrl + '/' + value;
             this.$refs.dropdown.close();
             const response = await this.fetchData(url, value);
+
+            window.history.pushState({id: response.context.id}, null, url);
+
             this.serviceId = response.context.id;
             this.list = response.data.craft.list;
         },
         async toPage(value, keep = false) {
             if (!value) return null;
-            const response = await this.fetchData(value, value);
+            const response = await this.fetchData(value);
+
+            window.history.pushState({id: response.context.id}, null, value);
+
             this.list = keep ? [...this.list, ...response.data.craft.list] : response.data.craft.list;
         },
         async fetchData(url) {
             const response = await fetch(url);
-            window.history.pushState(response, null, url);
             this.nextUrl = response.context.nextUrl;
             this.prevUrl = response.context.prevUrl;
             this.moreCount = response.context.moreCount;
