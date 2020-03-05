@@ -58,11 +58,11 @@
             </header>
           </div>
         </div>
-        <div class="flex h-screen bg-gradient-tr-blue-green overflow-hidden" v-keyframes style="perspective: 900px">
+        <div class="flex h-screen-1/2 lg:h-screen bg-gradient-tr-blue-green overflow-hidden" v-keyframes style="perspective: 900px">
           <section class="self-center w-full" :data-keyframes="JSON.stringify({
            0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
-           60: { opacity: .6, transform: 'translateY(30vh) rotateX(0deg)' },
-           80: { opacity: -0.5, transform: 'translateY(70vh) rotateX(100deg)' },
+           30: { opacity: .3, transform: 'translateY(15vh) rotateX(0deg)' },
+           50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
             })">
             <div class="max-w-6xl mx-auto">
               <div class="text-center">
