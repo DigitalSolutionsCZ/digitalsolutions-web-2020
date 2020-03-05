@@ -97,7 +97,7 @@
                                 <img :src="slide.url" class="absolute inset-0 w-full h-full" />
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="text-base truncate">!Není!</div>
+                                <div class="text-base truncate">{{ slide.title }}</div>
                             </div>
                         </div>
                     </div>
