@@ -31,11 +31,11 @@
                 </input-text>
             </div>
             <div class="w-full">
-                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…" v-model="fields.description"></textarea>
+                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 form-textarea rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…" v-model="fields.description"></textarea>
             </div>
             <div class="w-full">
                 <label for="exampleFileUpload"
-                       class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8"
+                       class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8"
                        :class="[fields.files ? 'text-black' : 'text-gray-200']"
                 >
                      {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}

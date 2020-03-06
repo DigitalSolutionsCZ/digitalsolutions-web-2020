@@ -31,12 +31,12 @@
                 </input-text>
             </div>
             <div class="w-full mt-4">
-                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
+                <textarea class="w-full form-textarea px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
             </div>
         </div>
 
         <div class="flex items-center justify-center">
-            <button class="px-4 py-3 mx-2 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">Odeslat</button>
+            <project-button tag="button">Odeslat</project-button>
         </div>
     </form>
 </template>
@@ -44,10 +44,12 @@
 <script>
   import axios from "axios";
   import InputText from  "./Input/InputText";
+  import ProjectButton from '../components/ProjectButton'
 
   export default {
     components: {
-      InputText
+      InputText,
+      ProjectButton
     },
     data () {
       return {
