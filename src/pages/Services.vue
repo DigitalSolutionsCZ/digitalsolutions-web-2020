@@ -15,11 +15,14 @@
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
                             <div class="flex flex-col w-full mb-6 md:w-7/24 md:mb-10 xl:mb-16" v-for="service in page.mainServices" :key="service.id">
+                                <div class="relative h-16 mb-4 xl:mb-6">
+                                    <img :src="mapObject(service, ['icon', 0, 'url'])" class="h-16 object-contain absolute" :alt="mapObject(service, ['icon', 0, 'title'])">
+                                </div>
                                 <h2 class="mb-3 text-base font-bold md:text-lg xl:text-xl md:mb-6 xl:mb-8">{{ service.header }}</h2>
                                 <div class="flex-grow">
                                     <div class="mb-4 text-sm text-gray-900 wysiwyg-content xl:text-base md:mb-6 xl:mb-8" v-html="service.description"></div>
                                 </div>
-                                <a :href="service.serviceDetailLink" class="text-sm text-green-500 underline md:text-base" v-if="service.serviceDetailLink">Detail služby</a>
+                                <a :href="service.serviceDetailLink" class="text-sm text-green-500 underline md:text-base" v-if="service.serviceDetailLink">{{ service.serviceDetailText ? service.serviceDetailText : 'Detail služby' }}</a>
                             </div>
                             <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-10 xl:mb-16"></div>
                         </div>
@@ -40,7 +43,7 @@
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16">
-                        <h2 class="mb-4 text-lg font-bold text-center md:text-xl xl:text-2xl xl:mb-8">{{ page.developmentHeader }}</h2>
+                        <h2 class="mb-4 text-lg font-bold text-center md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
                         <div class="flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                             <div class="flex flex-wrap w-full mx-auto mb-4 md:w-16/24 md:mb-16">
                                 <div :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
@@ -53,7 +56,7 @@
                             <div class="w-full mb-4 md:w-8/24 md:mb-16">
                                 <div class="top-0 bottom-0 w-full px-2 mb-4 text-right xl:absolute md:flex md:justify-end xl:w-8/24 md:mb-16" :class="[index % 2 ? 'left-0' : 'right-0']">
                                     <div class="">
-                                        <img :src="mapObject(story, ['image', 0, 'url'])" class="inset-0 object-cover w-full h-full mx-auto xl:absolute" alt="symfony">
+                                        <img :src="mapObject(story, ['image', 0, 'url'])" class="inset-0 object-cover w-full h-full mx-auto xl:absolute" :alt="mapObject(story, ['image', 0, 'title'])">
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +77,7 @@
                         </div>
                         <div class="w-full mb-4 md:w-7/24 md:mb-16">
                             <div class="relative h-full">
-                                <img :src="mapObject(story, ['image', 0, 'url'])" class="mx-auto absolute w-full h-full object-cover" alt="technology" v-if="mapObject(story, ['image', 0, 'url'])">
+                                <img :src="mapObject(story, ['image', 0, 'url'])" class="mx-auto absolute w-full h-full object-cover" :alt="mapObject(story, ['image', 0, 'title'])" v-if="mapObject(story, ['image', 0, 'url'])">
                             </div>
                         </div>
                     </div>
@@ -121,6 +124,11 @@ query {
             id
             description
             serviceDetailLink
+            serviceDetailText
+            icon {
+              url
+              title
+            }
             header
           }
         }
@@ -138,7 +146,10 @@ query {
             subheader
             description
             isBigStory
-            image {url}
+            image {
+              url
+              title
+            }
           }
         }
       }
