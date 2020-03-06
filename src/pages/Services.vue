@@ -1,7 +1,7 @@
 <template>
     <Layout>
         <div class="max-w-screen-xl ml-auto mr-auto">
-            <section class="flex flex-wrap pt-6 lg:pt-16">
+            <section class="flex flex-wrap pt-6 xl:pt-16">
                 <div class="w-full px-4 text-center lg:pr-12">
                     <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                     <div class="mb-6 text-xs text-gray-700 xs:text-base xl:mb-16" v-html="page.excerpt"></div>
@@ -54,11 +54,13 @@
                                 </div>
                             </div>
                             <div class="w-full mb-4 md:w-8/24 md:mb-16">
-                                <div class="top-0 bottom-0 w-full px-2 mb-4 text-right xl:absolute md:flex md:justify-end xl:w-8/24 md:mb-16" :class="[index % 2 ? 'left-0' : 'right-0']">
-                                    <div class="">
-                                        <img :src="mapObject(story, ['image', 0, 'url'])" class="inset-0 object-cover w-full h-full mx-auto xl:absolute" :alt="mapObject(story, ['image', 0, 'title'])">
+                                 <div class="aspect-ratio-4/3">
+                                    <div class="top-0 bottom-0 w-full px-2 mb-4 text-right xl:absolute md:flex md:justify-end xl:w-8/24 md:mb-16" :class="[index % 2 ? 'left-0' : 'right-0']">
+                                        <div class="relative w-full h-0 aspect-ratio-4/3">
+                                            <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute inset-0 object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])">
+                                        </div>
                                     </div>
-                                </div>
+                                 </div>
                             </div>
                         </div>
                     </section>
@@ -94,15 +96,15 @@
                     </h3>
                     <div class="items-center mx-auto md:flex w-19/24 md:w-21/24 xl:w-19/24">
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-white transition-all duration-200 ease-in-out rounded-full md:text-base min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-white transition-all duration-200 ease-in-out rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">
                                 Domluvit schůzku
                             </a>
                         </div>
                         <div class="md:w-8/24">
-                            <div class="mb-3 text-xs text-center md:text-base">nebo si přečtěte</div>
+                            <div class="mb-3 text-xs text-center md:text-sm xl:text-base">nebo si přečtěte</div>
                         </div>
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-gray-800 transition-all duration-200 ease-in-out bg-white rounded-full  md:text-base min-w-40 hover:shadow-lg active">Něco o nás</a>
+                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-gray-800 transition-all duration-200 ease-in-out bg-white rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg active">Něco o nás</a>
                         </div>
                     </div>
                 </div>
