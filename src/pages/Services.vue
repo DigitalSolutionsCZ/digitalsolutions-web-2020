@@ -109,7 +109,7 @@
 <page-query>
 query {
   craft {
-    entry(slug: "služby") {
+    entry(slug: "services") {
       ... on craft_servicesPage_servicesPage_Entry {
         heading
         developmentHeader

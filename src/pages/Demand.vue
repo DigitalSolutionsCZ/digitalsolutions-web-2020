@@ -32,7 +32,7 @@
 <page-query>
 query {
   craft {
-    entry(slug: "poptávka") {
+    entry(slug: "demand") {
       ...on craft_demandPage_demandPage_Entry {
         heading
         description
