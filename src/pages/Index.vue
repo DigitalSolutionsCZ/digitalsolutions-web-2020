@@ -3,10 +3,9 @@
         <template #header="{menu, contact}">
             <section class="relative" data-cha-section data-theme="dark">
                 <div class="cha-header-clip" data-cha-header-clip>
-                    <div class="fixed inset-x-0 top-0 z-30 px-4 cha-header"
+                    <div class="fixed inset-x-0 top-0 z-50 px-4 cha-header"
                          style="background: var(--header-background)">
                         <site-header
-                            class="mx-auto max-w-screen-3xl"
                             :white="true"
                             data-cha-header
                             :menu="menu"

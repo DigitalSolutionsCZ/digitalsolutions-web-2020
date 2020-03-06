@@ -2,7 +2,7 @@
     <div class="flex flex-col h-full">
         <slot name="header" :menu="menu" :contact="link">
             <div class="px-4 fixed inset-x-0 top-0 z-30 bg-white">
-                <site-header :menu="menu" :contact="link" />
+                <site-header :menu="menu" :contact="link"/>
             </div>
         </slot>
         <slot name="content">
@@ -19,18 +19,24 @@
                             <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl">Kontakt</h3>
                             <div class="text-sm text-gray-300 xl:text-base">
                                 <div class="flex mb-2">
-                                    <icon symbol="i_map_point"
-                                          class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"></icon>
+                                    <icon
+                                        symbol="i_map_point"
+                                        class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
+                                    />
                                     <span>17. listopadu 203, 530 02 Pardubice</span>
                                 </div>
                                 <div class="flex mb-2">
-                                    <icon symbol="i_phone"
-                                          class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"></icon>
+                                    <icon
+                                        symbol="i_phone"
+                                        class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
+                                    />
                                     <strong>+420 775 300 500</strong>
                                 </div>
                                 <div class="flex mb-4">
-                                    <icon symbol="i_envelope"
-                                          class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"></icon>
+                                    <icon
+                                        symbol="i_envelope"
+                                        class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
+                                    />
                                     <span>info@digital.cz</span>
                                 </div>
                             </div>
@@ -68,10 +74,10 @@
                                 </li>
                             </ul>
                             <div class="flex flex-wrap items-center text-gray-400">
-                                <icon symbol="i_facebook" class="w-8 h-8 mb-4 mr-1 fill-current"></icon>
-                                <icon symbol="i_twitter" class="w-8 h-8 mb-4 fill-current"></icon>
-                                <icon symbol="i_linkedin" class="w-8 h-8 mb-4 mr-1 fill-current"></icon>
-                                <icon symbol="i_instagram" class="w-8 h-8 mb-4 fill-current"></icon>
+                                <icon symbol="i_facebook" class="w-8 h-8 mb-4 mr-1 fill-current"/>
+                                <icon symbol="i_twitter" class="w-8 h-8 mb-4 fill-current"/>
+                                <icon symbol="i_linkedin" class="w-8 h-8 mb-4 mr-1 fill-current"/>
+                                <icon symbol="i_instagram" class="w-8 h-8 mb-4 fill-current"/>
                             </div>
                         </div>
                     </div>
@@ -84,6 +90,7 @@
 
 <script>
 import SiteHeader from "~/components/Layouts/Header.vue"
+
 export default {
     components: {
         SiteHeader
