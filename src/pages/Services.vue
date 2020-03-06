@@ -11,7 +11,7 @@
         <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="mx-4">
-                <div class="relative max-w-screen-xl pt-4 pb-6 ml-auto mr-auto md:pt-6">
+                <div class="relative max-w-screen-xl pt-4 pb-4 ml-auto mr-auto xl:pb-8 xl:pt-8">
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
                             <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-10 xl:mb-16" v-for="service in page.mainServices" :key="service.id">
@@ -30,9 +30,9 @@
                             <div class="w-full mb-1 md:w-11/24" v-for="subService in page.subServices" :key="subService.id">
                                 <div class="">
                                     <h3 class="mb-1 text-sm font-bold md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
-                                    <div class="mb-3 text-xs md:text-sm text-gray-900 md:mb-4" v-html="subService.description"></div>
+                                    <div class="mb-3 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
                                 </div>
-                                <a :href="subService.subServiceLink" class="block mb-3 text-xs md:text-sm font-bold text-green-500 underline" v-if="subService.subServiceLink">Detail služby</a>
+                                <a :href="subService.subServiceLink" class="block mb-3 text-xs font-bold text-green-500 underline md:text-sm" v-if="subService.subServiceLink">Detail služby</a>
                             </div>
                         </div>
                     </section>
