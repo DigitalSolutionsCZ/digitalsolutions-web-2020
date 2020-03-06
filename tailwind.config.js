@@ -138,7 +138,17 @@ module.exports = {
             },
 
             inset: {
-                '1/2': '50%'
+                '1/2': '50%',
+                'full': '100%'
+            },
+             opacity: {
+                10: '.1'
+             },
+            transitionTimingFunction: {
+                'snap': 'cubic-bezier(.22,.68,0,1.15)'
+            },
+            scale: {
+                25: '25'
             }
         },
         screens: {

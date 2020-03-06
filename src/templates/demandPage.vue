@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :chameleon="false">
         <div class="px-4">
             <div class="max-w-screen-xl ml-auto mr-auto">
                 <section class="pt-6 pb-10 md:pt-12 xl:pt-16 xl:pb-16">

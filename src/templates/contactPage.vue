@@ -1,24 +1,26 @@
 <template>
     <Layout>
-        <div class="max-w-screen-xl ml-auto mr-auto md:w-18/24 xl:w-14/24">
-            <section class="flex flex-wrap pt-6 pb-6 xl:pt-16 xl:pb-16">
-                <div class="px-4 text-center">
-                    <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading" />
-                    <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
-                    <div class="items-center md:flex" v-if="page.showContactButtons">
-                        <div class="md:w-9/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold transition-all duration-200 ease-in-out bg-gray-100 rounded-full min-w-40 hover:shadow-lg active">Napište nám</a>
-                        </div>
-                        <div class="md:w-6/24">
-                            <div class="mb-3 text-base text-center">nebo vyplňte</div>
-                        </div>
-                        <div class="md:w-9/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">Nezávaznou poptávku</a>
+        <template #headerSection>
+            <div class="max-w-screen-xl ml-auto mr-auto md:w-18/24 xl:w-14/24">
+                <section class="flex flex-wrap pt-6 pb-6 xl:pt-16 xl:pb-16">
+                    <div class="px-4 text-center">
+                        <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading" />
+                        <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
+                        <div class="items-center md:flex" v-if="page.showContactButtons">
+                            <div class="md:w-9/24">
+                                <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold transition-all duration-200 ease-in-out bg-gray-100 rounded-full min-w-40 hover:shadow-lg active">Napište nám</a>
+                            </div>
+                            <div class="md:w-6/24">
+                                <div class="mb-3 text-base text-center">nebo vyplňte</div>
+                            </div>
+                            <div class="md:w-9/24">
+                                <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">Nezávaznou poptávku</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </template>
         <div class="relative mb-4 md:mb-8 xl:mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4 py-4 xl:py-8 md:px-16">
