@@ -146,9 +146,9 @@ export default {
         this.prevUrl = this.$context.prevUrl;
         this.nextUrl = this.$context.nextUrl;
         this.moreCount = this.$context.moreCount;
-
+    },
+    mounted() {
         window.addEventListener('popstate', this.popState);
-
         this.$once("hook:destroyed", () => {
             window.removeEventListener("popstate", this.popState);
         });
