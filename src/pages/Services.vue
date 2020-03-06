@@ -51,8 +51,10 @@
                                 </div>
                             </div>
                             <div class="w-full mb-4 md:w-8/24 md:mb-16">
-                                <div class="top-0 bottom-0 right-0 w-full px-2 mb-4 text-right xl:absolute md:flex md:justify-end xl:w-8/24 md:mb-16">
-                                    <img :src="mapObject(story, ['image', 0, 'url'])" class="inset-0 object-cover w-full h-full mx-auto xl:absolute" alt="symfony">
+                                <div class="top-0 bottom-0 w-full px-2 mb-4 text-right xl:absolute md:flex md:justify-end xl:w-8/24 md:mb-16" :class="[index % 2 ? 'left-0' : 'right-0']">
+                                    <div class="">
+                                        <img :src="mapObject(story, ['image', 0, 'url'])" class="inset-0 object-cover w-full h-full mx-auto xl:absolute" alt="symfony">
+                                    </div>
                                 </div>
                             </div>
                         </div>
