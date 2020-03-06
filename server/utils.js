@@ -23,12 +23,11 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
         Array.from({length: numPages}).forEach((_, i) => {
             const currentPage = i + 1;
             const nextUrl = numPages !== currentPage ? `${path}${paginationLogic}${currentPage + 1}` : null;
-            const prevUrl =
-                currentPage !== 1
-                    ? currentPage === 2
-                        ? path
-                        : `${path}${paginationLogic}$${currentPage - 1}`
-                    : null;
+
+            let prevUrl = null;
+            if (currentPage === 2) prevUrl = path;
+            if (currentPage > 2) prevUrl = `${path}${paginationLogic}${currentPage - 1}`;
+
             const moreCount = (length - (currentPage * perPage) >= perPage)
                 ? perPage
                 : (length % perPage);
