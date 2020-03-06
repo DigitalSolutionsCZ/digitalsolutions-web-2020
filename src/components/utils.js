@@ -22,3 +22,11 @@ export function mapObject(object, keys, transform) {
   }
   return object;
 }
+
+export function shallowObjectValuesToInt(object) {
+  const parsedObject = {};
+  Object.keys(object).map( key => {
+    parsedObject[key] = parseInt(object[key]);
+  });
+  return parsedObject;
+}
