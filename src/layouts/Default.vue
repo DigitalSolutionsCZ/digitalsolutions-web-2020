@@ -1,9 +1,7 @@
 <template>
     <div class="flex flex-col h-full">
         <slot name="header" :menu="menu" :contact="link">
-            <div class="px-4 fixed inset-x-0 top-0 z-30 bg-white">
-                <site-header :menu="menu" :contact="link"/>
-            </div>
+            <site-header data-cha-header :menu="menu" :contact="link"/>
         </slot>
         <slot name="content">
             <div class="flex-grow mt-12 md:mt-20 xl:mt-24">

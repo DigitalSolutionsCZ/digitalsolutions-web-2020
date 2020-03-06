@@ -3,23 +3,24 @@
         <template #header="{menu, contact}">
             <section class="relative" data-cha-section data-theme="dark">
                 <div class="cha-header-clip" data-cha-header-clip>
-                    <div class="fixed inset-x-0 top-0 z-50 px-4 cha-header"
-                         style="background: var(--header-background)">
+                    <div>
                         <site-header
+                            class="cha-header"
+                            style="background: var(--header-background)"
                             :white="true"
                             data-cha-header
                             :menu="menu"
                             :contact="contact"
                         >
                             <template #logo>
-                                <g-link to="/" class="relative flex items-center h-12 md:h-20 xl:h-24">
+                                <g-link to="/" class="flex items-center pl-2 w-36 md:w-48 relative">
                                     <img
                                         src="../images/logo-ds.png"
-                                        style="visibility: var(--logo-color-visibility)" class="absolute"
+                                        style="visibility: var(--logo-color-visibility)" class="w-auto absolute"
                                     />
                                     <img
                                         src="../images/logo-ds-white.png"
-                                        style="visibility: var(--logo-white-visibility)" class="absolute"
+                                        style="visibility: var(--logo-white-visibility)" class="w-auto absolute"
                                     />
                                 </g-link>
                             </template>
@@ -52,9 +53,9 @@
             </section>
         </template>
         <template #content>
-            <section class="relative mb-16">
+            <section class="relative">
                 <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}" class="absolute inset-0"></div>
-                <div class="relative" data-cha-section>
+                <div class="relative overflow-hidden" data-cha-section>
                     <div class="pt-6 md:pt-8 xl:pt-16">
                         <div class="max-w-screen-xl mx-auto">
                             <div class="px-4 mx-auto w-22/24 md:w-18/24">
@@ -127,7 +128,7 @@
                     </div>
                 </div>
             </section>
-            <section class="relative" data-cha-section>
+            <section class="relative pt-16" data-cha-section>
                 <div class="max-w-screen-xl px-4 mx-auto">
                     <h2 class="mb-4 text-base font-bold text-center md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">
                         {{ page.homepageAssignmentsHeader }}
