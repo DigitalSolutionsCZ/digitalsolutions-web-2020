@@ -6,7 +6,7 @@
         <slot v-else></slot>
         <transition name="form-error">
             <div v-if="props.errorMessage && props.errorMessage.length > 0">
-                <div v-for="(message, index) in props.errorMessage" :key="index" class="text-red-600 text-sm">{{ message }}</div>
+                <div v-for="(message, index) in props.errorMessage" :key="index" class="text-left text-red-600 text-sm">{{ message }}</div>
             </div>
         </transition>
     </div>

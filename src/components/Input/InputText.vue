@@ -1,7 +1,7 @@
 <template>
     <input-wrapper :value="value" :error-message="errors ? errors.messages: null">
         <label class="transition-all duration-500 ease-in-out pointer-events-none border-transparent border absolute"
-               :class="[{'text-red-500': isError }, value ? 'text-black text-xs font-bold mt-0 ml-0 pb-1 transform -translate-y-full' : 'text-gray-200 ml-3 mt-3 xl:mt-4', labelClass]" :for="id" >
+               :class="[{'text-red-500': isError }, value ? 'text-black text-xs font-bold mt-0 ml-0 pb-1 transform -translate-y-full' : 'text-gray-200 ml-3 inset-y-0 flex items-center', labelClass]" :for="id" >
             {{ label }}
             <template v-if="required">*</template>
         </label>
