@@ -38,7 +38,7 @@
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4">
             <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
                  class="absolute inset-0 bg-center pointer-events-none"></div>
-            <div class="relative max-w-screen-xl mx-auto overflow-hidden" v-if="list.length > 0">
+            <div class="relative w-full max-w-screen-xl mx-auto overflow-hidden" v-if="list.length > 0">
                 <div class="flex flex-wrap justify-center mb-4 -mx-2">
                     <div
                         v-for="(reference, index) in list"
@@ -103,6 +103,7 @@ import referenceFullWidthSmall from "../components/Reference/referenceFullWidthS
 import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 import {fetch} from 'gridsome'
+import {mapObject} from "../components/utils";
 import slugify from "@sindresorhus/slugify";
 
 export default {
@@ -153,6 +154,7 @@ export default {
         });
     },
     methods: {
+        mapObject,
         async popState(value) {
             const response = await this.fetchData(value.target.location.pathname);
 

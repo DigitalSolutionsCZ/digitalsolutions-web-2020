@@ -7,7 +7,12 @@
                 <h2 class="mb-2 text-base font-black xl:mb-3 md:leading-tight md:text-lg xl:text-xl">{{
                     props.reference.heading }}</h2>
             </g-link>
-            <span class="inline-block mb-4 text-sm text-green-500 md:mb-5 xl:mb-8" v-if="props.reference.vyberKlienta">{{ props.reference.vyberKlienta[0].title }}</span>
+            <span
+                class="inline-block mb-4 text-sm text-green-500 md:mb-5 xl:mb-8"
+                v-if="parent.mapObject(props.reference, ['vyberKlienta', 0, 'title'])"
+            >
+                {{ parent.mapObject(props.reference, ['vyberKlienta', 0, 'title']) }}
+            </span>
             <div class="text-xs text-gray-600 md:text-sm xl:text-base w-full md:w-21/24"
                  v-html="props.reference.excerpt"/>
         </div>
@@ -22,7 +27,7 @@
                 >
                     <g-image
                         class="absolute inset-0 object-cover w-full h-full"
-                        :src="props.reference.referenceMultipleImages[0].url"
+                        :src="parent.mapObject(props.reference, ['referenceMultipleImages', 0, 'url'])"
                     />
                 </g-link>
             </div>
