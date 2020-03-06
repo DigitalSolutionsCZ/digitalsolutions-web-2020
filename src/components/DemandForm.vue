@@ -53,11 +53,13 @@
             </div>
         </div>
         <div class="flex flex-wrap">
-            <div class="w-full mb-4 text-sm md:w-17/24 xl:w-18/24 md:pr-8 xl:text-base">
+            <div class="w-full mb-8 text-sm md:w-15/24 lg:w-16/24 xl:w-17/24 md:pr-8 xl:text-base">
                 Můžete také zavolat: <strong>+420&nbsp;775&nbsp;300&nbsp;500</strong><span class="md:block"> (PO-PÁ 8-17).</span>
             </div>
-            <div class="w-full mb-4 md:w-7/24 xl:w-6/24">
-                <button class="w-full px-4 py-3 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full hover:shadow-lg bg-gradient-r-blue-green active">Odeslat</button>
+            <div class="w-full mb-4 md:w-9/24 lg:w-8/24 xl:w-7/24">
+                <div class="flex justify-center md:justify-end">
+                    <project-button tag="button">Odeslat</project-button>
+                </div>
             </div>
         </div>
     </form>
@@ -67,10 +69,13 @@
   import axios from "axios";
   import { toFormData } from './utils';
   import InputText from  "./Input/InputText";
+  import ProjectButton from './ProjectButton'
+
 
   export default {
     components: {
-      InputText
+      InputText,
+      ProjectButton
     },
     data () {
       return {
