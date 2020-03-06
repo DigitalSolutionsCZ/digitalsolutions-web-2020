@@ -22,3 +22,55 @@ export function mapObject(object, keys, transform) {
   }
   return object;
 }
+
+function* eachKeyValue(object) {
+  const keys = Object.keys(object);
+  for (const key of keys) {
+    yield [key, object[key]];
+  }
+}
+
+function getType(value) {
+  if (value instanceof Blob) {
+    return 'Blob';
+  } else if (value instanceof File) {
+    return 'File';
+  } else if (value instanceof FileList) {
+    return 'FileList';
+  } else {
+    return 'SomethingElse';
+  }
+}
+
+export function isSupported() {
+  return FormData && Blob && File && FileList;
+}
+
+export function toFormData(object) {
+  if (!isSupported()) {
+    throw new Error('Your browser does not support FormData');
+  }
+
+  const form = new FormData();
+  for (const [name, value] of eachKeyValue(object)) {
+    const type = getType(value);
+    switch (type) {
+      case 'Blob':
+        form.append(name, value, name);
+        break;
+      case 'File':
+        form.append(name, value, value.name);
+        break;
+      case 'FileList': {
+        for (let i = 0; i < value.length; ++i) {
+          const file = value[i];
+          form.append(name, file, file.name);
+        }
+        break;
+      }
+      default:
+        form.append(name, value);
+    }
+  }
+  return form;
+}

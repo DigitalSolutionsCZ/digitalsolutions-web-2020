@@ -1,5 +1,5 @@
 <template>
-    <form name="contact-form"  method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
+    <form name="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
         <div class="flex flex-wrap">
             <div class="w-full">
                 <input-text

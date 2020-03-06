@@ -19,38 +19,9 @@
                                 </div>
                             </div>
                             <div class="md:w-12/24 xl:w-11/24">
-                                <div class="flex flex-wrap">
-                                    <div class="w-full">
-                                        <input type="text" class="w-full p-3 mb-4 text-sm leading-5 placeholder-gray-200 border border-gray-200 rounded md:text-sm xl:p-4 xl:text-base md:mb-6 xl:mb-8" placeholder="Jméno a příjmení">
-                                    </div>
-                                    <div class="w-full md:pr-4 md:w-12/24">
-                                        <input type="text" class="w-full p-3 mb-4 text-sm leading-5 placeholder-gray-200 border border-gray-200 rounded md:text-sm xl:p-4 xl:text-base md:mb-6 xl:mb-8" placeholder="Email">
-                                    </div>
-                                    <div class="w-full md:w-12/24">
-                                        <input type="text" class="w-full p-3 mb-4 text-sm leading-5 placeholder-gray-200 border border-gray-200 rounded md:text-sm xl:p-4 xl:text-base md:mb-6 xl:mb-8" placeholder="Telefon">
-                                    </div>
-                                    <div class="w-full">
-                                        <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
-                                    </div>
-                                    <div class="w-full">
-                                        <label for="exampleFileUpload" class="flex items-center w-full p-3 mb-4 text-sm text-gray-200 placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8">Přiložit soubory (max. 10MB)</label>
-                                        <input type="file" id="exampleFileUpload" class="absolute invisible">
-                                    </div>
-                                    <div class="w-full">
-                                        <input type="text" class="w-full p-3 mb-4 text-sm leading-5 placeholder-gray-200 border border-gray-200 rounded md:text-sm xl:p-4 xl:text-base md:mb-6 xl:mb-8" placeholder="Představu o rozpočtu">
-                                    </div>
-                                </div>
-                                <div class="flex flex-wrap">
-                                    <div class="w-full mb-4 text-sm md:w-17/24 xl:w-18/24 md:pr-8 xl:text-base">
-                                        Můžete také zavolat: <strong>+420&nbsp;775&nbsp;300&nbsp;500</strong><span class="md:block"> (PO-PÁ 8-17).</span>
-                                    </div>
-                                    <div class="w-full mb-4 md:w-7/24 xl:w-6/24">
-                                        <button class="w-full px-4 py-3 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full hover:shadow-lg bg-gradient-r-blue-green active">Odeslat</button>
-                                    </div>
-                                </div>
+                                <demand-form></demand-form>
                             </div>
                         </div>
-
                     </div>
                 </section>
             </div>
@@ -61,7 +32,7 @@
 <page-query>
 query {
   craft {
-    entry(slug: "poptávka") {
+    entry(slug: "demand") {
       ...on craft_demandPage_demandPage_Entry {
         heading
         description
@@ -80,9 +51,13 @@ query {
 </page-query>
 
 <script>
+  import DemandForm from '~/components/DemandForm';
   import { mapObject } from  '~/components/utils';
 
   export default {
+    components: {
+      DemandForm
+    },
     computed: {
       page() {
         return this.$page.craft.entry;
