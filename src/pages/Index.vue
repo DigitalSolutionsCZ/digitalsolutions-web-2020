@@ -59,15 +59,20 @@
           </div>
         </div>
         <div class="flex h-screen-1/2 lg:h-screen bg-gradient-tr-blue-green overflow-hidden" v-keyframes style="perspective: 900px">
-          <section class="self-center w-full" :data-keyframes="JSON.stringify({
-           0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
-           30: { opacity: .3, transform: 'translateY(15vh) rotateX(0deg)' },
-           50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
+          <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
+            atLeastBreakpoint('lg') ? {
+              0: { transform: 'translateY(0vh) rotate(0deg)' },
+              15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
+              30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
+              50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
+            } : {
+              10: { opacity: 1, transform: 'translateY(20%)' },
+              25: { opacity: 0, }
             })">
-            <div class="max-w-6xl mx-auto">
+              <div class="max-w-6xl mx-auto">
               <div class="text-center">
                 <h1 class="leading-none text-white xl:text-3xl xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
-                <div class="mb-10 text-white opacity-75">{{ page.homepageSubheader }}</div>
+                <div class="mb-4 lg:mb-10 text-white opacity-75">{{ page.homepageSubheader }}</div>
                 <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                   {{ page.homepageButtonText }}
                 </g-link>
@@ -200,6 +205,7 @@ query {
 </page-query>
 
 <script>
+import twconfig from '../../tailwind.config';
 import init from '../components/ChameleonHeader.js';
 import SubLink from "../components/SubLink.vue";
 import { mapObject } from  '~/components/utils';
