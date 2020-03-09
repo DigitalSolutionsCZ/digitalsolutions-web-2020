@@ -80,7 +80,6 @@ export default {
     },
     mounted() {
         this.reference = this.$refs.reference;
-        this.popper = this.$refs.content;
 
         const escape = (e) => {
             if (this.open && e.keyCode === 27) {
@@ -88,15 +87,13 @@ export default {
             }
         };
         const clickOutsideEvent = (e) => {
-            if (this.open && !(this.$el === e.target || this.$el.contains(e.target) || this.popper.contains(e.target))) {
+            if (this.open && !(this.$el === e.target || this.$el.contains(e.target))) {
                 this.close();
             }
         };
         document.addEventListener("keyup", escape);
         document.addEventListener("click", clickOutsideEvent);
         this.$once("hook:destroyed", () => {
-            this.close();
-            this.popperJs.destroy();
             document.removeEventListener("keyup", escape);
             document.removeEventListener("click", clickOutsideEvent);
         });
@@ -105,26 +102,13 @@ export default {
         close() {
             this.open = false;
             this.$emit("close");
-            this.$nextTick(() => {
-                this.closePopper();
-            })
         },
         expand() {
             this.open = true;
-            this.openPopper();
             this.$emit("open");
         },
         toggle() {
             this.open ? this.close() : this.expand();
-        },
-        openPopper() {
-            document.body.appendChild(this.popper);
-            this.$nextTick(() => {
-                this.popperJs = this.popperJs || new Popper(this.reference, this.popper, this.popperConfig);
-            })
-        },
-        closePopper() {
-            this.$el.appendChild(this.popper);
         },
         afterLeave() {
             this.$emit("dropdown-open");
