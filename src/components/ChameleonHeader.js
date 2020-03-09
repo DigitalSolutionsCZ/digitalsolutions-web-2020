@@ -5,6 +5,7 @@ const ChaHeader = function (element) {
   // handle mobile behaviour
   this.headerTrigger = this.element.getElementsByClassName('js-cha-header__trigger');
   this.modal = document.getElementsByClassName('js-cha-modal');
+  this.triger = element.querySelector('[data-toggle-menu]');
   this.focusMenu = false;
   this.firstFocusable = null;
   this.lastFocusable = null;

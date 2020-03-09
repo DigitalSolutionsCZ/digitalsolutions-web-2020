@@ -1,10 +1,35 @@
 const {referencePage} = require("./server/references");
+const {allPages} = require("./server/pages");
 
 module.exports = function (api) {
     api.createPages(async ({graphql, createPage}) => {
-
-        const {data} = await graphql(`{
+        const {data} = await graphql(`
+            {
               craft {
+                pages: entries {
+                  title,
+                  id,
+                  slug,
+                  typeHandle,
+                  ...on craft_referencePage_referencePage_Entry {
+                        itemUrl
+                    }
+                    ...on craft_demandPage_demandPage_Entry {
+                        itemUrl
+                    }
+                    ...on craft_contactPage_contactPage_Entry {
+                        itemUrl
+                    }
+                    ...on craft_servicesPage_servicesPage_Entry {
+                        itemUrl
+                    }
+                    ...on craft_referencePage_referencePage_Entry {
+                        itemUrl
+                    }
+                    ...on craft_referencesItem_referenceFullWidth_Entry {
+                        itemUrl
+                    }
+                },
                 referencePage: entry(slug: "reference") {
                   id,
                   slug,
@@ -42,9 +67,12 @@ module.exports = function (api) {
                     }
                 }
               }
-            }`);
+            }
+            `);
 
-        await referencePage(data, createPage);
+        allPages(data, createPage);
+        referencePage(data, createPage);
+
 
     })
 }

@@ -6,3 +6,16 @@
 
 @import "tailwindcss/utilities";
 
+@responsive {
+    .cha-header-clip {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    }
+
+    .cha-nav-link-color {
+        color: var(--nav-link-color);
+    }
+
+    .cha-nav-link-underline {
+        background: var(--nav-link-decoration-background);
+    }
+}

@@ -1,24 +1,26 @@
 <template>
     <Layout>
-        <div class="mx-auto max-w-screen-md">
-            <section class="flex flex-wrap pt-6 pb-3 xl:pt-16 xl:pb-16">
-                <div class="px-4 text-center">
-                    <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
-                    <div class="items-center md:flex" v-if="page.showContactButtons">
-                        <div class="md:w-9/24">
-                            <project-button class="mb-3 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
-                        </div>
-                        <div class="md:w-6/24">
-                            <div class="mb-3 text-base text-center">nebo vyplňte</div>
-                        </div>
-                        <div class="md:w-9/24">
-                            <project-button class="mb-3 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+        <template #headerSection>
+            <div class="mx-auto max-w-screen-md">
+                <section class="flex flex-wrap pt-6 pb-3 xl:pt-16 xl:pb-16">
+                    <div class="px-4 text-center">
+                        <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
+                        <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
+                        <div class="items-center md:flex" v-if="page.showContactButtons">
+                            <div class="md:w-9/24">
+                                <project-button class="mb-3 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
+                            </div>
+                            <div class="md:w-6/24">
+                                <div class="mb-3 text-base text-center">nebo vyplňte</div>
+                            </div>
+                            <div class="md:w-9/24">
+                                <project-button class="mb-3 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </div>
+                </section>
+            </div>
+        </template>
         <div class="relative mb-4 md:mb-8 xl:mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4 py-4 xl:py-8 md:px-16">
@@ -34,7 +36,9 @@
                         </div>
                         <div class="w-full md:w-11/24 lg:w-9/24">
                             <div class="py-12 pl-8 pr-4">
-                                <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">{{ mapObject(page, ['contactAdress', 0, 'header']) }}</div>
+                                <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">
+                                    {{ mapObject(page, ['contactAdress', 0, 'header']) }}
+                                </div>
                                 <div class="text-sm text-gray-900 md:text-base xl:text-lg">
                                     <div class="flex mb-2">
                                         <icon symbol="i_map_point" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
@@ -98,44 +102,44 @@
 </template>
 
 <page-query>
-query {
-  craft {
-    entry(slug: "kontakt") {
-      ... on craft_contactPage_contactPage_Entry {
-        heading
-        excerpt
-        itemUrl
-        showContactButtons
-        subheading
-        body
-        contactFormHeader
-        threeTextColumns {
-          ... on craft_threeTextColumns_sloupce_BlockType {
-            id
-            header
-            description
-          }
+    query($slug: [String]) {
+        craft {
+            entry(slug: $slug) {
+                ... on craft_contactPage_contactPage_Entry {
+                    heading
+                    excerpt
+                    itemUrl
+                    showContactButtons
+                    subheading
+                    body
+                    contactFormHeader
+                    threeTextColumns {
+                        ... on craft_threeTextColumns_sloupce_BlockType {
+                            id
+                            header
+                            description
+                        }
+                    }
+                    map {
+                        ...on craft_map_contactMap_BlockType {
+                            contactMapLink
+                            contactMapImage {url}
+                            contactMapNewWindow
+                        }
+                    }
+                    contactAdress {
+                        ...on craft_contactAdress_contactBlock_BlockType {
+                            header
+                            address
+                            phone
+                            email
+                            description
+                        }
+                    }
+                }
+            }
         }
-        map {
-          ...on craft_map_contactMap_BlockType {
-          	contactMapLink
-            contactMapImage {url}
-            contactMapNewWindow
-          }
-        }
-        contactAdress {
-        	...on craft_contactAdress_contactBlock_BlockType {
-            header
-            address
-            phone
-            email
-            description
-          }
-        }
-      }
     }
-  }
-}
 </page-query>
 <script>
   import ContactForm from '../components/ContactForm'

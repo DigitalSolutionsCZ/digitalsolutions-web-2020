@@ -25,7 +25,7 @@ async function referencePage(data, createPage) {
     paginateEntries(createPage, {
         length: references.length,
         perPage,
-        component: './src/templates/ReferencePage.vue',
+        component: './src/templates/referencePage.vue',
         path: referenceUrl,
         context: {
             id: referencePage.id,
@@ -44,7 +44,7 @@ async function referencePage(data, createPage) {
         paginateEntries(createPage, {
             length,
             perPage,
-            component: './src/templates/ReferencePage.vue',
+            component: './src/templates/referencePage.vue',
             path: `${referenceUrl}/${category.slug}`,
             context: {
                 id: category.id,
