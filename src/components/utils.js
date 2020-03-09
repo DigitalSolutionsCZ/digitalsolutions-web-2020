@@ -74,3 +74,11 @@ export function toFormData(object) {
   }
   return form;
 }
+
+export function shallowObjectValuesToInt(object) {
+  const parsedObject = {};
+  Object.keys(object).map( key => {
+    parsedObject[key] = parseInt(object[key]);
+  });
+  return parsedObject;
+}
