@@ -1,4 +1,5 @@
 import slugify from "@sindresorhus/slugify";
+import stripHtml from "string-strip-html";
 
 export function transformSingleArrayToObject(data, keys) {
   for (const key of keys) {
@@ -93,4 +94,26 @@ export function shallowObjectValuesToInt(object) {
  */
 export function getUrl(url, title) {
   return url !== "" ? url : '/' + slugify(title)
+}
+
+
+export function metaInfo({title, heading}, context) {
+  const metaArray = [];
+  let seoTitle;
+    seoTitle = title || stripHtml(heading);
+    if (context.seoKeywords) metaArray.push({
+      key: 'keywords',
+      name: 'keywords',
+      content: context.seoKeywords
+    });
+
+    if (context.seoDescription) metaArray.push({
+      key: 'description',
+      name: 'description',
+      content: context.seoDescription
+    });
+  return {
+    title: seoTitle,
+    meta: metaArray
+  };
 }

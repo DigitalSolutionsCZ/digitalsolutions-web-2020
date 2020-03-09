@@ -205,6 +205,9 @@
                             }
                         }
                     }
+                    seoTitle
+                    seoKeywords
+                    seoDescription
                 }
             }
         }
@@ -213,11 +216,17 @@
 
 <script>
 import SubLink from "../components/SubLink.vue";
-import {mapObject} from '~/components/utils';
+import {mapObject, metaInfo} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
 
 export default {
+    metaInfo() {
+        return metaInfo({title: this.$page.seoTitle, heading:this.page.heading}, {
+            keywords: this.$page.seoKeywords,
+            description: this.$page.seoDescription
+        })
+    },
     components: {
         SubLink,
         ContactForm,
@@ -227,9 +236,6 @@ export default {
         page() {
             return this.$page.craft.entry;
         },
-    },
-    metaInfo: {
-        title: 'Homepage'
     },
     methods: {
         mapObject

@@ -178,11 +178,14 @@
 <script>
   import VueSlickCarousel from 'vue-slick-carousel';
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
-  import { mapObject } from  '~/components/utils';
+  import { mapObject, metaInfo } from  '~/components/utils';
 
   export default {
-    metaInfo: {
-      title: 'Reference'
+    metaInfo() {
+        return metaInfo({title: this.$page.seoTitle, heading:this.page.heading}, {
+            keywords: this.$page.seoKeywords,
+            description: this.$page.seoDescription
+        })
     },
     components: {
       VueSlickCarousel
@@ -261,7 +264,10 @@ query CraftEntry($slug: [String]) {
             }
             gallery {
                 url
-            }
+            },
+            seoDescription,
+            seoKeywords,
+            seoTitle
           }
         }
     }
