@@ -4,8 +4,9 @@
     >
         <div class="relative z-20 p-4 md:p-8 xl:pb-8 xl:px-16 xl:pt-16">
             <g-link :to="props.baseUrl" class="block w-18/24 md:w-16/24">
-                <h2 class="mb-2 text-base font-black xl:mb-3 xl:leading-tight md:text-xl xl:text-2xl">{{
-                    props.reference.heading }}</h2>
+                <h2 class="mb-2 text-base font-black xl:mb-3 xl:leading-tight md:text-xl xl:text-2xl">
+                    {{ props.reference.heading }}
+                </h2>
             </g-link>
             <span
                 class="inline-block mb-4 text-sm text-green-500 md:mb-5 md:mb-8"
@@ -16,8 +17,10 @@
             <div class="w-full text-xs leading-relaxed text-gray-600 md:text-base md:w-12/24 xl:w-14/24"
                  v-html="props.reference.excerpt"/>
         </div>
-        <sub-link :href="props.baseUrl"
-                  :label="props.reference.referenceDetailLinkText ? props.reference.referenceDetailLinkText : 'Prohlédnout referenci'"/>
+        <sub-link
+            :href="props.baseUrl"
+            :label="props.reference.referenceDetailLinkText ? props.reference.referenceDetailLinkText : 'Prohlédnout referenci'"
+        />
         <div
             class="bottom-0 right-0 z-10 z-20 grid grid-cols-11 gap-4 px-2 text-right pointer-events-none md:absolute md:w-full md:grid-cols-none">
             <div

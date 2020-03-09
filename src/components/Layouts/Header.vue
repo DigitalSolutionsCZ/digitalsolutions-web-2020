@@ -25,7 +25,7 @@
                                 :key="menuItem.id"
                                 class="relative flex items-center px-4 py-4 text-xs transition-all duration-200 ease-in-out md:mr-3 xl:mr-10 group lg:text-base"
                                 :class="[white ? 'cha-nav-link md:cha-nav-link-color' : 'hover:text-gray-900']"
-                                :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'slug']))"
+                                :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), menuItem, ['menuLink', '0', 'slug'])"
                             >
                                 <div class="leading-tight md:relative">
                                     {{ menuItem.menuName }}

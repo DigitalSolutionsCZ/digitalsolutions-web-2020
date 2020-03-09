@@ -196,7 +196,7 @@
   import VueSlickCarousel from 'vue-slick-carousel';
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
   import { mapObject, metaInfo } from  '~/components/utils';
-  import SubLink from "../components/SubLink.vue";
+  import SubLink from "~/components/SubLink.vue";
   import ProjectButton from "~/components/ProjectButton.vue";
 
   export default {

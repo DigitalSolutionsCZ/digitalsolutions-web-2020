@@ -116,11 +116,11 @@ export default {
                     name,
                     menu {
                         ...on craft_menu_internalItem_BlockType {
-                            slug,
                             id,
                             menuName,
                             menuLink {
                                 slug,
+                                title,
                                 ...ItemUrl
                             }
                         }
@@ -147,7 +147,6 @@ export default {
                     footerHeadlineCompany,
                     menu {
                         ...on craft_menu_internalItem_BlockType {
-                            slug,
                             id,
                             menuName,
                             menuLink {
