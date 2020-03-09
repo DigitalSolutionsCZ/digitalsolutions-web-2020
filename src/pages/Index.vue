@@ -2,7 +2,7 @@
     <Layout>
         <template #header="{menu, contact}">
             <section class="relative cha-main-header" data-cha-section data-theme="dark">
-                <div class="md:cha-header-clip absolute inset-0 pointer-events-none z-30" data-cha-header-clip>
+                <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                     <site-header
                         class="cha-header"
                         :white="true"
@@ -11,20 +11,22 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="flex items-center pl-2 w-36 md:w-48 relative">
+                            <g-link to="/" class="relative flex items-center pl-2 w-36 md:w-48">
                                 <img
                                     src="../images/logo-ds.png"
-                                    class="w-auto absolute logo-color"
+                                    class="absolute w-auto logo-color"
+                                    alt="logo společnosti"
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
-                                    class="w-auto absolute logo-white hidden md:block"
+                                    class="absolute hidden w-auto logo-white md:block"
+                                    alt="logo společnosti"
                                 />
                             </g-link>
                         </template>
                     </site-header>
                 </div>
-                <div class="flex h-screen bg-gradient-tr-blue-green overflow-hidden"
+                <div class="flex py-12 mt-12 overflow-hidden hp-header bg-gradient-tr-blue-green md:py-0 md:mt-0"
                      v-keyframes
                      style="perspective: 900px">
                   <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
@@ -33,20 +35,28 @@
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
                         50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
-                      } : {
-                        10: { opacity: 1, transform: 'translateY(20%)' },
-                        25: { opacity: 0, transform: 'translateY(20%)' }
-                      })">
+                      } : {})">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
-                        <h1 class="leading-none text-white xl:text-3xl xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
-                        <div class="mb-4 lg:mb-10 text-white opacity-75">{{ page.homepageSubheader }}</div>
+                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
+                        <div class="mb-4 text-base text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
                         <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                           {{ page.homepageButtonText }}
                         </g-link>
                       </div>
                     </div>
                   </section>
+                </div>
+            </section>
+            <section class="relative" data-cha-section>
+                <div class="flex items-center overflow-hidden md:h-40">
+                    <div class="w-full max-w-screen-xl mx-auto">
+                        <div class="flex flex-wrap items-center justify-center md:justify-around">
+                            <div class="px-4 mb-4 md:mb-0" v-for="logo in page.homepageClientLogos">
+                                <img :src="logo.url" class="w-24 md:w-32" :alt="logo.title" :key="logo.id">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </template>
@@ -102,8 +112,8 @@
                                             <div class="w-full md:w-8/24">
                                                 <div class="flex justify-center">
                                                     <img
-                                                        src="https://dab1nmslvvntp.cloudfront.net/wp-content/uploads/2014/12/1418948033symfony-logo.png"
-                                                        alt="symfony">
+                                                        :src="mapObject(reference, ['image', 0 , 'url'])"
+                                                        :alt="mapObject(reference, ['image', 0 , 'title'])" />
                                                 </div>
                                             </div>
                                         </div>
@@ -139,10 +149,10 @@
                         <div class="">
                             <icon
                                 symbol="i_quotation"
-                                class="absolute w-12 h-12 -mt-6 -ml-3 md:-ml-6 text-gray-100 transform fill-current md:w-16 md:h-16 lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                class="absolute w-12 h-12 -mt-6 -ml-3 text-gray-100 transform fill-current md:-ml-6 md:w-16 md:h-16 lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
                             />
                             <div
-                                class="relative text-xs text-gray-700 md:text-sm wysiwyg-content md:text-base mb-8 md:mb-10 xl:mb-16"
+                                class="relative mb-8 text-xs text-gray-700 md:text-sm wysiwyg-content md:text-base md:mb-10 xl:mb-16"
                                 v-html="assigment.description"
                             />
                         </div>
@@ -177,6 +187,8 @@
                     homepageAssignmentsFormText
                     homepageClientLogos {
                         url
+                        title
+                        id
                     }
                     homepageAssignments {
                         ...on craft_homepageAssignments_assignments_BlockType {
@@ -202,6 +214,7 @@
                             }
                             image {
                                 url
+                                title
                             }
                         }
                     }
@@ -234,7 +247,7 @@ export default {
     },
     computed: {
         page() {
-            return this.$page.craft.entry;
+          return this.$page.craft.entry;
         },
     },
     methods: {
