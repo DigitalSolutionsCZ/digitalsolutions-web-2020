@@ -78,6 +78,8 @@ module.exports = {
             },
             linearGradientColors: theme => ({
                 'blue-green': [theme('colors.blue.500'), theme('colors.green.500')],
+                'green-dark-green': [theme('colors.green.500'), theme('colors.green.800')],
+                'red-dark-red': [theme('colors.red.400'), theme('colors.red.800')],
             }),
             fontSize: {
                 xs: ".875rem",
@@ -125,6 +127,9 @@ module.exports = {
         "screen-2xl": "1480px",
         "screen-3xl": "1600px",
       },
+      boxShadow: {
+         'vertical-symmetric': '0px 2px 6px 2px rgba(0, 0, 0, 0.1)'
+      }
     },
     screens: {
       xs: '360px',
