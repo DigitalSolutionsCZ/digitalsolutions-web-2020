@@ -9,7 +9,17 @@
                                 <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                                 <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">{{ mapObject(page, ['vyberKlienta', 0, 'title']) }}</div>
                                 <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base wysiwyg-content" v-html="page.description"></div>
-                                <a :href="page.referenceLink">Živá ukázka</a>
+                                <div class="text-center md:text-left">
+                                    <project-button variant="primary" tag="g-link" class="mb-6" :href="page.referenceLink" v-if="page.referenceLink">
+                                        <div class="flex items-center">
+                                            <div class="mr-2">Živá ukázka</div>
+                                            <icon
+                                                    symbol="i_new_window"
+                                                    class="w-4 h-4 fill-current"
+                                            />
+                                        </div>
+                                    </project-button>
+                                </div>
                             </div>
                             <div class="self-center w-full pb-6 md:w-12/24 xl:pb-16">
                                 <div class="h-0 aspect-ratio-4/3 md:my-4 xl:my-8">
@@ -187,6 +197,7 @@
   import 'vue-slick-carousel/dist/vue-slick-carousel.css';
   import { mapObject } from  '~/components/utils';
   import SubLink from "../components/SubLink.vue";
+  import ProjectButton from "~/components/ProjectButton.vue";
 
   export default {
     metaInfo: {
@@ -194,7 +205,8 @@
     },
     components: {
       VueSlickCarousel,
-      SubLink
+      SubLink,
+      ProjectButton
     },
     computed: {
       page() {
