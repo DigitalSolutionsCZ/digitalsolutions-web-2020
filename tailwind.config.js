@@ -114,51 +114,70 @@ module.exports = {
                 '21/24': '87.5%',
                 '22/24': '91.66667%',
                 '23/24': '95.83333%',
+                '36': '9rem',
                 full: '100%',
                 screen: '100vw',
             }),
             height: {
-              'screen-1/2': '50vh',
+                '2px': '2px',
+                '3px': '3px',
+                '12-5': '3.125rem',
+                '19': '4.75rem',
+                'screen-1/2': '50vh',
             },
 
-        minWidth: theme => ({
-            ...theme('spacing'),
-        }),
-      maxWidth: {
-        "screen-2xl": "1480px",
-        "screen-3xl": "1600px",
-      },
+            minWidth: theme => ({
+                ...theme('spacing'),
+            }),
+            maxWidth: {
+                "screen-2xl": "1480px",
+                "screen-3xl": "1600px",
+            },
+            borderWidth: {
+                '3': '3px'
+            },
+
+            inset: {
+                '1/2': '50%',
+                'full': '100%'
+            },
+             opacity: {
+                10: '.1'
+             },
+            transitionTimingFunction: {
+                'snap': 'cubic-bezier(.22,.68,0,1.15)'
+            },
+            scale: {
+                25: '25'
+            }
+        },
+        screens: {
+            xs: '360px',
+            sm: `640px`,
+            md: `768px`,
+            lg: `1024px`,
+            xl: `1280px`,
+            '2xl': '1400px',
+        },
+        aspectRatio: {
+            'none': 0,
+            'square': [1, 1],
+            '16/9': [16, 9],
+            '4/3': [4, 3],
+            '21/9': [21, 9],
+        },
     },
-    screens: {
-      xs: '360px',
-      sm: `640px`,
-      md: `768px`,
-      lg: `1024px`,
-      xl: `1280px`,
-      '2xl': '1400px',
+    variants: {
+        textColor: ['responsive', 'hover', 'focus', 'group-hover'],
+        linearGradients: ['responsive', 'hover', 'focus', 'group-hover'],
+        boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
+        translate: ['responsive', 'hover', 'focus', 'group-hover'],
+        aspectRatio: ['responsive'],
+        opacity: ['responsive', 'hover', 'focus', 'group-hover'],
     },
-    aspectRatio: {
-      'none': 0,
-      'square': [1, 1],
-      '16/9': [16, 9],
-      '4/3': [4, 3],
-      '21/9': [21, 9],
-    },
-    borderWidth: {
-      '3': '3px'
-    },
-  },
-  variants: {
-    textColor: ['responsive', 'hover', 'focus', 'group-hover'],
-    linearGradients: ['responsive', 'hover', 'focus', 'group-hover'],
-    boxShadow: ['responsive', 'hover', 'focus', 'active', 'group-hover'],
-      translate: ['responsive', 'hover', 'focus', 'group-hover'],
-      aspectRatio: ['responsive'],
-      opacity: ['responsive', 'hover', 'focus', 'group-hover'],
-},
-  plugins: [
-    require('tailwindcss-gradients'),
-    require('tailwindcss-aspect-ratio'),
-    require('@tailwindcss/custom-forms'),
-  ]
+    plugins: [
+        require('tailwindcss-gradients'),
+        require('tailwindcss-aspect-ratio'),
+        require('@tailwindcss/custom-forms'),
+    ]
 };

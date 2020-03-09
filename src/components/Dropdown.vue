@@ -110,15 +110,6 @@ export default {
         toggle() {
             this.open ? this.close() : this.expand();
         },
-        openPopper() {
-            document.body.appendChild(this.popper);
-            this.$nextTick(() => {
-                this.popperJs = this.popperJs || new Popper(this.reference, this.popper, this.popperConfig);
-            })
-        },
-        closePopper() {
-            this.$el.appendChild(this.popper);
-        },
         afterLeave() {
             this.$emit("dropdown-open");
         },

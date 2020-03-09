@@ -1,17 +1,20 @@
 <template>
     <Layout>
-        <div class="ml-auto mr-auto max-w-screen-xl">
-            <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
-                <div class="w-full px-4 md:w-1/2 lg:pr-12">
-                    <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                    <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="page.vyberKlienta">{{ page.vyberKlienta.title }}</div>
-                    <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
-                </div>
-                <div class="w-full px-4 md:w-1/2">
-                    <g-image :src="mapObject(page, ['mainImage', 0, 'url'])" alt="" fit="cover"/>
-                </div>
-            </section>
-        </div>
+        <template #headerSection>
+            <div class="ml-auto mr-auto max-w-screen-xl">
+                <section class="flex flex-wrap pt-6 pb-6 lg:pt-16 lg:pb-16">
+                    <div class="w-full px-4 md:w-1/2 lg:pr-12">
+                        <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
+                        <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="page.vyberKlienta">{{ page.vyberKlienta.title }}</div>
+                        <div class="mb-4 text-xs md:mb-6 lg:text-base wysiwyg-content" v-html="page.description"></div>
+                    </div>
+                    <div class="w-full px-4 md:w-1/2">
+                        <g-image :src="mapObject(page, ['mainImage', 0, 'url'])" alt="" fit="cover"/>
+                    </div>
+                </section>
+            </div>
+        </template>
+
         <div class="relative mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="relative py-8 ml-auto mr-auto max-w-screen-xl">
