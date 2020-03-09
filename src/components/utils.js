@@ -97,7 +97,7 @@ export function getUrl(url, title) {
 }
 
 
-export function metaInfo({title, heading}, context) {
+export function metaInfo({title, heading = ""}, context) {
   const metaArray = [];
   let seoTitle;
     seoTitle = title || stripHtml(heading);

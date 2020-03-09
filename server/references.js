@@ -51,6 +51,9 @@ async function referencePage(data, createPage) {
             component: './src/templates/referencePage.vue',
             path: `${referenceUrl}/${category.slug}`,
             context: {
+                seoTitle: referencePage.seoTitle || stripHtml(referencePage.heading),
+                sepKeywords: referencePage.seoKeywords,
+                seoDescription: referencePage.seoDescription,
                 id: category.id,
                 slug: referencePage.slug,
                 services: `${referenceUrl}/${category.slug}` !== referenceUrl ? category.id : null,
