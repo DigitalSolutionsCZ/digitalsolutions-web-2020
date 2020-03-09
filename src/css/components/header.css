@@ -29,6 +29,9 @@
 }
 
 @screen md {
+    .hp-header {
+        height: calc(100vh - theme('height.40'));
+    }
     .cha-header {
         @apply block;
         background: var(--header-background);
