@@ -20,7 +20,7 @@
                             </template>
                         </site-header>
                     </div>
-                    <div class="pb-10 mt-20 xl:mt-24">
+                    <div class="mt-20 xl:mt-24">
                         <slot name="headerSection"></slot>
                     </div>
                 </section>
