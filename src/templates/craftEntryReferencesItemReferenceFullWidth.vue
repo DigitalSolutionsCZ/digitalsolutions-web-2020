@@ -163,7 +163,7 @@
                 <div class="flex flex-wrap-reverse">
                     <div class="w-full lg:w-1/2">
                         <div class="text-center lg:text-left">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
+                            <a href="#nogo" class="inline-flex items-center pt-5 pb-3 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
                                 <icon symbol="i_chevron" class="w-4 h-4 mr-2 transform rotate-180 fill-current"></icon>
                                 Zpět na seznam referencí
                             </a>
@@ -171,7 +171,7 @@
                     </div>
                     <div class="w-full lg:w-1/2">
                         <div class="text-center lg:text-right">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
+                            <a href="#nogo" class="inline-flex items-center pt-5 pb-3 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
                                 Další reference
                                 <icon symbol="i_chevron" class="w-4 h-4 ml-2 fill-current"></icon>
                             </a>
