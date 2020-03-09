@@ -11,10 +11,10 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="relative flex items-center pl-2 w-36 md:w-48">
+                            <g-link to="/" class="relative flex items-center w-36 md:w-48">
                                 <img
                                     src="../images/logo-ds.png"
-                                    class="absolute w-auto logo-color"
+                                    class="absolute w-auto pl-2 logo-color"
                                     alt="logo společnosti"
                                 />
                                 <img
