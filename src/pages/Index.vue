@@ -29,13 +29,13 @@
                      style="perspective: 900px">
                   <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
                       atLeastBreakpoint && atLeastBreakpoint('lg') ? {
-                        0: { transform: 'translateY(0vh) rotate(0deg)' },
+                        0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
                         50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
                       } : {
                         10: { opacity: 1, transform: 'translateY(20%)' },
-                        25: { opacity: 0, }
+                        25: { opacity: 0, transform: 'translateY(20%)' }
                       })">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
