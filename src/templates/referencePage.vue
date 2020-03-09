@@ -2,10 +2,10 @@
     <Layout>
         <template #headerSection>
             <section class="px-4 bg-white">
-                <div class="pt-10 mx-auto max-w-screen-xl">
-                    <h1 class="mb-8 text-2xl font-black text-center lg:text-3xl color-black" v-if="page.heading" v-html="page.heading" />
-                    <div class="mx-auto mb-8 text-base text-center text-gray-700 lg:w-1/2" v-if="page.excerpt" v-html="page.excerpt"/>
-                    <div class="mb-10 text-center relative z-20">
+                <div class="max-w-screen-xl pt-10 mx-auto xl:py-16">
+                    <h1 class="mb-8 text-2xl font-black leading-none text-center lg:text-3xl color-black" v-if="page.heading" v-html="page.heading" />
+                    <div class="mx-auto mb-4 text-base text-center text-gray-700 md:mb-6 xl:mb-8 lg:w-1/2" v-if="page.excerpt" v-html="page.excerpt"/>
+                    <div class="relative z-20 mb-4 text-center md:mb-6 xl:mb-8 ">
                         <dropdown class="inline-block text-left" ref="dropdown">
                             <template #header="{open}">
                                 <div
