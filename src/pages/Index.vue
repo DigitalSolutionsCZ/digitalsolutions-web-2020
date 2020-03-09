@@ -1,10 +1,9 @@
 <template>
     <Layout>
         <template #header="{menu, contact}">
-            <section class="relative" data-cha-section data-theme="dark">
-                <div class="cha-header-clip absolute inset-0 pointer-events-none z-30" data-cha-header-clip>
+            <section class="relative cha-main-header" data-cha-section data-theme="dark">
+                <div class="md:cha-header-clip absolute inset-0 pointer-events-none z-30" data-cha-header-clip>
                     <site-header
-                        style="background: var(--header-background)"
                         class="cha-header"
                         :white="true"
                         data-cha-header
@@ -15,11 +14,11 @@
                             <g-link to="/" class="flex items-center pl-2 w-36 md:w-48 relative">
                                 <img
                                     src="../images/logo-ds.png"
-                                    style="visibility: var(--logo-color-visibility)" class="w-auto absolute"
+                                    class="w-auto absolute logo-color"
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
-                                    style="visibility: var(--logo-white-visibility)" class="w-auto absolute"
+                                    class="w-auto absolute logo-white hidden md:block"
                                 />
                             </g-link>
                         </template>

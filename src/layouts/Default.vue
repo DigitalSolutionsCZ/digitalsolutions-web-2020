@@ -2,7 +2,7 @@
     <div class="flex flex-col h-full">
         <slot name="header" :menu="menu" :contact="link">
             <template v-if="chameleon">
-                <section class="relative" data-cha-section data-theme="light">
+                <section class="relative cha-main-header" data-cha-section data-theme="light">
                     <div class="absolute inset-0 z-30 pointer-events-none cha-header-clip" data-cha-header-clip>
                         <site-header
                             class="bg-white cha-header"
@@ -56,6 +56,9 @@ export default {
             default: true,
         }
     },
+    data: () => ({
+        initialized: false,
+    }),
     components: {
         SiteHeader,
         SiteFooter

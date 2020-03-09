@@ -1,6 +1,6 @@
 <template>
     <header
-        class="fixed inset-x-0 top-0"
+        class="fixed inset-x-0 top-0 shadow-lg md:shadow-none"
         :class="[white ? '' : 'bg-white']"
     >
         <div class="relative">
@@ -30,7 +30,7 @@
                                 <div class="leading-tight md:relative">
                                     {{ menuItem.menuName }}
                                     <div
-                                        class="bg-gradient-r-blue-green absolute inset-y-0 left-0 w-1 my-1 transition-all duration-200 ease-in-out rounded-r opacity-0 md:rounded md:mt-2 md:inset-x-0 md:h-1 group-hover:opacity-100 md:w-auto md:y-0 md:inset-y-auto"
+                                        class="absolute inset-y-0 left-0 w-1 my-1 transition-all duration-200 ease-in-out rounded-r opacity-0 bg-gradient-r-blue-green md:rounded md:mt-2 md:inset-x-0 md:h-1 group-hover:opacity-100 md:w-auto md:y-0 md:inset-y-auto"
                                         :class="[white ? 'md:cha-nav-link-underline': 'bg-gradient-r-blue-green']"
                                     />
                                 </div>
@@ -47,11 +47,11 @@
                         >
                             {{ mapObject(contact, ['linkTitle']) }}
                         </g-link>
-                        <div class="inline-block p-3 cursor-pointer md:hidden z-50 relative" @click.prevent="toggle" tabindex="1">
+                        <div class="relative z-50 inline-block p-3 cursor-pointer md:hidden focus:outline-none" @click.prevent="toggle" tabindex="1" data-toggle-menu>
                             <div class="w-4 h-3 hamburger" :class="{'is-active': open}">
                                 <div
-                                    class="hamburger-inner h-2px"
-                                    :class="[white ? 'bg-white' : 'bg-gray-600']"
+                                    class="bg-gray-600 hamburger-inner h-2px"
+                                    :class="{'md:bg-white': white}"
                                 />
                             </div>
                         </div>
@@ -85,7 +85,6 @@ export default {
             this.open = false;
         },
         toggle() {
-            console.log('toggle');
             this.open = !this.open;
         }
     },
