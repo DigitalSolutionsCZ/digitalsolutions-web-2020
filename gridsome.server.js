@@ -12,22 +12,46 @@ module.exports = function (api) {
                   slug,
                   typeHandle,
                   ...on craft_referencePage_referencePage_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                     ...on craft_demandPage_demandPage_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                     ...on craft_contactPage_contactPage_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                     ...on craft_servicesPage_servicesPage_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                     ...on craft_referencePage_referencePage_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                     ...on craft_referencesItem_referenceFullWidth_Entry {
-                        itemUrl
+                        heading,
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription
                     }
                 },
                 referencePage: entry(slug: "reference") {
@@ -35,7 +59,11 @@ module.exports = function (api) {
                   slug,
                   title
                   ...on craft_referencePage_referencePage_Entry {
-                    itemUrl
+                    heading,
+                    itemUrl,
+                    seoTitle,
+                    seoKeywords,
+                    seoDescription
                   }
                 },
                 categories(group: "servicesProduct") {

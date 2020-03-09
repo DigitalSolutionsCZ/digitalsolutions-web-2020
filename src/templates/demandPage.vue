@@ -52,9 +52,12 @@
 
 <script>
   import DemandForm from '~/components/DemandForm';
-  import { mapObject } from  '~/components/utils';
+  import { mapObject, metaInfo } from  '~/components/utils';
 
   export default {
+      metaInfo() {
+          return metaInfo({title: this.$context.seoTitle}, this.$context);
+      },
       components: {
           DemandForm
       },

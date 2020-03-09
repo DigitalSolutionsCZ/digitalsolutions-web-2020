@@ -16,7 +16,8 @@ if (process.env.NODE_ENV === "production") {
 }
 
 module.exports = {
-  siteName: "Digital Solutions",
+  siteName: "Digital Solutions s.r.o.",
+  titleTemplate: `%s | Digital Solutions s.r.o.`,
   plugins: [
     {
       use: "@bhws/gridsome-source-craft-graphql",

@@ -105,10 +105,13 @@ import referenceFullWidthSmall from "../components/Reference/referenceFullWidthS
 import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 import {fetch} from 'gridsome'
-import {mapObject} from "../components/utils";
+import {mapObject, metaInfo} from "../components/utils";
 import slugify from "@sindresorhus/slugify";
 
 export default {
+    metaInfo() {
+        return metaInfo({title: this.$context.seoTitle}, this.$context);
+    },
     components: {
         Dropdown,
         referenceFullWidth,
@@ -201,7 +204,7 @@ export default {
             entry(slug: $slug) {
                 ...on craft_referencePage_referencePage_Entry {
                     heading,
-                    excerpt,
+                    excerpt
                 }
             },
             categories(group: "servicesProduct") {
