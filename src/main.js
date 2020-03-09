@@ -31,7 +31,9 @@ export default function(Vue, { router, head, isClient }) {
     return Vue.component(name, req(key).default);
   });
 
-  Vue.use(Responsive, {
-    breakpoints: { width: shallowObjectValuesToInt(resolveConfig(tailwindConfig).theme.screens )}
-  });
+  if (process.isClient) {
+    Vue.use(Responsive, {
+      breakpoints: { width: shallowObjectValuesToInt(resolveConfig(tailwindConfig).theme.screens )}
+    });
+  }
 }
