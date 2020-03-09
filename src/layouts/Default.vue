@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-full text-xs md:text-sm xl:text-base">
+    <div class="flex flex-col h-full text-xs text-gray-900 md:text-sm xl:text-base">
         <slot name="header" :menu="menu" :contact="link">
             <template v-if="chameleon">
                 <section class="relative cha-main-header" data-cha-section data-theme="light">
@@ -145,6 +145,21 @@ export default {
                     address
                     footerCopyright,
                     footerHeadlineCompany,
+                    menu {
+                        ...on craft_menu_internalItem_BlockType {
+                            slug,
+                            id,
+                            menuName,
+                            menuLink {
+                                slug,
+                                ...ItemUrl
+                            }
+                        }
+                    }
+                }
+            }
+            socials: globalSet(handle: "socialNetworks") {
+                ...on craft_socialNetworks_GlobalSet {
                     socials {
                         ...on craft_socials_socialsImg_BlockType {
                             id
@@ -159,17 +174,6 @@ export default {
                             svg :socialPicture
                             socialName,
                             socialLink
-                        }
-                    },
-                    menu {
-                        ...on craft_menu_internalItem_BlockType {
-                            slug,
-                            id,
-                            menuName,
-                            menuLink {
-                                slug,
-                                ...ItemUrl
-                            }
                         }
                     }
                 }
