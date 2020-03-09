@@ -1,20 +1,20 @@
 <template>
     <Layout>
         <template #headerSection>
-            <div class="mx-auto max-w-screen-md">
-                <section class="flex flex-wrap pt-6 pb-3 xl:pt-16 xl:pb-16">
+            <div class="max-w-screen-md mx-auto">
+                <section class="flex flex-wrap pt-6 pb-3 xl:py-16">
                     <div class="px-4 text-center">
                         <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                         <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
-                        <div class="items-center md:flex" v-if="page.showContactButtons">
+                        <div class="items-center md:flex md:mb-2 xl:mb-4" v-if="page.showContactButtons">
                             <div class="md:w-9/24">
-                                <project-button class="mb-3 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
+                                <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
                             </div>
                             <div class="md:w-6/24">
                                 <div class="mb-3 text-base text-center">nebo vyplňte</div>
                             </div>
                             <div class="md:w-9/24">
-                                <project-button class="mb-3 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+                                <project-button class="mb-4 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
                             </div>
                         </div>
                     </div>
@@ -24,7 +24,7 @@
         <div class="relative mb-4 md:mb-8 xl:mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4 py-4 xl:py-8 md:px-16">
-                <div class="relative ml-auto mr-auto max-w-screen-xl">
+                <div class="relative max-w-screen-xl ml-auto mr-auto">
                     <section class="flex flex-wrap overflow-hidden bg-white rounded">
                         <div class="w-full md:w-13/24 lg:w-15/24">
                             <a :href="mapObject(page, ['map', 0, 'contactMapLink'])"
@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="px-4">
-            <div class="ml-auto mr-auto max-w-screen-xl">
+            <div class="max-w-screen-xl ml-auto mr-auto">
                 <section class="mx-4 mb-4 lg:mb-8">
                     <div class="px-4 text-center">
                         <h2 class="mb-3 text-base font-bold xl:mb-8 md:text-xl xl:text-2xl">{{ page.subheading }}</h2>
@@ -85,14 +85,20 @@
         <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
-                <div class="relative pt-10 ml-auto mr-auto max-w-screen-xl xl:pt-24 xl:pb-20">
+                <div class="relative max-w-screen-xl pt-10 ml-auto mr-auto xl:pt-24 xl:pb-20">
                     <h3 class="mb-3 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
                     <div>
                         <div class="flex flex-wrap items-center justify-center">
-                            <icon symbol="i_facebook" class="w-16 h-16 mb-4 mr-1"></icon>
-                            <icon symbol="i_twitter" class="w-20 h-20 mb-4"></icon>
-                            <icon symbol="i_linkedin" class="w-16 h-16 mb-4 mr-2"></icon>
-                            <icon symbol="i_instagram" class="w-16 h-16 mb-4"></icon>
+                            <template v-for="social in socials">
+                                <g-link :to="social.socialLink" :key="social.id" :alt="social.socialName">
+                                    <template v-if="social.svg">
+                                        <span class="flex items-center w-16 h-16 mx-1 mb-4" v-html="social.svg"/>
+                                    </template>
+                                    <template v-if="social.img">
+                                        <g-image class="w-16 h-16 mb-4 mr-1" :src="mapObject(social, ['img', 0, 'url'])"/>
+                                    </template>
+                                </g-link>
+                            </template>
                         </div>
                     </div>
                 </div>
@@ -137,6 +143,26 @@
                         }
                     }
                 }
+            },
+            socials: globalSet(handle: "socialNetworks") {
+                ...on craft_socialNetworks_GlobalSet {
+                    socials {
+                        ...on craft_socials_socialsImg_BlockType {
+                            id
+                            socialName,
+                            socialLink,
+                            img: socialPicture {
+                                url
+                            }
+                        },
+                        ...on craft_socials_socialsSvg_BlockType {
+                            id
+                            svg :socialPicture
+                            socialName,
+                            socialLink
+                        }
+                    }
+                }
             }
         }
     }
@@ -158,6 +184,9 @@
           page() {
               return this.$page.craft.entry;
           },
+          socials() {
+              return this.$page.craft.socials.socials
+          }
       },
       methods: {
           mapObject,

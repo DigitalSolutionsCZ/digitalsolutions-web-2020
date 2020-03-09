@@ -7,13 +7,13 @@
             <div class="flex justify-between mx-auto max-w-screen-3xl h-12-5 md:h-19">
                 <div class="flex pl-2">
                     <slot name="logo">
-                        <g-link to="/" class="relative flex items-center pl-2 w-36 md:w-48">
-                            <g-image src="../../images/logo-ds.png" alt="logo" class="w-auto"/>
+                        <g-link to="/" class="relative flex items-center w-36 md:w-48">
+                            <g-image src="../../images/logo-ds.png" alt="logo" class="w-auto pl-2"/>
                         </g-link>
                     </slot>
                 </div>
                 <div
-                    class="absolute left-0 right-0 z-20 items-center justify-center flex-grow m-4 xs:left-auto xs:w-full top-full md:flex md:relative md:top-auto xs:max-w-xs md:visible"
+                    class="absolute inset-x-0 z-20 items-center justify-center flex-grow m-4 xs:left-auto xs:w-full top-full md:flex md:relative md:top-auto xs:max-w-xs md:visible"
                     :class="{'invisible': !open}"
                 >
                     <nav

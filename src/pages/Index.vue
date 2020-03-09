@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <template #header="{menu, contact}">
+         <template #header="{menu, contact}">
             <section class="relative cha-main-header" data-cha-section data-theme="dark">
                 <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                     <site-header
@@ -11,10 +11,10 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="relative flex items-center pl-2 w-36 md:w-48">
+                            <g-link to="/" class="relative flex items-center w-36 md:w-48">
                                 <img
                                     src="../images/logo-ds.png"
-                                    class="absolute w-auto logo-color"
+                                    class="absolute w-auto pl-2 logo-color"
                                     alt="logo společnosti"
                                 />
                                 <img
@@ -160,7 +160,7 @@
                 </div>
                 <h2 class="mb-2 text-base font-bold text-center md:mb-3 md:text-xl xl:text-2xl">
                     {{ page.contactFormHeader }}</h2>
-                <div class="w-full mx-auto text-lg text-center md:w-12/24 xl:w-10/24">
+                <div class="w-full mx-auto text-lg text-center sm:w-22/24 md:w-12/24 xl:w-10/24">
                     <div
                         class="text-sm leading-relaxed wysiwyg-content md:text-base"
                         v-html="page.homepageAssignmentsFormText"

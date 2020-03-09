@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="w-full md:w-12/24 xl:w-14/24">
-                        <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl">Digital Solutions</h3>
+                        <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl">{{ footer.footerHeadlineCompany }}</h3>
                         <ul class="flex flex-wrap mb-2 xl:mb-8">
                             <template v-for="menuItem in footer.menu">
                                 <li class="mb-3 mr-6 md:mr-8">
@@ -50,7 +50,7 @@
                             </template>
                         </ul>
                         <div class="flex flex-wrap items-center mb-4 text-gray-400">
-                            <template v-for="social in footer.socials">
+                            <template v-for="social in socials">
                                 <g-link :to="social.socialLink" :key="social.id" :alt="social.socialName">
                                     <template v-if="social.svg">
                                         <span class="flex items-center w-8 h-8 mb-2 mr-1 fill-current" v-html="social.svg"/>
@@ -78,6 +78,7 @@ import {mapObject, getUrl} from '~/components/utils';
 export default {
     props: {
         footer: Object,
+        socials: Array,
     },
     computed: {
         copyright() {
