@@ -1,5 +1,11 @@
 <template>
     <form name="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
+        <callout-message variant="success" :visible="resultFormStatus === 'success' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
+            Děkujeme za odeslání formuláře.
+        </callout-message>
+        <callout-message variant="error" :visible="resultFormStatus === 'error' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
+            Formulář se nepodařilo odeslat. Zkuste to prosím později…
+        </callout-message>
         <div class="flex flex-wrap">
             <div class="w-full">
                 <input-text
@@ -45,15 +51,19 @@
   import axios from "axios";
   import InputText from  "./Input/InputText";
   import ProjectButton from '../components/ProjectButton'
+  import CalloutMessage from './CalloutMessage'
 
   export default {
     components: {
       InputText,
-      ProjectButton
+      ProjectButton,
+      CalloutMessage
     },
     data () {
       return {
         errorFields: {},
+        resultFormStatus: null,
+        resultMessageVisible: false,
         fields: {
           fullname: '',
           email: '',
@@ -93,9 +103,22 @@
               ...this.fields
             }),
             axiosConfig
-          );
+          ).then ((response) => {
+            if(response && response.status === 200) {
+              this.resultFormStatus = 'success';
+            } else {
+              this.resultFormStatus = 'error';
+            }
+          }).catch(() => {
+            this.resultFormStatus = 'error';
+          }).then(() => {
+            this.resultMessageVisible = true;
+          });
         }
-      }
+      },
+      handleResultMessageClose() {
+        this.resultMessageVisible = false;
+      },
     }
   }
 </script>
