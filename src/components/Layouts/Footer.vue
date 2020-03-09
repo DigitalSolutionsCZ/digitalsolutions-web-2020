@@ -50,7 +50,7 @@
                             </template>
                         </ul>
                         <div class="flex flex-wrap items-center mb-4 text-gray-400">
-                            <template v-for="social in footer.socials">
+                            <template v-for="social in socials">
                                 <g-link :to="social.socialLink" :key="social.id" :alt="social.socialName">
                                     <template v-if="social.svg">
                                         <span class="flex items-center w-8 h-8 mb-2 mr-1 fill-current" v-html="social.svg"/>
@@ -78,6 +78,7 @@ import {mapObject, getUrl} from '~/components/utils';
 export default {
     props: {
         footer: Object,
+        socials: Array,
     },
     computed: {
         copyright() {

@@ -40,7 +40,7 @@
                 <slot/>
             </div>
         </slot>
-        <site-footer :footer="footer"/>
+        <site-footer :footer="footer" :socials="$static.craft.socials.socials" />
     </div>
 </template>
 
