@@ -159,9 +159,12 @@ query {
 </page-query>
 
 <script>
-  import { mapObject } from  '~/components/utils';
+  import { mapObject, metaInfo } from  '~/components/utils';
 
   export default {
+      metaInfo() {
+          return metaInfo({title: this.$context.seoTitle}, this.$context);
+      },
       computed: {
           page() {
               return this.$page.craft.entry;

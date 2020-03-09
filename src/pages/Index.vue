@@ -28,7 +28,7 @@
                      v-keyframes
                      style="perspective: 900px">
                   <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
-                      atLeastBreakpoint('lg') ? {
+                      atLeastBreakpoint && atLeastBreakpoint('lg') ? {
                         0: { transform: 'translateY(0vh) rotate(0deg)' },
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
@@ -205,6 +205,9 @@
                             }
                         }
                     }
+                    seoTitle
+                    seoKeywords
+                    seoDescription
                 }
             }
         }
@@ -212,14 +215,18 @@
 </page-query>
 
 <script>
-import twconfig from '../../tailwind.config';
-import init from '../components/ChameleonHeader.js';
 import SubLink from "../components/SubLink.vue";
-import {mapObject} from '~/components/utils';
+import {mapObject, metaInfo} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
 
 export default {
+    metaInfo() {
+        return metaInfo({title: this.$page.seoTitle, heading:this.page.heading}, {
+            keywords: this.$page.seoKeywords,
+            description: this.$page.seoDescription
+        })
+    },
     components: {
         SubLink,
         ContactForm,
@@ -229,9 +236,6 @@ export default {
         page() {
             return this.$page.craft.entry;
         },
-    },
-    metaInfo: {
-        title: 'Homepage'
     },
     methods: {
         mapObject

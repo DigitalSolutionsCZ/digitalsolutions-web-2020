@@ -144,29 +144,32 @@
 <script>
   import ContactForm from '../components/ContactForm'
   import ProjectButton from '../components/ProjectButton'
-  import { mapObject } from  '~/components/utils';
+  import { mapObject, metaInfo } from  '~/components/utils';
 
   export default {
-    components: {
-      ContactForm,
-      ProjectButton
-    },
-    computed: {
-      page() {
-        return this.$page.craft.entry;
+      metaInfo() {
+          return metaInfo({title: this.$context.seoTitle}, this.$context);
       },
-    },
-    methods: {
-      mapObject,
-      getColumnSizeByOrder(index) {
-        const classNames = [
-          'w-full md:w-8/24 lg:w-6/24 md:px-4 xl:px-8',
-          'w-full md:w-8/24 lg:w-12/24 md:px-4 xl:px-8',
-          'w-full md:w-8/24 lg:w-6/24 md:px-4 xl:px-8',
-        ];
-        return classNames[index];
-      }
-    },
+      components: {
+          ContactForm,
+          ProjectButton
+      },
+      computed: {
+          page() {
+              return this.$page.craft.entry;
+          },
+      },
+      methods: {
+          mapObject,
+          getColumnSizeByOrder(index) {
+              const classNames = [
+                  'w-full md:w-7/24 xl:w-6/24 md:pr-10 xl:pr-16',
+                  'w-full md:w-10/24 xl:w-12/24 md:pr-10 xl:pr-16',
+                  'w-full md:w-7/24 xl:w-6/24',
+              ];
+              return classNames[index];
+          }
+      },
   }
 </script>
 
