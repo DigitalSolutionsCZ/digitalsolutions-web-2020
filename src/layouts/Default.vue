@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col h-full">
+    <div class="flex flex-col h-full text-xs md:text-sm xl:text-base">
         <slot name="header" :menu="menu" :contact="link">
             <template v-if="chameleon">
                 <section class="relative cha-main-header" data-cha-section data-theme="light">

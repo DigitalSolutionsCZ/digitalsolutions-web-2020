@@ -1,6 +1,6 @@
 <template>
     <Layout>
-        <template #header="{menu, contact}">
+         <template #header="{menu, contact}">
             <section class="relative cha-main-header" data-cha-section data-theme="dark">
                 <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                     <site-header
@@ -160,7 +160,7 @@
                 </div>
                 <h2 class="mb-2 text-base font-bold text-center md:mb-3 md:text-xl xl:text-2xl">
                     {{ page.contactFormHeader }}</h2>
-                <div class="w-full mx-auto text-lg text-center md:w-12/24 xl:w-10/24">
+                <div class="w-full mx-auto text-lg text-center sm:w-22/24 md:w-12/24 xl:w-10/24">
                     <div
                         class="text-sm leading-relaxed wysiwyg-content md:text-base"
                         v-html="page.homepageAssignmentsFormText"

@@ -32,7 +32,7 @@
                         </div>
                     </div>
                     <div class="w-full md:w-12/24 xl:w-14/24">
-                        <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl">Digital Solutions</h3>
+                        <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl">{{ footer.footerHeadlineCompany }}</h3>
                         <ul class="flex flex-wrap mb-2 xl:mb-8">
                             <template v-for="menuItem in footer.menu">
                                 <li class="mb-3 mr-6 md:mr-8">
