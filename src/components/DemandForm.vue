@@ -1,5 +1,11 @@
 <template>
     <form method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
+        <callout-message variant="success" :visible="resultFormStatus === 'success' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
+            Děkujeme za odeslání formuláře.
+        </callout-message>
+        <callout-message variant="error" :visible="resultFormStatus === 'error' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
+            Formulář se nepodařilo odeslat. Zkuste to prosím později…
+        </callout-message>
         <div class="flex flex-wrap">
             <div class="w-full">
                 <input-text
@@ -31,11 +37,11 @@
                 </input-text>
             </div>
             <div class="w-full">
-                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…" v-model="fields.description"></textarea>
+                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 form-textarea rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…" v-model="fields.description"></textarea>
             </div>
             <div class="w-full">
                 <label for="exampleFileUpload"
-                       class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8"
+                       class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8"
                        :class="[fields.files ? 'text-black' : 'text-gray-200']"
                 >
                      {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
@@ -53,11 +59,13 @@
             </div>
         </div>
         <div class="flex flex-wrap">
-            <div class="w-full mb-4 text-sm md:w-17/24 xl:w-18/24 md:pr-8 xl:text-base">
+            <div class="w-full mb-8 text-sm md:w-15/24 lg:w-16/24 xl:w-17/24 md:pr-8 xl:text-base">
                 Můžete také zavolat: <strong>+420&nbsp;775&nbsp;300&nbsp;500</strong><span class="md:block"> (PO-PÁ 8-17).</span>
             </div>
-            <div class="w-full mb-4 md:w-7/24 xl:w-6/24">
-                <button class="w-full px-4 py-3 text-base font-semibold text-white transition-all duration-200 ease-in-out rounded-full hover:shadow-lg bg-gradient-r-blue-green active">Odeslat</button>
+            <div class="w-full mb-4 md:w-9/24 lg:w-8/24 xl:w-7/24">
+                <div class="flex justify-center md:justify-end">
+                    <project-button tag="button">Odeslat</project-button>
+                </div>
             </div>
         </div>
     </form>
@@ -67,14 +75,20 @@
   import axios from "axios";
   import { toFormData } from './utils';
   import InputText from  "./Input/InputText";
+  import ProjectButton from './ProjectButton'
+  import CalloutMessage from './CalloutMessage'
 
   export default {
     components: {
-      InputText
+      InputText,
+      ProjectButton,
+      CalloutMessage
     },
     data () {
       return {
         errorFields: {},
+        resultFormStatus: null,
+        resultMessageVisible: false,
         fields: {
           fullname: '',
           email: '',
@@ -114,13 +128,26 @@
           axios.post(
             "/",
             this.encode({
-              "form-name": "contact-form",
+              "form-name": "demand-form",
               ...this.fields
             }),
             axiosConfig
-          );
+          ).then ((response) => {
+            if(response && response.status === 200) {
+              this.resultFormStatus = 'success';
+            } else {
+              this.resultFormStatus = 'error';
+            }
+          }).catch(() => {
+            this.resultFormStatus = 'error';
+            }).then(() => {
+            this.resultMessageVisible = true;
+          });
         }
-      }
+      },
+      handleResultMessageClose() {
+        this.resultMessageVisible = false;
+      },
     }
   }
 </script>
