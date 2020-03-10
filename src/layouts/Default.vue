@@ -151,6 +151,7 @@ export default {
                             menuName,
                             menuLink {
                                 slug,
+                                title,
                                 ...ItemUrl
                             }
                         }

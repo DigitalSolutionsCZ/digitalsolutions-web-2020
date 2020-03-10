@@ -4,7 +4,7 @@
     >
         <div class="relative z-20 p-4 md:p-8 xl:pb-8 xl:px-16 xl:pt-16">
             <g-link :to="props.baseUrl" class="block w-18/24 md:w-16/24">
-                <h2 class="mb-2 text-base font-black xl:mb-3 xl:leading-tight md:text-xl xl:text-2xl">
+                <h2 class="mb-2 text-base font-black text-black xl:mb-3 xl:leading-tight md:text-xl xl:text-2xl">
                     {{ props.reference.heading }}
                 </h2>
             </g-link>
@@ -22,7 +22,7 @@
             :label="props.reference.referenceDetailLinkText ? props.reference.referenceDetailLinkText : 'Prohlédnout referenci'"
         />
         <div
-            class="bottom-0 right-0 z-10 z-20 grid grid-cols-11 gap-4 px-2 text-right pointer-events-none md:absolute md:w-full md:grid-cols-none">
+            class="bottom-0 right-0 z-20 grid grid-cols-11 gap-4 px-2 text-right pointer-events-none md:absolute md:w-full md:grid-cols-none">
             <div
                 class="self-end col-start-2 col-end-7 row-start-1 row-end-1 pointer-events-auto md:col-start-8 md:col-end-11"
                 v-if="props.reference.referenceMultipleImages.length > 0">

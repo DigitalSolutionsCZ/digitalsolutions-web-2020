@@ -1,0 +1,26 @@
+.loading {
+    border-width: 5px;
+    border-color: transparent;
+    border-top-color: theme('colors.green.500');
+    animation-name: spin;
+    animation-duration: 1000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.loading-1 {
+    animation-delay: -50ms;
+}
+
+.loading-2 {
+    animation-delay: -100ms;
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+}

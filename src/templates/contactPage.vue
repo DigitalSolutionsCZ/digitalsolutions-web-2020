@@ -4,18 +4,18 @@
             <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:pt-16">
                     <div class="w-full px-4 text-center">
-                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <h1 class="mb-4 text-xl font-extrabold leading-none text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
                         <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
             </div>
-            <div class="max-w-screen-md mx-auto md:max-w-screen-md px-4">
-                <div class="items-center justify-center flex flex-col md:flex-row md:mb-2 xl:mb-4" v-if="page.showContactButtons">
+            <div class="max-w-screen-md px-4 mx-auto md:max-w-screen-md">
+                <div class="flex flex-col items-center justify-center md:flex-row md:mb-2 xl:mb-4" v-if="page.showContactButtons">
                     <div class="md:w-9/24">
                         <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
                     </div>
                     <div class="md:w-6/24">
-                        <div class="mb-3 text-sm lg:text-base text-center">nebo vyplňte</div>
+                        <div class="mb-3 text-sm text-center lg:text-base">nebo vyplňte</div>
                     </div>
                     <div class="md:w-9/24">
                         <project-button class="mb-4 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
@@ -54,7 +54,7 @@
                                         <icon symbol="i_envelope" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <span class="block break-all">{{ mapObject(page, ['contactAdress', 0, 'email']) }}</span>
                                     </div>
-                                    <p>{{ mapObject(page, ['contactAdress', 0, 'description']) }}</p>
+                                    <div v-html="mapObject(page, ['contactAdress', 0, 'description'])"></div>
                                 </div>
                             </div>
                         </div>
@@ -66,7 +66,7 @@
             <div class="max-w-screen-xl ml-auto mr-auto">
                 <section class="mx-4 mb-4 lg:mb-8">
                     <div class="px-4 text-center">
-                        <h2 class="mb-3 text-base font-bold xl:mb-8 md:text-xl xl:text-2xl">{{ page.subheading }}</h2>
+                        <h2 class="mb-3 text-base font-bold text-black xl:mb-8 md:text-xl xl:text-2xl">{{ page.subheading }}</h2>
                         <div class="mx-auto mb-4 text-sm text-gray-900 xl:text-base md:w-20/24 xl:w-14/24 wysiwyg-content md:mb-8 xl:mb-16" v-html="page.body"></div>
                     </div>
                 </section>
@@ -78,7 +78,7 @@
                         </div>
                     </template>
                 </div>
-                <h3 class="mb-2 md:mb-6 xl:mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
+                <h3 class="mb-2 md:mb-6 xl:mb-8 text-lg font-bold text-center text-black md:text-xl">Napište nám</h3>
                 <div class="mx-auto max-w-screen-sm">
                     <contact-form class="mb-4 md:mb-16 w-full md:w-22/24 mx-auto"/>
                 </div>
@@ -88,7 +88,7 @@
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
                 <div class="relative max-w-screen-xl pt-10 ml-auto mr-auto xl:pt-24 xl:pb-20">
-                    <h3 class="mb-3 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
+                    <h3 class="mb-3 text-lg font-bold text-center text-black md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
                     <div>
                         <div class="flex flex-wrap items-center justify-center">
                             <template v-for="social in socials">
