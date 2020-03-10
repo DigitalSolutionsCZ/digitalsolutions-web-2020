@@ -18,7 +18,8 @@ async function referencePage(data, createPage) {
             component: './src/templates/craftEntryReferencesItemReferenceFullWidth.vue',
             context: {
                 id: referenceRecord.id,
-                slug: referenceRecord.slug
+                slug: referenceRecord.slug,
+                baseSlug: data.craft.referencePage.slug
             }
         })
     });
