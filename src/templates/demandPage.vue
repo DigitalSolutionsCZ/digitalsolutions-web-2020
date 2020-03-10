@@ -3,11 +3,11 @@
         <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
             <section class="flex flex-wrap pt-6 xl:py-16">
                 <div class="w-full px-4 text-center">
-                    <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                    <h1 class="mb-4 text-xl font-extrabold leading-none text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
                 </div>
             </section>
         </div>
-        <div class="max-w-screen-xl mx-auto flex flex-wrap px-4">
+        <div class="flex flex-wrap max-w-screen-xl px-4 mx-auto">
             <div class="md:pr-12 xl:pr-16 md:w-12/24 xl:w-13/24">
                 <div class="text-sm text-gray-900 md:text-base wysiwyg-content md:mb-8 xl:mb-16" v-if="page.description" v-html="page.description">
                 </div>

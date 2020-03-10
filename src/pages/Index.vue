@@ -19,7 +19,7 @@
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
-                                    class="absolute hidden w-auto logo-white md:block"
+                                    class="absolute hidden w-auto pl-2 logo-white md:block"
                                     alt="logo společnosti"
                                 />
                             </g-link>
@@ -66,8 +66,10 @@
                 <div class="pt-6 md:pt-8 xl:pt-16">
                     <div class="max-w-screen-xl mx-auto">
                         <div class="px-4 mx-auto w-22/24 md:w-18/24">
-                            <h2 class="mb-6 text-base text-center md:mb-8 xl:mb-16 md:text-xl xl:text-2xl"
-                                v-html="page.homepageReferenceHeader"></h2>
+                            <h2
+                                class="mb-6 text-base text-center text-black md:mb-8 xl:mb-16 md:text-xl xl:text-2xl"
+                                v-html="page.homepageReferenceHeader"
+                            ></h2>
                         </div>
                         <div class="mx-auto md:w-22/24">
                             <div
@@ -78,8 +80,9 @@
                                     :class="[index === page.homepageReference.length - 1 ? 'mb-8' : 'mb-3 md:mb-8 xl:mb-16']"
                                 >
                                     <div class="relative z-20 px-4 pt-8 md:px-8 xl:px-16 md:pt-8 xl:pt-16">
-                                        <h2 class="mb-3 text-base font-bold leading-tight md:text-lg xl:text-2xl">
-                                            {{ reference.header }}</h2>
+                                        <h2 class="mb-3 text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
+                                            {{ reference.header }}
+                                        </h2>
                                         <div class="mb-4 text-sm text-green-500 md:mb-6 xl:text-base">
                                             {{ mapObject(reference, ['client', 0 , 'title']) }}
                                         </div>
@@ -137,7 +140,7 @@
         </section>
         <section class="relative pt-16">
             <div class="max-w-screen-xl px-4 mx-auto">
-                <h2 class="mb-4 text-base font-bold text-center md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">
+                <h2 class="mb-4 text-base font-bold text-center text-black md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">
                     {{ page.homepageAssignmentsHeader }}
                 </h2>
                 <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
@@ -158,7 +161,7 @@
                         </div>
                     </div>
                 </div>
-                <h2 class="mb-2 text-base font-bold text-center md:mb-3 md:text-xl xl:text-2xl">
+                <h2 class="mb-2 text-base font-bold text-center text-black md:mb-3 md:text-xl xl:text-2xl">
                     {{ page.contactFormHeader }}</h2>
                 <div class="w-full mx-auto text-lg text-center sm:w-22/24 md:w-12/24 xl:w-10/24">
                     <div

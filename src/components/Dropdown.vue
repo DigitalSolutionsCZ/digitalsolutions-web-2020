@@ -12,13 +12,13 @@
 
         <div
             ref="content"
-            class="z-50 absolute"
+            class="absolute z-50"
             :class="defaultClasses.content"
         >
             <transition
-                enter-active-class="transform transition-all duration-200 ease-in-out"
+                enter-active-class="transition-all duration-200 ease-in-out transform"
                 enter-class="translate-y-6 opacity-0"
-                leave-active-class="transform transition-all duration-200 ease-in-out pointer-events-none"
+                leave-active-class="transition-all duration-200 ease-in-out transform pointer-events-none"
                 leave-to-class="translate-y-6 opacity-0"
                 v-on:after-enter="afterEnter"
                 v-on:after-leave="afterLeave"
@@ -31,8 +31,6 @@
 </template>
 
 <script>
-import Popper from 'popper.js';
-
 export default {
     props: {
         classes: {
