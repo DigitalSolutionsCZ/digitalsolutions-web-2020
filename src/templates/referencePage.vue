@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :page-slug="$context.slug">
         <template #headerSection>
             <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
@@ -63,7 +63,7 @@
             </ClientOnly>
             <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
                  class="absolute inset-0 bg-center pointer-events-none"></div>
-            <div class="relative w-full max-w-screen-xl mx-auto overflow-hidden" v-if="list.length > 0">
+            <div class="relative w-full max-w-screen-xl mx-auto" v-if="list.length > 0">
                 <div class="flex flex-wrap justify-center mb-4 -mx-2">
                     <div
                         v-for="(reference, index) in list"
@@ -264,7 +264,7 @@ export default {
                     referenceDetailLinkText,
                     excerpt,
                     referenceMultipleImages {
-                        url
+                        url(transform: "mediumImage")
                     },
                     vyberKlienta {
                         ...on craft_klient_Category {

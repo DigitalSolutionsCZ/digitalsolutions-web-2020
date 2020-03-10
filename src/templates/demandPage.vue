@@ -1,5 +1,5 @@
 <template>
-    <Layout :chameleon="false">
+    <Layout :page-slug="$context.slug" :chameleon="false">
         <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
             <section class="flex flex-wrap pt-6 xl:pt-16 xl:pb-8">
                 <div class="w-full px-4 text-center">
@@ -39,7 +39,9 @@
                             id
                             firstName
                             lastName
-                            image { url }
+                            image {
+                                url(transform: "xsmallImage")
+                            }
                         }
                     }
                 }
