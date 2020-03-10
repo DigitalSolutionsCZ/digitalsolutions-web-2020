@@ -1,24 +1,26 @@
 <template>
     <Layout>
         <template #headerSection>
-            <div class="max-w-screen-md mx-auto">
-                <section class="flex flex-wrap pt-6 pb-3 xl:py-16">
-                    <div class="px-4 text-center">
-                        <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                        <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
-                        <div class="items-center md:flex md:mb-2 xl:mb-4" v-if="page.showContactButtons">
-                            <div class="md:w-9/24">
-                                <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
-                            </div>
-                            <div class="md:w-6/24">
-                                <div class="mb-3 text-base text-center">nebo vyplňte</div>
-                            </div>
-                            <div class="md:w-9/24">
-                                <project-button class="mb-4 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
-                            </div>
-                        </div>
+            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
+                <section class="flex flex-wrap pt-6 xl:pt-16">
+                    <div class="w-full px-4 text-center">
+                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
+            </div>
+            <div class="max-w-screen-md mx-auto md:max-w-screen-md px-4">
+                <div class="items-center justify-center flex flex-col md:flex-row md:mb-2 xl:mb-4" v-if="page.showContactButtons">
+                    <div class="md:w-9/24">
+                        <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
+                    </div>
+                    <div class="md:w-6/24">
+                        <div class="mb-3 text-sm lg:text-base text-center">nebo vyplňte</div>
+                    </div>
+                    <div class="md:w-9/24">
+                        <project-button class="mb-4 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+                    </div>
+                </div>
             </div>
         </template>
         <div class="relative mb-4 md:mb-8 xl:mb-16">

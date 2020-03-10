@@ -1,11 +1,11 @@
 <template>
     <Layout>
         <template #headerSection>
-            <div class="max-w-screen-xl ml-auto mr-auto">
+            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
-                    <div class="w-full px-4 text-center lg:pr-12">
-                        <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
-                        <div class="mb-4 text-xs text-gray-700 xs:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
+                    <div class="w-full px-4 text-center">
+                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
             </div>

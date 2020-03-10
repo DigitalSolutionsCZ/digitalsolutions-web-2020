@@ -1,32 +1,34 @@
 <template>
     <Layout>
         <template #headerSection>
-            <section class="px-4 bg-white">
-                <div class="max-w-screen-xl pt-10 mx-auto xl:py-16">
-                    <h1 class="mb-8 text-2xl font-black leading-none text-center lg:text-3xl color-black" v-if="page.heading" v-html="page.heading" />
-                    <div class="mx-auto mb-4 text-base text-center text-gray-700 md:mb-6 xl:mb-8 lg:w-1/2" v-if="page.excerpt" v-html="page.excerpt"/>
-                    <div class="relative z-20 mb-4 text-center md:mb-6 xl:mb-8 ">
+            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
+                <section class="flex flex-wrap pt-6 xl:py-16">
+                    <div class="w-full px-4 text-center">
+                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
+                    </div>
+                    <div class="relative z-20 mb-4 text-center md:mb-6 xl:mb-8 mx-auto">
                         <dropdown class="inline-block text-left" ref="dropdown">
                             <template #header="{open}">
                                 <div
-                                    class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
+                                        class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
                                     {{ activeTag.title }}
                                     <icon
-                                        symbol="i_chevron"
-                                        class="w-4 h-4 ml-3 -mr-2 text-blue-500 transition-transform duration-200 ease-in-out transform rotate-90 fill-current"
-                                        :class="{'-rotate-90': open}"
+                                            symbol="i_chevron"
+                                            class="w-4 h-4 ml-3 -mr-2 text-blue-500 transition-transform duration-200 ease-in-out transform rotate-90 fill-current"
+                                            :class="{'-rotate-90': open}"
                                     />
                                 </div>
                             </template>
                             <template #content>
                                 <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
                                     <a
-                                        tabindex="0"
-                                        class="block px-8 py-2 text-sm text-gray-700 ease-in-out cursor-pointer hover:text-green-500 focus:text-green-500 transition-color focus:outline-none"
-                                        :key="tag.slug"
-                                        v-for="tag in tags"
-                                        :href="tag.url"
-                                        @click.prevent="toSlug(tag.url)"
+                                            tabindex="0"
+                                            class="block px-8 py-2 text-sm text-gray-700 ease-in-out cursor-pointer hover:text-green-500 focus:text-green-500 transition-color focus:outline-none"
+                                            :key="tag.slug"
+                                            v-for="tag in tags"
+                                            :href="tag.url"
+                                            @click.prevent="toSlug(tag.url)"
                                     >
                                         {{ tag.title }}
                                     </a>
@@ -34,8 +36,8 @@
                             </template>
                         </dropdown>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </template>
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4">
             <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
