@@ -6,7 +6,7 @@
                     <div class="max-w-screen-xl mx-auto">
                         <section class="flex flex-wrap pt-6 lg:pt-16">
                             <div class="w-full px-4 md:w-12/24 lg:pr-12 xl:pb-16">
-                                <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
+                                <h1 class="mb-4 text-xl font-extrabold leading-none text-black md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                                 <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">{{ mapObject(page, ['vyberKlienta', 0, 'title']) }}</div>
                                 <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base wysiwyg-content" v-html="page.description"></div>
                                 <div class="text-center md:text-left">
@@ -41,7 +41,7 @@
             <div class="relative w-full max-w-screen-xl py-8 ml-auto mr-auto">
                 <section class="flex flex-wrap">
                     <div class="w-full px-4 md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
+                        <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription"></div>
                     </div>
                     <div class="self-start w-full px-4 md:w-10/24 group">
@@ -59,14 +59,14 @@
         <div class="relative w-full max-w-screen-xl ml-auto mr-auto">
             <section class="flex flex-wrap mb-4 xl:mb-8">
                 <div class="w-full px-4 lg:w-14/24 lg:pr-12">
-                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
+                    <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
                     <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
                     </div>
                 </div>
                 <div class="self-start w-full px-4 lg:w-10/24">
                     <div class="mb-2 lg:mb-8 lg:ml-16">
                         <template v-if="services.length > 0">
-                            <h3 class="mb-4 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
+                            <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
                             <ul class="mb-6 lg:mb-16">
                                 <li class="mb-3" v-for="service in services" :key="service.id">
                                     <div class="flex items-center mb-1">
@@ -80,7 +80,7 @@
                                 </li>
                             </ul>
                         </template>
-                        <h3 class="mb-4 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Technologie</h3>
+                        <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Technologie</h3>
                         <div class="w-full">
                             <div class="grid grid-cols-4 gap-2 md:gap-4">
                                 <div class="flex items-center justify-center p-2 border border-gray-100 rounded" v-for="technology in page.technologie" :key="technology.id">
@@ -143,7 +143,7 @@
         <div class="w-full max-w-screen-xl ml-auto mr-auto">
             <section class="flex flex-wrap pb-6 lg:pb-16" >
                 <div class="relative w-full px-4 mb-6 lg:mb-0 lg:w-1/2 lg:pr-16">
-                    <h2 class="mb-3 text-base font-bold md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
+                    <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
                     <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.thirdRowDescription">
                     </div>
                     <div class="absolute left-0 right-0 h-1 mx-4 rounded lg:left-auto lg-mx-0 lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>

@@ -20,7 +20,7 @@
                                 <div class="relative h-8 mb-2 md:mb-4 md:h-12 xl:h-16 md:h-16 xl:mb-6" v-if="mapObject(service, ['icon', 0, 'url'])">
                                     <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])">
                                 </div>
-                                <h2 class="mb-2 text-base font-bold md:text-lg xl:text-xl md:mb-6 xl:mb-8">{{ service.header }}</h2>
+                                <h2 class="mb-2 text-base font-bold text-black md:text-lg xl:text-xl md:mb-6 xl:mb-8">{{ service.header }}</h2>
                                 <div class="flex-grow">
                                     <div class="mb-2 text-sm text-gray-900 xl:text-base md:mb-6 xl:mb-8" v-html="service.description"></div>
                                 </div>
@@ -47,11 +47,11 @@
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
-                        <h2 class="mb-4 text-lg font-bold text-center md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
+                        <h2 class="mb-4 text-lg font-bold text-center text-black md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
                         <div class="flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                             <div class="flex flex-wrap items-center w-full mx-auto md:w-16/24">
                                 <div :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
-                                    <h3 class="mb-1 text-base font-bold md:mb-3 md:text-lg xl:text-xl">{{ story.header }}</h3>
+                                    <h3 class="mb-1 text-base font-bold text-black md:mb-3 md:text-lg xl:text-xl">{{ story.header }}</h3>
                                     <div class="mb-1 text-sm text-gray-900 md:mb-3 md:text-base xl:text-lg"><strong>{{ story.subheader }}</strong></div>
                                     <div class="mb-4 text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content" v-html="story.description">
                                     </div>
@@ -72,7 +72,7 @@
                 <div class="max-w-screen-xl mx-auto" v-else>
                     <div class="relative flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                         <div class="self-center mb-4 md:w-17/24 md:mb-16" :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
-                            <h3 class="mb-1 text-base font-bold  md:mb-3 md:text-lg xl:text-xl">Software development done right</h3>
+                            <h3 class="mb-1 text-base font-bold text-black  md:mb-3 md:text-lg xl:text-xl">Software development done right</h3>
                             <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
                             <div class="text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content" v-html="story.description"></div>
                         </div>
@@ -90,7 +90,7 @@
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
                 <div class="relative max-w-5xl pt-8 pb-5 ml-auto mr-auto md:px-10 xl:pt-16 xl:pb-16">
-                    <h3 class="mb-8 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">
+                    <h3 class="mb-8 text-lg font-bold text-center text-black md:text-xl md:mb-6 xl:mb-8">
                         Pojďme spolu vymyslet něco úžasného, co vás posune o míle vpřed.
                     </h3>
                     <div class="items-center mx-auto md:flex w-19/24 md:w-21/24 xl:w-19/24">

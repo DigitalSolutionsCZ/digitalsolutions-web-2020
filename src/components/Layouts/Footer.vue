@@ -39,7 +39,7 @@
                                     <g-link
                                         :key="menuItem.id"
                                         class="flex items-center"
-                                        :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'slug']))"
+                                        :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), menuItem, ['menuLink', '0', 'slug'])"
                                     >
                                         <icon
                                             symbol="i_chevron"
