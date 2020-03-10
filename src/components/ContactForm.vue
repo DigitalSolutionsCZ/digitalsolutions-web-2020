@@ -36,8 +36,12 @@
                 >
                 </input-text>
             </div>
-            <div class="w-full mt-4">
-                <textarea class="w-full px-3 pt-3 mb-4 text-xs placeholder-gray-200 border border-gray-200 rounded form-textarea md:text-sm xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"/>
+            <div class="w-full mt-4 mb-4 xl:mb-8">
+                <input-textarea
+                    label="Popište nám prosím váš projekt nebo potřeby…"
+                    v-model="fields.description"
+                    rows="4"
+                />
             </div>
         </div>
 
@@ -49,12 +53,14 @@
 
 <script>
   import axios from "axios";
-  import InputText from  "./Input/InputText";
+  import InputText from  "./Input/InputText.vue";
+  import InputTextarea from "./Input/InputTextarea";
   import ProjectButton from '../components/ProjectButton'
   import CalloutMessage from './CalloutMessage'
 
   export default {
     components: {
+      InputTextarea,
       InputText,
       ProjectButton,
       CalloutMessage

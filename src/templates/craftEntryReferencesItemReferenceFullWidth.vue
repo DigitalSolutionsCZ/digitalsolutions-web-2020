@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :page-slug="$context.baseSlug">
         <template #headerSection>
             <div class="px-4">
                 <div class="relative mx-auto max-w-screen-2xl">
@@ -93,7 +93,7 @@
                 </div>
             </section>
         </div>
-        <div class="relative mb-6 lg:mb-16">
+        <div class="relative mb-6 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
             <div class="absolute w-full h-full overflow-hidden">
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
@@ -259,7 +259,7 @@ query CraftEntry($slug: [String]) {
             description
             referenceLink
             mainImage {
-              url(transform: "xlargeImage")
+              url(transform: "xxlargeImage")
             }
             vyberKlienta {
               title

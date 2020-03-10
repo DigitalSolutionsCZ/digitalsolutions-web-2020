@@ -36,8 +36,12 @@
                 >
                 </input-text>
             </div>
-            <div class="w-full">
-                <textarea class="w-full px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 form-textarea rounded xl:text-base xl:mb-8" rows="4" placeholder="Popište nám prosím váš projekt nebo potřeby…" v-model="fields.description"></textarea>
+            <div class="w-full mb-4 xl:mb-8">
+                <input-textarea
+                    label="Popište nám prosím váš projekt nebo potřeby…"
+                    v-model="fields.description"
+                    rows="4"
+                />
             </div>
             <div class="w-full">
                 <label for="exampleFileUpload"
@@ -77,10 +81,12 @@
   import InputText from  "./Input/InputText";
   import ProjectButton from './ProjectButton'
   import CalloutMessage from './CalloutMessage'
+  import InputTextarea from "./Input/InputTextarea";
 
   export default {
     components: {
       InputText,
+      InputTextarea,
       ProjectButton,
       CalloutMessage
     },
