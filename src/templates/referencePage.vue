@@ -56,7 +56,7 @@
                             :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
                             :key="reference.id"
                             :reference="reference"
-                            :base-url="$context.baseUrl + getDetailUrl(reference.url, reference.title)"
+                            :base-url="$context.baseUrl + getUrl(reference.url, reference.title)"
 
                         />
                         <component
@@ -107,8 +107,7 @@ import referenceFullWidthSmall from "../components/Reference/referenceFullWidthS
 import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 import {fetch} from 'gridsome'
-import {mapObject, metaInfo} from "../components/utils";
-import slugify from "@sindresorhus/slugify";
+import {mapObject, metaInfo, getUrl} from "../components/utils";
 
 export default {
     metaInfo() {
@@ -162,6 +161,7 @@ export default {
     },
     methods: {
         mapObject,
+        getUrl,
         async popState(value) {
             const response = await this.fetchData(value.target.location.pathname);
 
@@ -192,9 +192,6 @@ export default {
             this.prevUrl = response.context.prevUrl;
             this.moreCount = response.context.moreCount;
             return response;
-        },
-        getDetailUrl(itemUrl, title) {
-            return itemUrl !== "" ? itemUrl : '/' + slugify(title)
         }
     }
 }

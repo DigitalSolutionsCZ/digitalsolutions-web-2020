@@ -10,8 +10,8 @@ async function referencePage(data, createPage) {
 
     data.craft.referenceRecords.map(referenceRecord => {
         const referenceDetailUrl = livePreviewEnabled
-            ? referenceUrl + slugifyUrlEntry(referenceRecord.itemUrl, referenceRecord.title)
-            : referenceUrl + '/' + referenceRecord.slug;
+            ? referenceUrl + '/' + referenceRecord.slug
+            : referenceUrl + slugifyUrlEntry(referenceRecord.itemUrl, referenceRecord.title);
 
         createPage({
             path: referenceDetailUrl,

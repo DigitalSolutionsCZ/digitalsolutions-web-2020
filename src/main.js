@@ -14,7 +14,7 @@ import VueKeyframes from "~/components/VueKeyframes";
 const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
 export default function(Vue, { router, head, isClient }) {
-  head.bodyAttrs = { class: "flex flex-col h-full" };
+  head.bodyAttrs = { class: "flex flex-col" };
   head.link.push({
     rel: 'stylesheet',
     href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap'
