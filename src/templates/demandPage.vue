@@ -2,7 +2,7 @@
     <Layout :chameleon="false">
         <div class="px-4">
             <div class="max-w-screen-xl ml-auto mr-auto">
-                <section class="pt-6 pb-10 md:pt-12 xl:pt-16 xl:pb-16">
+                <section class="pt-6 pb-10 md:pt-12 xl:py-16">
                     <div class="mx-auto md:w-22/24">
                         <h1 class="mb-6 text-xl font-extrabold leading-none text-center md:mb-8 xl:mb-16 md:text-2xl xl:text-3xl" v-if="page.heading">{{ page.heading }}</h1>
                         <div class="flex flex-wrap">
