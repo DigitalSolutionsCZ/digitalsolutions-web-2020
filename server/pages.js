@@ -5,12 +5,13 @@ function allPages(data, createPage) {
     const pages = data.craft.pages.filter( page => page.typeHandle.includes("Page") && page.typeHandle !== 'referencePage');
 
     pages.map(page => {
-        page.itemUrl = livePreviewEnabled
+        page.pathUrl = livePreviewEnabled
             ? '/' + page.slug
             : slugifyUrlEntry(page.itemUrl, page.title);
 
+
         createPage({
-            path: page.itemUrl,
+            path: page.pathUrl,
             component: `./src/templates/${page.typeHandle}.vue`,
             context: {
                 seoTitle: page.seoTitle || stripHtml(page.heading),

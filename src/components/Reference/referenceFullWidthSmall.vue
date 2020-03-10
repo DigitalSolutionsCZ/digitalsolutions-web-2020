@@ -4,8 +4,9 @@
     >
         <div class="relative z-20 p-4 md:p-8 xl:pb-8 xl:px-16 xl:pt-16">
             <g-link :to="props.baseUrl">
-                <h2 class="mb-2 text-base font-black xl:mb-3 md:leading-tight md:text-lg xl:text-xl">{{
-                    props.reference.heading }}</h2>
+                <h2 class="mb-2 text-base font-black xl:mb-3 md:leading-tight md:text-lg xl:text-xl">
+                    {{ props.reference.heading }}
+                </h2>
             </g-link>
             <span
                 class="inline-block mb-4 text-sm text-green-500 md:mb-5 xl:mb-8"

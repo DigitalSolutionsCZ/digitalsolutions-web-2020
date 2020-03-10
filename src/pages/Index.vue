@@ -38,7 +38,7 @@
                       } : {})">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
-                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading">Vyvíjíme <span class="font-extrabold">informační systémy</span>, webové a&nbsp;mobilní aplikace na míru</h1>
+                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
                         <div class="mb-4 text-base text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
                         <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                           {{ page.homepageButtonText }}
@@ -228,7 +228,7 @@
 </page-query>
 
 <script>
-import SubLink from "../components/SubLink.vue";
+import SubLink from "./../components/SubLink.vue";
 import {mapObject, metaInfo} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
