@@ -91,7 +91,7 @@
                                                     class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-9 xl:mb-12"></div>
                                                 <div class="relative" v-if="reference.textTestemonial">
                                                     <icon symbol="i_quotation"
-                                                          class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                                          class="absolute w-12 h-12 -mt-5 -ml-3 text-gray-100 transform fill-current md:w-16 md:h-16 md:mt-10 md:ml-10 xl:ml-6 md:-translate-x-full md:-translate-y-full"
                                                     />
                                                     <div
                                                         class="relative text-sm italic text-gray-700  wysiwyg-content md:text-base"
