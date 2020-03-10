@@ -170,22 +170,22 @@
             </div>
         </div>
         <div class="bg-gradient-r-blue-green px-4">
-            <div class="max-w-screen-xl mx-auto">
-                <div class="flex flex-wrap-reverse">
-                    <div class="w-full lg:w-1/2">
-                        <div class="text-center lg:text-left">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 lg:text-xl">
+            <div class="max-w-screen-xl px-4 ml-auto mr-auto">
+                <div class="flex flex-col-reverse md:flex-row md:justify-center">
+                    <div :class="{'flex-1' : $context.nextReferenceUrl}">
+                        <div class="text-center md:text-left">
+                            <g-link :to="$context.referenceUrl" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
                                 <icon symbol="i_chevron" class="w-5 h-5 mr-2 transform rotate-180 fill-current"></icon>
                                 Zpět na seznam referencí
-                            </a>
+                            </g-link>
                         </div>
                     </div>
-                    <div class="w-full lg:w-1/2">
-                        <div class="text-center lg:text-right">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 lg:text-xl">
+                    <div class="flex-1" v-if="$context.nextReferenceUrl">
+                        <div class="text-center md:text-right">
+                            <g-link :to="$context.nextReferenceUrl" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
                                 Další reference
                                 <icon symbol="i_chevron" class="w-5 h-5 ml-2 fill-current"></icon>
-                            </a>
+                            </g-link>
                         </div>
                     </div>
                 </div>

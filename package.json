@@ -12,11 +12,13 @@
     "d3-interpolate": "^1.4.0",
     "popper.js": "^1.16.1",
     "string-strip-html": "^4.3.16",
+    "vue-scrollto": "^2.17.1",
     "vue-slick-carousel": "^1.0.2"
   },
   "devDependencies": {
     "@bhws/gridsome-source-craft-graphql": "0.0.13",
     "@fullhuman/postcss-purgecss": "^2.0.6",
+    "@gridsome/plugin-sitemap": "^0.2.3",
     "@sindresorhus/slugify": "^0.11.0",
     "@tailwindcss/custom-forms": "^0.2.1",
     "gridsome": "^0.7.0",
