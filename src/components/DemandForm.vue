@@ -17,7 +17,7 @@
                 >
                 </input-text>
             </div>
-            <div class="w-full md:pr-4 md:w-12/24">
+            <div class="w-full lg:pr-4 lg:w-12/24">
                 <input-text
                         class="mb-4"
                         label="E-mail"
@@ -27,7 +27,7 @@
                 >
                 </input-text>
             </div>
-            <div class="w-full md:w-12/24">
+            <div class="w-full lg:w-12/24">
                 <input-text
                         class="mb-4"
                         label="Telefon"

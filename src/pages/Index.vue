@@ -30,12 +30,12 @@
                      v-keyframes
                      style="perspective: 900px">
                   <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
-                      atLeastBreakpoint && atLeastBreakpoint('lg') ? {
+                      atLeastBreakpoint && atLeastBreakpoint('md') ? {
                         0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
                         50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
-                      } : {})">
+                      } : { 0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' } })">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
                         <h1 class="mb-2 text-base leading-tight text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>

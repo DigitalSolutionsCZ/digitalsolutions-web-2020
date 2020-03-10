@@ -16,7 +16,7 @@
                 <div class="relative pt-4 pb-4 ml-auto mr-auto max-w-screen-xl xl:pb-8 xl:pt-8">
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
-                            <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-10 xl:mb-16" v-for="service in page.mainServices" :key="service.id">
+                            <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-4 xl:mb-8" v-for="service in page.mainServices" :key="service.id">
                                 <div class="relative h-8 mb-2 md:mb-4 md:h-12 xl:h-16 md:h-16 xl:mb-6" v-if="mapObject(service, ['icon', 0, 'url'])">
                                     <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])">
                                 </div>
@@ -24,9 +24,11 @@
                                 <div class="flex-grow">
                                     <div class="mb-2 text-sm text-gray-900 xl:text-base md:mb-6 xl:mb-8" v-html="service.description"></div>
                                 </div>
-                                <a :href="service.serviceDetailLink" class="mb-4 text-sm font-bold text-green-500 underline md:mb-6 xl:mb-8 md:text-base" v-if="service.serviceDetailLink">{{ service.serviceDetailText ? service.serviceDetailText : 'Detail služby' }}</a>
+                                <a :href="service.serviceDetailLink" class="mb-2 text-sm font-bold text-green-500 underline md:mb-6 xl:mb-8 md:text-base" v-if="service.serviceDetailLink">
+                                    {{ service.serviceDetailText ? service.serviceDetailText : 'Detail služby' }}
+                                </a>
                             </div>
-                            <div class="w-full h-1 mb-8 rounded bg-gradient-l-blue-green md:mb-10 xl:mb-16"></div>
+                            <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-10 xl:mb-16"></div>
                         </div>
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-20/24 xl:w-18/24 md:pb-8 xl:pb-20">
                             <div class="w-full mb-1 md:w-11/24" v-for="subService in page.subServices" :key="subService.id">
