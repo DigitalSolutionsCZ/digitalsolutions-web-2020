@@ -158,9 +158,9 @@
                 </div>
                 <h2 class="mb-2 text-base font-bold text-center text-black md:mb-3 md:text-xl xl:text-2xl">
                     {{ page.contactFormHeader }}</h2>
-                <div class="w-full mx-auto text-lg text-center max-w-xl">
+                <div class="w-full mx-auto text-lg text-center max-w-lg md:max-w-xl">
                     <div
-                        class="text-sm leading-relaxed wysiwyg-content md:text-base"
+                        class="text-sm wysiwyg-content md:text-base"
                         v-html="page.homepageAssignmentsFormText"
                     />
                     <contact-form class="mb-5 md:mb-8"></contact-form>
