@@ -33,7 +33,7 @@
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-20/24 xl:w-18/24 md:pb-8 xl:pb-20">
                             <div class="w-full mb-1 md:w-11/24" v-for="subService in page.subServices" :key="subService.id">
                                 <div class="">
-                                    <h3 class="mb-1 text-sm font-bold md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
+                                    <h3 class="mb-1 text-sm font-bold text-black md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
                                     <div class="mb-3 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
                                 </div>
                                 <a :href="subService.subServiceLink" class="block mb-3 text-xs font-bold text-green-500 underline md:text-sm" v-if="subService.subServiceLink">Detail služby</a>
@@ -48,7 +48,7 @@
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
                         <h2 class="mb-4 text-lg font-bold text-center text-black md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
-                        <div class="flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
+                        <div class="flex flex-wrap mx-auto max-w-lg md:max-w-full xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                             <div class="flex flex-wrap items-center w-full mx-auto md:w-16/24">
                                 <div :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
                                     <h3 class="mb-1 text-base font-bold text-black md:mb-3 md:text-lg xl:text-xl">{{ story.header }}</h3>
@@ -70,10 +70,10 @@
                     </section>
                 </div>
                 <div class="mx-auto max-w-screen-xl" v-else>
-                    <div class="relative flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
+                    <div class="relative flex flex-wrap mx-auto max-w-lg md:max-w-full xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                         <div class="self-center mb-4 md:w-17/24 md:mb-16" :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
-                            <h3 class="mb-1 text-base font-bold text-black  md:mb-3 md:text-lg xl:text-xl">Software development done right</h3>
-                            <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>Sed et egestas mauris, at iaculis eros. Suspendisse blandit, quam at commodo pretium.</strong></div>
+                            <h3 class="mb-1 text-base font-bold text-black  md:mb-3 md:text-lg xl:text-xl">{{ story.header }}</h3>
+                            <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>{{ story.subheader }}</strong></div>
                             <div class="text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content" v-html="story.description"></div>
                         </div>
                         <div class="w-full mb-4 md:w-7/24 md:mb-16">
@@ -84,16 +84,19 @@
                     </div>
                 </div>
             </template>
-
         </div>
         <section class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover" aria-label="hidden"/>
             <div class="px-4">
-                <div class="relative max-w-5xl pt-8 pb-5 ml-auto mr-auto md:px-10 xl:pt-16 xl:pb-16">
-                    <h3 class="mb-8 text-lg font-bold text-center text-black md:text-xl md:mb-6 xl:mb-8">
+                <div class="relative max-w-5xl py-4 mx-auto text-center md:py-8 xl:py-12">
+                    <h3 class="mb-4 text-lg font-bold text-black lg:text-xl md:mb-6 xl:mb-8">
                         Pojďme spolu vymyslet něco úžasného, co vás posune o míle vpřed.
                     </h3>
-                    <div class="flex flex-col items-center justify-center mx-auto w-19/24 md:flex-row md:w-21/24 xl:w-19/24">
+                    <project-button tag="g-link" href="/kontakt">
+                        Domluvit schůzku
+                    </project-button>
+                    <!-- TODO - tlačítka by se měla přehodit, až bude existovat stránka "O nás" -->
+                    <div class="flex flex-col items-center justify-center mx-auto w-19/24 md:flex-row md:w-21/24 xl:w-19/24 hidden">
                         <div class="md:w-8/24 md:text-right">
                             <project-button tag="g-link" href="/kontakt">
                                 Domluvit schůzku

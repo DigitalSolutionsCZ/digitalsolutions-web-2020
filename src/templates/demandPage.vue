@@ -7,20 +7,18 @@
                 </div>
             </section>
         </div>
-        <div class="flex flex-wrap max-w-screen-sm lg:max-w-6xl px-4 mx-auto">
-            <div class="md:pr-12 xl:pr-16 lg:w-12/24 xl:w-14/24">
+        <div class="flex flex-wrap max-w-screen-sm lg:max-w-screen-xl px-4 mx-auto">
+            <div class="md:pr-12 xl:pr-16 lg:w-12/24">
                 <div class="text-sm text-gray-900 md:text-base wysiwyg-content md:mb-8 xl:mb-12 lg:mt-2" v-if="page.description" v-html="page.description">
                 </div>
-                <div class="grid grid-cols-2 gap-4 mb-4">
+                <div class="grid sm:grid-cols-2 gap-4 mb-4">
                     <div class="flex items-center md:mb-4" v-for="person in page.people">
                         <img :src="mapObject(person, ['image', 0, 'url'])" class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20" alt="person">
-                        <div>
-                            <strong class="text-sm lg:text-lg">{{ person.firstName  }} {{ person.lastName }}</strong>
-                        </div>
+                        <strong class="text-sm lg:text-lg">{{ person.firstName  }} {{ person.lastName }}</strong>
                     </div>
                 </div>
             </div>
-            <div class="lg:w-12/24 xl:w-10/24">
+            <div class="lg:w-12/24">
                 <demand-form></demand-form>
             </div>
         </div>
