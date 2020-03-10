@@ -44,7 +44,7 @@
                                 <div class="text-sm text-gray-900 md:text-base xl:text-lg">
                                     <div class="flex mb-2">
                                         <icon symbol="i_map_point" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
-                                        <span>{{ mapObject(page, ['contactAdress', 0, 'address']) }}</span>
+                                        <span><a :href="mapObject(page, ['map', 0, 'contactMapLink'])">{{ mapObject(page, ['contactAdress', 0, 'address']) }}</a></span>
                                     </div>
                                     <div class="flex mb-2 text-base xl:text-lg">
                                         <icon symbol="i_phone" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
@@ -78,9 +78,9 @@
                         </div>
                     </template>
                 </div>
-                <h3 class="mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
-                <div class="mx-auto md:w-10/24">
-                    <contact-form class="mb-4 md:mb-16" />
+                <h3 class="mb-2 md:mb-6 xl:mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
+                <div class="mx-auto max-w-screen-sm">
+                    <contact-form class="mb-4 md:mb-16 w-full md:w-22/24 mx-auto"/>
                 </div>
             </div>
         </div>

@@ -30,15 +30,15 @@
                      v-keyframes
                      style="perspective: 900px">
                   <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
-                      atLeastBreakpoint && atLeastBreakpoint('lg') ? {
+                      atLeastBreakpoint && atLeastBreakpoint('md') ? {
                         0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
                         50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
-                      } : {})">
+                      } : { 0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' } })">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
-                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
+                        <h1 class="mb-4 text-xl leading-tight xl:leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
                         <div class="mb-4 text-base text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
                         <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                           {{ page.homepageButtonText }}
@@ -91,7 +91,7 @@
                                                     class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-9 xl:mb-12"></div>
                                                 <div class="relative" v-if="reference.textTestemonial">
                                                     <icon symbol="i_quotation"
-                                                          class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                                          class="absolute w-12 h-12 -mt-5 -ml-3 text-gray-100 transform fill-current md:w-16 md:h-16 md:mt-10 md:ml-10 xl:ml-6 md:-translate-x-full md:-translate-y-full"
                                                     />
                                                     <div
                                                         class="relative text-sm italic text-gray-700  wysiwyg-content md:text-base"
