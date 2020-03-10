@@ -35,10 +35,10 @@
                         15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                         30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
                         50: { opacity: 0, transform: 'translateY(30vh) rotateX(30deg)' },
-                      } : {})">
+                      } : { 0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' } })">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
-                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
+                        <h1 class="mb-4 text-xl leading-tight xl:leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
                         <div class="mb-4 text-base text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
                         <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                           {{ page.homepageButtonText }}
