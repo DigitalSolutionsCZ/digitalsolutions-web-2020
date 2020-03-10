@@ -20,7 +20,7 @@
             <div class="w-full md:pr-4 md:w-12/24">
                 <input-text
                         class="mb-4"
-                        label="Email"
+                        label="E-mail"
                         v-model="fields.email"
                         id="email"
                         :errors="errorFields.email"
