@@ -10,7 +10,7 @@
                 </section>
             </div>
             <div class="max-w-screen-md px-4 mx-auto md:max-w-screen-md">
-                <div class="flex flex-col items-center justify-center md:flex-row md:mb-2 xl:mb-4" v-if="page.showContactButtons">
+                <div class="flex flex-col items-center justify-center md:flex-row md:mb-2 xl:mb-8" v-if="page.showContactButtons">
                     <div class="md:w-9/24">
                         <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
                     </div>
@@ -18,7 +18,7 @@
                         <div class="mb-3 text-sm text-center lg:text-base">nebo vyplňte</div>
                     </div>
                     <div class="md:w-9/24">
-                        <project-button class="mb-4 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+                        <project-button class="mb-4 md:w-full" href="/poptávka">Nezávaznou poptávku</project-button>
                     </div>
                 </div>
             </div>

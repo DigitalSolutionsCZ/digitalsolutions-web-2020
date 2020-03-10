@@ -1,3 +1,3 @@
 <template functional>
-    <svg height="100" viewBox="0 0 100 100" width="100" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><clipPath id="a"><path d="m0 0h100v100h-100z"/></clipPath><g clip-path="url(#a)"><path d="m40.756-37.311 32.9-32.784a4.745 4.745 0 0 0 0-6.624 4.746 4.746 0 0 0 -6.624 0l-29.532 29.529-29.528-29.529a4.745 4.745 0 0 0 -6.624 0 4.745 4.745 0 0 0 0 6.624l32.784 32.784a4.745 4.745 0 0 0 6.624 0z" fill-rule="evenodd" transform="matrix(0 -1 1 0 106.998 87.493)"/></g></svg>
+    <svg enable-background="new 0 0 283.5 283.5" viewBox="0 0 283.5 283.5" xmlns="http://www.w3.org/2000/svg"><path clip-rule="evenodd" d="m-57.5 119.5 93.3-92.9c5.1-5.2 5.1-13.6 0-18.8-5.2-5.1-13.6-5.1-18.8 0l-83.7 83.7-83.7-83.7c-5.2-5.1-13.6-5.1-18.8 0-5.1 5.2-5.1 13.6 0 18.8l92.9 92.9c5.2 5.1 13.6 5.1 18.8 0z" fill-rule="evenodd" transform="matrix(0 -1 1 0 78.066 75.001)"/></svg>
 </template>
