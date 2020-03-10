@@ -1,11 +1,11 @@
 <template>
     <Layout>
         <template #headerSection>
-            <div class="max-w-screen-xl ml-auto mr-auto">
+            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
-                    <div class="w-full px-4 text-center lg:pr-12">
-                        <h1 class="mb-4 text-xl font-extrabold leading-none md:mb-6 md:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
-                        <div class="mb-4 text-xs text-gray-700 xs:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
+                    <div class="w-full px-4 text-center">
+                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
             </div>
@@ -93,15 +93,15 @@
                     </h3>
                     <div class="items-center mx-auto md:flex w-19/24 md:w-21/24 xl:w-19/24">
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-white transition-all duration-200 ease-in-out rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">
+                            <project-button tag="g-link" href="/kontakt">
                                 Domluvit schůzku
-                            </a>
+                            </project-button>
                         </div>
                         <div class="md:w-8/24">
                             <div class="mb-3 text-xs text-center md:text-sm xl:text-base">nebo si přečtěte</div>
                         </div>
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-gray-800 transition-all duration-200 ease-in-out bg-white rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg active">Něco o nás</a>
+                            <project-button tag="g-link" href="/" variant="tertiary">Něco o nás</project-button>
                         </div>
                     </div>
                 </div>
@@ -159,9 +159,11 @@ query {
 
 <script>
   import { mapObject, metaInfo } from  '~/components/utils';
+  import ProjectButton from "../components/ProjectButton";
 
   export default {
-      metaInfo() {
+	  components: {ProjectButton},
+	  metaInfo() {
           return metaInfo({title: this.$context.seoTitle}, this.$context);
       },
       computed: {

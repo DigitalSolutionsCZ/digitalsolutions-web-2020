@@ -20,7 +20,7 @@
                             </template>
                         </site-header>
                     </div>
-                    <div class="mt-20 xl:mt-24">
+                    <div class="mt-12 md:mt-20 xl:mt-24">
                         <slot name="headerSection"></slot>
                     </div>
                 </section>
@@ -116,11 +116,11 @@ export default {
                     name,
                     menu {
                         ...on craft_menu_internalItem_BlockType {
-                            slug,
                             id,
                             menuName,
                             menuLink {
                                 slug,
+                                title,
                                 ...ItemUrl
                             }
                         }
@@ -147,7 +147,6 @@ export default {
                     footerHeadlineCompany,
                     menu {
                         ...on craft_menu_internalItem_BlockType {
-                            slug,
                             id,
                             menuName,
                             menuLink {

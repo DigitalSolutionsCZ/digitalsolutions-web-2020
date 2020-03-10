@@ -1,7 +1,7 @@
 :root {
     --logo-color-visibility: visible;
     --logo-white-visibility: hidden;
-    --header-shadow-visibility: linear-gradient(to bottom, theme('colors.black'), transparent);
+    --header-shadow-visibility: linear-gradient(180deg, theme('colors.gray.600') 0%, transparent 80%);
     --header-background: theme('colors.white');
     --nav-link-color: theme('colors.gray.900');
     --nav-link-opacity: theme('opacity.75');

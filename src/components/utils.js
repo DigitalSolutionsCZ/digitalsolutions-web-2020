@@ -1,6 +1,8 @@
 import slugify from "@sindresorhus/slugify";
 import stripHtml from "string-strip-html";
 
+export const livePreviewEnabled = process.env.GRIDSOME_LIVE_PREVIEW === 'true';
+
 export function transformSingleArrayToObject(data, keys) {
   for (const key of keys) {
     if (Array.isArray(data[key]) && data[key].length === 1) {
@@ -90,9 +92,11 @@ export function shallowObjectValuesToInt(object) {
  *
  * @param url
  * @param title
- * @returns String
+ * @param slug
+ * @returns {string|*}
  */
-export function getUrl(url, title) {
+export function getUrl(url, title, slug = null) {
+  if (livePreviewEnabled && slug) return '/' + slug;
   return url !== "" ? url : '/' + slugify(title)
 }
 
