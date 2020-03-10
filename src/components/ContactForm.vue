@@ -20,7 +20,7 @@
             <div class="w-full md:pr-4 md:w-12/24">
                 <input-text
                         class="mb-4"
-                        label="Email"
+                        label="E-mail"
                         v-model="fields.email"
                         id="email"
                         :errors="errorFields.email"
@@ -37,7 +37,7 @@
                 </input-text>
             </div>
             <div class="w-full mt-4">
-                <textarea class="w-full form-textarea px-3 pt-3 mb-4 text-sm placeholder-gray-200 border border-gray-200 rounded xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"></textarea>
+                <textarea class="w-full px-3 pt-3 mb-4 text-xs placeholder-gray-200 border border-gray-200 rounded form-textarea md:text-sm xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"/>
             </div>
         </div>
 

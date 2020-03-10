@@ -1,11 +1,11 @@
 <template>
     <input-wrapper :value="value" :error-message="errors ? errors.messages: null">
-        <label class="transition-all duration-500 ease-in-out pointer-events-none border-transparent border absolute"
-               :class="[{'text-red-500': isError }, value ? 'text-black text-xs font-bold mt-0 ml-0 pb-1 transform -translate-y-full' : 'text-gray-200 ml-3 inset-y-0 flex items-center', labelClass]" :for="id" >
+        <label class="absolute flex items-center transition-all duration-300 ease-in-out transform pointer-events-none leading-5"
+               :class="[{'text-red-500': isError }, value ? '-top-1 text-black text-xs font-bold -translate-y-full' : '-left-px font-base text-xs md:text-sm xl:text-base text-gray-200 translate-x-4 xl:translate-x-5 inset-y-0', labelClass]" :for="id" >
             {{ label }}
             <template v-if="required">*</template>
         </label>
-        <input class="w-full p-3 text-sm leading-5 border rounded form-input md:text-sm xl:p-4 xl:text-base" :class="[isError ? 'border-red-500' : 'border-gray-200']"
+        <input class="w-full p-3 text-sm leading-5 border rounded form-input md:text-sm xl:p-4 xl:text-base focus:outline-none" :class="[isError ? 'border-red-500' : 'border-gray-200']"
                :id="id"
                :name="$attrs.name ? $attrs.name : id"
                :type="type"
@@ -16,7 +16,6 @@
         <div
             v-if="hasLoading"
             class="absolute right-0 mr-4 -translate-y-1/2 loading loading-trail-transparent loading-border-width-4 loading-sm top-half after:border-l-primary-500 before:border-gray-300"
-            :class="{'hide': !loading}"
         ></div>
     </input-wrapper>
 </template>
