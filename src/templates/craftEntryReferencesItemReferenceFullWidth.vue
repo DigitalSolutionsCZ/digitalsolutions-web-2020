@@ -4,13 +4,13 @@
             <div class="px-4">
                 <div class="relative mx-auto max-w-screen-2xl">
                     <div class="max-w-screen-xl mx-auto">
-                        <section class="flex flex-wrap pt-6 lg:pt-16">
-                            <div class="w-full px-4 md:w-12/24 lg:pr-12 xl:pb-16">
-                                <h1 class="mb-4 text-xl font-extrabold leading-none text-black md:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
+                        <section class="flex flex-wrap pt-6 xl:pt-0 items-center">
+                            <div class="w-full xl:pr-0 md:w-12/24">
+                                <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black md:mb-6 lg:text-2xl xl:text-3xl ">{{ page.heading }}</h1>
                                 <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">{{ mapObject(page, ['vyberKlienta', 0, 'title']) }}</div>
                                 <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base wysiwyg-content" v-html="page.description"></div>
                                 <div class="text-center md:text-left">
-                                    <project-button variant="primary" tag="g-link" class="mb-6" :href="page.referenceLink" v-if="page.referenceLink">
+                                    <project-button variant="primary" tag="g-link" class="mb-4" :href="page.referenceLink" v-if="page.referenceLink">
                                         <div class="flex items-center">
                                             <div class="mr-2">Živá ukázka</div>
                                             <icon
@@ -21,7 +21,7 @@
                                     </project-button>
                                 </div>
                             </div>
-                            <div class="self-center w-full pb-6 md:w-12/24 xl:pb-16">
+                            <div class="w-full md:w-12/24 overflow-hidden xl:overflow-visible">
                                 <div class="h-0 aspect-ratio-4/3 md:my-4 xl:my-8">
                                     <div class="top-0 bottom-0 flex items-center w-full text-right md:absolute md:flex md:justify-end md:w-12/24">
                                         <div class="relative w-full h-0 aspect-ratio-4/3">
@@ -36,11 +36,11 @@
             </div>
         </template>
 
-        <div class="relative mb-8 xl:mb-16">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
-            <div class="relative w-full max-w-screen-xl py-8 ml-auto mr-auto">
+        <div class="relative mb-8 xl:mb-16 px-4">
+            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover -mx-4 h-full" fit="cover"/>
+            <div class="relative w-full max-w-screen-xl py-8 mx-auto">
                 <section class="flex flex-wrap">
-                    <div class="w-full px-4 md:w-14/24 md:pr-12">
+                    <div class="w-full md:w-14/24 md:pr-12">
                         <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription"></div>
                     </div>
@@ -56,42 +56,44 @@
                 </section>
             </div>
         </div>
-        <div class="relative w-full max-w-screen-xl ml-auto mr-auto">
-            <section class="flex flex-wrap mb-4 xl:mb-8">
-                <div class="w-full px-4 lg:w-14/24 lg:pr-12">
-                    <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
-                    <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
+        <div class="px-4">
+            <div class="relative w-full max-w-screen-xl mx-auto">
+                <section class="flex flex-wrap mb-4 xl:mb-8">
+                    <div class="w-full lg:w-14/24 lg:pr-12">
+                        <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
+                        <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
+                        </div>
                     </div>
-                </div>
-                <div class="self-start w-full px-4 lg:w-10/24">
-                    <div class="mb-2 lg:mb-8 lg:ml-16">
-                        <template v-if="services.length > 0">
-                            <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
-                            <ul class="mb-6 lg:mb-16">
-                                <li class="mb-3" v-for="service in services" :key="service.id">
-                                    <div class="flex items-center mb-1">
-                                        <span class="flex-1 text-xs truncate lg:text-lg">{{ service.title }}</span>
-                                        <span class="flex-grow-0 text-xs lg:text-sm">{{ service.podil }}%</span>
+                    <div class="self-start w-full px-4 lg:w-10/24">
+                        <div class="mb-2 lg:mb-8 lg:ml-16">
+                            <template v-if="services.length > 0">
+                                <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
+                                <ul class="mb-6 lg:mb-16">
+                                    <li class="mb-3" v-for="service in services" :key="service.id">
+                                        <div class="flex items-center mb-1">
+                                            <span class="flex-1 text-xs truncate lg:text-lg">{{ service.title }}</span>
+                                            <span class="flex-grow-0 text-xs lg:text-sm">{{ service.podil }}%</span>
+                                        </div>
+                                        <div class="flex items-center">
+                                            <div class="h-1 rounded bg-gradient-l-blue-green" :style="{ width: service.podil + '%' }"></div>
+                                            <div class="flex-grow border-b border-gray-200"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </template>
+                            <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Technologie</h3>
+                            <div class="w-full">
+                                <div class="grid grid-cols-4 gap-2 md:gap-4">
+                                    <div class="flex items-center justify-center p-2 border border-gray-100 rounded" v-for="technology in page.technologie" :key="technology.id">
+                                        <img :src="mapObject(technology, ['obrazek', 0, 'url'])" :alt="technology.title">
                                     </div>
-                                    <div class="flex items-center">
-                                        <div class="h-1 rounded bg-gradient-l-blue-green" :style="{ width: service.podil + '%' }"></div>
-                                        <div class="flex-grow border-b border-gray-200"></div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </template>
-                        <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Technologie</h3>
-                        <div class="w-full">
-                            <div class="grid grid-cols-4 gap-2 md:gap-4">
-                                <div class="flex items-center justify-center p-2 border border-gray-100 rounded" v-for="technology in page.technologie" :key="technology.id">
-                                    <img :src="mapObject(technology, ['obrazek', 0, 'url'])" :alt="technology.title">
                                 </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
         <div class="relative mb-6 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
             <div class="absolute w-full h-full overflow-hidden">
@@ -140,16 +142,16 @@
                 </VueSlickCarousel>
             </div>
         </div>
-        <div class="w-full max-w-screen-xl ml-auto mr-auto">
-            <section class="flex flex-wrap pb-6 lg:pb-16" >
-                <div class="relative w-full px-4 mb-6 lg:mb-0 lg:w-1/2 lg:pr-16">
-                    <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
-                    <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.thirdRowDescription">
+        <div class="px-4">
+            <div class="w-full max-w-screen-xl mx-auto">
+                <section class="flex flex-wrap pb-6 lg:pb-16" >
+                    <div class="relative w-full mb-6 lg:mb-0 lg:w-1/2 lg:pr-16">
+                        <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
+                        <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.thirdRowDescription">
+                        </div>
+                        <div class="absolute left-0 right-0 h-1 mx-4 rounded lg:left-auto lg-mx-0 lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
-                    <div class="absolute left-0 right-0 h-1 mx-4 rounded lg:left-auto lg-mx-0 lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
-                </div>
-                <div class="w-full px-4 lg:w-1/2 lg:pl-12" id="client-survey">
-                    <div class="lg:w-18/24">
+                    <div class="w-full px-4 lg:w-1/2 lg:pl-12" id="client-survey">
                         <h2 class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.thirdRowHeadlineRight }}</h2>
                         <div class="relative">
                             <icon symbol="i_quotation" class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"></icon>
@@ -160,29 +162,29 @@
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-24 lg:h-24" :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])" :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])">
                             <div>
                                 <strong class="text-sm lg:text-lg">{{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'firstName']) }} {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'lastName']) }}</strong>
-                                <div class="text-xs lg:text-base">{{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'position']) }}</div>
+                                <div class="text-xs lg:text-sm">{{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'position']) }}</div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </div>
         </div>
-        <div class="bg-gradient-r-blue-green">
-            <div class="max-w-screen-xl px-4 ml-auto mr-auto">
+        <div class="bg-gradient-r-blue-green px-4">
+            <div class="max-w-screen-xl mx-auto">
                 <div class="flex flex-wrap-reverse">
                     <div class="w-full lg:w-1/2">
                         <div class="text-center lg:text-left">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
-                                <icon symbol="i_chevron" class="w-4 h-4 mr-2 transform rotate-180 fill-current"></icon>
+                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 lg:text-xl">
+                                <icon symbol="i_chevron" class="w-5 h-5 mr-2 transform rotate-180 fill-current"></icon>
                                 Zpět na seznam referencí
                             </a>
                         </div>
                     </div>
                     <div class="w-full lg:w-1/2">
                         <div class="text-center lg:text-right">
-                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
+                            <a href="#nogo" class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 lg:text-xl">
                                 Další reference
-                                <icon symbol="i_chevron" class="w-4 h-4 ml-2 fill-current"></icon>
+                                <icon symbol="i_chevron" class="w-5 h-5 ml-2 fill-current"></icon>
                             </a>
                         </div>
                     </div>

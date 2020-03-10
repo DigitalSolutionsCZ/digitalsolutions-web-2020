@@ -37,7 +37,7 @@
             </template>
         </slot>
         <slot name="content">
-            <div class="relative flex flex-col flex-grow flex-shrink-0" :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
+            <div class="relative flex flex-col flex-grow flex-shrink-0 " :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
                  :data-cha-section="chameleon">
                 <slot/>
             </div>

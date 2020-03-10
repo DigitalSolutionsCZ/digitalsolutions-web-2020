@@ -52,7 +52,7 @@
                 <div class="flex items-center overflow-hidden md:h-40">
                     <div class="w-full max-w-screen-xl mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
-                            <div class="px-4 mb-4 md:mb-0" v-for="logo in page.homepageClientLogos">
+                            <div class="px-4 my-2 md:my-0" v-for="logo in page.homepageClientLogos">
                                 <img :src="logo.url" class="w-24 md:w-32" :alt="logo.title" :key="logo.id">
                             </div>
                         </div>

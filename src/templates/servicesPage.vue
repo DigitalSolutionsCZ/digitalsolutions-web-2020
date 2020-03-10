@@ -4,7 +4,7 @@
             <div class="mx-auto max-w-screen-md md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
                     <div class="w-full px-4 text-center">
-                        <h1 class="mb-4 text-xl font-extrabold leading-none text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
                         <div class="mb-4 text-xs text-gray-900 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
