@@ -184,7 +184,7 @@
                     contactFormHeader
                     homepageAssignmentsFormText
                     homepageClientLogos {
-                        url
+                        url(transform: "smallImage")
                         title
                         id
                     }
@@ -211,7 +211,7 @@
                                 title
                             }
                             image {
-                                url
+                                url(transform: "largeImage")
                                 title
                             }
                         }
