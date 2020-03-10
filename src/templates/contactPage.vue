@@ -78,9 +78,9 @@
                         </div>
                     </template>
                 </div>
-                <h3 class="mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
-                <div class="mx-auto md:w-10/24">
-                    <contact-form class="mb-4 md:mb-16" />
+                <h3 class="mb-2 md:mb-6 xl:mb-8 text-lg font-bold text-center md:text-xl">Napište nám</h3>
+                <div class="mx-auto max-w-screen-sm">
+                    <contact-form class="mb-4 md:mb-16 w-full md:w-22/24 mx-auto"/>
                 </div>
             </div>
         </div>
