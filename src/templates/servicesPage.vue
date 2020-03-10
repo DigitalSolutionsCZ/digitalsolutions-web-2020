@@ -1,10 +1,10 @@
 <template>
     <Layout>
         <template #headerSection>
-            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
+            <div class="mx-auto max-w-screen-md md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
                     <div class="w-full px-4 text-center">
-                        <h1 class="mb-4 text-xl font-extrabold text-black leading-none lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
+                        <h1 class="mb-4 text-xl font-extrabold leading-none text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
                         <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8" v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                 </section>
@@ -13,7 +13,7 @@
         <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="mx-4">
-                <div class="relative max-w-screen-xl pt-4 pb-4 ml-auto mr-auto xl:pb-8 xl:pt-8">
+                <div class="relative pt-4 pb-4 ml-auto mr-auto max-w-screen-xl xl:pb-8 xl:pt-8">
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
                         <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
                             <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-10 xl:mb-16" v-for="service in page.mainServices" :key="service.id">
@@ -44,7 +44,7 @@
         <div class="px-4">
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
-                    <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
+                    <section class="mx-auto mt-6 max-w-screen-xl lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
                         <h2 class="mb-4 text-lg font-bold text-center md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
                         <div class="flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                             <div class="flex flex-wrap items-center w-full mx-auto md:w-16/24">
@@ -67,7 +67,7 @@
                         </div>
                     </section>
                 </div>
-                <div class="max-w-screen-xl mx-auto" v-else>
+                <div class="mx-auto max-w-screen-xl" v-else>
                     <div class="relative flex flex-wrap mx-auto xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                         <div class="self-center mb-4 md:w-17/24 md:mb-16" :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
                             <h3 class="mb-1 text-base font-bold  md:mb-3 md:text-lg xl:text-xl">Software development done right</h3>
@@ -85,23 +85,25 @@
 
         </div>
         <section class="relative">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover" aria-label="hidden"/>
             <div class="px-4">
-                <div class="relative max-w-5xl pt-8 pb-5 ml-auto mr-auto md:px-10 xl:pt-16 xl:pb-16">
+                <div class="relative max-w-5xl pt-8 pb-5 mx-auto text-center md:px-10 xl:pt-16 xl:pb-16">
                     <h3 class="mb-8 text-lg font-bold text-center md:text-xl md:mb-6 xl:mb-8">
                         Pojďme spolu vymyslet něco úžasného, co vás posune o míle vpřed.
                     </h3>
-                    <div class="items-center mx-auto md:flex w-19/24 md:w-21/24 xl:w-19/24">
-                        <div class="md:w-8/24">
+                    <div class="flex flex-col items-center justify-center mx-auto w-19/24 md:flex-row md:w-21/24 xl:w-19/24">
+                        <div class="md:w-8/24 md:text-right">
                             <project-button tag="g-link" href="/kontakt">
                                 Domluvit schůzku
                             </project-button>
                         </div>
                         <div class="md:w-8/24">
-                            <div class="mb-3 text-xs text-center md:text-sm xl:text-base">nebo si přečtěte</div>
+                            <div class="my-3 text-xs text-center md:text-sm xl:text-base">nebo si přečtěte</div>
                         </div>
-                        <div class="md:w-8/24">
-                            <project-button tag="g-link" href="/" variant="tertiary">Něco o nás</project-button>
+                        <div class="md:w-8/24 md:text-left">
+                            <project-button tag="g-link" href="/" variant="tertiary">
+                                Něco o nás
+                            </project-button>
                         </div>
                     </div>
                 </div>

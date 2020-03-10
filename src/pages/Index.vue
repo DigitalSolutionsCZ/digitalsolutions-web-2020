@@ -38,11 +38,11 @@
                       } : {})">
                     <div class="max-w-6xl mx-auto">
                       <div class="text-center">
-                        <h1 class="mb-4 text-xl leading-none text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
-                        <div class="mb-4 text-base text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
-                        <g-link class="inline-flex justify-center px-4 py-2 text-sm text-white transition-all duration-200 ease-in-out border border-gray-100 rounded-full min-w-40 md:text-base hover:shadow-lg" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
+                        <h1 class="mb-2 text-base leading-tight text-white md:text-2xl xl:text-3xl md:mb-6 xl:mb-8" v-html="page.heading"/>
+                        <div class="mb-4 text-xs text-white opacity-75 md:mb-8 xl:mb-10 md:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
+                        <project-button variant="ghost" tag="g-link" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                           {{ page.homepageButtonText }}
-                        </g-link>
+                        </project-button>
                       </div>
                     </div>
                   </section>
@@ -65,8 +65,8 @@
             <div class="relative overflow-hidden">
                 <div class="pt-6 md:pt-8 xl:pt-16">
                     <div class="max-w-screen-xl mx-auto">
-                        <div class="px-4 mx-auto w-22/24 md:w-18/24">
-                            <h2 class="mb-6 text-base text-center md:mb-8 xl:mb-16 md:text-xl xl:text-2xl"
+                        <div class="px-4 mx-auto max-w-lg lg:max-w-2xl xl:max-w-5xl xl:px-16">
+                            <h2 class="mb-6 text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
                                 v-html="page.homepageReferenceHeader"></h2>
                         </div>
                         <div class="mx-auto md:w-22/24">
@@ -85,25 +85,24 @@
                                         </div>
                                         <div class="flex flex-wrap mb-6">
                                             <div class="w-full md:pr-16 md:w-16/24">
-                                                <div class="text-sm wysiwyg-content xl:text-lg"
+                                                <div class="text-sm wysiwyg-content md:text-base"
                                                      v-html="reference.description"></div>
-                                                <div
-                                                    class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-9 xl:mb-12"></div>
+                                                <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"></div>
                                                 <div class="relative" v-if="reference.textTestemonial">
                                                     <icon symbol="i_quotation"
-                                                          class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                                          class="absolute w-8 h-8 lg:w-16 lg:h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
                                                     />
                                                     <div
-                                                        class="relative text-sm italic text-gray-700  wysiwyg-content md:text-base"
+                                                        class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4"
                                                         v-html="reference.textTestemonial">
                                                     </div>
                                                 </div>
                                                 <div class="flex items-center mb-4 md:mb-6">
                                                     <div>
-                                                        <strong class="text-sm lg:text-lg">
+                                                        <strong class="text-sm md:text-lg">
                                                             {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
                                                         </strong>
-                                                        <div class="text-xs lg:text-base">
+                                                        <div class="text-xs md:text-sm">
                                                             {{ mapObject(reference, ['testemonial', 0 , 'position'])}}
                                                         </div>
                                                     </div>
@@ -142,25 +141,23 @@
                 </h2>
                 <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
                     <div
-                        class="w-full md:w-7/24"
+                        class="w-full max-w-lg mx-auto md:w-7/24"
                         v-for="(assigment, index) in page.homepageAssignments"
                         :key="index"
                     >
-                        <div class="">
-                            <icon
-                                symbol="i_quotation"
-                                class="absolute w-12 h-12 -mt-6 -ml-3 text-gray-100 transform fill-current md:-ml-6 md:w-16 md:h-16 lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
-                            />
-                            <div
-                                class="relative mb-8 text-xs text-gray-700 md:text-sm wysiwyg-content md:text-base md:mb-10 xl:mb-16"
-                                v-html="assigment.description"
-                            />
-                        </div>
+                        <icon
+                            symbol="i_quotation"
+                            class="absolute w-6 h-6 lg:w-12 lg:h-12 -mt-2 -ml-3 text-gray-100 transform fill-current lg:mt-6 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                        />
+                        <div
+                            class="relative mb-8 text-gray-900 text-sm text-center md:text-left wysiwyg-content lg:text-base md:mb-10 xl:mb-16"
+                            v-html="assigment.description"
+                        />
                     </div>
                 </div>
                 <h2 class="mb-2 text-base font-bold text-center md:mb-3 md:text-xl xl:text-2xl">
                     {{ page.contactFormHeader }}</h2>
-                <div class="w-full mx-auto text-lg text-center sm:w-22/24 md:w-12/24 xl:w-10/24">
+                <div class="w-full mx-auto text-lg text-center max-w-xl">
                     <div
                         class="text-sm leading-relaxed wysiwyg-content md:text-base"
                         v-html="page.homepageAssignmentsFormText"
@@ -232,6 +229,7 @@ import SubLink from "./../components/SubLink.vue";
 import {mapObject, metaInfo} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
+import ProjectButton from "../components/ProjectButton";
 
 export default {
     metaInfo() {
@@ -241,6 +239,7 @@ export default {
         })
     },
     components: {
+		ProjectButton,
         SubLink,
         ContactForm,
         SiteHeader
