@@ -94,15 +94,15 @@
                     </h3>
                     <div class="items-center mx-auto md:flex w-19/24 md:w-21/24 xl:w-19/24">
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-white transition-all duration-200 ease-in-out rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg bg-gradient-r-blue-green active">
+                            <project-button tag="g-link" href="/kontakt">
                                 Domluvit schůzku
-                            </a>
+                            </project-button>
                         </div>
                         <div class="md:w-8/24">
                             <div class="mb-3 text-xs text-center md:text-sm xl:text-base">nebo si přečtěte</div>
                         </div>
                         <div class="md:w-8/24">
-                            <a href="#nogo" class="flex items-center justify-center px-4 py-3 mx-2 mb-3 text-xs font-semibold text-center text-gray-800 transition-all duration-200 ease-in-out bg-white rounded-full md:text-sm xl:text-base min-w-40 hover:shadow-lg active">Něco o nás</a>
+                            <project-button tag="g-link" href="/" variant="tertiary">Něco o nás</project-button>
                         </div>
                     </div>
                 </div>
@@ -160,9 +160,11 @@ query {
 
 <script>
   import { mapObject, metaInfo } from  '~/components/utils';
+  import ProjectButton from "../components/ProjectButton";
 
   export default {
-      metaInfo() {
+	  components: {ProjectButton},
+	  metaInfo() {
           return metaInfo({title: this.$context.seoTitle}, this.$context);
       },
       computed: {

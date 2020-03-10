@@ -5,16 +5,16 @@
                 <section class="flex flex-wrap pt-6 pb-3 xl:pt-16 xl:pb-16">
                     <div class="px-4 text-center">
                         <h1 class="mb-3 text-xl font-extrabold leading-none md:mb-5 xl:mb-6 md:text-2xl xl:text-3xl">{{ page.heading }}</h1>
-                        <div class="mb-4 text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
+                        <div class="mb-4 text-sm md:text-base text-gray-700 md:mb-6 xl:mb-8" v-html="page.excerpt"></div>
                         <div class="items-center md:flex" v-if="page.showContactButtons">
                             <div class="md:w-9/24">
-                                <project-button class="mb-3 md:w-full" href="#nogo" variant="secondary">Napište nám</project-button>
+                                <project-button class="mb-3 md:w-full" tag="g-link" href="/kontakt" variant="secondary">Napište nám</project-button>
                             </div>
                             <div class="md:w-6/24">
                                 <div class="mb-3 text-base text-center">nebo vyplňte</div>
                             </div>
                             <div class="md:w-9/24">
-                                <project-button class="mb-3 md:w-full" href="#nogo">Nezávaznou poptávku</project-button>
+                                <project-button class="mb-3 md:w-full" tag="g-link" href="/poptavka">Nezávaznou poptávku</project-button>
                             </div>
                         </div>
                     </div>
@@ -23,9 +23,9 @@
         </template>
         <div class="relative mb-4 md:mb-8 xl:mb-16">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
-            <div class="px-4 py-4 xl:py-8 md:px-16">
-                <div class="relative ml-auto mr-auto max-w-screen-xl">
-                    <section class="flex flex-wrap overflow-hidden bg-white rounded">
+            <div class="px-4 py-4 xl:py-8 xl:px-16">
+                <div class="relative mx-auto max-w-screen-xl">
+                    <section class="flex flex-wrap overflow-hidden bg-white rounded lg:items-center">
                         <div class="w-full md:w-13/24 lg:w-15/24">
                             <a :href="mapObject(page, ['map', 0, 'contactMapLink'])"
                                target="_blank"
@@ -35,24 +35,24 @@
                             </a>
                         </div>
                         <div class="w-full md:w-11/24 lg:w-9/24">
-                            <div class="py-12 pl-8 pr-4">
-                                <div class="mb-4 text-lg font-bold xl:text-xl xl:mb-8">
+                            <div class="py-4 xl:py-12 pl-8 pr-4">
+                                <div class="mb-4 text-lg font-bold xl:text-xl">
                                     {{ mapObject(page, ['contactAdress', 0, 'header']) }}
                                 </div>
-                                <div class="text-sm text-gray-900 md:text-base xl:text-lg">
+                                <div class="text-xs sm:text-sm text-gray-900 lg:text-base">
                                     <div class="flex mb-2">
                                         <icon symbol="i_map_point" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <span>{{ mapObject(page, ['contactAdress', 0, 'address']) }}</span>
                                     </div>
-                                    <div class="flex mb-2 text-base xl:text-lg">
+                                    <div class="flex mb-2">
                                         <icon symbol="i_phone" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <strong>{{ mapObject(page, ['contactAdress', 0, 'phone']) }}</strong>
                                     </div>
-                                    <div class="flex mb-4 text-base xl:text-lg">
+                                    <div class="flex mb-4">
                                         <icon symbol="i_envelope" class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 text-green-500 fill-current"></icon>
                                         <span class="block break-all">{{ mapObject(page, ['contactAdress', 0, 'email']) }}</span>
                                     </div>
-                                    <p>{{ mapObject(page, ['contactAdress', 0, 'description']) }}</p>
+                                    <div class="flex mb-4" v-html="mapObject(page, ['contactAdress', 0, 'description'])"></div>
                                 </div>
                             </div>
                         </div>
@@ -163,9 +163,9 @@
           mapObject,
           getColumnSizeByOrder(index) {
               const classNames = [
-                  'w-full md:w-7/24 xl:w-6/24 md:pr-10 xl:pr-16',
-                  'w-full md:w-10/24 xl:w-12/24 md:pr-10 xl:pr-16',
-                  'w-full md:w-7/24 xl:w-6/24',
+                  'w-full xs:mx-auto xs:max-w-screen-sm xs:px-4 md:px-0 md:w-7/24 xl:w-6/24 md:pr-10 xl:pr-16',
+                  'w-full xs:mx-auto xs:max-w-screen-sm xs:px-4 md:px-0 md:w-10/24 xl:w-12/24 md:pr-10 xl:pr-16',
+                  'w-full xs:mx-auto xs:max-w-screen-sm xs:px-4 md:px-0 md:w-7/24 xl:w-6/24',
               ];
               return classNames[index];
           }

@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute bottom-0 left-0 w-full h-4 transform translate-y-full cha-header-shadow opacity-10"></div>
+            <div class="absolute bottom-0 left-0 w-full h-3 -mt-px transform translate-y-full cha-header-shadow opacity-10"></div>
         </div>
     </header>
 </template>
