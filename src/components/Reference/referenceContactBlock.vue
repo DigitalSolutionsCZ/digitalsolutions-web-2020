@@ -5,7 +5,11 @@
     >
         <div class="relative z-20 px-16 pt-16 pb-8">
             <h2 class="mb-3 text-xl font-bold md:leading-tight xl:text-2xl">{{ props.reference.heading }}</h2>
-            <div class="text-base text-white opacity-75" v-html="props.reference.description"/>
+            <div
+                class="text-base opacity-75"
+                :class="{'text-white' : props.reference.importantBlock}"
+                v-html="props.reference.description"
+            />
         </div>
         <template v-if="props.reference.contactLink">
             <template v-if="props.reference.importantBlock">

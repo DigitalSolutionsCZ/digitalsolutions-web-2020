@@ -9,6 +9,7 @@
                             data-cha-header
                             :menu="menu"
                             :contact="link"
+                            :page-slug="pageSlug"
                         >
                             <template #logo>
                                 <g-link to="/" class="relative flex items-center w-36 md:w-48">
@@ -31,6 +32,7 @@
                     class="z-30 bg-white"
                     :menu="menu"
                     :contact="link"
+                    :page-slug="pageSlug"
                 />
             </template>
         </slot>
@@ -54,7 +56,8 @@ export default {
         chameleon: {
             type: Boolean,
             default: true,
-        }
+        },
+        pageSlug: String,
     },
     data: () => ({
         initialized: false,

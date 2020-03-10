@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :page-slug="$context.slug">
         <template #headerSection>
             <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:pt-16">
@@ -131,7 +131,9 @@
                     map {
                         ...on craft_map_contactMap_BlockType {
                             contactMapLink
-                            contactMapImage {url}
+                            contactMapImage {
+                                url(transform: "xlargeImage")
+                            }
                             contactMapNewWindow
                         }
                     }

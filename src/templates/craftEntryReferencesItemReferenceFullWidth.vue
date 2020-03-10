@@ -47,7 +47,7 @@
                     <div class="self-start w-full px-4 md:w-10/24 group">
                         <div class="bg-white rounded group-hover:shadow-xl">
                             <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
-                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
+                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
                                 <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
                             </div>
                             <sub-link :href="page.referenceClientLink" :label="page.referenceClientLinkText"/>
@@ -259,14 +259,16 @@ query CraftEntry($slug: [String]) {
             description
             referenceLink
             mainImage {
-              url
+              url(transform: "xlargeImage")
             }
             vyberKlienta {
               title
               id
               ... on craft_klient_Category {
                 description
-                photo {url}
+                photo {
+                    url(transform: "smallImage")
+                }
               }
             }
             firstRowHeadline
@@ -291,12 +293,12 @@ query CraftEntry($slug: [String]) {
               ...on craft_technologie_Category {
                 title
                 obrazek {
-                  url
+                  url(transform: "smallImage")
                 }
               }
             }
             gallery {
-                url
+                url(transform: "xxlargeImage")
                 title
             }
             vyberKlientaTretiRadek {
@@ -305,7 +307,7 @@ query CraftEntry($slug: [String]) {
                 firstName
                 lastName
                 photo {
-                  url
+                  url(transform: "smallImage")
                 }
               }
             },

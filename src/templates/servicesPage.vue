@@ -1,5 +1,5 @@
 <template>
-    <Layout>
+    <Layout :page-slug="$context.slug">
         <template #headerSection>
             <div class="mx-auto max-w-screen-md md:max-w-screen-sm">
                 <section class="flex flex-wrap pt-6 xl:py-16">
@@ -129,7 +129,7 @@ query {
             serviceDetailLink
             serviceDetailText
             icon {
-              url
+              url(transform: "largeImage")
               title
             }
             header
@@ -150,7 +150,7 @@ query {
             description
             isBigStory
             image {
-              url
+              url(transform: "xlargeImage")
               title
             }
           }

@@ -24,14 +24,14 @@
                             <g-link
                                 :key="menuItem.id"
                                 class="relative flex items-center px-4 py-4 text-xs transition-all duration-200 ease-in-out md:mr-3 xl:mr-10 group lg:text-base"
-                                :class="[white ? 'cha-nav-link md:cha-nav-link-color' : 'hover:text-gray-900']"
-                                :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), menuItem, ['menuLink', '0', 'slug'])"
+                                :class="[white ? 'cha-nav-link md:cha-nav-link-color' : 'hover:text-gray-900', {'text-gray-900': activeMenu(menuItem)}]"
+                                :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), mapObject(menuItem, ['menuLink', '0', 'slug']))"
                             >
                                 <div class="leading-tight md:relative">
                                     {{ menuItem.menuName }}
                                     <div
                                         class="absolute inset-y-0 left-0 w-1 my-1 transition-all duration-200 ease-in-out rounded-r opacity-0 bg-gradient-r-blue-green md:rounded md:mt-2 md:inset-x-0 md:h-1 group-hover:opacity-100 md:w-auto md:y-0 md:inset-y-auto"
-                                        :class="[white ? 'md:cha-nav-link-underline': 'bg-gradient-r-blue-green']"
+                                        :class="[white ? 'md:cha-nav-link-underline': 'bg-gradient-r-blue-green', {'opacity-100': activeMenu(menuItem)}]"
                                     />
                                 </div>
                             </g-link>
@@ -73,7 +73,8 @@ export default {
         white: {
             type: Boolean,
             default: false,
-        }
+        },
+        pageSlug: String,
     },
     data: () => ({
         open: false,
@@ -86,6 +87,9 @@ export default {
         },
         toggle() {
             this.open = !this.open;
+        },
+        activeMenu(menuItem) {
+            return this.pageSlug === this.mapObject(menuItem, ['menuLink', '0', 'slug'])
         }
     },
     mounted() {
