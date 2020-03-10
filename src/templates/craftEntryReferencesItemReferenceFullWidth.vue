@@ -59,12 +59,12 @@
         <div class="px-4">
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
-                    <div class="w-full lg:w-14/24 lg:pr-12">
+                    <div class="w-full md:w-14/24 md:pr-12">
                         <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
                         </div>
                     </div>
-                    <div class="self-start w-full px-4 lg:w-10/24">
+                    <div class="self-start w-full px-4 md:w-10/24">
                         <div class="mb-2 lg:mb-8 lg:ml-16">
                             <template v-if="services.length > 0">
                                 <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
@@ -113,7 +113,7 @@
                                             class="w-8 h-8 transform rotate-180 fill-current"
                                     ></icon>
                                 </button>
-                                <div class="flex-grow text-xs text-center truncate md:text-sm xl:text-base">{{ slide.title }}</div>
+                                <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">{{ slide.title }}</div>
                                 <button type="button" class="block h-12 px-2 xl:hidden" @click.prevent="showNext">
                                     <icon
                                             symbol="i_chevron"
