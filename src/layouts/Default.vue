@@ -1,9 +1,9 @@
 <template>
-    <div class="flex flex-col h-full text-xs text-gray-900 md:text-sm xl:text-base">
+    <div class="flex flex-col flex-1 text-xs text-gray-900 md:text-sm xl:text-base">
         <slot name="header" :menu="menu" :contact="link">
             <template v-if="chameleon">
                 <section class="relative cha-main-header" data-cha-section data-theme="light">
-                    <div class="absolute inset-0 z-30 pointer-events-none cha-header-clip" data-cha-header-clip>
+                    <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                         <site-header
                             class="bg-white cha-header"
                             data-cha-header
@@ -35,7 +35,7 @@
             </template>
         </slot>
         <slot name="content">
-            <div class="relative flex flex-col flex-grow" :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
+            <div class="relative flex flex-col flex-grow flex-shrink-0" :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
                  :data-cha-section="chameleon">
                 <slot/>
             </div>
