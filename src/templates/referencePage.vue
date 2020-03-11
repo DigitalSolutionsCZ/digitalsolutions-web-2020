@@ -211,7 +211,6 @@ export default {
         },
         async fetchData(url) {
             this.loading = true;
-            await this.timeout(2000);
             const response = await fetch(url);
             this.nextUrl = response.context.nextUrl;
             this.prevUrl = response.context.prevUrl;
@@ -219,15 +218,6 @@ export default {
             this.loading = false;
             return response;
         },
-
-
-        timeout(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        },
-        async sleep(fn, ...args) {
-            await this.timeout(2000);
-            return fn(...args);
-        }
     }
 }
 </script>

@@ -15,8 +15,6 @@ if (process.env.NODE_ENV === "production") {
     postcssPlugins.push(autoprefixer);
 }
 
-console.log(process.env.GRIDSOME_LIVE_PREVIEW);
-
 module.exports = {
     siteName: "Digital Solutions s.r.o.",
     siteUrl: 'https://digitalcz.netlify.com',

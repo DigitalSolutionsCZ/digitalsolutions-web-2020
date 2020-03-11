@@ -28,7 +28,7 @@
                         class="mb-4"
                         label="Jméno a příjmení"
                         v-model="fields.fullname"
-                        id="name"
+                        id="fullname"
                         :errors="errorFields.fullname"
                     >
                     </input-text>
