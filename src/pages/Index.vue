@@ -80,9 +80,11 @@
                                     :class="[index === page.homepageReference.length - 1 ? 'mb-8' : 'mb-3 md:mb-8 xl:mb-16']"
                                 >
                                     <div class="relative z-20 px-4 pt-8 md:px-8 xl:px-16 md:pt-8 xl:pt-16">
-                                        <h2 class="mb-3 text-black text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
-                                            {{ reference.header }}
-                                        </h2>
+                                        <g-link :to="reference.buttonLink">
+                                            <h2 class="mb-3 text-black text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
+                                                {{ reference.header }}
+                                            </h2>
+                                        </g-link>
                                         <div class="mb-4 text-sm text-green-500 md:mb-6 xl:text-base">
                                             {{ mapObject(reference, ['client', 0 , 'title']) }}
                                         </div>
@@ -113,9 +115,12 @@
                                             </div>
                                             <div class="w-full md:w-8/24">
                                                 <div class="flex justify-center">
-                                                    <img
-                                                        :src="mapObject(reference, ['image', 0 , 'url'])"
-                                                        :alt="mapObject(reference, ['image', 0 , 'title'])" />
+                                                    <g-link :to="reference.buttonLink">
+                                                        <g-image
+                                                            :src="mapObject(reference, ['image', 0 , 'url'])"
+                                                            :alt="mapObject(reference, ['image', 0 , 'title'])" />
+                                                    </g-link>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -132,6 +137,9 @@
                                     <img src="identity-horizontal-line.svg" alt="delimiter"/>
                                 </div>
                             </div>
+                        </div>
+                        <div class="flex justify-center mb-8">
+                            <project-button href="/" >Všechny reference</project-button>
                         </div>
                     </div>
                 </div>
@@ -236,9 +244,9 @@ import ProjectButton from "../components/ProjectButton";
 
 export default {
     metaInfo() {
-        return metaInfo({title: this.$page.seoTitle, heading:this.page.heading}, {
-            keywords: this.$page.seoKeywords,
-            description: this.$page.seoDescription
+        return metaInfo({title: this.page.seoTitle, heading:this.page.heading}, {
+            keywords: this.page.seoKeywords,
+            description: this.page.seoDescription
         })
     },
     components: {
