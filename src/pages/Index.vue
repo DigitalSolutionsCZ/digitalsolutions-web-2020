@@ -52,7 +52,7 @@
                 <div class="flex items-center overflow-hidden md:h-40">
                     <div class="w-full max-w-screen-xl mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
-                            <div class="px-4 mb-4 md:mb-0" v-for="logo in page.homepageClientLogos">
+                            <div class="px-4 my-2 md:my-0" v-for="logo in page.homepageClientLogos">
                                 <img :src="logo.url" class="w-24 md:w-32" :alt="logo.title" :key="logo.id">
                             </div>
                         </div>
@@ -66,8 +66,10 @@
                 <div class="pt-6 md:pt-8 xl:pt-16">
                     <div class="max-w-screen-xl mx-auto">
                         <div class="px-4 mx-auto max-w-lg lg:max-w-2xl xl:max-w-5xl xl:px-16">
-                            <h2 class="mb-6 text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
-                                v-html="page.homepageReferenceHeader"></h2>
+                            <h2
+                                class="mb-6 text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
+                                v-html="page.homepageReferenceHeader"
+                            />
                         </div>
                         <div class="mx-auto md:w-22/24">
                             <div

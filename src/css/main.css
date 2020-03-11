@@ -19,3 +19,15 @@
         background: var(--nav-link-decoration-background);
     }
 }
+
+.translate-z-0 {
+    transform: translateZ(0);
+}
+
+.will-change-transform {
+    will-change: transform;
+}
+
+.backface-visibility-hidden {
+    backface-visibility: hidden;
+}

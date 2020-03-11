@@ -8,17 +8,28 @@ async function referencePage(data, createPage) {
     const references = data.craft.references;
     const perPage = 10;
 
-    data.craft.referenceRecords.map(referenceRecord => {
+    data.craft.referenceRecords.map((referenceRecord, index) => {
         const referenceDetailUrl = livePreviewEnabled
             ? referenceUrl + '/' + referenceRecord.slug
             : referenceUrl + slugifyUrlEntry(referenceRecord.itemUrl, referenceRecord.title);
+
+        let nextReferenceUrl = null;
+        if (data.craft.referenceRecords[index + 1]) {
+            const nextRef = data.craft.referenceRecords[index + 1];
+            nextReferenceUrl = livePreviewEnabled
+                ? referenceUrl + '/' + nextRef.slug
+                : referenceUrl + slugifyUrlEntry(nextRef.itemUrl, nextRef.title);
+        }
 
         createPage({
             path: referenceDetailUrl,
             component: './src/templates/craftEntryReferencesItemReferenceFullWidth.vue',
             context: {
                 id: referenceRecord.id,
-                slug: referenceRecord.slug
+                slug: referenceRecord.slug,
+                baseSlug: data.craft.referencePage.slug,
+                referenceUrl,
+                nextReferenceUrl,
             }
         })
     });

@@ -1,5 +1,5 @@
 <template>
-    <div class="relative overflow-hidden rounded shadow-vertical-symmetric" v-if="visible">
+    <div class="relative overflow-hidden rounded shadow-vertical-symmetric">
         <div class="absolute inset-y-0 left-0">
             <div class="w-1 h-full" :class="selectedVariant.flag"></div>
         </div>
@@ -17,9 +17,6 @@
         default: 'success',
         type: String
       },
-      visible: {
-        type: Boolean,
-      }
     },
     computed: {
       selectedVariant() {

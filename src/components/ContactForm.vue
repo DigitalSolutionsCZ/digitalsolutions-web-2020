@@ -1,124 +1,148 @@
 <template>
-    <form name="contact-form" method="post" data-netlify="true" data-netlify-honeypot="bot-field" @submit.prevent="handleSubmit">
-        <callout-message variant="success" :visible="resultFormStatus === 'success' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
-            Děkujeme za odeslání formuláře.
+    <div>
+        <callout-message
+            v-if="resultFormStatus === 'success' && resultMessageVisible"
+            variant="success"
+            @close="handleResultMessageClose"
+            class="w-full mb-6"
+        >
+            <span>Děkujeme za odeslání formuláře.</span>
         </callout-message>
-        <callout-message variant="error" :visible="resultFormStatus === 'error' && resultMessageVisible" @close="handleResultMessageClose" class="mb-6">
+        <callout-message
+            v-if="resultFormStatus === 'error' && resultMessageVisible"
+            variant="error"
+            @close="handleResultMessageClose" class="mb-6"
+        >
             Formulář se nepodařilo odeslat. Zkuste to prosím později…
         </callout-message>
-        <div class="flex flex-wrap">
-            <div class="w-full">
-                <input-text
+        <form
+            name="contact-form"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            @submit.prevent="handleSubmit"
+        >
+            <div class="flex flex-wrap">
+                <div class="w-full">
+                    <input-text
                         class="mb-4"
                         label="Jméno a příjmení"
                         v-model="fields.fullname"
-                        id="name"
+                        id="fullname"
                         :errors="errorFields.fullname"
-                >
-                </input-text>
-            </div>
-            <div class="w-full md:pr-4 md:w-12/24">
-                <input-text
+                    >
+                    </input-text>
+                </div>
+                <div class="w-full md:pr-4 md:w-12/24">
+                    <input-text
                         class="mb-4"
                         label="E-mail"
                         v-model="fields.email"
                         id="email"
                         :errors="errorFields.email"
-                >
-                </input-text>
-            </div>
-            <div class="w-full md:w-12/24">
-                <input-text
+                    >
+                    </input-text>
+                </div>
+                <div class="w-full md:w-12/24">
+                    <input-text
                         class="mb-4"
                         label="Telefon"
                         v-model="fields.phone"
                         id="phone"
-                >
-                </input-text>
+                    >
+                    </input-text>
+                </div>
+                <div class="w-full mt-4 mb-4 xl:mb-8">
+                    <input-textarea
+                        label="Popište nám prosím váš projekt nebo potřeby…"
+                        v-model="fields.message"
+                        rows="4"
+                        id="message"
+                    />
+                </div>
             </div>
-            <div class="w-full mt-4">
-                <textarea class="w-full px-3 pt-3 mb-4 text-xs placeholder-gray-200 border border-gray-200 rounded form-textarea md:text-sm xl:text-base xl:mb-8" rows="4" v-model="fields.description" placeholder="Popište nám prosím váš projekt nebo potřeby…"/>
-            </div>
-        </div>
 
-        <div class="flex items-center justify-center">
-            <project-button tag="button">Odeslat</project-button>
-        </div>
-    </form>
+            <div class="flex items-center justify-center">
+                <project-button tag="button">Odeslat</project-button>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
   import axios from "axios";
-  import InputText from  "./Input/InputText";
+  import InputText from "./Input/InputText.vue";
+  import InputTextarea from "./Input/InputTextarea";
   import ProjectButton from '../components/ProjectButton'
   import CalloutMessage from './CalloutMessage'
 
   export default {
-    components: {
-      InputText,
-      ProjectButton,
-      CalloutMessage
-    },
-    data () {
-      return {
-        errorFields: {},
-        resultFormStatus: null,
-        resultMessageVisible: false,
-        fields: {
-          fullname: '',
-          email: '',
-          phone: '',
-          description: ''
-        }
+      components: {
+          InputTextarea,
+          InputText,
+          ProjectButton,
+          CalloutMessage
+      },
+      data() {
+          return {
+              errorFields: {},
+              resultFormStatus: null,
+              resultMessageVisible: false,
+              fields: {
+                  fullname: '',
+                  email: '',
+                  phone: '',
+                  message: ''
+              }
+          }
+      },
+      methods: {
+          encode(data) {
+              return Object.keys(data)
+                  .map(
+                      key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
+                  )
+                  .join("&");
+          },
+          validate() {
+              this.errorFields = {};
+              const {fullname, email} = this.fields;
+              if (!fullname) {
+                  this.$set(this.errorFields, 'fullname', {messages: ['Hodnota musí být vyplněná']})
+              }
+              if (!email) {
+                  this.$set(this.errorFields, 'email', {messages: ['Hodnota musí být vyplněná']})
+              }
+              return Object.entries(this.errorFields).length === 0
+          },
+          handleSubmit() {
+              if (this.validate()) {
+                  const axiosConfig = {
+                      header: {"Content-Type": "application/x-www-form-urlencoded"}
+                  };
+                  axios.post(
+                      "/",
+                      this.encode({
+                          "form-name": "contact-form",
+                          ...this.fields
+                      }),
+                      axiosConfig
+                  ).then((response) => {
+                      if (response && response.status === 200) {
+                          this.resultFormStatus = 'success';
+                      } else {
+                          this.resultFormStatus = 'error';
+                      }
+                  }).catch(() => {
+                      this.resultFormStatus = 'error';
+                  }).then(() => {
+                      this.resultMessageVisible = true;
+                  });
+              }
+          },
+          handleResultMessageClose() {
+              this.resultMessageVisible = false;
+          },
       }
-    },
-    methods: {
-      encode (data) {
-        return Object.keys(data)
-          .map(
-            key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`
-          )
-          .join("&");
-      },
-      validate() {
-        this.errorFields = {};
-        const { fullname, email } = this.fields;
-        if (!fullname) {
-          this.$set(this.errorFields, 'fullname', { messages: ['Hodnota musí být vyplněná'] })
-        }
-        if (!email) {
-          this.$set(this.errorFields, 'email', { messages: ['Hodnota musí být vyplněná'] })
-        }
-        return Object.entries(this.errorFields).length === 0
-      },
-      handleSubmit () {
-        if (this.validate()) {
-          const axiosConfig = {
-            header: { "Content-Type": "application/x-www-form-urlencoded" }
-          };
-          axios.post(
-            "/",
-            this.encode({
-              "form-name": "contact-form",
-              ...this.fields
-            }),
-            axiosConfig
-          ).then ((response) => {
-            if(response && response.status === 200) {
-              this.resultFormStatus = 'success';
-            } else {
-              this.resultFormStatus = 'error';
-            }
-          }).catch(() => {
-            this.resultFormStatus = 'error';
-          }).then(() => {
-            this.resultMessageVisible = true;
-          });
-        }
-      },
-      handleResultMessageClose() {
-        this.resultMessageVisible = false;
-      },
-    }
   }
 </script>

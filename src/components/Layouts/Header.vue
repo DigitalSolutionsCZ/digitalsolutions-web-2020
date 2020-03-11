@@ -4,8 +4,8 @@
         :class="[white ? '' : 'bg-white']"
     >
         <div class="relative">
-            <div class="flex justify-between mx-auto max-w-screen-3xl h-12-5 md:h-19">
-                <div class="flex pl-2">
+            <div class="flex justify-between mx-auto max-w-screen-3xl h-13 md:h-19">
+                <div class="flex pl-4">
                     <slot name="logo">
                         <g-link to="/" class="relative flex items-center w-36 md:w-48">
                             <g-image src="../../images/logo-ds.png" alt="logo" class="w-auto pl-2"/>
@@ -13,7 +13,7 @@
                     </slot>
                 </div>
                 <div
-                    class="absolute inset-x-0 z-20 items-center justify-center flex-grow m-4 xs:left-auto xs:w-full top-full md:flex md:relative md:top-auto xs:max-w-xs md:visible"
+                    class="absolute inset-x-0 z-20 items-center justify-center flex-grow xs:left-auto xs:w-full top-full md:flex md:relative md:top-auto xs:max-w-xs md:visible md:max-w-none md:items-stretch"
                     :class="{'invisible': !open}"
                 >
                     <nav
@@ -23,14 +23,16 @@
                         <template v-for="menuItem in menu">
                             <g-link
                                 :key="menuItem.id"
-                                class="relative flex items-center px-4 py-4 text-xs transition-all duration-200 ease-in-out md:mr-3 xl:mr-10 group lg:text-base"
+                                class="relative flex p-4 text-xs transition-all duration-200 ease-in-out md:py-0 md:mr-3 xl:mr-10 group lg:text-base focus:outline-none"
                                 :class="[white ? 'cha-nav-link md:cha-nav-link-color' : 'hover:text-gray-900', {'text-gray-900': activeMenu(menuItem)}]"
                                 :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), mapObject(menuItem, ['menuLink', '0', 'slug']))"
                             >
-                                <div class="leading-tight md:relative">
-                                    {{ menuItem.menuName }}
+                                <div class="leading-tight md:relative md:flex">
+                                    <span class="self-center">
+                                        {{ menuItem.menuName }}
+                                    </span>
                                     <div
-                                        class="absolute inset-y-0 left-0 w-1 my-1 transition-all duration-200 ease-in-out rounded-r opacity-0 bg-gradient-r-blue-green md:rounded md:mt-2 md:inset-x-0 md:h-1 group-hover:opacity-100 md:w-auto md:y-0 md:inset-y-auto"
+                                        class="absolute inset-y-0 left-0 w-1 my-1 transition-all duration-200 ease-in-out rounded-r opacity-0 bg-gradient-r-blue-green md:transform md:-translate-y-1/2 md:rounded md:mt-0 md:top-full md:bottom-auto md:inset-x-0 md:h-1 group-hover:opacity-100 md:w-auto"
                                         :class="[white ? 'md:cha-nav-link-underline': 'bg-gradient-r-blue-green', {'opacity-100': activeMenu(menuItem)}]"
                                     />
                                 </div>
@@ -47,8 +49,8 @@
                         >
                             {{ mapObject(contact, ['linkTitle']) }}
                         </g-link>
-                        <div class="relative z-50 inline-block p-3 cursor-pointer md:hidden focus:outline-none" @click.prevent="toggle" tabindex="1" data-toggle-menu>
-                            <div class="w-4 h-3 hamburger" :class="{'is-active': open}">
+                        <div class="relative z-50 inline-block p-3 mx-2 cursor-pointer md:hidden focus:outline-none" @click.prevent="toggle" tabindex="1" data-toggle-menu>
+                            <div class="w-5 h-4 hamburger" :class="{'is-active': open}">
                                 <div
                                     class="bg-gray-600 hamburger-inner h-2px"
                                     :class="{'md:bg-white': white}"

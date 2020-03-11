@@ -79,12 +79,12 @@
 
         &:before {
             transition: top .1s ease-in .25s, opacity .1s ease-in;
-            top: -200%;
+            top: -300%;
         }
 
         &:after {
             transition: bottom .1s ease-in .25s, transform .22s cubic-bezier(.55, .055, .675, .19);
-            bottom: -200%;
+            bottom: -300%;
         }
     }
 

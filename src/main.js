@@ -10,17 +10,24 @@ import DefaultLayout from "~/layouts/Default.vue";
 
 import Icon from "~/components/Icon.vue";
 import VueKeyframes from "~/components/VueKeyframes";
+import VueScrollTo from 'vue-scrollto'
 
 const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
-export default function(Vue, { router, head, isClient }) {
-  head.bodyAttrs = { class: "flex flex-col" };
-  head.link.push({
-    rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap'
-  });
+export default function (Vue, {router, head, isClient}) {
+    head.bodyAttrs = {class: "flex flex-col"};
+    head.link.push({
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap'
+    });
 
     Vue.use(VueKeyframes);
+
+    Vue.use(VueScrollTo, {
+        duration: 500,
+        easing: "ease",
+        offset: -100,
+    })
 
     // Set default layout as a global component
     Vue.component("Layout", DefaultLayout);
