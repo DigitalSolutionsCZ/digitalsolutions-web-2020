@@ -36,7 +36,7 @@
                                     <h3 class="mb-1 text-sm font-bold text-black md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
                                     <div class="mb-3 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
                                 </div>
-                                <a :href="subService.subServiceLink" class="block mb-3 text-xs font-bold text-green-500 underline md:text-sm" v-if="subService.subServiceLink">Detail služby</a>
+                                <g-link :href="subService.subServiceLink" class="block mb-3 text-xs font-bold text-green-500 underline md:text-sm" v-if="subService.subServiceLink">Detail služby</g-link>
                             </div>
                         </div>
                     </section>

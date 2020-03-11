@@ -6,7 +6,7 @@
                     <div class="w-full px-4 text-center">
                         <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl"
                             v-if="page.heading" v-html="page.heading"/>
-                        <div class="mb-4 text-xs text-gray-700 xs:text-sm lg:text-base md:mb-6 xl:mb-8"
+                        <div class="mb-4 text-xs text-gray-900 xs:text-sm lg:text-base md:mb-6 xl:mb-8"
                              v-if="page.excerpt" v-html="page.excerpt"></div>
                     </div>
                     <div class="relative z-20 mx-auto mb-4 text-center md:mb-6 xl:mb-8">

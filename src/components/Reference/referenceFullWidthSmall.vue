@@ -14,7 +14,7 @@
             >
                 {{ parent.mapObject(props.reference, ['vyberKlienta', 0, 'title']) }}
             </span>
-            <div class="w-full text-xs text-gray-600 md:text-sm xl:text-base md:w-21/24"
+            <div class="w-full text-xs text-gray-900 md:text-sm xl:text-base md:w-21/24"
                  v-html="props.reference.excerpt"/>
         </div>
         <sub-link :href="props.baseUrl" label="Prohlédnout referenci"/>
