@@ -8,13 +8,14 @@
     }
 
     li {
-        @apply flex mb-3 leading-normal;
+        line-height: 1.6;
+        @apply flex mb-3 pl-4;
 
         &:before {
             content: "";
             flex: 0 0 auto;
-            margin-top: 0.70rem;
-            @apply mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full;
+            margin-top: 0.60em;
+            @apply mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full absolute left-0;
         }
     }
 

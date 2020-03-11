@@ -1,12 +1,12 @@
 <template>
     <Layout :page-slug="$context.baseSlug">
         <template #headerSection>
-            <div class="px-4">
+            <div class="px-4 md:px-8">
                 <div class="relative mx-auto max-w-screen-2xl">
                     <div class="max-w-screen-xl mx-auto">
-                        <section class="flex flex-wrap pt-6 xl:pt-0 items-center">
+                        <section class="flex flex-wrap items-center pt-6 xl:pt-0">
                             <div class="w-full xl:pr-0 md:w-12/24">
-                                <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black md:mb-6 lg:text-2xl xl:text-3xl ">{{ page.heading }}</h1>
+                                <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black md:mb-6 lg:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                                 <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">{{ mapObject(page, ['vyberKlienta', 0, 'title']) }}</div>
                                 <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base wysiwyg-content" v-html="page.description"></div>
                                 <div class="text-center md:text-left">
@@ -21,7 +21,7 @@
                                     </project-button>
                                 </div>
                             </div>
-                            <div class="w-full md:w-12/24 overflow-hidden xl:overflow-visible">
+                            <div class="w-full overflow-hidden md:w-12/24 xl:overflow-visible">
                                 <div class="h-0 aspect-ratio-4/3 md:my-4 xl:my-8">
                                     <div class="top-0 bottom-0 flex items-center w-full text-right md:absolute md:flex md:justify-end md:w-12/24">
                                         <div class="relative w-full h-0 aspect-ratio-4/3">
@@ -36,15 +36,15 @@
             </div>
         </template>
 
-        <div class="relative mb-8 xl:mb-16 px-4">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover -mx-4 h-full" fit="cover"/>
+        <div class="relative px-4 mb-8 md:px-8 xl:mb-16">
+            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover h-full -mx-4 md:-mx-8" fit="cover"/>
             <div class="relative w-full max-w-screen-xl py-8 mx-auto">
                 <section class="flex flex-wrap">
                     <div class="w-full md:w-14/24 md:pr-12">
                         <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription"></div>
                     </div>
-                    <div class="self-start w-full px-4 md:w-10/24 group">
+                    <div class="self-start w-full md:w-10/24 group">
                         <div class="bg-white rounded group-hover:shadow-xl">
                             <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
                                 <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
@@ -56,7 +56,7 @@
                 </section>
             </div>
         </div>
-        <div class="px-4">
+        <div class="px-4 md:px-8">
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
@@ -64,7 +64,7 @@
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
                         </div>
                     </div>
-                    <div class="self-start w-full px-4 md:w-10/24">
+                    <div class="self-start w-full md:w-10/24">
                         <div class="mb-2 lg:mb-8 lg:ml-16">
                             <template v-if="services.length > 0">
                                 <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Dodané služby</h3>
@@ -83,7 +83,7 @@
                             </template>
                             <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">Technologie</h3>
                             <div class="w-full">
-                                <div class="grid grid-cols-4 gap-2 md:gap-4">
+                                <div class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
                                     <div class="flex items-center justify-center p-2 border border-gray-100 rounded" v-for="technology in page.technologie" :key="technology.id">
                                         <img :src="mapObject(technology, ['obrazek', 0, 'url'])" :alt="technology.title">
                                     </div>
@@ -95,11 +95,11 @@
                 </section>
             </div>
         </div>
-        <div class="relative mb-6 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
-            <div class="absolute w-full h-full overflow-hidden">
+        <div class="relative px-4 mb-6 md:px-8 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
+            <div class="absolute w-full h-full -mx-4 overflow-hidden md:-mx-8">
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
-            <div class="max-w-screen-lg px-4 pt-8 ml-auto mr-auto">
+            <div class="max-w-screen-lg pt-8 ml-auto mr-auto">
                 <VueSlickCarousel class="rounded shadow-xl" v-bind="carouselSettings" v-if="page.gallery" ref="referenceCarousel">
                     <div class="relative" v-for="slide in page.gallery">
                         <div class="flex flex-col justify-around overflow-hidden rounded">
@@ -142,16 +142,16 @@
                 </VueSlickCarousel>
             </div>
         </div>
-        <div class="px-4">
+        <div class="px-4 md:px-8">
             <div class="w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap pb-6 lg:pb-16" >
-                    <div class="relative w-full mb-6 lg:mb-0 lg:w-1/2 lg:pr-16">
+                    <div class="relative w-full mb-6 lg:mb-0 lg:w-1/2 lg:pr-12">
                         <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-2xl">{{ page.thirdRowHeadline }}</h2>
                         <div class="mb-6 text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.thirdRowDescription">
                         </div>
-                        <div class="absolute left-0 right-0 h-1 mx-4 rounded lg:left-auto lg-mx-0 lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
+                        <div class="absolute left-0 right-0 h-1 rounded lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
-                    <div class="w-full px-4 lg:w-1/2 lg:pl-12" id="client-survey">
+                    <div class="w-full lg:w-1/2 lg:pl-12" id="client-survey">
                         <h2 class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.thirdRowHeadlineRight }}</h2>
                         <div class="relative">
                             <icon symbol="i_quotation" class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"></icon>
@@ -169,7 +169,7 @@
                 </section>
             </div>
         </div>
-        <div class="bg-gradient-r-blue-green px-4">
+        <div class="px-4 bg-gradient-r-blue-green">
             <div class="max-w-screen-xl px-4 ml-auto mr-auto">
                 <div class="flex flex-col-reverse md:flex-row md:justify-center">
                     <div :class="{'flex-1' : $context.nextReferenceUrl}">
