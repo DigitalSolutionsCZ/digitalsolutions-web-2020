@@ -2,6 +2,8 @@
 
 ## Project commands
 
+Copy file `.env.example` and rename it to `.env`
+
 Port
 `http://localhost:8080`
 
