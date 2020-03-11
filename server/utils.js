@@ -2,6 +2,8 @@ const slugify = require('@sindresorhus/slugify');
 
 const livePreviewEnabled = process.env.GRIDSOME_LIVE_PREVIEW === 'true';
 
+console.log(livePreviewEnabled);
+
 function slugifyUrlEntry(itemUrl, title) {
     return itemUrl !== "" ? itemUrl : '/' + slugify(title);
 }

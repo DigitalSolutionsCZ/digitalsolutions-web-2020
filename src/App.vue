@@ -12,6 +12,7 @@ export default {
     },
     computed: {
         craftEndpoint() {
+            console.log(process.env.GRIDSOME_LIVE_PREVIEW === 'true');
             return process.env.GRIDSOME_LIVE_PREVIEW === 'true' ? process.env.GRIDSOME_CRAFT_GRAPHQL_ENDPOINT : false
         }
     },
