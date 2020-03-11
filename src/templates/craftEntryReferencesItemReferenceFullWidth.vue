@@ -6,7 +6,7 @@
                     <div class="max-w-screen-xl mx-auto">
                         <section class="flex flex-wrap items-center pt-6 xl:pt-0">
                             <div class="w-full xl:pr-0 md:w-12/24">
-                                <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black md:mb-6 lg:text-2xl xl:text-3xl">{{ page.heading }}</h1>
+                                <h1 class="mb-4 text-xl font-extrabold leading-tight tracking-tight text-black md:mb-6 lg:text-2xl xl:text-3xl">{{ page.heading }}</h1>
                                 <div class="inline-block mb-3 text-green-500 md:mb-5" v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">{{ mapObject(page, ['vyberKlienta', 0, 'title']) }}</div>
                                 <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base wysiwyg-content" v-html="page.description"></div>
                                 <div class="text-center md:text-left">
@@ -41,13 +41,13 @@
             <div class="relative w-full max-w-screen-xl py-8 mx-auto">
                 <section class="flex flex-wrap">
                     <div class="w-full md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
+                        <h2 class="mb-3 text-base leading-tight font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.firstRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.firstRowDescription"></div>
                     </div>
                     <div class="self-start w-full md:w-10/24 group">
                         <div class="bg-white rounded group-hover:shadow-xl">
                             <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
-                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" />
+                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" />
                                 <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
                             </div>
                             <sub-link :href="page.referenceClientLink" :label="page.referenceClientLinkText"/>
@@ -60,7 +60,7 @@
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
+                        <h2 class="mb-3 text-base leading-tight font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{ page.secondRowHeadline }}</h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
                         </div>
                     </div>

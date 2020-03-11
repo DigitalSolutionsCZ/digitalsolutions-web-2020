@@ -80,7 +80,7 @@
                                     :class="[index === page.homepageReference.length - 1 ? 'mb-8' : 'mb-3 md:mb-8 xl:mb-16']"
                                 >
                                     <div class="relative z-20 px-4 pt-8 md:px-8 xl:px-16 md:pt-8 xl:pt-16">
-                                        <h2 class="mb-3 text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
+                                        <h2 class="mb-3 text-black text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
                                             {{ reference.header }}
                                         </h2>
                                         <div class="mb-4 text-sm text-green-500 md:mb-6 xl:text-base">

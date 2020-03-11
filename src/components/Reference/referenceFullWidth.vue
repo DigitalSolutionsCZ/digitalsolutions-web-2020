@@ -14,7 +14,7 @@
             >
                 {{ parent.mapObject(props.reference, ['vyberKlienta', 0, 'title']) }}
             </span>
-            <div class="w-full text-xs leading-relaxed text-gray-600 md:text-base md:w-12/24 xl:w-14/24"
+            <div class="w-full text-xs leading-relaxed text-gray-900 md:text-base md:w-12/24 xl:w-14/24"
                  v-html="props.reference.excerpt"/>
         </div>
         <sub-link
