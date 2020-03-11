@@ -1,6 +1,6 @@
 <template>
     <Layout>
-         <template #header="{menu, contact}">
+        <template #header="{menu, contact}">
             <section class="relative cha-main-header" data-cha-section data-theme="dark">
                 <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                     <site-header
@@ -27,9 +27,9 @@
                     </site-header>
                 </div>
                 <ClientOnly>
-                    <hero-slide :page="page" />
+                    <hero-slide :page="page"/>
                 </ClientOnly>
-                <hero-slide :page="page" v-if="isVisibleClientOnlySkeleton" />
+                <hero-slide :page="page" v-if="isVisibleClientOnlySkeleton"/>
             </section>
             <section class="relative" data-cha-section>
                 <div class="flex items-center overflow-hidden md:h-40">
@@ -75,7 +75,8 @@
                                             <div class="w-full md:pr-16 md:w-16/24">
                                                 <div class="text-sm wysiwyg-content md:text-base"
                                                      v-html="reference.description"></div>
-                                                <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"></div>
+                                                <div
+                                                    class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"></div>
                                                 <div class="relative" v-if="reference.textTestemonial">
                                                     <icon symbol="i_quotation"
                                                           class="absolute w-8 h-8 lg:w-16 lg:h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
@@ -101,7 +102,7 @@
                                                     <g-link :to="reference.buttonLink">
                                                         <g-image
                                                             :src="mapObject(reference, ['image', 0 , 'url'])"
-                                                            :alt="mapObject(reference, ['image', 0 , 'title'])" />
+                                                            :alt="mapObject(reference, ['image', 0 , 'title'])"/>
                                                     </g-link>
 
                                                 </div>
@@ -122,7 +123,11 @@
                             </div>
                         </div>
                         <div class="flex justify-center mb-8">
-                            <project-button href="/reference">Všechny reference</project-button>
+                            <project-button
+                                :href="getUrl(mapObject(page, ['referenceLink', 0 , 'linkUrl', 0, 'itemUrl' ]),mapObject(page, ['referenceLink', 0 , 'linkUrl', 0, 'slug' ]))"
+                            >
+                                {{ mapObject(page, ['referenceLink', 0 , 'linkTitle']) }}
+                            </project-button>
                         </div>
                     </div>
                 </div>
@@ -164,6 +169,27 @@
 </template>
 
 <page-query>
+    fragment ItemUrl on craft_EntryInterface {
+        slug,
+        ...on craft_referencePage_referencePage_Entry {
+            itemUrl
+        }
+        ...on craft_demandPage_demandPage_Entry {
+            itemUrl
+        }
+        ...on craft_contactPage_contactPage_Entry {
+            itemUrl
+        }
+        ...on craft_servicesPage_servicesPage_Entry {
+            itemUrl
+        }
+        ...on craft_referencePage_referencePage_Entry {
+            itemUrl
+        }
+        ...on craft_referencesItem_referenceFullWidth_Entry {
+            itemUrl
+        }
+    }
     query {
         craft {
             entry(slug: "homepage") {
@@ -206,6 +232,14 @@
                             image {
                                 url(transform: "largeImage")
                                 title
+                            },
+                        }
+                    }
+                    referenceLink: odkaz {
+                        ...on craft_odkaz_odkaz_BlockType {
+                            linkTitle,
+                            linkUrl {
+                                ...ItemUrl
                             }
                         }
                     }
@@ -220,7 +254,7 @@
 
 <script>
 import SubLink from "./../components/SubLink.vue";
-import {mapObject, metaInfo} from '~/components/utils';
+import {mapObject, metaInfo, getUrl} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
 import ProjectButton from "../components/ProjectButton";
@@ -228,13 +262,13 @@ import HeroSlide from "../components/HeroSlide.vue";
 
 export default {
     metaInfo() {
-        return metaInfo({title: this.page.seoTitle, heading:this.page.heading}, {
+        return metaInfo({title: this.page.seoTitle, heading: this.page.heading}, {
             keywords: this.page.seoKeywords,
             description: this.page.seoDescription
         })
     },
     components: {
-		ProjectButton,
+        ProjectButton,
         SubLink,
         ContactForm,
         SiteHeader,
@@ -242,23 +276,24 @@ export default {
     },
     computed: {
         page() {
-          return this.$page.craft.entry;
+            return this.$page.craft.entry;
         },
     },
-  data() {
-      return {
-        isVisibleClientOnlySkeleton: true
-      }
-  },
+    data() {
+        return {
+            isVisibleClientOnlySkeleton: true
+        }
+    },
     methods: {
         mapObject,
+        getUrl,
     },
     mounted() {
-      if (process.isClient) {
-        this.$nextTick(() => {
-          this.isVisibleClientOnlySkeleton = false
-        })
-      }
+        if (process.isClient) {
+            this.$nextTick(() => {
+                this.isVisibleClientOnlySkeleton = false
+            })
+        }
     }
 }
 </script>
