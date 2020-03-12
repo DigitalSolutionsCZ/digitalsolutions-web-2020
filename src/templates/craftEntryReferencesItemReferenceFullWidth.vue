@@ -51,7 +51,7 @@
             <div class="relative w-full max-w-screen-xl py-8 mx-auto">
                 <section class="flex flex-wrap">
                     <div class="w-full md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base leading-tight font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">
+                        <h2 class="mb-3 text-base font-bold leading-tight text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">
                             {{ page.firstRowHeadline }}</h2>
                         <div
                             class="text-xs md:text-sm xl:text-base wysiwyg-content"
@@ -91,7 +91,7 @@
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
-                        <h2 class="mb-3 text-base leading-tight font-bold text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">
+                        <h2 class="mb-3 text-base font-bold leading-tight text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">
                             {{ page.secondRowHeadline }}
                         </h2>
                         <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="page.secondRowDescription">
@@ -147,26 +147,14 @@
                                 <img :src="slide.url" class="absolute inset-0 object-cover w-full h-full"/>
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
-                                <button type="button" class="block h-12 px-2 xl:hidden" @click.prevent="showPrevious">
-                                    <icon
-                                        symbol="i_chevron"
-                                        class="w-8 h-8 transform rotate-180 fill-current"
-                                    ></icon>
-                                </button>
                                 <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">{{
                                     slide.title }}
                                 </div>
-                                <button type="button" class="block h-12 px-2 xl:hidden" @click.prevent="showNext">
-                                    <icon
-                                        symbol="i_chevron"
-                                        class="w-8 h-8 fill-current"
-                                    ></icon>
-                                </button>
                             </div>
                         </div>
                     </div>
                     <template #prevArrow>
-                        <div class="absolute inset-y-0 left-0 flex items-center hidden -ml-10 cursor-pointer xl:flex">
+                        <div class="absolute bottom-0 left-0 z-10 flex items-center h-12 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-ml-10 xl:bg-transparent pr-4 xl:pr-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 transform rotate-180 fill-current"
@@ -174,7 +162,7 @@
                         </div>
                     </template>
                     <template #nextArrow>
-                        <div class="absolute inset-y-0 right-0 items-center hidden -mr-10 cursor-pointer xl:flex">
+                        <div class="absolute bottom-0 right-0 z-10 flex items-center h-12 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-mr-10  xl:bg-transparent pl-4 xl:pl-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 fill-current"
