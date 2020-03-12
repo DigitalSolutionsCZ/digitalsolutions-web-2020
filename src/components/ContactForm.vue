@@ -132,6 +132,7 @@
                           this.resultFormStatus = 'success';
                       } else {
                           this.resultFormStatus = 'error';
+                        this.fields = {};
                       }
                   }).catch(() => {
                       this.resultFormStatus = 'error';

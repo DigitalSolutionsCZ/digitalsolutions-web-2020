@@ -155,6 +155,7 @@
                   ).then((response) => {
                       if (response && response.status === 200) {
                           this.resultFormStatus = 'success';
+                          this.fields = {};
                       } else {
                           this.resultFormStatus = 'error';
                       }
