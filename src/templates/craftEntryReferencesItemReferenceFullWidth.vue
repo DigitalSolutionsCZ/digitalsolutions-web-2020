@@ -33,9 +33,12 @@
                                     <div
                                         class="top-0 bottom-0 flex items-center w-full text-right md:absolute md:flex md:justify-end md:w-12/24">
                                         <div class="relative w-full h-0 aspect-ratio-4/3">
-                                            <g-image :src="mapObject(page, ['mainImage', 0, 'url'])" alt=""
-                                                     class="absolute inset-0 object-cover w-full h-full mx-auto"
-                                                     fit="cover"/>
+                                            <g-image
+                                                v-if="mapObject(page, ['mainImage', 0, 'url'])"
+                                                :src="mapObject(page, ['mainImage', 0, 'url'])" alt=""
+                                                class="absolute inset-0 object-cover w-full h-full mx-auto"
+                                                fit="cover"
+                                            />
                                         </div>
                                     </div>
                                 </div>
@@ -46,7 +49,9 @@
             </div>
         </template>
 
-        <div class="relative px-4 mb-8 md:px-8 xl:mb-16">
+        <div
+            class="relative px-4 mb-8 md:px-8 xl:mb-16"
+        >
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover h-full -mx-4 md:-mx-8" fit="cover"/>
             <div class="relative w-full max-w-screen-xl py-8 mx-auto">
                 <section class="flex flex-wrap">
@@ -59,35 +64,39 @@
                         />
                     </div>
                     <div class="self-start w-full md:w-10/24 group">
-                        <div class="bg-white rounded group-hover:shadow-xl">
+                        <div class="bg-white rounded transition-all duration-200 ease-in-out group-hover:shadow-xl">
                             <div class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16">
                                 <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" />
                                 <div class="text-xs md:text-sm xl:text-base wysiwyg-content" v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
                             </div>
-                            <template v-if="page.referenceClientLink">
-                                <sub-link :href="page.referenceClientLink" :label="page.referenceClientLinkText"/>
-                            </template>
-                            <template v-else>
-                                <a
-                                    href="#"
-                                    v-scroll-to="'#client-survey'"
-                                    class="relative inline-flex items-center py-2 pl-4 pr-4 mt-auto mb-8 overflow-hidden text-xs font-bold text-black transition-all duration-200 ease-in-out bg-gray-100 rounded-r-full md:pl-8 xl:pl-16 xl:mb-12 group-hover:text-white"
-                                >
-                                    <span class="relative z-20">
-                                        {{ page.referenceClientLinkText }}
-                                    </span>
-                                    <icon symbol="i_chevron"
-                                          class="relative z-20 w-4 h-4 ml-4 text-blue-500 duration-200 ease-in-out fill-current group-hover:text-white transition-color"/>
-                                    <span
-                                        class="absolute inset-0 z-10 transition-all duration-200 ease-in-out rounded-r-full opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"/>
-                                </a>
+                            <template v-if="page.referenceClientLinkText != null">
+                                <template v-if="page.referenceClientLink">
+                                    <sub-link :href="page.referenceClientLink" :label="page.referenceClientLinkText"/>
+                                </template>
+                                <template v-else>
+                                    <a
+                                        href="#"
+                                        v-scroll-to="'#client-survey'"
+                                        class="relative inline-flex items-center py-2 pl-4 pr-4 mt-auto mb-8 overflow-hidden text-xs font-bold text-black transition-all duration-200 ease-in-out bg-gray-100 rounded-r-full md:pl-8 xl:pl-16 xl:mb-12 group-hover:text-white"
+                                    >
+                                        <span class="relative z-20">
+                                            {{ page.referenceClientLinkText }}
+                                        </span>
+                                        <icon symbol="i_chevron"
+                                              class="relative z-20 w-4 h-4 ml-4 text-blue-500 duration-200 ease-in-out fill-current group-hover:text-white transition-color"/>
+                                        <span
+                                            class="absolute inset-0 z-10 transition-all duration-200 ease-in-out rounded-r-full opacity-0 bg-gradient-r-blue-green group-hover:opacity-100"/>
+                                    </a>
+                                </template>
                             </template>
                         </div>
                     </div>
                 </section>
             </div>
         </div>
-        <div class="px-4 md:px-8">
+        <div
+            class="px-4 md:px-8"
+        >
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
@@ -116,19 +125,22 @@
                                     </li>
                                 </ul>
                             </template>
-                            <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">
-                                Technologie</h3>
-                            <div class="w-full">
-                                <div
-                                    class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
-                                    <div class="flex items-center justify-center p-2 border border-gray-100 rounded"
-                                         v-for="technology in page.technologie" :key="technology.id">
-                                        <g-image :src="mapObject(technology, ['obrazek', 0, 'url'])"
-                                                 :alt="technology.title"/>
+                            <template v-if="page.technologie > 0">
+                                <h3 class="mb-4 text-base font-bold text-black md:mb-5 xl:mb-8 md:text-lg xl:text-xl">
+                                    Technologie</h3>
+                                <div class="w-full">
+                                    <div
+                                        class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
+                                        <div class="flex items-center justify-center p-2 border border-gray-100 rounded"
+                                             v-for="technology in page.technologie" :key="technology.id">
+                                            <g-image
+                                                :src="mapObject(technology, ['obrazek', 0, 'url'])"
+                                                :alt="technology.title"
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </template>
                         </div>
                     </div>
                 </section>
@@ -185,9 +197,13 @@
                             class="absolute left-0 right-0 h-1 rounded lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
                     <div class="w-full lg:w-1/2 lg:pl-12" id="client-survey">
-                        <h2 class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">{{
-                            page.thirdRowHeadlineRight }}</h2>
-                        <div class="relative">
+                        <h2
+                            v-if="page.thirdRowHeadlineRight != null"
+                            class="mb-3 text-base font-bold text-green-500 md:mb-5 xl:mb-8 md:text-xl xl:text-2xl"
+                        >
+                            {{ page.thirdRowHeadlineRight }}
+                        </h2>
+                        <div class="relative" v-if="page.thirdRowWysiwygRight != null">
                             <icon symbol="i_quotation"
                                   class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"></icon>
                             <div class="relative text-sm md:text-base xl:text-lg wysiwyg-content"
@@ -196,6 +212,7 @@
                         </div>
                         <div class="flex items-center">
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-24 lg:h-24"
+                                 v-if="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])">
                             <div>

@@ -9,22 +9,24 @@
                 </h2>
             </g-link>
             <span
-                class="inline-block mb-4 text-sm text-green-500 md:mb-5 xl:mb-8"
+                class="inline-block mb-4 text-sm text-green-500"
                 v-if="parent.mapObject(props.reference, ['vyberKlienta', 0, 'title'])"
             >
                 {{ parent.mapObject(props.reference, ['vyberKlienta', 0, 'title']) }}
             </span>
-            <div class="w-full text-xs text-gray-900 md:text-sm xl:text-base md:w-21/24"
-                 v-html="props.reference.excerpt"/>
+            <div
+                class="text-xs text-gray-900 md:text-sm xl:text-base "
+                :class="props.reference.referenceMultipleImages.length > 0 ? 'md:w-14/24' : 'w-full'"
+                v-html="props.reference.excerpt"/>
         </div>
         <sub-link :href="props.baseUrl" label="Prohlédnout referenci"/>
         <div
-            class="bottom-0 left-0 self-center grid-cols-11 gap-4 pointer-events-none w-18/24 xl:absolute xl:w-full xl:grid"
+            class="hidden bottom-0 left-0 self-center grid-cols-12 gap-4 pointer-events-none w-18/24 xl:absolute xl:w-full xl:block xl:grid"
             v-if="props.reference.referenceMultipleImages.length > 0">
-            <div class="col-start-7 col-end-11 row-start-1 row-end-1 pointer-events-auto translate-z-0">
+            <div class="col-start-8 col-end-12 row-start-1 row-end-1 pointer-events-auto translate-z-0">
                 <g-link
                     :to="props.baseUrl"
-                    class="relative block transition-transform duration-200 ease-in-out transform aspect-ratio-16/9 xl:aspect-ratio-4/3 xl:translate-y-8 group-hover:translate-y-0 will-change-transform"
+                    class="relative block transition-transform duration-200 ease-in-out transform aspect-ratio-square xl:translate-y-8 group-hover:translate-y-0 will-change-transform"
                 >
                     <g-image
                         class="absolute inset-0 object-cover w-full h-full"

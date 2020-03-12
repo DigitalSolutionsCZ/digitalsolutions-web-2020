@@ -42,7 +42,7 @@
                 </section>
             </div>
         </template>
-        <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4">
+        <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4 overflow-hidden">
             <ClientOnly>
                 <transition
                     enter-class="scale-50 opacity-0"
