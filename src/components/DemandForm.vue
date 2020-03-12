@@ -70,6 +70,7 @@
                         label="Představu o rozpočtu"
                         v-model="fields.budget"
                         id="budget"
+                        name="files"
                     >
                     </input-text>
                 </div>
