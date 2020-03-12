@@ -62,7 +62,7 @@
                     >
                         {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
                     </label>
-                    <input type="file" id="files" class="absolute invisible" @change="onFileChange" multiple>
+                    <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
                 </div>
                 <div class="w-full">
                     <input-text
@@ -70,7 +70,7 @@
                         label="Představu o rozpočtu"
                         v-model="fields.budget"
                         id="budget"
-                        name="files"
+                        name="budget"
                     >
                     </input-text>
                 </div>
@@ -155,6 +155,7 @@
                   ).then((response) => {
                       if (response && response.status === 200) {
                           this.resultFormStatus = 'success';
+                          this.fields = {};
                       } else {
                           this.resultFormStatus = 'error';
                       }
