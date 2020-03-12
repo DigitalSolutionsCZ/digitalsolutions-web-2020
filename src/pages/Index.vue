@@ -122,7 +122,7 @@
                             </div>
                         </div>
                         <div class="flex justify-center mb-8">
-                            <project-button href="/" >Všechny reference</project-button>
+                            <project-button href="/reference">Všechny reference</project-button>
                         </div>
                     </div>
                 </div>
