@@ -62,7 +62,7 @@
                     >
                         {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
                     </label>
-                    <input type="file" id="files" name="files" class="" @change="onFileChange" multiple>
+                    <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
                 </div>
                 <div class="w-full">
                     <input-text
