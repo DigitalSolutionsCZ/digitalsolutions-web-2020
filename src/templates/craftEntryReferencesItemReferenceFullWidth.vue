@@ -273,11 +273,15 @@
       data() {
           return {
               carouselSettings: {
+                  autoplay: true,
+                  autoplaySpeed: 3000,
                   lazyLoad: "ondemand",
                   pauseOnFocus: true,
                   pauseOnHover: true,
                   centerMode: true,
                   centerPadding: '0px',
+                  infinite: true,
+                  slidesToShow: 1,
               }
           }
       },
