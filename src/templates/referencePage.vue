@@ -237,6 +237,7 @@ export default {
                 url: slug,
             },
             list: entries(section: "referencesItem", sluzbyProduktu: $services, limit: $limit, offset: $skip) {
+                slug,
                 title
                 id,
                 typeHandle,

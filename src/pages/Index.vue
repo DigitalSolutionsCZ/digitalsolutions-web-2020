@@ -122,7 +122,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="flex justify-center mb-8">
+                        <div class="flex justify-center mb-8" v-if="referenceLink">
                             <project-button
                                 :href="referenceLink"
                             >
@@ -288,14 +288,15 @@ export default {
             return this.$page.craft.entry;
         },
         reference() {
-            return this.mapObject(this.page, ['referenceLink', 0]);
+            return this.mapObject(this.$page.craft.entry, ['referenceLink', 0]);
         },
         referenceLink() {
-            if (this.referenceLink.url) return this.url
+            if (this.reference.url) return this.reference.url;
             return this.getUrl(
                 this.mapObject(this.reference, ['linkUrl', 0 , 'itemUrl']),
                 this.mapObject(this.reference, ['linkUrl', 0 , 'title' ]),
-                this.mapObject(this.reference, ['linkUrl', 0 , 'slug' ]))
+                this.mapObject(this.reference, ['linkUrl', 0 , 'slug' ])
+            );
         }
     },
     data() {
