@@ -124,7 +124,7 @@
                         </div>
                         <div class="flex justify-center mb-8">
                             <project-button
-                                :href="getUrl(mapObject(page, ['referenceLink', 0 , 'linkUrl', 0, 'itemUrl' ]),mapObject(page, ['referenceLink', 0 , 'linkUrl', 0, 'slug' ]))"
+                                :href="referenceLink"
                             >
                                 {{ mapObject(page, ['referenceLink', 0 , 'linkTitle']) }}
                             </project-button>
@@ -171,6 +171,7 @@
 <page-query>
     fragment ItemUrl on craft_EntryInterface {
         slug,
+        title
         ...on craft_referencePage_referencePage_Entry {
             itemUrl
         }
@@ -236,6 +237,14 @@
                         }
                     }
                     referenceLink: odkaz {
+                        ...on craft_odkaz_externiOdkaz_BlockType {
+                            url: linkUrl,
+                            linkTitle
+                        }
+                        ...on craft_odkaz_externiOdkaz_BlockType {
+                            url: linkUrl,
+                            linkTitle
+                        }
                         ...on craft_odkaz_odkaz_BlockType {
                             linkTitle,
                             linkUrl {
@@ -278,6 +287,16 @@ export default {
         page() {
             return this.$page.craft.entry;
         },
+        reference() {
+            return this.mapObject(this.page, ['referenceLink', 0]);
+        },
+        referenceLink() {
+            if (this.referenceLink.url) return this.url
+            return this.getUrl(
+                this.mapObject(this.reference, ['linkUrl', 0 , 'itemUrl']),
+                this.mapObject(this.reference, ['linkUrl', 0 , 'title' ]),
+                this.mapObject(this.reference, ['linkUrl', 0 , 'slug' ]))
+        }
     },
     data() {
         return {

@@ -77,7 +77,7 @@
                             :is="reference.typeHandle + (reference.smallReference ? 'Small' : '')"
                             :key="reference.id"
                             :reference="reference"
-                            :base-url="$context.baseUrl + getUrl(reference.url, reference.title)"
+                            :base-url="$context.baseUrl + getUrl(reference.url, reference.title, reference.slug)"
 
                         />
                         <component
