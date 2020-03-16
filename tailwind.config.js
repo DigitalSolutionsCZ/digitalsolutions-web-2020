@@ -87,7 +87,7 @@ module.exports = {
                 base: "1.125rem",
                 lg: "1.25rem",
                 xl: "1.625rem",
-                "2xl": "2.375rem",
+                "2xl": "2.175rem",
                 "3xl": "3.75rem"
             },
             width: theme => ({
@@ -184,6 +184,7 @@ module.exports = {
         translate: ['responsive', 'hover', 'focus', 'group-hover'],
         aspectRatio: ['responsive'],
         opacity: ['responsive', 'hover', 'focus', 'group-hover'],
+        backgroundColor: ['responsive', 'hover', 'group-hover']
     },
     plugins: [
         require('tailwindcss-gradients'),
