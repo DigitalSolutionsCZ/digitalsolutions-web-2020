@@ -72,6 +72,7 @@ module.exports = function (api) {
                   slug
                 },
                 referenceRecords: entries(section: "referencesItem", typeId: 4) {
+                  id,
                   title,
                   slug,
                   ...on craft_referencesItem_referenceFullWidth_Entry {
