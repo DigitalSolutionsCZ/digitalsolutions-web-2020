@@ -111,7 +111,7 @@
                     </div>
                     <div class="self-start w-full md:w-10/24">
                         <div class="mb-2 lg:mb-8 lg:ml-16">
-                            <template v-if="services.length > 0">
+                            <template v-if="services && services.length > 0">
                                 <h3 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-xl">
                                     Dodané služby</h3>
                                 <ul class="mb-6 lg:mb-16">
@@ -128,7 +128,7 @@
                                     </li>
                                 </ul>
                             </template>
-                            <template v-if="page.technologie.length > 0">
+                            <template v-if="page.technologie && page.technologie.length > 0">
                                 <h3 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-xl">
                                     Technologie</h3>
                                 <div class="w-full">
