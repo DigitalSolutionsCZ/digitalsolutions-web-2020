@@ -21,7 +21,7 @@
         </div>
         <sub-link :href="props.baseUrl" label="Prohlédnout referenci"/>
         <div
-            class="hidden bottom-0 left-0 self-center grid-cols-12 gap-4 pointer-events-none w-18/24 xl:absolute xl:w-full xl:block xl:grid"
+            class="hidden bottom-0 left-0 z-20 self-center grid-cols-12 gap-4 pointer-events-none w-18/24 xl:absolute xl:w-full xl:block xl:grid"
             v-if="props.reference.referenceMultipleImages.length > 0">
             <div class="col-start-8 col-end-12 row-start-1 row-end-1 pointer-events-auto translate-z-0">
                 <g-link

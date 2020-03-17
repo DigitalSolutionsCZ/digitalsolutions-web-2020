@@ -17,15 +17,15 @@
                                     class="mb-4 text-xs leading-relaxed md:mb-6 md:text-sm xl:text-base wysiwyg-content"
                                     v-html="page.description"></div>
                                 <div class="text-center md:text-left">
-                                    <project-button variant="primary" tag="g-link" class="mb-4"
+                                    <project-button variant="primary" tag="a" target="_blank" class="mb-4"
                                                     :href="page.referenceLink" v-if="page.referenceLink">
-                                        <div class="flex items-center">
-                                            <div class="mr-2">Živá ukázka</div>
+                                        <span class="flex items-center">
+                                            Živá ukázka
                                             <icon
                                                 symbol="i_new_window"
-                                                class="w-4 h-4 fill-current"
+                                                class="w-4 h-4 ml-2 fill-current"
                                             />
-                                        </div>
+                                        </span>
                                     </project-button>
                                 </div>
                             </div>
