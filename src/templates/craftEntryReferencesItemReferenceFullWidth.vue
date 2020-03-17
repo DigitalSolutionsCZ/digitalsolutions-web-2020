@@ -13,8 +13,9 @@
                                      v-if="mapObject(page, ['vyberKlienta', 0, 'title'])">
                                     {{ mapObject(page, ['vyberKlienta', 0, 'title']) }}
                                 </div>
-                                <div class="mb-4 text-xs md:mb-6 md:text-sm xl:text-base leading-relaxed wysiwyg-content"
-                                     v-html="page.description"></div>
+                                <div
+                                    class="mb-4 text-xs leading-relaxed md:mb-6 md:text-sm xl:text-base wysiwyg-content"
+                                    v-html="page.description"></div>
                                 <div class="text-center md:text-left">
                                     <project-button variant="primary" tag="g-link" class="mb-4"
                                                     :href="page.referenceLink" v-if="page.referenceLink">
@@ -31,8 +32,9 @@
                             <div class="w-full overflow-hidden md:w-13/24 lg:w-12/24">
                                 <div class="h-0 aspect-ratio-4/3 md:my-4 xl:my-8">
                                     <div
-                                        class="top-0 bottom-0 flex items-center w-full md:absolute md:flex md:justify-end md:w-12/24 overflow-hidden">
-                                        <div class="relative w-full h-0 aspect-ratio-4/3 md:-mr-8 lg:-mr-1 xl:-ml-2 xl:mr-auto">
+                                        class="top-0 bottom-0 flex items-center w-full overflow-hidden md:absolute md:flex md:justify-end md:w-12/24">
+                                        <div
+                                            class="relative w-full h-0 aspect-ratio-4/3 md:-mr-8 lg:-mr-1 xl:-ml-2 xl:mr-auto">
                                             <g-image
                                                 v-if="mapObject(page, ['mainImage', 0, 'url'])"
                                                 :src="mapObject(page, ['mainImage', 0, 'url'])" alt=""
@@ -53,24 +55,27 @@
             class="relative px-4 mb-8 md:px-8 xl:mb-16"
         >
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover h-full -mx-4 md:-mx-8" fit="cover"/>
-            <div class="relative w-full max-w-screen-xl py-4 md:py-8 mx-auto">
+            <div class="relative w-full max-w-screen-xl py-4 mx-auto md:py-8">
                 <section class="flex flex-wrap items-center">
                     <div class="w-full md:w-14/24 md:pr-12 md:pt-4 md:pb-4">
                         <h2 class="mb-2 text-base font-bold leading-tight text-black md:mb-4 xl:mb-6 md:text-xl xl:text-2xl">
                             {{ page.firstRowHeadline }}</h2>
                         <div
-                            class="text-xs md:text-sm xl:text-base leading-relaxed wysiwyg-content"
+                            class="text-xs leading-relaxed md:text-sm xl:text-base wysiwyg-content"
                             v-html="page.firstRowDescription"
                         />
                     </div>
                     <div class="self-start w-full md:w-10/24 group">
-                        <div class="bg-white rounded transition-all duration-200 ease-in-out group-hover:shadow-xl">
+                        <div class="transition-all duration-200 ease-in-out bg-white rounded group-hover:shadow-xl">
                             <div
                                 :class="{'pb-4 xl:pb-10': page.referenceClientLinkText == null}"
                                 class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16"
                             >
-                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" alt="logo partnera" class="w-24 mb-4 lg:mb-8" v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])" />
-                                <div class="text-xs md:text-sm leading-relaxed wysiwyg-content" v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
+                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
+                                         alt="logo partnera" class="w-24 mb-4 lg:mb-8"
+                                         v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"/>
+                                <div class="text-xs leading-relaxed md:text-sm wysiwyg-content"
+                                     v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
                             </div>
                             <template v-if="page.referenceClientLinkText != null">
                                 <template v-if="page.referenceClientLink">
@@ -106,7 +111,8 @@
                         <h2 class="mb-2 text-base font-bold leading-tight text-black md:mb-5 xl:mb-8 md:text-xl xl:text-2xl">
                             {{ page.secondRowHeadline }}
                         </h2>
-                        <div class="text-xs md:text-sm xl:text-base leading-relaxed wysiwyg-content" v-html="page.secondRowDescription">
+                        <div class="text-xs leading-relaxed md:text-sm xl:text-base wysiwyg-content"
+                             v-html="page.secondRowDescription">
                         </div>
                     </div>
                     <div class="self-start w-full md:w-10/24">
@@ -154,37 +160,55 @@
                 <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="max-w-screen-lg pt-8 ml-auto mr-auto">
-                <VueSlickCarousel class="rounded shadow-xl" v-bind="carouselSettings" v-if="page.gallery"
-                                  ref="referenceCarousel">
+                <VueSlickCarousel
+                    class="rounded shadow-xl"
+                    v-bind="carouselSettings"
+                    v-if="page.gallery.length > 1"
+                    ref="referenceCarousel"
+                >
                     <div class="relative" v-for="slide in page.gallery">
                         <div class="flex flex-col justify-around overflow-hidden rounded">
                             <div class="relative aspect-ratio-16/9" v-if="slide.url">
                                 <img :src="slide.url" class="absolute inset-0 object-cover w-full h-full"/>
                             </div>
                             <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">{{
-                                    slide.title }}
+                                <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
+                                    {{ slide.title }}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <template #prevArrow>
-                        <div class="absolute bottom-0 left-0 z-10 flex items-center h-12 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-ml-10 xl:bg-transparent pr-4 xl:pr-0">
+                        <div
+                            class="absolute bottom-0 left-0 z-10 flex items-center h-12 pr-4 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-ml-10 xl:bg-transparent xl:pr-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 transform rotate-180 fill-current"
-                            ></icon>
+                            />
                         </div>
                     </template>
                     <template #nextArrow>
-                        <div class="absolute bottom-0 right-0 z-10 flex items-center h-12 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-mr-10  xl:bg-transparent pl-4 xl:pl-0">
+                        <div
+                            class="absolute bottom-0 right-0 z-10 flex items-center h-12 pl-4 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-mr-10  xl:bg-transparent xl:pl-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 fill-current"
-                            ></icon>
+                            />
                         </div>
                     </template>
                 </VueSlickCarousel>
+                <template v-else>
+                    <div class="flex flex-col justify-around overflow-hidden rounded">
+                        <div class="relative aspect-ratio-16/9">
+                            <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full"/>
+                        </div>
+                        <div class="flex items-center justify-center h-12 bg-white">
+                            <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
+                                {{ page.gallery[0].title }}
+                            </div>
+                        </div>
+                    </div>
+                </template>
             </div>
         </div>
         <div class="px-4 md:px-8">
@@ -194,9 +218,10 @@
                         :class="[page.thirdRowWysiwygRight == null ? 'mx-auto' : 'lg:pr-12']"
                         class="relative w-full mb-6 lg:mb-0 lg:w-1/2"
                     >
-                        <h2 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-2xl">{{
-                            page.thirdRowHeadline }}</h2>
-                        <div class="mb-6 text-xs md:text-sm xl:text-base leading-relaxed wysiwyg-content"
+                        <h2 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-2xl">
+                            {{ page.thirdRowHeadline }}
+                        </h2>
+                        <div class="mb-6 text-xs leading-relaxed md:text-sm xl:text-base wysiwyg-content"
                              v-html="page.thirdRowDescription">
                         </div>
                         <div
@@ -211,11 +236,14 @@
                             {{ page.thirdRowHeadlineRight }}
                         </h2>
                         <div class="relative">
-                            <icon symbol="i_quotation"
-                                  class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"></icon>
-                            <div class="relative text-sm md:text-base xl:text-lg italic leading-relaxed wysiwyg-content"
-                                 v-html="page.thirdRowWysiwygRight">
-                            </div>
+                            <icon
+                                symbol="i_quotation"
+                                class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                            />
+                            <div
+                                class="relative text-sm italic leading-relaxed md:text-base xl:text-lg wysiwyg-content"
+                                v-html="page.thirdRowWysiwygRight"
+                            />
                         </div>
                         <div class="flex items-center">
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-20 lg:h-20"
@@ -235,24 +263,28 @@
                 </section>
             </div>
         </div>
-        <div class="px-4 bg-gradient-r-blue-green mt-auto">
+        <div class="px-4 mt-auto bg-gradient-r-blue-green">
             <div class="max-w-screen-xl px-4 ml-auto mr-auto">
                 <div class="flex flex-col-reverse md:flex-row md:justify-center">
                     <div :class="{'flex-1' : $context.nextReferenceUrl}">
                         <div class="text-center md:text-left">
-                            <g-link :to="$context.referenceUrl"
-                                    class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
-                                <icon symbol="i_chevron" class="w-5 h-5 mr-2 transform rotate-180 fill-current"></icon>
+                            <g-link
+                                :to="$context.referenceUrl"
+                                class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl"
+                            >
+                                <icon symbol="i_chevron" class="w-5 h-5 mr-2 transform rotate-180 fill-current"/>
                                 Zpět na seznam referencí
                             </g-link>
                         </div>
                     </div>
                     <div class="flex-1" v-if="$context.nextReferenceUrl">
                         <div class="text-center md:text-right">
-                            <g-link :to="$context.nextReferenceUrl"
-                                    class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl">
+                            <g-link
+                                :to="$context.nextReferenceUrl"
+                                class="inline-flex items-center pt-5 pb-2 text-base text-white xl:pt-6 xl:pb-3 lg:text-xl"
+                            >
                                 Další reference
-                                <icon symbol="i_chevron" class="w-5 h-5 ml-2 fill-current"></icon>
+                                <icon symbol="i_chevron" class="w-5 h-5 ml-2 fill-current"/>
                             </g-link>
                         </div>
                     </div>
@@ -293,11 +325,9 @@
                   }));
               });
           },
-      },
-      data() {
-          return {
-              carouselSettings: {
-                  autoplay: true,
+          carouselSettings() {
+              return {
+                  autoplay: this.page.autoplay,
                   autoplaySpeed: 3000,
                   lazyLoad: "ondemand",
                   pauseOnFocus: true,
@@ -374,7 +404,8 @@
                     gallery {
                         url(transform: "xxlargeImage")
                         title
-                    }
+                    },
+                    autoplay
                     vyberKlientaTretiRadek {
                         ...on craft_testemonials_klients_Entry {
                             position
