@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="relative">
+        <loading-transition :loading="loading" />
         <callout-message
             v-if="resultFormStatus === 'success' && resultMessageVisible"
             variant="success"
@@ -25,7 +26,7 @@
             <div class="flex flex-wrap">
                 <div class="w-full">
                     <input-text
-                        class="mb-4"
+                        class="mb-4 pt-2"
                         label="Jméno a příjmení"
                         v-model="fields.fullname"
                         id="fullname"
@@ -71,20 +72,26 @@
 
 <script>
   import axios from "axios";
+  import EmailValidator from 'email-validator';
+
   import InputText from "./Input/InputText.vue";
   import InputTextarea from "./Input/InputTextarea";
   import ProjectButton from '../components/ProjectButton'
-  import CalloutMessage from './CalloutMessage'
+  import CalloutMessage from './CalloutMessage';
+  import LoadingTransition from './LoadingTransition.vue';
+
 
   export default {
       components: {
           InputTextarea,
           InputText,
           ProjectButton,
-          CalloutMessage
+          CalloutMessage,
+          LoadingTransition
       },
       data() {
           return {
+              loading: false,
               errorFields: {},
               resultFormStatus: null,
               resultMessageVisible: false,
@@ -107,16 +114,19 @@
           validate() {
               this.errorFields = {};
               const {fullname, email} = this.fields;
-              if (!fullname) {
+              if (!fullname || /^\s+$/.test(fullname)) {
                   this.$set(this.errorFields, 'fullname', {messages: ['Hodnota musí být vyplněná']})
               }
               if (!email) {
                   this.$set(this.errorFields, 'email', {messages: ['Hodnota musí být vyplněná']})
+              } else if (!EmailValidator.validate(email)) {
+                  this.$set(this.errorFields, 'email', {messages: ['E-mail není ve správném formátu']})
               }
               return Object.entries(this.errorFields).length === 0
           },
           handleSubmit() {
               if (this.validate()) {
+                  this.loading = true;
                   const axiosConfig = {
                       header: {"Content-Type": "application/x-www-form-urlencoded"}
                   };
@@ -138,6 +148,7 @@
                       this.resultFormStatus = 'error';
                   }).then(() => {
                       this.resultMessageVisible = true;
+                      this.loading = false;
                   });
               }
           },

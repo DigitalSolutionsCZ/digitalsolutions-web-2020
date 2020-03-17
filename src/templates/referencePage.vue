@@ -43,24 +43,7 @@
             </div>
         </template>
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4 overflow-hidden">
-            <ClientOnly>
-                <transition
-                    enter-class="scale-50 opacity-0"
-                    enter-active-class="transition-all duration-200 ease-in-out opacity-1 transform-center"
-                    leave-active-class="transition-all duration-200 ease-in-out opacity-1 transform-center"
-                    leave-to-class="scale-50 opacity-0"
-                >
-                    <div class="absolute inset-0 z-40 py-16" v-if="loading">
-                        <div class="absolute inset-0 bg-white opacity-75"></div>
-                        <div
-                            class="sticky z-20 w-10 h-10 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-full shadow-lg left-1/2 top-1/2">
-                            <div class="absolute inset-0 rounded-full loading"></div>
-                            <div class="absolute inset-0 rounded-full loading loading-1"></div>
-                            <div class="absolute inset-0 rounded-full loading loading-2"></div>
-                        </div>
-                    </div>
-                </transition>
-            </ClientOnly>
+            <loading-transition :loading="loading" />
             <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
                  class="absolute inset-0 bg-center pointer-events-none"></div>
             <div class="relative w-full max-w-screen-xl mx-auto" v-if="list.length > 0">
@@ -122,6 +105,7 @@
 <script>
 import Dropdown from "../components/Dropdown.vue";
 import SubLink from "../components/SubLink.vue";
+import LoadingTransition from '../components/LoadingTransition.vue';
 
 import referenceFullWidth from "../components/Reference/referenceFullWidth.vue";
 import referenceFullWidthSmall from "../components/Reference/referenceFullWidthSmall.vue";
@@ -140,6 +124,7 @@ export default {
         referenceFullWidthSmall,
         referenceContactBlock,
         SubLink,
+        LoadingTransition
     },
     data: () => ({
         serviceId: null,
