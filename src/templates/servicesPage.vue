@@ -13,9 +13,9 @@
         <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="mx-4">
-                <div class="relative pt-4 pb-4 ml-auto mr-auto max-w-screen-xl xl:pb-8 xl:pt-8">
+                <div class="relative pt-4 pb-4 mx-auto max-w-screen-xl xl:pb-8 xl:pt-8">
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
-                        <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
+                        <div class="flex flex-wrap justify-between w-full mx-auto max-w-lg md:max-w-6xl md:w-22/24">
                             <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-4 xl:mb-8" v-for="service in page.mainServices" :key="service.id">
                                 <div class="relative h-8 mb-2 md:mb-4 md:h-12 xl:h-16 md:h-16 xl:mb-6" v-if="mapObject(service, ['icon', 0, 'url'])">
                                     <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])">
@@ -30,8 +30,8 @@
                             </div>
                             <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-10 xl:mb-16"></div>
                         </div>
-                        <div class="flex flex-wrap justify-between w-full mx-auto md:w-20/24 xl:w-18/24 md:pb-8 xl:pb-20">
-                            <div class="w-full mb-1 md:w-11/24" v-for="subService in page.subServices" :key="subService.id">
+                        <div class="flex flex-wrap justify-between mx-auto max-w-lg md:max-w-5xl md:pb-8 xl:pb-20">
+                            <div class="w-full mb-1 md:w-12/24 md:px-8" v-for="subService in page.subServices" :key="subService.id">
                                 <div class="">
                                     <h3 class="mb-1 text-sm font-bold text-black md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
                                     <div class="mb-3 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
@@ -43,7 +43,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-4">
+        <div class="px-4 pt-4">
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
@@ -69,15 +69,15 @@
                         </div>
                     </section>
                 </div>
-                <div class="mx-auto max-w-screen-xl" v-else>
-                    <div class="relative flex flex-wrap mx-auto max-w-lg md:max-w-full xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
-                        <div class="self-center mb-4 md:w-17/24 md:mb-16" :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
+                <div v-else>
+                    <div class="relative flex flex-wrap mx-auto max-w-lg md:max-w-5xl md:px-8" :class="{'flex-row-reverse': (index) % 2}">
+                        <div class="self-center mb-4 md:w-18/24 md:mb-16" :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
                             <h3 class="mb-1 text-base font-bold text-black  md:mb-3 md:text-lg xl:text-xl">{{ story.header }}</h3>
                             <div class="mb-3 text-sm text-gray-900 md:text-base xl:text-lg"><strong>{{ story.subheader }}</strong></div>
                             <div class="text-xs leading-relaxed text-gray-900 md:text-sm xl:text-base wysiwyg-content" v-html="story.description"></div>
                         </div>
-                        <div class="w-full mb-4 md:w-7/24 md:mb-16">
-                            <div class="relative h-full">
+                        <div class="w-2/3 mb-4 xs:w-1/2 mx-auto md:w-6/24 md:mb-16">
+                            <div class="relative h-0 aspect-ratio-4/3">
                                 <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])" v-if="mapObject(story, ['image', 0, 'url'])">
                             </div>
                         </div>
