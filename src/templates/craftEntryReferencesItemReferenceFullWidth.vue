@@ -197,7 +197,7 @@
                         </div>
                     </template>
                 </VueSlickCarousel>
-                <template v-else>
+                <div class="rounded shadow-xl" v-else>
                     <div class="flex flex-col justify-around overflow-hidden rounded">
                         <div class="relative aspect-ratio-16/9">
                             <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full"/>
@@ -208,7 +208,7 @@
                             </div>
                         </div>
                     </div>
-                </template>
+                </div>
             </div>
         </div>
         <div class="px-4 md:px-8">
