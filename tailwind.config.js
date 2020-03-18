@@ -165,10 +165,10 @@ module.exports = {
             xs: '360px',
             sm: `640px`,
             md: `768px`,
+            mobileLandscape: {'raw': '(min-width: 768px) and (min-height: 640px)'},
             lg: `1024px`,
             xl: `1280px`,
-            '2xl': '1400px',
-            mobileLandscape: {'raw': '(min-width: 768px) and (min-height: 640px)'}
+            '2xl': '1400px'
         },
         aspectRatio: {
             'none': 0,
