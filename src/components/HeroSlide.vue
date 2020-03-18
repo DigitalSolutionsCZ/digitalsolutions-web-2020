@@ -1,5 +1,5 @@
 <template>
-    <div class="flex py-12 mt-12 overflow-hidden hp-header bg-gradient-tr-blue-green md:py-0 md:mt-0"
+    <div class="flex py-20 mt-12 overflow-hidden hp-header bg-gradient-tr-blue-green md:py-0 md:mt-0"
          v-keyframes
          style="perspective: 900px">
         <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(

@@ -30,7 +30,7 @@
 
 @screen md {
     .hp-header {
-        height: calc(100vh - theme('height.40'));
+        height: calc(100vh - theme('height.32'));
     }
     .cha-header {
         @apply block;

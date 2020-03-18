@@ -34,7 +34,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full md:pr-4 md:w-12/24">
+                <div class="w-full mt-2 md:pr-4 md:w-12/24">
                     <input-text
                         class="mb-4"
                         label="E-mail"
@@ -44,7 +44,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full md:w-12/24">
+                <div class="w-full mt-2 md:w-12/24">
                     <input-text
                         class="mb-4"
                         label="Telefon"
@@ -53,7 +53,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full mt-4 mb-4 xl:mb-8">
+                <div class="w-full mt-2 mb-4 xl:mb-8">
                     <input-textarea
                         label="Popište nám prosím váš projekt nebo potřeby…"
                         v-model="fields.message"

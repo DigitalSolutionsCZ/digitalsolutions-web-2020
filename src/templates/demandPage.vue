@@ -14,7 +14,10 @@
                     </div>
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
                         <div class="flex items-center md:mb-4" v-for="person in page.people">
-                            <img :src="mapObject(person, ['image', 0, 'url'])" class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20" alt="person">
+                            <img
+                                :src="mapObject(person, ['image', 0, 'url'])"
+                                :alt="person.firstName + ' ' + person.lastName"
+                                class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20">
                             <strong class="text-sm lg:text-lg">{{ person.firstName  }} {{ person.lastName }}</strong>
                         </div>
                     </div>
