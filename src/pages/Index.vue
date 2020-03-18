@@ -63,41 +63,52 @@
                                     :class="[index === page.homepageReference.length - 1 ? 'mb-8' : 'mb-3 md:mb-8 xl:mb-16']"
                                 >
                                     <div class="relative z-20 px-4 pt-8 md:px-8 xl:px-16 md:pt-8 xl:pt-16">
-                                        <g-link :to="reference.buttonLink">
-                                            <h2 class="mb-3 text-black text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
-                                                {{ reference.header }}
-                                            </h2>
-                                        </g-link>
-                                        <div class="mb-4 text-sm text-green-500 md:mb-6 xl:text-base">
-                                            {{ mapObject(reference, ['client', 0 , 'title']) }}
-                                        </div>
                                         <div class="flex flex-wrap mb-6">
-                                            <div class="w-full md:pr-16 md:w-16/24">
+                                            <div class="w-full md:pr-12 md:w-15/24">
+                                                <g-link :to="reference.buttonLink">
+                                                    <h2 class="mb-3 text-black text-base font-bold leading-tight text-black md:text-lg xl:text-2xl">
+                                                        {{ reference.header }}
+                                                    </h2>
+                                                </g-link>
+                                                <div class="mb-4 text-sm text-green-500 xl:text-base">
+                                                    {{ mapObject(reference, ['client', 0 , 'title']) }}
+                                                </div>
                                                 <div class="text-sm wysiwyg-content md:text-base"
                                                      v-html="reference.description"></div>
                                                 <div
-                                                    class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"></div>
-                                                <div class="relative" v-if="reference.textTestemonial">
-                                                    <icon symbol="i_quotation"
-                                                          class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current lg:mt-5 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
-                                                    />
-                                                    <div
-                                                        class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4"
-                                                        v-html="reference.textTestemonial">
-                                                    </div>
+                                                    v-if="reference.textTestemonial"
+                                                    class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"
+                                                >
                                                 </div>
-                                                <div class="flex items-center mb-4 md:mb-6">
-                                                    <div>
-                                                        <strong class="text-sm md:text-lg">
-                                                            {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
-                                                        </strong>
-                                                        <div class="text-xs md:text-sm">
-                                                            {{ mapObject(reference, ['testemonial', 0 , 'position'])}}
+                                                <template v-if="reference.textTestemonial">
+                                                    <div class="relative">
+                                                        <icon symbol="i_quotation"
+                                                              class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current lg:mt-5 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
+                                                        />
+                                                        <div
+                                                            class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4"
+                                                            v-html="reference.textTestemonial">
                                                         </div>
                                                     </div>
+                                                    <div class="flex items-center mb-4 md:mb-6">
+                                                        <div>
+                                                            <strong class="text-sm md:text-lg">
+                                                                {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
+                                                            </strong>
+                                                            <div class="text-xs md:text-sm">
+                                                                {{ mapObject(reference, ['testemonial', 0 , 'position'])}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </template>
+                                                <div class="-ml-4 md:-ml-8 xl:-ml-16">
+                                                    <sub-link
+                                                            :href="reference.buttonLink"
+                                                            :label="reference.buttonText ? reference.buttonText : 'Prohlédnout referenci'"
+                                                    />
                                                 </div>
                                             </div>
-                                            <div class="w-full md:w-8/24">
+                                            <div class="w-full md:w-9/24 pb-4 -mt-4 md:mt-0">
                                                 <div class="flex justify-center">
                                                     <g-link :to="reference.buttonLink">
                                                         <g-image
@@ -109,10 +120,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <sub-link
-                                        :href="reference.buttonLink"
-                                        :label="reference.buttonText ? reference.buttonText : 'Prohlédnout referenci'"
-                                    />
                                 </div>
                                 <div
                                     v-if="index !== page.homepageReference.length - 1"
