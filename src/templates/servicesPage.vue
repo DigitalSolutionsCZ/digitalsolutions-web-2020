@@ -20,7 +20,7 @@
                                 <div class="relative h-8 mb-2 md:mb-4 md:h-12 xl:h-16 md:h-16 xl:mb-6" v-if="mapObject(service, ['icon', 0, 'url'])">
                                     <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])">
                                 </div>
-                                <h2 class="mb-2 text-base font-bold text-black md:text-lg xl:text-xl md:mb-6 xl:mb-8">{{ service.header }}</h2>
+                                <h2 class="mb-2 text-base font-bold text-black md:text-lg xl:text-xl md:mb-6 xl:mb-4">{{ service.header }}</h2>
                                 <div class="flex-grow">
                                     <div class="mb-2 text-sm text-gray-900 xl:text-base md:mb-6 xl:mb-8" v-html="service.description"></div>
                                 </div>
@@ -31,23 +31,23 @@
                             <div class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green md:mb-10 xl:mb-16"></div>
                         </div>
                         <div class="flex flex-wrap justify-between mx-auto max-w-lg md:max-w-5xl md:pb-8 xl:pb-20">
-                            <div class="w-full mb-1 md:w-12/24 md:px-8" v-for="subService in page.subServices" :key="subService.id">
+                            <div class="w-full md:w-12/24 md:px-8 mb-2 md:mb-4" v-for="subService in page.subServices" :key="subService.id">
                                 <div class="">
-                                    <h3 class="mb-1 text-sm font-bold text-black md:text-base md:mb-2 xl:mb-4 xl:text-lg">{{ subService.header }}</h3>
-                                    <div class="mb-3 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
+                                    <h3 class="mb-1 text-sm font-bold text-black md:text-base md:mb-2 xl:text-lg">{{ subService.header }}</h3>
+                                    <div class="mb-2 text-xs text-gray-900 md:text-sm md:mb-4" v-html="subService.description"></div>
                                 </div>
-                                <g-link :href="subService.subServiceLink" class="block mb-3 text-xs font-bold text-green-500 underline md:text-sm" v-if="subService.subServiceLink">Detail služby</g-link>
+                                <g-link :href="subService.subServiceLink" class="block mb-2 text-xs font-bold text-green-500 underline md:text-sm md:mb-4" v-if="subService.subServiceLink">Detail služby</g-link>
                             </div>
                         </div>
                     </section>
                 </div>
             </div>
         </div>
-        <div class="px-4 pt-4">
+        <div class="px-4 pt-4 md:pt-8">
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
-                        <h2 class="mb-4 text-lg font-bold text-center text-black md:text-xl xl:text-2xl xl:mb-8" v-if="index === 0">{{ page.developmentHeader }}</h2>
+                        <h2 class="mb-4 text-lg font-bold text-center text-black md:text-xl xl:text-2xl xl:mb-4" v-if="index === 0">{{ page.developmentHeader }}</h2>
                         <div class="flex flex-wrap mx-auto max-w-lg md:max-w-full xl:w-22/24" :class="{'flex-row-reverse': (index) % 2}">
                             <div class="flex flex-wrap items-center w-full mx-auto md:w-16/24">
                                 <div :class="[(index) % 2 ? 'md:pl-8 xl:pl-20' : 'md:pr-8 xl:pr-20']">
