@@ -253,7 +253,7 @@
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-20 lg:h-20"
                                  v-if="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
-                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])">
+                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])" />
                             <div>
                                 <strong class="text-sm lg:text-lg">{{ mapObject(page, ['vyberKlientaTretiRadek', 0,
                                     'firstName']) }} {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'lastName'])
