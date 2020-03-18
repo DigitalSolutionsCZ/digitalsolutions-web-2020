@@ -37,7 +37,8 @@
                                             class="relative w-full h-0 aspect-ratio-4/3 md:-mr-8 lg:-mr-1 xl:-ml-2 xl:mr-auto">
                                             <g-image
                                                 v-if="mapObject(page, ['mainImage', 0, 'url'])"
-                                                :src="mapObject(page, ['mainImage', 0, 'url'])" alt=""
+                                                :src="mapObject(page, ['mainImage', 0, 'url'])"
+                                                :alt="page.heading"
                                                 class="absolute inset-0 object-cover w-full h-full mx-auto"
                                                 fit="cover"
                                             />
@@ -72,7 +73,9 @@
                                 class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16"
                             >
                                 <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
-                                         alt="logo partnera" class="w-24 mb-4 lg:mb-8"
+
+                                         :alt="mapObject(page, ['vyberKlienta', 0, 'title'])"
+                                         class="h-10 mb-4 lg:mb-8"
                                          v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"/>
                                 <div class="text-xs leading-relaxed md:text-sm wysiwyg-content"
                                      v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
@@ -116,20 +119,20 @@
                         </div>
                     </div>
                     <div class="self-start w-full md:w-10/24">
-                        <div class="mb-2 lg:mb-8 lg:ml-16">
+                        <div class="mb-2 lg:mb-8 xl:ml-16">
                             <template v-if="services && services.length > 0">
                                 <h3 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-xl">
                                     Dodané služby</h3>
                                 <ul class="mb-6 lg:mb-16">
-                                    <li class="mb-3" v-for="service in services" :key="service.id">
-                                        <div class="flex items-center mb-1">
+                                    <li class="mb-2 xl:mb-6" v-for="service in services" :key="service.id">
+                                        <div class="flex items-center mb-2">
                                             <span class="flex-1 text-xs truncate md:text-sm">{{ service.title }}</span>
                                             <span class="flex-grow-0 text-xs text-gray-600 md:text-sm">{{ service.podil }}%</span>
                                         </div>
                                         <div class="flex items-center">
                                             <div class="h-1 rounded bg-gradient-l-blue-green"
                                                  :style="{ width: service.podil + '%' }"></div>
-                                            <div class="flex-grow border-b border-gray-100"></div>
+                                            <div class="flex-grow border-b border-gray-200"></div>
                                         </div>
                                     </li>
                                 </ul>
@@ -140,11 +143,12 @@
                                 <div class="w-full">
                                     <div
                                         class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
-                                        <div class="flex items-center justify-center p-2 border border-gray-100 rounded"
+                                        <div class="flex items-center justify-center p-2 border border-gray-200 rounded"
                                              v-for="technology in page.technologie" :key="technology.id">
                                             <g-image
                                                 :src="mapObject(technology, ['obrazek', 0, 'url'])"
                                                 :alt="technology.title"
+                                                :title="technology.title"
                                             />
                                         </div>
                                     </div>
@@ -238,7 +242,7 @@
                         <div class="relative">
                             <icon
                                 symbol="i_quotation"
-                                class="absolute w-16 h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-10 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                class="absolute w-4 h-4 lg:w-8 lg:h-8 -ml-4 text-gray-100 transform fill-current lg:mt-6 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
                             />
                             <div
                                 class="relative text-sm italic leading-relaxed md:text-base xl:text-lg wysiwyg-content"
@@ -413,6 +417,7 @@
                             lastName
                             photo {
                                 url(transform: "smallImage")
+                                title
                             }
                         }
                     },

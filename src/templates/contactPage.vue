@@ -33,7 +33,11 @@
                                target="_blank"
                                class="block h-full"
                             >
-                                <g-image :src="mapObject(page, ['map', 0, 'contactMapImage', 0, 'url'])" alt="mapa" class="object-cover w-full h-full" fit="cover"/>
+                                <g-image
+                                    :src="mapObject(page, ['map', 0, 'contactMapImage', 0, 'url'])"
+                                    :alt="mapObject(page, ['contactAdress', 0, 'header'])"
+                                    class="object-cover w-full h-full" fit="cover"
+                                />
                             </a>
                         </div>
                         <div class="w-full md:w-11/24 lg:w-9/24">
@@ -87,17 +91,17 @@
         <div class="relative">
             <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
             <div class="px-4">
-                <div class="relative max-w-screen-xl pt-10 ml-auto mr-auto xl:pt-24 xl:pb-20">
+                <div class="relative max-w-screen-xl pt-8 pb-4 mx-auto xl:pt-16 xl:pb-12">
                     <h3 class="mb-3 text-lg font-bold text-center text-black md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>
                     <div>
                         <div class="flex flex-wrap items-center justify-center">
                             <template v-for="social in socials">
                                 <g-link :to="social.socialLink" :key="social.id" :alt="social.socialName">
                                     <template v-if="social.svg">
-                                        <span class="flex items-center w-16 h-16 mx-1 mb-4" v-html="social.svg"/>
+                                        <span class="flex items-center w-12 h-12 mx-1 mb-4 fill-current text-gray-900" v-html="social.svg"/>
                                     </template>
                                     <template v-if="social.img">
-                                        <g-image class="w-16 h-16 mb-4 mr-1" :src="mapObject(social, ['img', 0, 'url'])"/>
+                                        <g-image class="w-12 h-12 mb-4 mr-1" :src="mapObject(social, ['img', 0, 'url'])"/>
                                     </template>
                                 </g-link>
                             </template>

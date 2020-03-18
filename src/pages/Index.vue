@@ -15,12 +15,12 @@
                                 <img
                                     src="../images/logo-ds.png"
                                     class="absolute w-auto pl-2 logo-color"
-                                    alt="logo společnosti"
+                                    alt="Logo Digital Solutions s.r.o."
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
                                     class="absolute hidden w-auto pl-2 logo-white md:block"
-                                    alt="logo společnosti"
+                                    alt="Logo Digital Solutions s.r.o."
                                 />
                             </g-link>
                         </template>
@@ -32,11 +32,11 @@
                 <hero-slide :page="page" v-if="isVisibleClientOnlySkeleton"/>
             </section>
             <section class="relative" data-cha-section>
-                <div class="flex items-center overflow-hidden md:h-40">
+                <div class="flex items-center overflow-hidden md:h-32">
                     <div class="w-full max-w-screen-xl mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
-                            <div class="px-4 my-2 md:my-0" v-for="logo in page.homepageClientLogos">
-                                <img :src="logo.url" class="w-24 md:w-32" :alt="logo.title" :key="logo.id">
+                            <div class="overflow-hidden px-1 sm:px-4 -my-2" v-for="logo in page.homepageClientLogos">
+                                <img :src="logo.url" class="w-20 md:w-40" :alt="logo.title" :key="logo.id">
                             </div>
                         </div>
                     </div>
@@ -50,7 +50,7 @@
                     <div class="max-w-screen-xl mx-auto">
                         <div class="px-4 mx-auto max-w-lg lg:max-w-2xl xl:max-w-5xl xl:px-16">
                             <h2
-                                class="mb-6 text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
+                                class="mb-6 text-base md:text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
                                 v-html="page.homepageReferenceHeader"
                             />
                         </div>
@@ -79,7 +79,7 @@
                                                     class="w-full h-1 mb-6 rounded bg-gradient-l-blue-green xl:mb-8"></div>
                                                 <div class="relative" v-if="reference.textTestemonial">
                                                     <icon symbol="i_quotation"
-                                                          class="absolute w-8 h-8 lg:w-16 lg:h-16 -mt-3 -ml-3 text-gray-100 transform fill-current lg:mt-8 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                                                          class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current lg:mt-5 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
                                                     />
                                                     <div
                                                         class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4"
@@ -140,16 +140,16 @@
                 </h2>
                 <div class="flex flex-wrap justify-between w-full mx-auto md:w-22/24">
                     <div
-                        class="w-full max-w-lg mx-auto md:w-7/24"
+                        class="w-full max-w-lg mx-auto md:w-8/24"
                         v-for="(assigment, index) in page.homepageAssignments"
                         :key="index"
                     >
                         <icon
                             symbol="i_quotation"
-                            class="absolute w-6 h-6 lg:w-12 lg:h-12 -mt-2 -ml-3 text-gray-100 transform fill-current lg:mt-6 lg:ml-6 lg:-translate-x-full lg:-translate-y-full"
+                            class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current xl:mt-6 xl:ml-6 xl:-translate-x-full xl:-translate-y-full"
                         />
                         <div
-                            class="relative mb-8 text-gray-900 text-sm text-center md:text-left wysiwyg-content lg:text-base md:mb-10 xl:mb-16"
+                            class="relative mb-8 text-gray-900 text-sm wysiwyg-content lg:text-base md:mb-10 xl:mb-16 px-2 xl:px-8"
                             v-html="assigment.description"
                         />
                     </div>

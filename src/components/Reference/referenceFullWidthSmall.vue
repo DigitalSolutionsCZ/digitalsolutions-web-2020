@@ -31,6 +31,7 @@
                     <g-image
                         class="absolute inset-0 object-cover w-full h-full"
                         :src="parent.mapObject(props.reference, ['referenceMultipleImages', 0, 'url'])"
+                        :alt="props.reference.heading"
                     />
                 </g-link>
             </div>

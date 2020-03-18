@@ -30,7 +30,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full md:pr-4 md:w-12/24">
+                <div class="w-full mt-2 md:pr-4 md:w-12/24">
                     <input-text
                         class="mb-4"
                         label="E-mail"
@@ -40,7 +40,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full md:w-12/24">
+                <div class="w-full mt-2 md:w-12/24">
                     <input-text
                         class="mb-4"
                         label="Telefon"
@@ -49,7 +49,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full mb-4 xl:mb-8">
+                <div class="w-full mt-2 mb-4 xl:mb-8">
                     <input-textarea
                         label="Popište nám prosím váš projekt nebo potřeby…"
                         v-model="fields.message"
@@ -59,7 +59,7 @@
                 </div>
                 <div class="w-full">
                     <label for="files"
-                           class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6 xl:mb-8"
+                           class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6"
                            :class="[fields.files ? 'text-black' : 'text-gray-200']"
                     >
                         {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
