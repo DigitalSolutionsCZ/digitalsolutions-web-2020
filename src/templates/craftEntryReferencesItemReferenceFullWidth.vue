@@ -142,7 +142,7 @@
                                     Technologie</h3>
                                 <div class="w-full">
                                     <div
-                                        class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
+                                        class="grid grid-cols-6 gap-4 sm:grid-cols-8 md:grid-cols-4 md:gap-4 xl:grid-cols-4 xl:gap-3">
                                         <div class="flex items-center justify-center p-2 border border-gray-200 rounded"
                                              v-for="technology in page.technologie" :key="technology.id">
                                             <g-image
