@@ -159,15 +159,16 @@ module.exports = {
             },
             boxShadow: {
                 'vertical-symmetric': '0px 2px 6px 2px rgba(0, 0, 0, 0.1)'
-            }
+            },
         },
         screens: {
             xs: '360px',
             sm: `640px`,
             md: `768px`,
+            mobileLandscape: {'raw': '(min-width: 768px) and (min-height: 640px)'},
             lg: `1024px`,
             xl: `1280px`,
-            '2xl': '1400px',
+            '2xl': '1400px'
         },
         aspectRatio: {
             'none': 0,

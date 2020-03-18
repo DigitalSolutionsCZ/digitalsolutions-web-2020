@@ -2,7 +2,7 @@
     <Layout>
         <template #header="{menu, contact}">
             <section class="relative cha-main-header" data-cha-section data-theme="dark">
-                <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
+                <div class="absolute inset-0 z-30 pointer-events-none mobileLandscape:cha-header-clip" data-cha-header-clip>
                     <site-header
                         class="cha-header"
                         :white="true"
@@ -11,7 +11,7 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="relative flex items-center w-36 md:w-48">
+                            <g-link to="/" class="relative flex items-center w-36 mobileLandscape:w-48">
                                 <img
                                     src="../images/logo-ds.png"
                                     class="absolute w-auto pl-2 logo-color"
@@ -19,7 +19,7 @@
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
-                                    class="absolute hidden w-auto pl-2 logo-white md:block"
+                                    class="absolute hidden w-auto pl-2 logo-white mobileLandscape:block"
                                     alt="Logo Digital Solutions s.r.o."
                                 />
                             </g-link>
