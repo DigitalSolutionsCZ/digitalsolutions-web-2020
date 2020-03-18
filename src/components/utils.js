@@ -69,7 +69,7 @@ export function toFormData(object) {
       case 'FileList': {
         for (let i = 0; i < value.length; ++i) {
           const file = value[i];
-          form.append(name, file, file.name);
+          form.append(name + i, file, file.name);
         }
         break;
       }
