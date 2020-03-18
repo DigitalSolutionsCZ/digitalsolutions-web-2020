@@ -65,7 +65,7 @@
                         <span class="p-3">
                             {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
                         </span>
-                        <span class="self-stretch bg-gray-100 border-l h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-black transition duration-150 ease-in-out">Vybrat...</span>
+                        <span class="self-stretch bg-gray-100 h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-gray-900 transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
                     <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
                 </div>

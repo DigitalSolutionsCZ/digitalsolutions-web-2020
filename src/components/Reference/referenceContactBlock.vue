@@ -1,9 +1,9 @@
 <template functional>
     <div
-        class="relative flex flex-col items-start w-full mx-auto overflow-hidden md:rounded transition-all duration-200 ease-in-out group hover:shadow-xl"
+        class="relative flex flex-col justify-end items-start w-full mx-auto overflow-hidden md:rounded transition-all duration-200 ease-in-out group hover:shadow-xl"
         :class="[props.reference.importantBlock ? 'bg-gradient-tr-blue-green text-white' : 'border']"
     >
-        <div class="relative z-20 px-16 pt-16 pb-8">
+        <div class="relative z-20 px-16 pt-16 pb-8 mt-auto">
             <g-link :to="props.reference.contactLink">
                 <h2
                     class="mb-3 text-xl font-bold md:leading-tight xl:text-2xl"
