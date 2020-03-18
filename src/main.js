@@ -18,7 +18,7 @@ export default function (Vue, {router, head, isClient}) {
     head.bodyAttrs = {class: "flex flex-col"};
     head.link.push({
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap'
+        href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap&subset=latin-ext'
     });
     head.meta.push({
         name: 'viewport',
