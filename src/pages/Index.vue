@@ -82,7 +82,6 @@
                                                 </div>
                                                 <template v-if="reference.textTestemonial">
                                                     <div class="relative">
-                                                        <div class="relative">
                                                         <icon symbol="i_quotation"
                                                               class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current lg:mt-5 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
                                                         />
