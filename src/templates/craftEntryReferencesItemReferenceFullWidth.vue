@@ -142,7 +142,7 @@
                                     Technologie</h3>
                                 <div class="w-full">
                                     <div
-                                        class="grid grid-cols-4 gap-2 sm:grid-cols-6 md:grid-cols-3 xl:grid-cols-4 md:gap-4">
+                                        class="grid grid-cols-6 gap-4 sm:grid-cols-8 md:grid-cols-4 md:gap-4 xl:grid-cols-4 xl:gap-3">
                                         <div class="flex items-center justify-center p-2 border border-gray-200 rounded"
                                              v-for="technology in page.technologie" :key="technology.id">
                                             <g-image
@@ -253,7 +253,7 @@
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-20 lg:h-20"
                                  v-if="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
-                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])">
+                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])" />
                             <div>
                                 <strong class="text-sm lg:text-lg">{{ mapObject(page, ['vyberKlientaTretiRadek', 0,
                                     'firstName']) }} {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'lastName'])

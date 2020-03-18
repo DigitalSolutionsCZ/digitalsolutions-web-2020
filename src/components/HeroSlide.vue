@@ -1,5 +1,5 @@
 <template>
-    <div class="flex py-20 mt-12 overflow-hidden hp-header bg-gradient-tr-blue-green mobileLandscape:py-0 mobileLandscape:mt-0"
+    <div class="flex py-20 xs:py-56 mt-12 overflow-hidden hp-header bg-gradient-tr-blue-green mobileLandscape:py-0 mobileLandscape:mt-0"
          v-keyframes
          style="perspective: 900px">
         <section class="self-center w-full px-4 mobileLandscape:px-8 xl:px-16" :data-keyframes="JSON.stringify(
@@ -12,8 +12,8 @@
                            })">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center">
-                    <h1 class="mb-2 text-base leading-tight text-white mobileLandscape:text-2xl xl:text-3xl mobileLandscape:mb-6 xl:mb-8" v-html="page.heading"/>
-                    <div class="mb-4 text-xs text-white opacity-75 mobileLandscape:mb-8 xl:mb-10 mobileLandscape:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
+                    <h1 class="mb-2 text-sm xs:text-lg leading-tight text-white mobileLandscape:text-2xl xl:text-3xl mobileLandscape:mb-6 xl:mb-8" v-html="page.heading"/>
+                    <div class="mb-4 text-xs xs:text-sm text-white opacity-75 mobileLandscape:mb-8 xl:mb-10 mobileLandscape:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
                     <project-button variant="ghost" tag="g-link" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
                         {{ page.homepageButtonText }}
                     </project-button>

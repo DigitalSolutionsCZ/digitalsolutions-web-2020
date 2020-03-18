@@ -82,15 +82,20 @@
                                                 </div>
                                                 <template v-if="reference.textTestemonial">
                                                     <div class="relative">
+                                                        <div class="relative">
                                                         <icon symbol="i_quotation"
                                                               class="absolute w-4 h-4 xl:w-8 xl:h-8 -mt-1 -ml-4 text-gray-100 transform fill-current lg:mt-5 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
                                                         />
                                                         <div
-                                                            class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4"
+                                                            class="relative text-sm italic text-gray-700 wysiwyg-content md:text-base mb-4 xl:mb-8"
                                                             v-html="reference.textTestemonial">
                                                         </div>
                                                     </div>
-                                                    <div class="flex items-center mb-4 md:mb-6">
+                                                    <div class="flex items-center mb-4 xl:mb-8">
+                                                        <img class="flex-shrink-0 w-12 h-12 mr-4 rounded-full xl:w-16 xl:h-16"
+                                                             v-if="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
+                                                             :src="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
+                                                             :alt="mapObject(reference, ['testemonial', 0, 'photo',0, 'title'])" />
                                                         <div>
                                                             <strong class="text-sm md:text-lg">
                                                                 {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
@@ -232,6 +237,10 @@
                                 ... on craft_testemonials_klients_Entry {
                                     title
                                     position
+                                    photo {
+                                        url(transform: "smallImage")
+                                        title
+                                    }
                                 }
                             }
                             client {
