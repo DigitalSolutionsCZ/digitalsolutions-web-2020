@@ -92,7 +92,7 @@
                     <h3 class="mb-4 text-lg font-bold text-black lg:text-xl md:mb-6 xl:mb-8">
                         Pojďme spolu vymyslet něco úžasného, co vás posune o míle vpřed.
                     </h3>
-                    <project-button tag="g-link" href="/kontakt">
+                    <project-button tag="a" href="/poptavka">
                         Domluvit schůzku
                     </project-button>
                     <!-- TODO - tlačítka by se měla přehodit, až bude existovat stránka "O nás" -->
