@@ -3,7 +3,7 @@
          v-keyframes
          style="perspective: 900px">
         <section class="self-center w-full px-4 md:px-8 xl:px-16" :data-keyframes="JSON.stringify(
-                           atLeastBreakpoint && atLeastBreakpoint('md') ? {
+                           atLeastBreakpoint && (atLeastBreakpoint('md') && atLeastBreakpoint('sm', false)) ? {
                             0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
                             15: { opacity: 1, transform: 'translateY(5vh) rotateX(0deg)' },
                             30: { opacity: .5, transform: 'translateY(10vh) rotateX(0deg)' },
