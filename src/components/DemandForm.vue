@@ -49,7 +49,7 @@
                     >
                     </input-text>
                 </div>
-                <div class="w-full mt-2 mb-4 xl:mb-8">
+                <div class="w-full mt-2 mb-4">
                     <input-textarea
                         label="Popište nám prosím váš projekt nebo potřeby…"
                         v-model="fields.message"
@@ -59,10 +59,13 @@
                 </div>
                 <div class="w-full">
                     <label for="files"
-                           class="flex items-center w-full p-3 mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6"
+                           class="group cursor-pointer flex items-center justify-between w-full mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6"
                            :class="[fields.files ? 'text-black' : 'text-gray-200']"
                     >
-                        {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
+                        <span class="p-3">
+                            {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
+                        </span>
+                        <span class="self-stretch bg-gray-100 border-l h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-black transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
                     <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
                 </div>
