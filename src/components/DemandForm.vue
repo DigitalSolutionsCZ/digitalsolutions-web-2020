@@ -68,10 +68,9 @@
                         <span class="self-stretch bg-gray-100 h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-gray-900 transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
                     <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
-                    <div v-for="(fFile, index) in fields.files"  class="hidden">
-                        <label>Soubor {{ index }}
-                            <input type="file" :name="'files' + index"  >
-                        </label>
+                    <div v-for="(filename, index) in staticFileFields"  class="hidden">
+                        <label :for="filename">Soubor {{ index }} </label>
+                        <input type="file" :name="filename" :id="filename" >
                     </div>
                 </div>
                 <div class="w-full">
@@ -131,7 +130,8 @@
                   message: '',
                   files: null,
                   budget: null,
-              }
+              },
+              staticFileFields: Array.from({length: 10}, (v, i) => 'files' + i),
           }
       },
       methods: {
