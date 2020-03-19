@@ -52,6 +52,7 @@
                             <h2
                                 class="mb-6 text-base md:text-lg text-center md:mb-8 xl:mb-16 lg:text-xl xl:text-2xl"
                                 v-html="page.homepageReferenceHeader"
+                                id="reference-header"
                             />
                         </div>
                         <div class="mx-auto md:w-22/24">

@@ -14,9 +14,16 @@
                 <div class="text-center md:px-20 lg:px-40">
                     <h1 class="mb-2 text-base xs:text-xl leading-tight text-white mobileLandscape:text-2xl xl:text-5xl mobileLandscape:mb-6 xl:mb-8" v-html="page.heading"/>
                     <div class="mb-4 text-xs xs:text-sm text-white opacity-75 mobileLandscape:mb-8 xl:mb-10 mobileLandscape:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
-                    <project-button variant="ghost" tag="g-link" :to="page.homepageButtonLink" v-if="page.homepageButtonLink">
-                        {{ page.homepageButtonText }}
-                    </project-button>
+                    <template v-if="containsString(page.homepageButtonLink, '#') && page.homepageButtonLink">
+                        <project-button variant="ghost" tag="a" v-scroll-to="page.homepageButtonLink">
+                            {{ page.homepageButtonText }}
+                        </project-button>
+                    </template>
+                    <template v-else>
+                        <project-button variant="ghost" tag="a" :href="page.homepageButtonLink">
+                            {{ page.homepageButtonText }}
+                        </project-button>
+                    </template>
                 </div>
             </div>
         </section>
@@ -25,9 +32,13 @@
 
 <script>
   import ProjectButton from "../components/ProjectButton";
+  import {containsString} from '~/components/utils';
   export default  {
     props: {
       page: Object,
+    },
+    methods: {
+      containsString
     },
     components: {
       ProjectButton

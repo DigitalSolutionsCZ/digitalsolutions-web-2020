@@ -1,6 +1,6 @@
 <template>
     <component :is="tag"
-               class="inline-flex justify-center px-5 py-3 leading-tight text-sm font-semibold text-center rounded-full md:py-3 md:px-8 xl:py-4 transition-all duration-200 ease-in-out xl:px-8 xl:text-base min-w-40 hover:shadow-lg"
+               class="inline-flex justify-center px-5 py-3 leading-tight text-sm font-semibold text-center rounded-full md:py-3 md:px-8 xl:py-4 transition-all duration-200 ease-in-out xl:px-8 xl:text-base min-w-40 hover:shadow-lg cursor-pointer"
                :class="getClassesByType(variant)"
     >
         <slot></slot>

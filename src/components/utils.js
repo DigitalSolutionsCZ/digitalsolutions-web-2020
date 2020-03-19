@@ -47,6 +47,10 @@ function getType(value) {
   }
 }
 
+export function containsString(string, substring) {
+  return string.includes(substring);
+}
+
 export function isSupported() {
   return FormData && Blob && File && FileList;
 }

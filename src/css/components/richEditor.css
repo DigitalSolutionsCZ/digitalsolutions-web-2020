@@ -17,11 +17,31 @@
         }
     }
 
+    h2{
+        @apply mb-2 text-base font-bold text-black
+    }
+
+    h3{
+        @apply mb-2 text-base font-semibold text-green-500
+    }
+
+    h4{
+        @apply mb-2 text-base leading-tight font-semibold text-black
+    }
+
     a {
         @apply text-green-500;
     }
 
     @screen md {
+        h2{
+            @apply mb-4 text-2xl;
+        }
+
+        h3, h4{
+            @apply mb-4 text-lg
+        }
+
         p {
             @apply mb-5;
         }
@@ -31,6 +51,12 @@
         }
     }
     @screen xl {
+        h2{
+            @apply mb-4 text-3xl;
+        }
+        h3, h4{
+            @apply mb-4 text-xl;
+        }
         p {
             @apply mb-8;
         }
