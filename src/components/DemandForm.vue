@@ -57,10 +57,10 @@
                         id="message"
                     />
                 </div>
-                <div class="w-full">
+                <div class="w-full mb-4 md:mb-6">
                     <label for="files"
-                           class="group cursor-pointer flex items-center justify-between w-full mb-4 text-sm placeholder-gray-200 border border-solid form-input border-gray-200 rounded xl:h-13 xl:text-base md:mb-6"
-                           :class="[fields.files ? 'text-black' : 'text-gray-200']"
+                           class="group cursor-pointer flex items-center justify-between w-full text-sm placeholder-gray-200 border border-solid form-input rounded xl:h-13 xl:text-base"
+                           :class="[fields.files ? 'text-black' : 'text-gray-200', errorFields.files && errorFields.files.messages ? 'border-red-500' : 'border-gray-200' ]"
                     >
                         <span class="p-3">
                             {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
@@ -68,7 +68,10 @@
                         <span class="self-stretch bg-gray-100 h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-gray-900 transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
                     <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
-                    <div v-for="(filename, index) in staticFileFields"  class="hidden">
+                    <div class="text-left text-red-600 text-sm" v-if="errorFields.files && errorFields.files.messages">
+                       <div v-for="error in errorFields.files.messages">{{ error }}</div>
+                    </div>
+                    <div v-for="(filename, index) in staticFileFields" :key="filename" class="hidden">
                         <label :for="filename">Soubor {{ index }} </label>
                         <input type="file" :name="filename" :id="filename" >
                     </div>
@@ -137,7 +140,7 @@
       methods: {
           onFileChange(e) {
               const files = e.target.files || e.dataTransfer.files;
-              if (files.length) {
+              if (files && files.length) {
                   this.fields.files = files;
               }
           },
@@ -146,7 +149,7 @@
           },
           validate() {
               this.errorFields = {};
-              const {fullname, email} = this.fields;
+              const {fullname, email, files} = this.fields;
               if (!fullname || /^\s+$/.test(fullname)) {
                   this.$set(this.errorFields, 'fullname', {messages: ['Hodnota musí být vyplněná']})
               }
@@ -154,6 +157,9 @@
                   this.$set(this.errorFields, 'email', {messages: ['Hodnota musí být vyplněná']})
               } else if (!EmailValidator.validate(email)) {
                   this.$set(this.errorFields, 'email', {messages: ['E-mail není ve správném formátu']})
+              }
+              if (files && files.length > 10) {
+                this.$set(this.errorFields, 'files', {messages: ['Je možné současně nahrát pouze 10 souborů']})
               }
               return Object.entries(this.errorFields).length === 0
           },
