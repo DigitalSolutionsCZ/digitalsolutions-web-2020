@@ -57,7 +57,7 @@
                         id="message"
                     />
                 </div>
-                <div class="w-full mb-4 md:mb-6">
+                <div class="w-full mb-4 md:mb-6 relative">
                     <label for="files"
                            class="group cursor-pointer flex items-center justify-between w-full text-sm placeholder-gray-200 border border-solid form-input rounded xl:h-13 xl:text-base"
                            :class="[fields.files ? 'text-black' : 'text-gray-200', errorFields.files && errorFields.files.messages ? 'border-red-500' : 'border-gray-200' ]"
@@ -67,7 +67,7 @@
                         </span>
                         <span class="self-stretch bg-gray-100 h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-gray-900 transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
-                    <input type="file" id="files" name="files" class="absolute invisible" @change="onFileChange" multiple>
+                    <input type="file" id="files" name="files" class="absolute w-full inset-y-0 opacity-0" @change="onFileChange" multiple>
                     <div class="text-left text-red-600 text-sm" v-if="errorFields.files && errorFields.files.messages">
                        <div v-for="error in errorFields.files.messages">{{ error }}</div>
                     </div>
