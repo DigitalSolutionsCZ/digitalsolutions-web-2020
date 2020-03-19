@@ -217,10 +217,10 @@
         </div>
         <div class="px-4 md:px-8">
             <div class="w-full max-w-screen-xl mx-auto">
-                <section class="flex flex-wrap pb-6 lg:pb-16">
+                <section class="flex flex-wrap pb-6 lg:pb-16 items-start">
                     <div
                         :class="[page.thirdRowWysiwygRight == null ? 'mx-auto' : 'lg:pr-12']"
-                        class="relative w-full mb-6 lg:mb-0 lg:w-1/2"
+                        class="w-full mb-6 lg:mb-0 lg:w-1/2"
                     >
                         <h2 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-2xl">
                             {{ page.thirdRowHeadline }}
@@ -228,11 +228,8 @@
                         <div class="mb-6 text-xs leading-relaxed md:text-sm xl:text-base wysiwyg-content"
                              v-html="page.thirdRowDescription">
                         </div>
-                        <div
-                            v-if="page.thirdRowWysiwygRight != null"
-                            class="absolute left-0 right-0 h-1 rounded lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
-                    <div class="w-full lg:w-1/2 lg:pl-12" id="client-survey" v-if="page.thirdRowWysiwygRight != null">
+                    <div class="relative w-full lg:w-1/2 lg:pl-12" id="client-survey" v-if="page.thirdRowWysiwygRight != null">
                         <h2
                             v-if="page.thirdRowHeadlineRight != null"
                             class="mb-2 text-base font-bold text-green-500 md:mb-4 xl:mb-6 md:text-xl xl:text-2xl"
@@ -263,6 +260,8 @@
                                 </div>
                             </div>
                         </div>
+                        <div
+                            class="absolute left-0 h-1 lg:-ml-12 rounded lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
                 </section>
             </div>

@@ -1,46 +1,44 @@
 <template>
     <Layout :page-slug="$context.slug">
         <template #headerSection>
-            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
-                <section class="flex flex-wrap pt-6 xl:py-16">
-                    <div class="w-full px-4 text-center">
-                        <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl"
-                            v-if="page.heading" v-html="page.heading"/>
-                        <div class="mb-4 text-xs text-gray-900 xs:text-sm lg:text-base md:mb-6 xl:mb-8"
-                             v-if="page.excerpt" v-html="page.excerpt"></div>
-                    </div>
-                    <div class="relative z-20 mx-auto mb-4 text-center md:mb-6 xl:mb-8">
-                        <dropdown class="inline-block text-left" ref="dropdown">
-                            <template #header="{open}">
-                                <div
-                                    class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
-                                    {{ activeTag.title }}
-                                    <icon
-                                        symbol="i_chevron"
-                                        class="w-4 h-4 ml-3 -mr-2 text-blue-500 transition-transform duration-200 ease-in-out transform rotate-90 fill-current"
-                                        :class="{'-rotate-90': open}"
-                                    />
-                                </div>
-                            </template>
-                            <template #content>
-                                <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
-                                    <a
-                                        tabindex="0"
-                                        class="block px-8 py-2 text-sm text-gray-700 ease-in-out cursor-pointer hover:text-green-500 focus:text-green-500 transition-color focus:outline-none"
-                                        :key="tag.slug"
-                                        :class="{'text-green-500': activeTag.id === tag.id}"
-                                        v-for="tag in tags"
-                                        :href="tag.url"
-                                        @click.prevent="toSlug(tag.url)"
-                                    >
-                                        {{ tag.title }}
-                                    </a>
-                                </div>
-                            </template>
-                        </dropdown>
-                    </div>
-                </section>
-            </div>
+            <section class="flex flex-wrap pt-6 xl:py-16">
+                <div class="w-full px-4 text-center">
+                    <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl"
+                        v-if="page.heading" v-html="page.heading"/>
+                    <div class="mb-4 text-xs text-gray-900 xs:text-sm lg:text-base md:mb-6 xl:mb-8 max-w-screen-md mx-auto md:max-w-screen-sm"
+                         v-if="page.excerpt" v-html="page.excerpt"></div>
+                </div>
+                <div class="relative z-20 mx-auto mb-4 text-center md:mb-6 xl:mb-8">
+                    <dropdown class="inline-block text-left" ref="dropdown">
+                        <template #header="{open}">
+                            <div
+                                class="inline-flex items-center justify-center px-8 py-2 border-gray-100 rounded-full border-3 focus:outline-none">
+                                {{ activeTag.title }}
+                                <icon
+                                    symbol="i_chevron"
+                                    class="w-4 h-4 ml-3 -mr-2 text-blue-500 transition-transform duration-200 ease-in-out transform rotate-90 fill-current"
+                                    :class="{'-rotate-90': open}"
+                                />
+                            </div>
+                        </template>
+                        <template #content>
+                            <div class="flex flex-col py-2 pt-4 mt-4 bg-white shadow-lg">
+                                <a
+                                    tabindex="0"
+                                    class="block px-8 py-2 text-sm text-gray-700 ease-in-out cursor-pointer hover:text-green-500 focus:text-green-500 transition-color focus:outline-none"
+                                    :key="tag.slug"
+                                    :class="{'text-green-500': activeTag.id === tag.id}"
+                                    v-for="tag in tags"
+                                    :href="tag.url"
+                                    @click.prevent="toSlug(tag.url)"
+                                >
+                                    {{ tag.title }}
+                                </a>
+                            </div>
+                        </template>
+                    </dropdown>
+                </div>
+            </section>
         </template>
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4 overflow-hidden">
             <loading-transition :loading="loading" />
