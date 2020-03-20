@@ -11,15 +11,15 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="relative flex items-center w-36 mobileLandscape:w-48">
+                            <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56 mobileLandscape:w-40">
                                 <img
                                     src="../images/logo-ds.png"
-                                    class="absolute w-auto pl-2 logo-color"
+                                    class="absolute w-auto logo-color"
                                     alt="Logo Digital Solutions s.r.o."
                                 />
                                 <img
                                     src="../images/logo-ds-white.png"
-                                    class="absolute hidden w-auto pl-2 logo-white mobileLandscape:block"
+                                    class="absolute hidden w-auto logo-white mobileLandscape:block"
                                     alt="Logo Digital Solutions s.r.o."
                                 />
                             </g-link>
