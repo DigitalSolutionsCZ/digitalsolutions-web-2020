@@ -1,49 +1,55 @@
 <template>
-    <div class="flex flex-col flex-1 text-xs text-gray-900 md:text-sm xl:text-base">
-        <slot name="header" :menu="menu" :contact="link">
-            <template v-if="chameleon">
-                <section class="relative cha-main-header" data-cha-section data-theme="light">
-                    <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
-                        <site-header
-                            class="bg-white cha-header"
-                            data-cha-header
-                            :menu="menu"
-                            :contact="link"
-                            :page-slug="pageSlug"
-                        >
-                            <template #logo>
-                                <g-link to="/" class="relative flex items-center w-36 md:w-48">
-                                    <img
-                                        src="../images/logo-ds.png"
-                                        style="visibility: var(--logo-color-visibility)" class="absolute w-auto pl-2"
-                                    />
-                                </g-link>
-                            </template>
-                        </site-header>
+        <div class="flex flex-col flex-1 text-xs text-gray-900 md:text-sm xl:text-base">
+            <slot name="header" :menu="menu" :contact="link">
+                <template v-if="chameleon">
+                    <section class="relative cha-main-header" data-cha-section data-theme="light">
+                        <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
+                            <site-header
+                                class="bg-white cha-header"
+                                data-cha-header
+                                :menu="menu"
+                                :contact="link"
+                                :page-slug="pageSlug"
+                            >
+                                <template #logo>
+                                    <g-link to="/" class="relative flex items-center w-36 md:w-48">
+                                        <img
+                                            src="../images/logo-ds.png"
+                                            style="visibility: var(--logo-color-visibility)" class="absolute w-auto pl-2"
+                                        />
+                                    </g-link>
+                                </template>
+                            </site-header>
+                        </div>
+                        <transition name="fade" appear>
+                        <div class="mt-12 md:mt-20 xl:mt-24">
+                            <slot name="headerSection"></slot>
+                        </div>
+                        </transition>
+                    </section>
+                </template>
+                <template v-else>
+                    <site-header
+                        data-theme="light"
+                        class="z-30 bg-white"
+                        :menu="menu"
+                        :contact="link"
+                        :page-slug="pageSlug"
+                    />
+                </template>
+            </slot>
+                <slot name="content">
+                    <div class="relative flex flex-col flex-grow flex-shrink-0 " :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
+                         :data-cha-section="chameleon">
+                        <transition name="fade" appear>
+                            <div class="flex-1 flex flex-col">
+                                <slot/>
+                            </div>
+                        </transition>
                     </div>
-                    <div class="mt-12 md:mt-20 xl:mt-24">
-                        <slot name="headerSection"></slot>
-                    </div>
-                </section>
-            </template>
-            <template v-else>
-                <site-header
-                    data-theme="light"
-                    class="z-30 bg-white"
-                    :menu="menu"
-                    :contact="link"
-                    :page-slug="pageSlug"
-                />
-            </template>
-        </slot>
-        <slot name="content">
-            <div class="relative flex flex-col flex-grow flex-shrink-0 " :class="{'mt-12 md:mt-20 xl:mt-24 z-20': !chameleon}"
-                 :data-cha-section="chameleon">
-                <slot/>
-            </div>
-        </slot>
-        <site-footer :footer="footer" :socials="$static.craft.socials.socials" />
-    </div>
+                </slot>
+            <site-footer :footer="footer" :socials="$static.craft.socials.socials" />
+        </div>
 </template>
 
 <script>

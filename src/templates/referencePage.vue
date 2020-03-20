@@ -1,7 +1,8 @@
 <template>
     <Layout :page-slug="$context.slug">
         <template #headerSection>
-            <section class="flex flex-wrap pt-6 xl:py-16">
+            <div class="xs:py-6 xl:py-0">
+                <section class="flex flex-wrap pt-6 xl:py-16">
                 <div class="w-full px-4 text-center">
                     <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl"
                         v-if="page.heading" v-html="page.heading"/>
@@ -39,6 +40,7 @@
                     </dropdown>
                 </div>
             </section>
+            </div>
         </template>
         <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4 overflow-hidden">
             <loading-transition :loading="loading" />

@@ -30,7 +30,7 @@
 
 @screen mobileLandscape {
     .hp-header {
-        height: calc(100vh - theme('height.32'));
+        height: calc(100vh - theme('height.24'));
     }
     .cha-header {
         @apply block;

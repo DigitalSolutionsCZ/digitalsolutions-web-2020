@@ -1,7 +1,7 @@
 <template>
     <footer>
         <div class="w-full h-2 xl:h-4 bg-gradient-r-blue-green"></div>
-        <div class="px-2 overflow-hidden bg-gray-900 md:px-4">
+        <div class="px-2 overflow-hidden bg-gray-900 xs:px-4">
             <div class="max-w-screen-xl mx-auto">
                 <div class="flex flex-wrap pt-4 xl:pt-8 md:-mx-4">
                     <div class="w-full md:w-12/24 xl:w-12/24 md:px-4">

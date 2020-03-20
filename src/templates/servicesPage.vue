@@ -1,7 +1,7 @@
 <template>
     <Layout :page-slug="$context.slug">
         <template #headerSection>
-            <div class="mx-auto max-w-screen-md md:max-w-screen-sm">
+            <div class="mx-auto max-w-screen-md md:max-w-screen-sm xs:py-6 xl:py-0">
                 <section class="flex flex-wrap pt-6 xl:py-16">
                     <div class="w-full px-4 text-center">
                         <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>

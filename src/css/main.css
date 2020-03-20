@@ -31,3 +31,12 @@
 .backface-visibility-hidden {
     backface-visibility: hidden;
 }
+
+/* page transition for whole layout */
+.fade-enter-active {
+    transition: opacity .3s, transform .5s;
+}
+
+.fade-enter {
+    @apply opacity-0 transform translate-y-3;
+}

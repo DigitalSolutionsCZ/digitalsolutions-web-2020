@@ -23,7 +23,7 @@
                         <template v-for="menuItem in menu">
                             <g-link
                                 :key="menuItem.id"
-                                class="relative flex px-6 py-4 text-xs transition-all duration-200 ease-in-out overflow-hidden mobileLandscape:py-0 mobileLandscape:overflow-visible mobileLandscape:mr-3 xl:mr-10 group lg:text-base focus:outline-none"
+                                class="relative flex px-6 py-4 text-xs transition-all tracking-tight duration-200 ease-in-out overflow-hidden mobileLandscape:py-0 mobileLandscape:overflow-visible mobileLandscape:mr-3 xl:mr-10 group lg:text-base focus:outline-none"
                                 :class="[white ? 'cha-nav-link mobileLandscape:cha-nav-link-color' : 'hover:text-gray-900', {'text-gray-900 font-bold': activeMenu(menuItem)}]"
                                 :to="getUrl(mapObject(menuItem, ['menuLink', '0', 'itemUrl']), mapObject(menuItem, ['menuLink', '0', 'title']), mapObject(menuItem, ['menuLink', '0', 'slug']))"
                             >

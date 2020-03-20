@@ -22,7 +22,7 @@
             <div class="flex flex-wrap">
                 <div class="w-full">
                     <input-text
-                        class="mb-4 pt-2"
+                        class="mb-4"
                         label="Jméno a příjmení"
                         v-model="fields.fullname"
                         id="fullname"
@@ -57,13 +57,13 @@
                         id="message"
                     />
                 </div>
-                <div class="w-full mb-4 md:mb-6 relative">
+                <div class="w-full mb-4 relative">
                     <label for="files"
                            class="group cursor-pointer flex items-center justify-between w-full text-sm placeholder-gray-200 border border-solid form-input rounded xl:h-13 xl:text-base"
                            :class="[fields.files ? 'text-black' : 'text-gray-200', errorFields.files && errorFields.files.messages ? 'border-red-500' : 'border-gray-200' ]"
                     >
                         <span class="p-3">
-                            {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory (max. 10MB)' }}
+                            {{ fields.files ? `Soubory přiloženy (${fields.files.length})` : 'Přiložit soubory' }}
                         </span>
                         <span class="self-stretch bg-gray-100 h-full inline-flex items-center rounded-r text-gray-600 p-4 group-hover:text-gray-900 transition duration-150 ease-in-out">Vybrat...</span>
                     </label>
@@ -75,6 +75,7 @@
                         <label :for="filename">Soubor {{ index }} </label>
                         <input type="file" :name="filename" :id="filename" >
                     </div>
+                    <div class="mt-2 text-xs xl:text-sm text-gray-600 text-center md:text-left">až 10 souborů, maximálně 10MB</div>
                 </div>
                 <div class="w-full">
                     <input-text
@@ -87,8 +88,8 @@
                     </input-text>
                 </div>
             </div>
-            <div class="flex flex-wrap">
-                <div class="w-full mb-8 text-sm md:w-15/24 lg:w-16/24 xl:w-17/24 md:pr-8 xl:text-base">
+            <div class="flex flex-wrap items-center">
+                <div class="w-full mb-4 text-xs md:w-15/24 lg:w-16/24 xl:w-17/24 md:pr-8 xl:text-sm text-gray-600 text-center md:text-left">
                     Můžete také zavolat: <strong>+420&nbsp;775&nbsp;300&nbsp;500</strong><span class="md:block"> (PO-PÁ 8-17).</span>
                 </div>
                 <div class="w-full mb-4 md:w-9/24 lg:w-8/24 xl:w-7/24">

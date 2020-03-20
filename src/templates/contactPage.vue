@@ -1,7 +1,7 @@
 <template>
     <Layout :page-slug="$context.slug">
         <template #headerSection>
-            <div class="max-w-screen-md mx-auto md:max-w-screen-sm">
+            <div class="max-w-screen-md mx-auto md:max-w-screen-sm xs:pt-6 xl:pt-0">
                 <section class="flex flex-wrap pt-6 xl:pt-16">
                     <div class="w-full px-4 text-center">
                         <h1 class="mb-4 text-xl font-extrabold leading-none tracking-tight text-black lg:mb-6 lg:text-2xl xl:text-3xl" v-if="page.heading" v-html="page.heading"/>
@@ -9,16 +9,16 @@
                     </div>
                 </section>
             </div>
-            <div class="max-w-screen-md px-4 mx-auto md:max-w-screen-md">
-                <div class="flex flex-col items-center justify-center md:flex-row md:mb-2 xl:mb-8" v-if="page.showContactButtons">
+            <div class="max-w-screen-md px-4 mx-auto md:max-w-screen-md md:px-16 xl:px-0 xs:py-6 xl:py-0">
+                <div class="flex flex-col items-center justify-center md:flex-row md:mb-2 xl:mb-16" v-if="page.showContactButtons">
                     <div class="md:w-9/24">
-                        <project-button class="mb-4 md:w-full" href="#nogo" variant="secondary" v-scroll-to="'#contact'">Napište nám</project-button>
+                        <project-button class="mb-3 md:w-full" href="#nogo" variant="secondary" v-scroll-to="'#contact'">Napište nám</project-button>
                     </div>
                     <div class="md:w-6/24">
-                        <div class="mb-3 text-sm text-center lg:text-base">nebo vyplňte</div>
+                        <div class="mb-3 text-xs text-center lg:text-base">nebo vyplňte</div>
                     </div>
                     <div class="md:w-9/24">
-                        <project-button class="mb-4 md:w-full" href="/poptavka">Nezávaznou poptávku</project-button>
+                        <project-button class="mb-3 md:w-full" href="/poptavka">Nezávaznou poptávku</project-button>
                     </div>
                 </div>
             </div>

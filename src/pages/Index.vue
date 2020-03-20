@@ -32,10 +32,10 @@
                 <hero-slide :page="page" v-if="isVisibleClientOnlySkeleton"/>
             </section>
             <section class="relative" data-cha-section>
-                <div class="flex items-center overflow-hidden md:h-32">
-                    <div class="w-full max-w-screen-xl mx-auto">
+                <div class="flex items-center overflow-hidden md:h-24">
+                    <div class="w-full max-w-screen-lg mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
-                            <div class="overflow-hidden px-1 sm:px-4 -my-2" v-for="logo in page.homepageClientLogos">
+                            <div class="overflow-hidden px-1 sm:px-4 -my-4" v-for="logo in page.homepageClientLogos">
                                 <img :src="logo.url" class="w-20 md:w-40" :alt="logo.title" :key="logo.id">
                             </div>
                         </div>

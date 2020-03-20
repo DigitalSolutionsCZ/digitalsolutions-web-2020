@@ -11,6 +11,7 @@
                           } : { 0: { opacity: 1, transform: 'translateY(0vh) rotate(0deg)' },
                            })">
             <div class="max-w-md md:max-w-3xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+                <transition name="fade" appear>
                 <div class="text-center md:px-20 lg:px-40">
                     <h1 class="mb-2 text-base xs:text-xl leading-tight text-white mobileLandscape:text-2xl xl:text-5xl mobileLandscape:mb-6 xl:mb-8" v-html="page.heading"/>
                     <div class="mb-4 text-xs xs:text-sm text-white opacity-75 mobileLandscape:mb-8 xl:mb-10 mobileLandscape:text-lg xl:text-xl">{{ page.homepageSubheader }}</div>
@@ -25,6 +26,7 @@
                         </project-button>
                     </template>
                 </div>
+                </transition>
             </div>
         </section>
     </div>
