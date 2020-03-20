@@ -17,7 +17,7 @@ if (process.env.NODE_ENV === "production") {
 
 module.exports = {
     siteName: "Digital Solutions s.r.o.",
-    siteUrl: 'https://digitalcz.netlify.com',
+    siteUrl: 'https://digital.cz',
     titleTemplate: `%s | Digital Solutions s.r.o.`,
     plugins: [
         {
