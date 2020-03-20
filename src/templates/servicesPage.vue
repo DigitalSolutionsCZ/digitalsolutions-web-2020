@@ -43,7 +43,9 @@
                 </div>
             </div>
         </div>
-        <div class="px-4 pt-4 md:pt-8">
+        <div class="px-4 relative">
+            <div class="-mt-16 absolute invisible h-4 " aria-label="hidden" id="development">Scroll to development</div>
+            <h2 class="pt-4 md:pt-10 xl:pt-16 mb-4 text-black text-xl font-bold md:text-center md:text-2xl xl:mb-8 mx-auto max-w-lg md:max-w-5xl">{{page.developmentHeader}}</h2>
             <template v-for="(story, index) in page.developmentStories">
                 <div class="relative mx-auto max-w-screen-3xl" v-if="mapObject(story, ['isBigStory', 0])">
                     <section class="max-w-screen-xl mx-auto mt-6 lg:mt-16" :class="index === page.developmentStories.length -1 ? 'mb-10 xl:mb-16 ' : 'xl:mb-4'">
