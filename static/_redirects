@@ -2,3 +2,7 @@
 
 # Redirect default Netlify subdomain to primary domain
 https://digitalcz.netlify.com/* https://digital.cz/:splat 301!
+https://digitalsolutions.cz/* https://digital.cz/:splat 301!
+https://www.digitalsolutions.cz/* https://digital.cz/:splat 301!
+https://www.digitalcz.cz/* https://digital.cz/:splat 301!
+https://digitalcz.cz/* https://digital.cz/:splat 301!
