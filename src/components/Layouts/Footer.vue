@@ -7,22 +7,22 @@
                     <div class="w-full md:w-12/24 xl:w-12/24 md:px-4">
                         <h3 class="mb-4 text-base font-bold text-white md:text-lg xl:text-xl"
                             v-if="footer.footerContactHeadline" v-html="footer.footerContactHeadline"/>
-                        <div class="mb-5 text-xs text-gray-300 md:text-sm xl:text-base">
-                            <div class="flex items-center mb-2">
+                        <div class="mb-5 text-xs text-gray-300 md:text-sm xl:text-base flex flex-col items-start">
+                            <div class="inline-flex items-center mb-2">
                                 <icon
                                     symbol="i_map_point"
                                     class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
                                 />
                                 <span>{{ footer.address }}</span>
                             </div>
-                            <a :href="'tel:' + footer.phone" class="flex items-center mb-2">
+                            <a :href="'tel:' + phoneFormatted" class="inline-flex items-center mb-2">
                                 <icon
                                     symbol="i_phone"
                                     class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
                                 />
                                 <strong>{{ footer.phone }}</strong>
                             </a>
-                            <a :href="'mailto:' + phoneFormatted" class="flex items-center mb-2">
+                            <a :href="'mailto:' + footer.email" class="inline-flex items-center mb-2">
                                 <icon
                                     symbol="i_envelope"
                                     class="flex-grow-0 flex-shrink-0 w-6 h-6 mt-1 mr-3 fill-current"
