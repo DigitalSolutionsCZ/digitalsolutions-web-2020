@@ -1,7 +1,7 @@
 <template>
     <Layout :page-slug="$context.baseSlug">
         <template #headerSection>
-            <div class="px-4">
+            <div class="px-4 md:px-8">
                 <div class="relative mx-auto max-w-screen-2xl">
                     <div class="max-w-screen-xl mx-auto">
                         <section class="flex flex-wrap items-center pt-6 xl:pt-0">
