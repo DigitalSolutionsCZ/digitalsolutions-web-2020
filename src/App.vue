@@ -1,5 +1,8 @@
 <template>
     <div class="flex flex-col flex-1">
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5PFW27N" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
         <router-view />
         <CraftLivePreview v-if="craftEndpoint" :endpoint="craftEndpoint" />
     </div>

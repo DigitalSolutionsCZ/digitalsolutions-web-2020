@@ -16,6 +16,13 @@ const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
 export default function (Vue, {router, head, isClient}) {
     head.bodyAttrs = {class: "flex flex-col"};
+    head.script.push({
+       innerHTML: '(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({\'gtm.start\':\n' +
+           'new Date().getTime(),event:\'gtm.js\'});var f=d.getElementsByTagName(s)[0],\n' +
+           'j=d.createElement(s),dl=l!=\'dataLayer\'?\'&l=\'+l:\'\';j.async=true;j.src=\n' +
+           '\'https://www.googletagmanager.com/gtm.js?id=\'+i+dl;f.parentNode.insertBefore(j,f);\n' +
+           '})(window,document,\'script\',\'dataLayer\',\'GTM-5PFW27N\');'
+    });
     head.link.push({
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap&subset=latin-ext'
