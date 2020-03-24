@@ -177,7 +177,7 @@ export default {
         },
         async toSlug(value) {
             if (value === this.activeTag.url) return false;
-            const url = value === this.$context.baseUrl ? value : this.$context.baseUrl + '/' + value;
+            const url = value === this.$context.baseUrl ? value : this.$context.baseUrl + value;
             this.$refs.dropdown.close();
             const response = await this.fetchData(url, value);
 
