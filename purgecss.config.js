@@ -24,6 +24,7 @@ module.exports = {
     'g-image--loaded',
     'mode-dark'
   ],
+  whitelistPatterns: [/^slick/],
   extractors: [
     {
       extractor: TailwindExtractor,

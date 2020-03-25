@@ -11,3 +11,4 @@ static/rss.xml
 
 my_endpoint_schema.graphql
 .graphqlconfig
+\[CraftPreviewSlug\].vue
