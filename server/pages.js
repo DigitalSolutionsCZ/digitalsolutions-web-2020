@@ -1,4 +1,4 @@
-const {slugifyUrlEntry, livePreviewEnabled} = require('./utils');
+const {slugifyUrlEntry, livePreviewEnabled, endingSlash} = require('./utils');
 const stripHtml = require("string-strip-html");
 
 function allPages(data, createPage) {
@@ -11,7 +11,7 @@ function allPages(data, createPage) {
 
 
         createPage({
-            path: page.pathUrl,
+            path: endingSlash(page.pathUrl),
             component: `./src/templates/${page.typeHandle}.vue`,
             context: {
                 seoTitle: page.seoTitle || stripHtml(page.heading),

@@ -101,7 +101,8 @@ export function shallowObjectValuesToInt(object) {
  */
 export function getUrl(url, title, slug = null) {
   if (livePreviewEnabled && slug) return '/' + slug;
-  return url !== "" ? url : '/' + slugify(title)
+  let finalUrl = url !== "" ? url : '/' + slugify(title);
+  return endingSlash(finalUrl);
 }
 
 
@@ -124,4 +125,8 @@ export function metaInfo({title, heading = ""}, context) {
     title: seoTitle,
     meta: metaArray
   };
+}
+
+export function endingSlash(url) {
+  return url.endsWith("/") ? url : url + '/';
 }

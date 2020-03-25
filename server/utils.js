@@ -2,8 +2,13 @@ const slugify = require('@sindresorhus/slugify');
 
 const livePreviewEnabled = process.env.GRIDSOME_LIVE_PREVIEW === 'true';
 
+function endingSlash(url) {
+    return url.endsWith("/") ? url : url + '/';
+}
+
 function slugifyUrlEntry(itemUrl, title) {
-    return itemUrl !== "" ? itemUrl : '/' + slugify(title);
+    let slugUrl = itemUrl !== "" ? itemUrl : '/' + slugify(title);
+    return endingSlash(slugUrl);
 }
 
 /**
@@ -32,7 +37,7 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
                 ? perPage
                 : (length % perPage);
             createPage({
-                path: i === 0 ? path : path + currentPage,
+                path: i === 0 ? path : path + endingSlash(currentPage),
                 component,
                 context: {
                     ...context,
@@ -48,7 +53,7 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
         });
     } else {
         createPage({
-            path,
+            path: endingSlash(path),
             component: component,
             context: {
                 ...context,
@@ -67,5 +72,6 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
 module.exports = {
     livePreviewEnabled,
     slugifyUrlEntry,
-    paginateEntries
+    paginateEntries,
+    endingSlash,
 }

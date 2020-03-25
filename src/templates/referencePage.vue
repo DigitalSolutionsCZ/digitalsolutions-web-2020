@@ -30,7 +30,7 @@
                                     :key="tag.slug"
                                     :class="{'text-green-500': activeTag.id === tag.id}"
                                     v-for="tag in tags"
-                                    :href="tag.url"
+                                    :href="endingSlash(tag.url)"
                                     @click.prevent="toSlug(tag.url)"
                                 >
                                     {{ tag.title }}
@@ -112,7 +112,7 @@ import referenceFullWidthSmall from "../components/Reference/referenceFullWidthS
 import referenceContactBlock from "../components/Reference/referenceContactBlock.vue";
 
 import {fetch} from 'gridsome'
-import {mapObject, metaInfo, getUrl} from "../components/utils";
+import {mapObject, metaInfo, getUrl, endingSlash} from "../components/utils";
 
 export default {
     metaInfo() {
@@ -169,6 +169,7 @@ export default {
     methods: {
         mapObject,
         getUrl,
+        endingSlash,
         async popState(value) {
             const response = await this.fetchData(value.target.location.pathname);
 
@@ -181,7 +182,7 @@ export default {
             this.$refs.dropdown.close();
             const response = await this.fetchData(url, value);
 
-            window.history.pushState({id: response.context.id}, null, url);
+            window.history.pushState({id: response.context.id}, null, this.endingSlash(url));
 
             this.serviceId = response.context.id;
             this.list = response.data.craft.list;
@@ -190,7 +191,7 @@ export default {
             if (!value) return null;
             const response = await this.fetchData(value);
 
-            window.history.pushState({id: response.context.id}, null, value);
+            window.history.pushState({id: response.context.id}, null, this.endingSlash(value));
 
             this.list = keep ? [...this.list, ...response.data.craft.list] : response.data.craft.list;
         },

@@ -1,9 +1,9 @@
-const {slugifyUrlEntry, livePreviewEnabled, paginateEntries} = require("./utils");
+const {slugifyUrlEntry, livePreviewEnabled, paginateEntries, endingSlash} = require("./utils");
 const stripHtml = require("string-strip-html");
 
 async function referencePage(data, createPage) {
     const finalUrl = slugifyUrlEntry(data.craft.referencePage.itemUrl, data.craft.referencePage.title);
-    const referenceUrl = finalUrl.endsWith('/') ? finalUrl : finalUrl + '/';
+    const referenceUrl = endingSlash(finalUrl);
 
     const categories = data.craft.categories;
     const referencePage = data.craft.referencePage;
@@ -24,7 +24,7 @@ async function referencePage(data, createPage) {
         }
 
         createPage({
-            path: referenceDetailUrl,
+            path: endingSlash(referenceDetailUrl),
             component: './src/templates/craftEntryReferencesItemReferenceFullWidth.vue',
             context: {
                 id: referenceRecord.id,
@@ -62,7 +62,7 @@ async function referencePage(data, createPage) {
             length,
             perPage,
             component: './src/templates/referencePage.vue',
-            path: `${referenceUrl}${category.slug}`,
+            path: `${referenceUrl}${endingSlash(category.slug)}`,
             context: {
                 seoTitle: referencePage.seoTitle || stripHtml(referencePage.heading),
                 sepKeywords: referencePage.seoKeywords,

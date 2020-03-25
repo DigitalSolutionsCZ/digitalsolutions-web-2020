@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import {mapObject, getUrl} from '~/components/utils';
+import {mapObject, getUrl,} from '~/components/utils';
 
 export default {
     props: {

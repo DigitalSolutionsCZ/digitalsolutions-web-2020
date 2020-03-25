@@ -18,7 +18,7 @@
                         <div class="mb-3 text-xs text-center lg:text-base">nebo vyplňte</div>
                     </div>
                     <div class="md:w-9/24">
-                        <project-button class="mb-3 md:w-full" href="/poptavka">Nezávaznou poptávku</project-button>
+                        <project-button class="mb-3 md:w-full" href="/poptavka/">Nezávaznou poptávku</project-button>
                     </div>
                 </div>
             </div>
