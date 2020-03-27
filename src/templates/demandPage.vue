@@ -13,13 +13,16 @@
                     <div class="text-sm text-gray-900 md:text-base wysiwyg-content md:mb-8 xl:mb-12 lg:mt-2" v-if="page.description" v-html="page.description">
                     </div>
                     <div class="grid gap-4 mb-4 sm:grid-cols-2">
-                        <div class="flex items-center md:mb-4" v-for="person in page.people">
-                            <img
-                                :src="mapObject(person, ['image', 0, 'url'])"
-                                :alt="person.firstName + ' ' + person.lastName"
-                                class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20">
-                            <strong class="text-sm lg:text-lg">{{ person.firstName  }} {{ person.lastName }}</strong>
-                        </div>
+                        <template v-for="person in page.people">
+                            <a :href="'mailto:' + person.email" class="flex items-center md:mb-4 text-sm lg:text-lg font-bold">
+                                <img
+                                    :src="mapObject(person, ['image', 0, 'url'])"
+                                    :alt="person.firstName + ' ' + person.lastName"
+                                    class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20"
+                                >
+                                {{ person.firstName  }} {{ person.lastName }}
+                            </a>
+                        </template>
                     </div>
                 </div>
                 <div class="lg:w-12/24 md:px-6 xl:px-8">
@@ -42,6 +45,7 @@
                             id
                             firstName
                             lastName
+                            email
                             image {
                                 url(transform: "xsmallImage")
                             }
