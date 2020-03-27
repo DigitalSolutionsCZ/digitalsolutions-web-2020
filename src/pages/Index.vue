@@ -36,7 +36,7 @@
                     <div class="w-full max-w-screen-lg mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
                             <div class="overflow-hidden px-1 sm:px-4 -my-4" v-for="logo in page.homepageClientLogos">
-                                <img :src="logo.url" class="w-20 md:w-40" :alt="logo.title" :key="logo.id">
+                                <img :src="cdnImageUrl(logo.url)" loading="lazy" class="w-20 md:w-40" :alt="logo.title" :key="logo.id">
                             </div>
                         </div>
                     </div>
@@ -94,8 +94,10 @@
                                                     <div class="flex items-center mb-4 xl:mb-8">
                                                         <img class="flex-shrink-0 w-12 h-12 mr-4 rounded-full xl:w-16 xl:h-16"
                                                              v-if="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
-                                                             :src="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
-                                                             :alt="mapObject(reference, ['testemonial', 0, 'photo',0, 'title'])" />
+                                                             :src="cdnImageUrl(mapObject(reference, ['testemonial', 0, 'photo',0, 'url']))"
+                                                             :alt="mapObject(reference, ['testemonial', 0, 'photo',0, 'title'])"
+                                                             loading="lazy"
+                                                        />
                                                         <div>
                                                             <strong class="text-sm md:text-lg">
                                                                 {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
@@ -117,8 +119,10 @@
                                                 <div class="flex justify-center">
                                                     <g-link :to="reference.buttonLink">
                                                         <g-image
-                                                            :src="mapObject(reference, ['image', 0 , 'url'])"
-                                                            :alt="mapObject(reference, ['image', 0 , 'title'])"/>
+                                                            :src="cdnImageUrl(mapObject(reference, ['image', 0 , 'url']))"
+                                                            :alt="mapObject(reference, ['image', 0 , 'title'])"
+                                                            loading="lazy"
+                                                        />
                                                     </g-link>
 
                                                 </div>
@@ -279,7 +283,7 @@
 
 <script>
 import SubLink from "./../components/SubLink.vue";
-import {mapObject, metaInfo, getUrl} from '~/components/utils';
+import {mapObject, metaInfo, getUrl, cdnImageUrl} from '~/components/utils';
 import ContactForm from '../components/ContactForm'
 import SiteHeader from "../components/Layouts/Header.vue";
 import ProjectButton from "../components/ProjectButton";
@@ -313,7 +317,7 @@ export default {
                 this.mapObject(this.reference, ['linkUrl', 0 , 'title' ]),
                 this.mapObject(this.reference, ['linkUrl', 0 , 'slug' ])
             );
-        }
+        },
     },
     data() {
         return {
@@ -323,6 +327,7 @@ export default {
     methods: {
         mapObject,
         getUrl,
+        cdnImageUrl
     },
     mounted() {
         if (process.isClient) {

@@ -130,3 +130,7 @@ export function metaInfo({title, heading = ""}, context) {
 export function endingSlash(url) {
   return url.endsWith("/") ? url : url + '/';
 }
+
+export function cdnImageUrl(url) {
+  return url = url.replace("https://craftcms.digital.cz/", "https://ik.imagekit.io/ds2020/");
+}
