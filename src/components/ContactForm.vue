@@ -139,10 +139,10 @@
                       axiosConfig
                   ).then((response) => {
                       if (response && response.status === 200) {
+                          this.fields = {};
                           this.resultFormStatus = 'success';
                       } else {
                           this.resultFormStatus = 'error';
-                        this.fields = {};
                       }
                   }).catch(() => {
                       this.resultFormStatus = 'error';
