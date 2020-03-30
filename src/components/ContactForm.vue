@@ -62,7 +62,12 @@
                     />
                 </div>
             </div>
-
+            <input
+                type="text"
+                v-model="preventValue"
+                class="hidden"
+                id="contact-fill"
+            >
             <div class="flex items-center justify-center">
                 <project-button tag="button">Odeslat</project-button>
             </div>
@@ -95,6 +100,7 @@
               errorFields: {},
               resultFormStatus: null,
               resultMessageVisible: false,
+              preventValue: '',
               fields: {
                   fullname: '',
                   email: '',
@@ -125,7 +131,7 @@
               return Object.entries(this.errorFields).length === 0
           },
           handleSubmit() {
-              if (this.validate()) {
+              if (this.validate() && this.preventValue === '') {
                   this.loading = true;
                   const axiosConfig = {
                       header: {"Content-Type": "application/x-www-form-urlencoded"}
