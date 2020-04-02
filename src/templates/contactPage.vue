@@ -101,7 +101,7 @@
                                         <span class="flex items-center w-12 h-12 mx-1 mb-4 fill-current text-gray-900" v-html="social.svg"/>
                                     </template>
                                     <template v-if="social.img">
-                                        <g-image class="w-12 h-12 mb-4 mr-1" :src="mapObject(social, ['img', 0, 'url'])"/>
+                                        <g-image class="w-12 h-12 mb-4 mr-1" :src="mapObject(social, ['img', 0, 'url'])" loading="lazy" />
                                     </template>
                                 </g-link>
                             </template>

@@ -36,6 +36,7 @@
                                         <div
                                             class="relative w-full h-0 aspect-ratio-4/3 md:-mr-8 lg:-mr-1 xl:-ml-2 xl:mr-auto">
                                             <g-image
+                                                loading="lazy"
                                                 v-if="mapObject(page, ['mainImage', 0, 'url'])"
                                                 :src="mapObject(page, ['mainImage', 0, 'url'])"
                                                 :alt="page.heading"
@@ -77,6 +78,7 @@
                                     :alt="mapObject(page, ['vyberKlienta', 0, 'title'])"
                                     class="h-10 mb-4 lg:mb-8"
                                     v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
+                                    loading="lazy"
                                 />
                                 <div
                                     class="text-xs leading-relaxed md:text-sm wysiwyg-content"
@@ -154,6 +156,7 @@
                                                 :src="mapObject(technology, ['obrazek', 0, 'url'])"
                                                 :alt="technology.title"
                                                 :title="technology.title"
+                                                loading="lazy"
                                             />
                                         </div>
                                     </div>
@@ -166,7 +169,7 @@
         </div>
         <div class="relative px-4 mb-6 md:px-8 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
             <div class="absolute w-full h-full -mx-4 overflow-hidden md:-mx-8">
-                <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
+                <g-image src="~/images/bg_ds_code.jpg" loading="lazy" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="max-w-screen-lg pt-8 ml-auto mr-auto">
                 <VueSlickCarousel
@@ -184,7 +187,7 @@
                             </template>
                             <template v-else>
                                 <div class="relative aspect-ratio-16/9" v-if="slide.url">
-                                    <g-image :src="slide.url" class="absolute inset-0 object-cover w-full h-full"/>
+                                    <g-image :src="slide.url" loading="lazy" class="absolute inset-0 object-cover w-full h-full" loading="lazy"/>
                                 </div>
                                 <div class="flex items-center justify-center h-12 bg-white">
                                     <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
@@ -216,7 +219,7 @@
                 <div class="rounded shadow-xl" v-else>
                     <div class="flex flex-col justify-around overflow-hidden rounded">
                         <div class="relative aspect-ratio-16/9">
-                            <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full"/>
+                            <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full" loading="lazy" />
                         </div>
                         <div class="flex items-center justify-center h-12 bg-white">
                             <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
@@ -263,7 +266,9 @@
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-20 lg:h-20"
                                  v-if="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
-                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])"/>
+                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])"
+                                 loading="lazy"
+                            />
                             <div>
                                 <strong class="text-sm lg:text-lg">
                                     {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'firstName']) }} {{ mapObject(page,

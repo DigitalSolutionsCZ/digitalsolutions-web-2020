@@ -15,13 +15,14 @@
                 {{ parent.mapObject(props.reference, ['vyberKlienta', 0, 'title']) }}
             </span>
             <div
-                class="text-xs text-gray-900 md:text-sm xl:text-base "
+                class="text-xs text-gray-900 md:text-sm xl:text-base"
                 :class="props.reference.referenceMultipleImages.length > 0 ? 'lg:w-14/24' : 'w-full'"
-                v-html="props.reference.excerpt"/>
+                v-html="props.reference.excerpt"
+            />
         </div>
         <sub-link :href="props.baseUrl" label="Prohlédnout referenci"/>
         <div
-            class="hidden bottom-0 left-0 z-20 self-center grid-cols-12 gap-4 pointer-events-none w-18/24 lg:absolute lg:w-full lg:grid"
+            class="bottom-0 left-0 z-20 self-center hidden grid-cols-12 gap-4 pointer-events-none w-18/24 lg:absolute lg:w-full lg:grid"
             v-if="props.reference.referenceMultipleImages.length > 0">
             <div class="col-start-8 col-end-12 row-start-1 row-end-1 pointer-events-auto translate-z-0">
                 <g-link
@@ -32,6 +33,7 @@
                         class="absolute inset-0 object-cover w-full h-full"
                         :src="parent.mapObject(props.reference, ['referenceMultipleImages', 0, 'url'])"
                         :alt="props.reference.heading"
+                        loading="lazy"
                     />
                 </g-link>
             </div>

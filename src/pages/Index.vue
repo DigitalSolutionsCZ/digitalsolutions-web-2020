@@ -95,7 +95,9 @@
                                                         <img class="flex-shrink-0 w-12 h-12 mr-4 rounded-full xl:w-16 xl:h-16"
                                                              v-if="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
                                                              :src="mapObject(reference, ['testemonial', 0, 'photo',0, 'url'])"
-                                                             :alt="mapObject(reference, ['testemonial', 0, 'photo',0, 'title'])" />
+                                                             :alt="mapObject(reference, ['testemonial', 0, 'photo',0, 'title'])"
+                                                             loading="lazy"
+                                                        />
                                                         <div>
                                                             <strong class="text-sm md:text-lg">
                                                                 {{ mapObject(reference, ['testemonial', 0 , 'title']) }}
@@ -118,7 +120,9 @@
                                                     <g-link :to="reference.buttonLink">
                                                         <g-image
                                                             :src="mapObject(reference, ['image', 0 , 'url'])"
-                                                            :alt="mapObject(reference, ['image', 0 , 'title'])"/>
+                                                            :alt="mapObject(reference, ['image', 0 , 'title'])"
+                                                            loading="lazy"
+                                                        />
                                                     </g-link>
 
                                                 </div>
