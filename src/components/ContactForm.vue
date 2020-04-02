@@ -84,7 +84,7 @@
   import ProjectButton from '../components/ProjectButton'
   import CalloutMessage from './CalloutMessage';
   import LoadingTransition from './LoadingTransition.vue';
-
+  import {GAScripts} from "./utils";
 
   export default {
       components: {
@@ -96,6 +96,7 @@
       },
       data() {
           return {
+              scriptUpdated: false,
               loading: false,
               errorFields: {},
               resultFormStatus: null,
@@ -147,6 +148,10 @@
                       if (response && response.status === 200) {
                           this.fields = {};
                           this.resultFormStatus = 'success';
+                          if (!this.scriptUpdated) {
+                              GAScripts();
+                              this.scriptUpdated = true;
+                          }
                       } else {
                           this.resultFormStatus = 'error';
                       }

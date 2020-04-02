@@ -112,7 +112,7 @@
   import axios from "axios";
   import EmailValidator from 'email-validator';
 
-  import {toFormData} from './utils';
+  import {GAScripts, toFormData} from './utils';
   import InputText from "./Input/InputText";
   import ProjectButton from './ProjectButton'
   import CalloutMessage from './CalloutMessage'
@@ -129,6 +129,7 @@
       },
       data() {
           return {
+              scriptUpdated: false,
               errorFields: {},
               resultFormStatus: null,
               resultMessageVisible: false,
@@ -188,6 +189,10 @@
                       if (response && response.status === 200) {
                           this.resultFormStatus = 'success';
                           this.fields = {};
+                          if (!this.scriptUpdated) {
+                              GAScripts();
+                              this.scriptUpdated = true;
+                          }
                       } else {
                           this.resultFormStatus = 'error';
                       }

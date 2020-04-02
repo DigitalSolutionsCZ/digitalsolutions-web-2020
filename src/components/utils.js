@@ -130,3 +130,10 @@ export function metaInfo({title, heading = ""}, context) {
 export function endingSlash(url) {
   return url.endsWith("/") ? url : url + '/';
 }
+
+export function GAScripts() {
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    'event': 'formularOdeslan'
+  });
+};
