@@ -88,6 +88,12 @@
                     </input-text>
                 </div>
             </div>
+            <input
+                type="text"
+                v-model="preventValue"
+                class="hidden"
+                id="contact-fill"
+            >
             <div class="flex flex-wrap items-center">
                 <div class="w-full mb-4 text-xs md:w-15/24 lg:w-16/24 xl:w-17/24 md:pr-8 xl:text-sm text-gray-600 text-center md:text-left">
                     Můžete také zavolat: <strong>+420&nbsp;775&nbsp;300&nbsp;500</strong><span class="md:block"> (PO-PÁ 8-17).</span>
@@ -106,7 +112,7 @@
   import axios from "axios";
   import EmailValidator from 'email-validator';
 
-  import {toFormData} from './utils';
+  import {GAScripts, toFormData} from './utils';
   import InputText from "./Input/InputText";
   import ProjectButton from './ProjectButton'
   import CalloutMessage from './CalloutMessage'
@@ -123,10 +129,12 @@
       },
       data() {
           return {
+              scriptUpdated: false,
               errorFields: {},
               resultFormStatus: null,
               resultMessageVisible: false,
               loading: false,
+              preventValue: '',
               fields: {
                   fullname: '',
                   email: '',
@@ -165,7 +173,7 @@
               return Object.entries(this.errorFields).length === 0
           },
           handleSubmit() {
-              if (this.validate()) {
+              if (this.validate() && this.preventValue === '') {
                   this.loading = true;
                   const axiosConfig = {
                       header: {"Content-Type": "multipart/form-data"}
@@ -181,6 +189,10 @@
                       if (response && response.status === 200) {
                           this.resultFormStatus = 'success';
                           this.fields = {};
+                          if (!this.scriptUpdated) {
+                              GAScripts();
+                              this.scriptUpdated = true;
+                          }
                       } else {
                           this.resultFormStatus = 'error';
                       }

@@ -18,7 +18,7 @@
                         <div class="flex flex-wrap justify-between w-full mx-auto max-w-lg md:max-w-6xl md:w-22/24">
                             <div class="flex flex-col w-full mb-4 md:w-7/24 md:mb-4 xl:mb-8" v-for="service in page.mainServices" :key="service.id">
                                 <div class="relative h-8 mb-2 md:mb-4 md:h-12 xl:h-16 md:h-16 xl:mb-6" v-if="mapObject(service, ['icon', 0, 'url'])">
-                                    <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])">
+                                    <img :src="mapObject(service, ['icon', 0, 'url'])" class="absolute h-8 md:h-12 xl:h-16" :alt="mapObject(service, ['icon', 0, 'title'])" loading="lazy">
                                 </div>
                                 <h2 class="mb-2 text-base font-bold text-black md:text-lg xl:text-xl md:mb-6 xl:mb-4">{{ service.header }}</h2>
                                 <div class="flex-grow">
@@ -63,7 +63,7 @@
                                  <div class="h-0 aspect-ratio-4/3 xl:my-4 2xl:my-10">
                                     <div class="top-0 bottom-0 flex items-center w-full text-right xl:absolute md:flex md:justify-end xl:w-8/24" :class="[index % 2 ? 'left-0' : 'right-0']">
                                         <div class="relative w-full h-0 aspect-ratio-4/3">
-                                            <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute inset-0 object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])">
+                                            <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute inset-0 object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])" loading="lazy">
                                         </div>
                                     </div>
                                  </div>
@@ -80,7 +80,7 @@
                         </div>
                         <div class="w-2/3 mb-4 xs:w-1/2 mx-auto md:w-6/24 md:mb-16">
                             <div class="relative h-0 aspect-ratio-4/3">
-                                <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])" v-if="mapObject(story, ['image', 0, 'url'])">
+                                <img :src="mapObject(story, ['image', 0, 'url'])" class="absolute object-cover w-full h-full mx-auto" :alt="mapObject(story, ['image', 0, 'title'])" v-if="mapObject(story, ['image', 0, 'url'])" loading="lazy">
                             </div>
                         </div>
                     </div>

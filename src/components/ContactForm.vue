@@ -62,7 +62,12 @@
                     />
                 </div>
             </div>
-
+            <input
+                type="text"
+                v-model="preventValue"
+                class="hidden"
+                id="contact-fill"
+            >
             <div class="flex items-center justify-center">
                 <project-button tag="button">Odeslat</project-button>
             </div>
@@ -79,7 +84,7 @@
   import ProjectButton from '../components/ProjectButton'
   import CalloutMessage from './CalloutMessage';
   import LoadingTransition from './LoadingTransition.vue';
-
+  import {GAScripts} from "./utils";
 
   export default {
       components: {
@@ -91,10 +96,12 @@
       },
       data() {
           return {
+              scriptUpdated: false,
               loading: false,
               errorFields: {},
               resultFormStatus: null,
               resultMessageVisible: false,
+              preventValue: '',
               fields: {
                   fullname: '',
                   email: '',
@@ -125,7 +132,7 @@
               return Object.entries(this.errorFields).length === 0
           },
           handleSubmit() {
-              if (this.validate()) {
+              if (this.validate() && this.preventValue === '') {
                   this.loading = true;
                   const axiosConfig = {
                       header: {"Content-Type": "application/x-www-form-urlencoded"}
@@ -139,10 +146,14 @@
                       axiosConfig
                   ).then((response) => {
                       if (response && response.status === 200) {
+                          this.fields = {};
                           this.resultFormStatus = 'success';
+                          if (!this.scriptUpdated) {
+                              GAScripts();
+                              this.scriptUpdated = true;
+                          }
                       } else {
                           this.resultFormStatus = 'error';
-                        this.fields = {};
                       }
                   }).catch(() => {
                       this.resultFormStatus = 'error';

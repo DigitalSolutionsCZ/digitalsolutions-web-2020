@@ -19,6 +19,7 @@
                                     :src="mapObject(person, ['image', 0, 'url'])"
                                     :alt="person.firstName + ' ' + person.lastName"
                                     class="flex-grow-0 w-12 h-12 mr-4 rounded-full md:w-16 md:h-16 xl:w-20 xl:h-20"
+                                    loading="lazy"
                                 >
                                 {{ person.firstName  }} {{ person.lastName }}
                             </a>
@@ -26,7 +27,7 @@
                     </div>
                 </div>
                 <div class="lg:w-12/24 md:px-6 xl:px-8">
-                    <demand-form></demand-form>
+                    <demand-form/>
                 </div>
             </div>
         </div>

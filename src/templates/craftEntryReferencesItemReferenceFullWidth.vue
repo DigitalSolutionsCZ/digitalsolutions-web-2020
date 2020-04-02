@@ -36,6 +36,7 @@
                                         <div
                                             class="relative w-full h-0 aspect-ratio-4/3 md:-mr-8 lg:-mr-1 xl:-ml-2 xl:mr-auto">
                                             <g-image
+                                                loading="lazy"
                                                 v-if="mapObject(page, ['mainImage', 0, 'url'])"
                                                 :src="mapObject(page, ['mainImage', 0, 'url'])"
                                                 :alt="page.heading"
@@ -72,13 +73,17 @@
                                 :class="{'pb-4 xl:pb-10': page.referenceClientLinkText == null}"
                                 class="pt-4 mx-4 md:mx-8 md:pt-8 xl:pt-16 xl:mx-16"
                             >
-                                <g-image :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
-
-                                         :alt="mapObject(page, ['vyberKlienta', 0, 'title'])"
-                                         class="h-10 mb-4 lg:mb-8"
-                                         v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"/>
-                                <div class="text-xs leading-relaxed md:text-sm wysiwyg-content"
-                                     v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"></div>
+                                <g-image
+                                    :src="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
+                                    :alt="mapObject(page, ['vyberKlienta', 0, 'title'])"
+                                    class="h-10 mb-4 lg:mb-8"
+                                    v-if="mapObject(page, ['vyberKlienta', 0, 'photo', 0, 'url'])"
+                                    loading="lazy"
+                                />
+                                <div
+                                    class="text-xs leading-relaxed md:text-sm wysiwyg-content"
+                                    v-html="mapObject(page, ['vyberKlienta', 0, 'description'])"
+                                />
                             </div>
                             <template v-if="page.referenceClientLinkText != null">
                                 <template v-if="page.referenceClientLink">
@@ -105,9 +110,7 @@
                 </section>
             </div>
         </div>
-        <div
-            class="px-4 md:px-8"
-        >
+        <div class="px-4 md:px-8">
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
@@ -115,14 +118,14 @@
                             {{ page.secondRowHeadline }}
                         </h2>
                         <div class="text-xs leading-relaxed md:text-sm xl:text-base wysiwyg-content"
-                             v-html="page.secondRowDescription">
-                        </div>
+                             v-html="page.secondRowDescription"/>
                     </div>
                     <div class="self-start w-full md:w-10/24">
                         <div class="mb-2 lg:mb-8 xl:ml-16">
                             <template v-if="services && services.length > 0">
                                 <h3 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-xl">
-                                    Dodané služby</h3>
+                                    Dodané služby
+                                </h3>
                                 <ul class="mb-6 lg:mb-16">
                                     <li class="mb-2 xl:mb-6" v-for="service in services" :key="service.id">
                                         <div class="flex items-center mb-2">
@@ -139,16 +142,21 @@
                             </template>
                             <template v-if="page.technologie && page.technologie.length > 0">
                                 <h3 class="mb-2 text-base font-bold text-black md:mb-4 xl:mb-6 md:text-lg xl:text-xl">
-                                    Technologie</h3>
+                                    Technologie
+                                </h3>
                                 <div class="w-full">
                                     <div
                                         class="grid grid-cols-6 gap-4 sm:grid-cols-8 md:grid-cols-4 md:gap-4 xl:grid-cols-4 xl:gap-3">
-                                        <div class="flex items-center justify-center p-2 border border-gray-200 rounded"
-                                             v-for="technology in page.technologie" :key="technology.id">
+                                        <div
+                                            v-for="technology in page.technologie"
+                                            :key="technology.id"
+                                            class="flex items-center justify-center p-2 border border-gray-200 rounded"
+                                        >
                                             <g-image
                                                 :src="mapObject(technology, ['obrazek', 0, 'url'])"
                                                 :alt="technology.title"
                                                 :title="technology.title"
+                                                loading="lazy"
                                             />
                                         </div>
                                     </div>
@@ -161,7 +169,7 @@
         </div>
         <div class="relative px-4 mb-6 md:px-8 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
             <div class="absolute w-full h-full -mx-4 overflow-hidden md:-mx-8">
-                <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
+                <g-image src="~/images/bg_ds_code.jpg" loading="lazy" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
             </div>
             <div class="max-w-screen-lg pt-8 ml-auto mr-auto">
                 <VueSlickCarousel
@@ -170,16 +178,23 @@
                     v-if="page.gallery.length > 1"
                     ref="referenceCarousel"
                 >
-                    <div class="relative" v-for="slide in page.gallery">
+                    <div class="relative align-top" v-for="slide in references">
                         <div class="flex flex-col justify-around overflow-hidden rounded">
-                            <div class="relative aspect-ratio-16/9" v-if="slide.url">
-                                <img :src="slide.url" class="absolute inset-0 object-cover w-full h-full"/>
-                            </div>
-                            <div class="flex items-center justify-center h-12 bg-white">
-                                <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
-                                    {{ slide.title }}
+                            <template v-if="slide.type === 'youtube'">
+                                <div class="relative aspect-ratio-16/9 pt-12" v-if="slide.source">
+                                    <youtube :source="slide.source" class="absolute inset-0 object-cover w-full h-full" />
                                 </div>
-                            </div>
+                            </template>
+                            <template v-else>
+                                <div class="relative aspect-ratio-16/9" v-if="slide.url">
+                                    <g-image :src="slide.url" loading="lazy" class="absolute inset-0 object-cover w-full h-full"/>
+                                </div>
+                                <div class="flex items-center justify-center h-12 bg-white">
+                                    <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
+                                        {{ slide.title }}
+                                    </div>
+                                </div>
+                            </template>
                         </div>
                     </div>
                     <template #prevArrow>
@@ -204,7 +219,7 @@
                 <div class="rounded shadow-xl" v-else>
                     <div class="flex flex-col justify-around overflow-hidden rounded">
                         <div class="relative aspect-ratio-16/9">
-                            <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full"/>
+                            <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full" loading="lazy" />
                         </div>
                         <div class="flex items-center justify-center h-12 bg-white">
                             <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
@@ -217,7 +232,7 @@
         </div>
         <div class="px-4 md:px-8">
             <div class="w-full max-w-screen-xl mx-auto">
-                <section class="flex flex-wrap pb-6 lg:pb-16 items-start">
+                <section class="flex flex-wrap items-start pb-6 lg:pb-16">
                     <div
                         :class="[page.thirdRowWysiwygRight == null ? 'mx-auto' : 'lg:pr-12']"
                         class="w-full mb-6 lg:mb-0 lg:w-1/2"
@@ -229,7 +244,8 @@
                              v-html="page.thirdRowDescription">
                         </div>
                     </div>
-                    <div class="relative w-full lg:w-1/2 lg:pl-12" id="client-survey" v-if="page.thirdRowWysiwygRight != null">
+                    <div class="relative w-full lg:w-1/2 lg:pl-12" id="client-survey"
+                         v-if="page.thirdRowWysiwygRight != null">
                         <h2
                             v-if="page.thirdRowHeadlineRight != null"
                             class="mb-2 text-base font-bold text-green-500 md:mb-4 xl:mb-6 md:text-xl xl:text-2xl"
@@ -239,7 +255,7 @@
                         <div class="relative">
                             <icon
                                 symbol="i_quotation"
-                                class="absolute w-4 h-4 lg:w-8 lg:h-8 -ml-4 text-gray-100 transform fill-current lg:mt-6 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
+                                class="absolute w-4 h-4 -ml-4 text-gray-100 transform fill-current lg:w-8 lg:h-8 lg:mt-6 lg:-ml-1 lg:-translate-x-full lg:-translate-y-full"
                             />
                             <div
                                 class="relative text-sm italic leading-relaxed md:text-base xl:text-lg wysiwyg-content"
@@ -250,18 +266,21 @@
                             <img class="flex-shrink-0 w-16 h-16 mr-4 rounded-full lg:w-20 lg:h-20"
                                  v-if="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
                                  :src="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'url'])"
-                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])" />
+                                 :alt="mapObject(page, ['vyberKlientaTretiRadek', 0, 'photo',0, 'title'])"
+                                 loading="lazy"
+                            />
                             <div>
-                                <strong class="text-sm lg:text-lg">{{ mapObject(page, ['vyberKlientaTretiRadek', 0,
-                                    'firstName']) }} {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'lastName'])
-                                    }}</strong>
-                                <div class="text-xs lg:text-sm">{{ mapObject(page, ['vyberKlientaTretiRadek', 0,
-                                    'position']) }}
+                                <strong class="text-sm lg:text-lg">
+                                    {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'firstName']) }} {{ mapObject(page,
+                                    ['vyberKlientaTretiRadek', 0, 'lastName']) }}
+                                </strong>
+                                <div class="text-xs lg:text-sm">
+                                    {{ mapObject(page, ['vyberKlientaTretiRadek', 0, 'position']) }}
                                 </div>
                             </div>
                         </div>
                         <div
-                            class="absolute left-0 h-1 lg:-ml-12 rounded lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
+                            class="absolute left-0 h-1 rounded lg:-ml-12 lg:left-auto lg:inset-y-0 lg:w-1 lg:h-full bg-gradient-r-blue-green lg:bg-gradient-t-blue-green"></div>
                     </div>
                 </section>
             </div>
@@ -303,6 +322,7 @@
   import {mapObject, metaInfo} from '~/components/utils';
   import SubLink from "~/components/SubLink.vue";
   import ProjectButton from "~/components/ProjectButton.vue";
+  import Youtube from "~/components/Youtube.vue";
 
   export default {
       metaInfo() {
@@ -314,7 +334,8 @@
       components: {
           VueSlickCarousel,
           SubLink,
-          ProjectButton
+          ProjectButton,
+          Youtube
       },
       computed: {
           page() {
@@ -330,7 +351,7 @@
           },
           carouselSettings() {
               return {
-                  autoplay: this.page.autoplay,
+                  autoplay: this.page.video.length > 0 ? false : this.page.autoplay,
                   autoplaySpeed: 3000,
                   lazyLoad: "ondemand",
                   pauseOnFocus: true,
@@ -340,6 +361,12 @@
                   infinite: true,
                   slidesToShow: 1,
               }
+          },
+          references() {
+              return [
+                  ...this.page.video,
+                  ...this.page.gallery
+              ]
           }
       },
       methods: {
@@ -407,7 +434,14 @@
                     gallery {
                         url(transform: "xxlargeImage")
                         title
+                        type: kind
                     },
+                    video {
+                        ...on craft_video_youtube_BlockType {
+                            type: typeHandle
+                            source
+                        }
+                    }
                     autoplay
                     vyberKlientaTretiRadek {
                         ...on craft_testemonials_klients_Entry {
