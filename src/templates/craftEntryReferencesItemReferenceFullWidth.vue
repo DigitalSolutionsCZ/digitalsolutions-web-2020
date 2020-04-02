@@ -187,7 +187,7 @@
                             </template>
                             <template v-else>
                                 <div class="relative aspect-ratio-16/9" v-if="slide.url">
-                                    <g-image :src="slide.url" loading="lazy" class="absolute inset-0 object-cover w-full h-full" loading="lazy"/>
+                                    <g-image :src="slide.url" loading="lazy" class="absolute inset-0 object-cover w-full h-full"/>
                                 </div>
                                 <div class="flex items-center justify-center h-12 bg-white">
                                     <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
