@@ -24,6 +24,11 @@ export default function (Vue, {router, head, isClient}) {
            '})(window,document,\'script\',\'dataLayer\',\'GTM-5PFW27N\');'
     });
     head.link.push({
+        rel: 'preconnect',
+        href: 'https://fonts.gstatic.com/',
+        crossorigin: 'anonymous'
+    });
+    head.link.push({
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css?family=Muli:400,400i,600,600i,700,700i,800,800i&display=swap&subset=latin-ext'
     });
