@@ -42,6 +42,10 @@
 }
 .bg-ds-code{
     @apply relative;
-    background: url("../images/bg_ds_code.jpg") left center repeat fixed #E6E6E6;
+    background-image: url("../images/bg_ds_code.jpg");
+    background-repeat: repeat;
+    background-position: left center;
+    background-attachment: fixed;
+    background-color: #E6E6E6;
     will-change: transform;
 }
