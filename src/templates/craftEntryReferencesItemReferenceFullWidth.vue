@@ -54,9 +54,8 @@
         </template>
 
         <div
-            class="relative px-4 mb-8 md:px-8 xl:mb-16"
+            class="relative px-4 mb-8 md:px-8 xl:mb-16 bg-ds-code"
         >
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover h-full -mx-4 md:-mx-8" fit="cover"/>
             <div class="relative w-full max-w-screen-xl py-4 mx-auto md:py-8">
                 <section class="flex flex-wrap items-center">
                     <div class="w-full md:w-14/24 md:pr-12 md:pt-4 md:pb-4">
@@ -167,21 +166,18 @@
                 </section>
             </div>
         </div>
-        <div class="relative px-4 mb-6 md:px-8 lg:mb-16" v-if="page.gallery && page.gallery.length > 0">
-            <div class="absolute w-full h-full -mx-4 overflow-hidden md:-mx-8">
-                <g-image src="~/images/bg_ds_code.jpg" loading="lazy" class="absolute object-cover w-full h-full -mt-20" fit="cover"/>
-            </div>
-            <div class="max-w-screen-lg pt-8 ml-auto mr-auto">
+        <div class="relative px-4 mb-32 md:px-8 lg:mb-40 bg-ds-code" v-if="page.gallery && page.gallery.length > 0">
+            <div class="max-w-screen-lg pt-8 mx-auto -mb-24">
                 <VueSlickCarousel
-                    class="rounded shadow-xl"
+                    class="rounded shadow-xl bg-white"
                     v-bind="carouselSettings"
                     v-if="page.gallery.length > 1"
                     ref="referenceCarousel"
                 >
-                    <div class="relative align-top" v-for="slide in references">
-                        <div class="flex flex-col justify-around overflow-hidden rounded">
+                    <div class="relative align-top h-full" v-for="slide in references">
+                        <div class="flex flex-col justify-around overflow-hidden rounded h-full">
                             <template v-if="slide.type === 'youtube'">
-                                <div class="relative aspect-ratio-16/9 pt-12" v-if="slide.source">
+                                <div class="relative aspect-ratio-16/9 p-12" v-if="slide.source">
                                     <youtube :source="slide.source" class="absolute inset-0 object-cover w-full h-full" />
                                 </div>
                             </template>
@@ -189,8 +185,8 @@
                                 <div class="relative aspect-ratio-16/9" v-if="slide.url">
                                     <g-image :src="slide.url" loading="lazy" class="absolute inset-0 object-cover w-full h-full"/>
                                 </div>
-                                <div class="flex items-center justify-center h-12 bg-white">
-                                    <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
+                                <div class="flex items-center justify-center my-auto">
+                                    <div class="flex-grow text-xs italic text-center md:text-sm xl:text-base py-4 px-10 leading-tight">
                                         {{ slide.title }}
                                     </div>
                                 </div>
@@ -199,7 +195,7 @@
                     </div>
                     <template #prevArrow>
                         <div
-                            class="absolute bottom-0 left-0 z-10 flex items-center h-12 pr-4 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-ml-10 xl:bg-transparent xl:pr-0">
+                            class="absolute bottom-0 left-0 z-10 flex items-center h-12 pr-4 cursor-pointer xl:h-auto xl:inset-y-0 xl:-ml-10 xl:bg-transparent xl:pr-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 transform rotate-180 fill-current"
@@ -208,7 +204,7 @@
                     </template>
                     <template #nextArrow>
                         <div
-                            class="absolute bottom-0 right-0 z-10 flex items-center h-12 pl-4 bg-white cursor-pointer xl:h-auto xl:inset-y-0 xl:-mr-10  xl:bg-transparent xl:pl-0">
+                            class="absolute bottom-0 right-0 z-10 flex items-center h-12 pl-4 cursor-pointer xl:h-auto xl:inset-y-0 xl:-mr-10  xl:bg-transparent xl:pl-0">
                             <icon
                                 symbol="i_chevron_thin_stroke"
                                 class="w-8 h-8 fill-current"
@@ -221,8 +217,8 @@
                         <div class="relative aspect-ratio-16/9">
                             <img :src="page.gallery[0].url" class="absolute inset-0 object-cover w-full h-full" loading="lazy" />
                         </div>
-                        <div class="flex items-center justify-center h-12 bg-white">
-                            <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base">
+                        <div class="flex items-center justify-center">
+                            <div class="flex-grow text-xs italic text-center truncate md:text-sm xl:text-base py-4 px-10 leading-tight">
                                 {{ page.gallery[0].title }}
                             </div>
                         </div>
@@ -318,7 +314,7 @@
 
 <script>
   import VueSlickCarousel from 'vue-slick-carousel';
-  import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+  import '../css/components/vue-slick-carousel.css';
   import {mapObject, metaInfo} from '~/components/utils';
   import SubLink from "~/components/SubLink.vue";
   import ProjectButton from "~/components/ProjectButton.vue";
@@ -353,7 +349,7 @@
               return {
                   autoplay: this.page.video.length > 0 ? false : this.page.autoplay,
                   autoplaySpeed: 3000,
-                  lazyLoad: "ondemand",
+                  lazyLoad: "progressive",
                   pauseOnFocus: true,
                   pauseOnHover: true,
                   centerMode: true,

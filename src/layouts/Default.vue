@@ -22,7 +22,7 @@
                             </site-header>
                         </div>
                         <transition name="fade" appear>
-                        <div class="mt-12 md:mt-20 xl:mt-24">
+                        <div class="bg-white pt-12 md:pt-20 xl:pt-24">
                             <slot name="headerSection"></slot>
                         </div>
                         </transition>

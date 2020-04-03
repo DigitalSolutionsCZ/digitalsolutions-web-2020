@@ -10,8 +10,7 @@
                 </section>
             </div>
         </template>
-        <div class="relative">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+        <div class="bg-ds-code">
             <div class="mx-4">
                 <div class="relative pt-4 pb-4 mx-auto max-w-screen-xl xl:pb-8 xl:pt-8">
                     <section class="px-4 pt-4 bg-white rounded md:pt-10 xl:pt-16 md:px-0">
@@ -43,7 +42,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-4 relative">
+        <div class="px-4 bg-white relative">
             <div class="-mt-16 absolute invisible h-4 " aria-label="hidden" id="development">Scroll to development</div>
             <h2 class="pt-4 md:pt-10 xl:pt-16 mb-4 text-black text-xl font-bold md:text-center md:text-2xl xl:mb-8 mx-auto max-w-lg md:max-w-5xl">{{page.developmentHeader}}</h2>
             <template v-for="(story, index) in page.developmentStories">
@@ -87,8 +86,7 @@
                 </div>
             </template>
         </div>
-        <section class="relative">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover" aria-label="hidden"/>
+        <section class="bg-ds-code">
             <div class="px-4">
                 <div class="relative max-w-5xl py-4 mx-auto text-center md:py-8 xl:py-12">
                     <h3 class="mb-4 text-lg font-bold text-black lg:text-xl md:mb-6 xl:mb-8">

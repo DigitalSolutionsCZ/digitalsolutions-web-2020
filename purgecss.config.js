@@ -22,7 +22,9 @@ module.exports = {
     'g-image',
     'g-image--lazy',
     'g-image--loaded',
-    'mode-dark'
+    'mode-dark',
+    'fade-enter-active',
+    'fade-enter'
   ],
   whitelistPatterns: [/^slick/],
   extractors: [

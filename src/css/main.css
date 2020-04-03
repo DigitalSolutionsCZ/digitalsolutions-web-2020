@@ -40,3 +40,8 @@
 .fade-enter {
     @apply opacity-0 transform translate-y-3;
 }
+.bg-ds-code{
+    @apply relative;
+    background: url("../images/bg_ds_code.jpg") left center repeat fixed #E6E6E6;
+    will-change: transform;
+}

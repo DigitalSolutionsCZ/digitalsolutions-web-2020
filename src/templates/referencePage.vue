@@ -42,10 +42,8 @@
             </section>
             </div>
         </template>
-        <section class="relative flex flex-col flex-1 pt-4 pb-8 bg-gray-100 md:px-4 overflow-hidden">
+        <section class="bg-ds-code flex flex-col flex-1 pt-4 pb-8 md:px-4 overflow-hidden">
             <loading-transition :loading="loading" />
-            <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}"
-                 class="absolute inset-0 bg-center pointer-events-none"></div>
             <div class="relative w-full max-w-screen-xl mx-auto" v-if="list.length > 0">
                 <div class="flex flex-wrap justify-center mb-4 -mx-2">
                     <div

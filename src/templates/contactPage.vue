@@ -23,8 +23,7 @@
                 </div>
             </div>
         </template>
-        <div class="relative mb-4 md:mb-8 xl:mb-16">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+        <div class="bg-ds-code mb-4 md:mb-8 xl:mb-16">
             <div class="px-4 py-4 xl:py-8 md:px-16">
                 <div class="relative max-w-screen-xl ml-auto mr-auto">
                     <section class="flex flex-wrap overflow-hidden bg-white rounded">
@@ -88,8 +87,7 @@
                 </div>
             </div>
         </div>
-        <div class="relative">
-            <g-image src="~/images/bg_ds_code.jpg" class="absolute object-cover w-full h-full" fit="cover"/>
+        <div class="bg-ds-code">
             <div class="px-4">
                 <div class="relative max-w-screen-xl pt-8 pb-4 mx-auto xl:pt-16 xl:pb-12">
                     <h3 class="mb-3 text-lg font-bold text-center text-black md:text-xl md:mb-6 xl:mb-8">Sledujte nás na sociálních sítích</h3>

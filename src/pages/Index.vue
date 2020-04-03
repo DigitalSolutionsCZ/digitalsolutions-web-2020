@@ -32,7 +32,7 @@
                 <hero-slide :page="page" v-if="isVisibleClientOnlySkeleton"/>
             </section>
             <section class="relative" data-cha-section>
-                <div class="flex items-center overflow-hidden md:h-24">
+                <div class="flex items-center overflow-hidden md:h-24 bg-white">
                     <div class="w-full max-w-screen-lg mx-auto">
                         <div class="flex flex-wrap items-center justify-center md:justify-around">
                             <div class="overflow-hidden px-1 sm:px-4 -my-4" v-for="logo in page.homepageClientLogos">
@@ -43,8 +43,7 @@
                 </div>
             </section>
         </template>
-        <section class="relative">
-            <div :style="{'background-image': 'url(/bg_ds_code.jpg)'}" class="absolute inset-0"></div>
+        <section class="bg-ds-code">
             <div class="relative overflow-hidden">
                 <div class="pt-6 md:pt-8 xl:pt-16">
                     <div class="max-w-screen-xl mx-auto">
@@ -149,7 +148,7 @@
                 </div>
             </div>
         </section>
-        <section class="relative pt-16">
+        <section class="relative pt-16 bg-white">
             <div class="max-w-screen-xl px-4 mx-auto">
                 <h2 class="mb-4 text-base font-bold text-center text-black md:mb-6 xl:mb-12 md:text-xl xl:text-2xl">
                     {{ page.homepageAssignmentsHeader }}
