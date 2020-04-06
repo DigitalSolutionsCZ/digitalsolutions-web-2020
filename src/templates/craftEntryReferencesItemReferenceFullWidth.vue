@@ -54,7 +54,7 @@
         </template>
 
         <div
-            class="relative px-4 mb-8 md:px-8 xl:mb-16 bg-ds-code"
+            class="relative px-4 md:px-8 bg-ds-code"
         >
             <div class="relative w-full max-w-screen-xl py-4 mx-auto md:py-8">
                 <section class="flex flex-wrap items-center">
@@ -109,7 +109,7 @@
                 </section>
             </div>
         </div>
-        <div class="px-4 md:px-8">
+        <div class="px-4 md:px-8 pt-8 xl:pt-16  bg-white">
             <div class="relative w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap mb-4 xl:mb-8">
                     <div class="w-full md:w-14/24 md:pr-12">
@@ -166,7 +166,7 @@
                 </section>
             </div>
         </div>
-        <div class="relative px-4 mb-32 md:px-8 lg:mb-40 bg-ds-code" v-if="page.gallery && page.gallery.length > 0">
+        <div class="relative px-4 md:px-8 bg-ds-code" v-if="page.gallery && page.gallery.length > 0">
             <div class="max-w-screen-lg pt-8 mx-auto -mb-24">
                 <VueSlickCarousel
                     class="rounded shadow-xl bg-white"
@@ -226,7 +226,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-4 md:px-8">
+        <div class="px-4 md:px-8 bg-white" :class="[page.gallery && page.gallery.length > 0 ? 'pt-32 lg:pt-40' : '']">
             <div class="w-full max-w-screen-xl mx-auto">
                 <section class="flex flex-wrap items-start pb-6 lg:pb-16">
                     <div

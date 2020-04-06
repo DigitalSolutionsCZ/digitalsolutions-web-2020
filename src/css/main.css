@@ -42,10 +42,12 @@
 }
 .bg-ds-code{
     @apply relative;
-    background-image: url("../images/bg_ds_code.jpg");
-    background-repeat: repeat;
-    background-position: left center;
-    background-attachment: fixed;
-    background-color: #E6E6E6;
-    will-change: transform;
+    &:before{
+        @apply w-full h-full left-0 top-0;
+        background: url("../images/bg_ds_code.jpg") repeat left center #E6E6E6;
+        content: "";
+        position: fixed;
+        z-index: -1;
+        will-change: transform;
+    }
 }

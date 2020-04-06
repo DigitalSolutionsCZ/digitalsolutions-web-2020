@@ -2,7 +2,7 @@
         <div class="flex flex-col flex-1 text-xs text-gray-900 md:text-sm xl:text-base">
             <slot name="header" :menu="menu" :contact="link">
                 <template v-if="chameleon">
-                    <section class="relative cha-main-header" data-cha-section data-theme="light">
+                    <section class="relative cha-main-header bg-white" data-cha-section data-theme="light">
                         <div class="absolute inset-0 z-30 pointer-events-none md:cha-header-clip" data-cha-header-clip>
                             <site-header
                                 class="bg-white cha-header"

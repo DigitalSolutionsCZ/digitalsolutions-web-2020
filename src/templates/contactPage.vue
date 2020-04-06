@@ -23,9 +23,9 @@
                 </div>
             </div>
         </template>
-        <div class="bg-ds-code mb-4 md:mb-8 xl:mb-16">
-            <div class="px-4 py-4 xl:py-8 md:px-16">
-                <div class="relative max-w-screen-xl ml-auto mr-auto">
+        <div class="bg-ds-code">
+            <div class="px-4 py-4 xl:py-8">
+                <div class="relative max-w-screen-xl mx-auto">
                     <section class="flex flex-wrap overflow-hidden bg-white rounded">
                         <div class="w-full md:w-13/24 lg:w-15/24">
                             <a :href="mapObject(page, ['map', 0, 'contactMapLink'])"
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="px-4">
+        <div class="px-4 bg-white pt-4 md:pt-8 xl:pt-16">
             <div class="max-w-screen-xl ml-auto mr-auto">
                 <section class="mx-4 mb-4 lg:mb-8">
                     <div class="px-4 text-center">
