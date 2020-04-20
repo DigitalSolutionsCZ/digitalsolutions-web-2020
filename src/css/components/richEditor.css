@@ -5,16 +5,19 @@
 
     ul {
         @apply mb-4;
+        li {
+            @apply pl-4 relative;
+
+            &:before {
+                content: "";
+                margin-top: 0.60em;
+                @apply mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full absolute left-0;
+            }
+        }
     }
 
     li {
-        @apply mb-1 pl-4 relative;
-
-        &:before {
-            content: "";
-            margin-top: 0.60em;
-            @apply mr-3 w-2 h-2 bg-gradient-r-blue-green rounded-full absolute left-0;
-        }
+        @apply mb-1;
     }
 
     h2{
