@@ -322,9 +322,14 @@
 
   export default {
       metaInfo() {
+          const ogImage =  this.page.ogImage.length ? this.page.ogImage : this.page.referenceMultipleImages
           return metaInfo({title: this.$page.seoTitle, heading: this.page.heading}, {
-              keywords: this.$page.seoKeywords,
-              description: this.$page.seoDescription
+              seoKeywords: this.page.seoKeywords,
+              seoDescription: this.page.seoDescription,
+              ogTitle: this.page.ogTitle,
+              ogImage: ogImage,
+              ogUrl: this.$context.ogUrl,
+              ogDescription: this.page.ogDescription,
           })
       },
       components: {
@@ -450,9 +455,17 @@
                             }
                         }
                     },
+                    referenceMultipleImages {
+                        url
+                    }
                     seoDescription,
                     seoKeywords,
-                    seoTitle
+                    seoTitle,
+                    ogTitle,
+                    ogDescription,
+                    ogImage {
+                        url
+                    }
                 }
             }
         }
