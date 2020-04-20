@@ -207,10 +207,15 @@
         }
     }
     query {
+        metadata {
+            siteUrl
+        },
         craft {
             entry(slug: "homepage") {
                 ... on craft_homepage_homepage_Entry {
+                    title
                     heading
+                    url
                     homepageSubheader
                     homepageButtonText
                     homepageButtonLink
@@ -274,6 +279,11 @@
                     seoTitle
                     seoKeywords
                     seoDescription
+                    ogTitle
+                    ogDescription
+                    ogImage {
+                        url
+                    }
                 }
             }
         }
@@ -291,8 +301,12 @@ import HeroSlide from "../components/HeroSlide.vue";
 export default {
     metaInfo() {
         return metaInfo({title: this.page.seoTitle, heading: this.page.heading}, {
-            keywords: this.page.seoKeywords,
-            description: this.page.seoDescription
+            seoKeywords: this.page.seoKeywords,
+            seoDescription: this.page.seoDescription,
+            ogTitle: this.page.ogTitle || this.page.title,
+            ogDescription: this.page.ogDescription,
+            ogImage: this.page.ogImage,
+            ogUrl: this.metadata.siteUrl
         })
     },
     components: {
@@ -305,6 +319,9 @@ export default {
     computed: {
         page() {
             return this.$page.craft.entry;
+        },
+        metadata() {
+            return this.$page.metadata;
         },
         reference() {
             return this.mapObject(this.$page.craft.entry, ['referenceLink', 0]);

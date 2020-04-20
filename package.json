@@ -7,6 +7,7 @@
     "explore": "gridsome explore"
   },
   "dependencies": {
+    "@babel/compat-data": "^7.9.0",
     "@ds/vue-plugin-responsive": "^0.1.3",
     "axios": "^0.19.2",
     "d3-interpolate": "^1.4.0",

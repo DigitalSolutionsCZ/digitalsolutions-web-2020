@@ -121,6 +121,34 @@ export function metaInfo({title, heading = ""}, context) {
       name: 'description',
       content: context.seoDescription
     });
+
+    if ((context.seoDescription || context.ogDescription) && (seoTitle || context.ogTitle) && context.ogImage.length) {
+        metaArray.push({
+            key: 'og:description',
+            property: 'og:description',
+            content: context.ogDescription || context.seoDescription
+        });
+       metaArray.push({
+            key: 'og:title',
+            property: 'og:title',
+            content: context.ogTitle || seoTitle
+        });
+       metaArray.push({
+            key: 'og:image',
+            property: 'og:image',
+            content: context.ogImage[0].url
+        });
+        metaArray.push({
+            key: 'og:url',
+            property: 'og:url',
+            content: context.ogUrl
+        });
+       metaArray.push({
+            key: 'og:type',
+            property: 'og:type',
+            content: 'article'
+        });
+    }
   return {
     title: seoTitle,
     meta: metaArray
