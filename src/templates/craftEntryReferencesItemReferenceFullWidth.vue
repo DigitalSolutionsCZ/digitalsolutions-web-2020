@@ -322,7 +322,7 @@
 
   export default {
       metaInfo() {
-          const ogImage =  this.page.ogImage.length ? this.page.ogImage : this.page.referenceMultipleImages
+          const ogImage = this.page.ogImage && this.page.ogImage.length ? this.page.ogImage : this.page.referenceMultipleImages
           return metaInfo({title: this.$page.seoTitle, heading: this.page.heading}, {
               seoKeywords: this.page.seoKeywords,
               seoDescription: this.page.seoDescription,
