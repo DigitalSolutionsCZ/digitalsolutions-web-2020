@@ -1,6 +1,6 @@
 const {referencePage} = require("./server/references");
 const {allPages} = require("./server/pages");
-const containerBlockGraphQL = require('./server/contentGenerator');
+const {allNews} = require('./server/news');
 
 module.exports = function (api) {
     api.createPages(async ({graphql, createPage}) => {
@@ -133,21 +133,17 @@ module.exports = function (api) {
                             title
                         }
                     }
-                }
-                articles: entry(id: "1902") {
-                    title,
-                    ...on craft_news_article_Entry {
-                        contentBuilder: block {
-                            __typename,
-                            ${containerBlockGraphQL}
-                        }
-                    }
+                },
+                articles: entries(section: "news") {
+                    slug,
+                    id
                 }
               }
             }
         `);
         allPages(data, createPage);
         referencePage(data, createPage);
+        allNews(data, createPage)
     })
 }
 

@@ -172,7 +172,7 @@ const layoutDefined = `
     }
 `;
 
-const containerBlockGraphQL = `
+export const containerBlockGraphQL = `
     ...on craft_block_container_BlockType {
         typeHandle
         bgColor,
@@ -187,5 +187,6 @@ const containerBlockGraphQL = `
         }
     }
 `;
+
 
 module.exports = containerBlockGraphQL;
