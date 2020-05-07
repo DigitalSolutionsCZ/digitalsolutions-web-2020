@@ -1,6 +1,8 @@
 const {referencePage} = require("./server/references");
 const {allPages} = require("./server/pages");
 const {allNews} = require('./server/news');
+const PurgeCSS = require("purgecss").default;
+const fs = require("fs");
 
 module.exports = function (api) {
     api.createPages(async ({graphql, createPage}) => {
@@ -144,6 +146,21 @@ module.exports = function (api) {
         allPages(data, createPage);
         referencePage(data, createPage);
         allNews(data, createPage)
-    })
+    });
+
+    api.afterBuild(async () => {
+        const purgeCSSResults = await new PurgeCSS().purge({
+            content: ["./dist/**/*.html"],
+            css: ["./dist/assets/css/*.css"],
+        });
+        purgeCSSResults.map((purgedCss) => {
+            fs.writeFile(purgedCss.file, purgedCss.css, "utf8", (err) => {
+                if (err) {
+                    console.log(err);
+                    return;
+                }
+            });
+        });
+    });
 }
 

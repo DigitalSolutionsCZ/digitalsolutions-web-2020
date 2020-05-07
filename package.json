@@ -15,6 +15,7 @@
     "gridsome-plugin-gtm": "^0.1.1",
     "popper.js": "^1.16.1",
     "string-strip-html": "^4.3.16",
+    "v-img": "^0.2.0",
     "vue-scrollto": "^2.17.1",
     "vue-slick-carousel": "^1.0.2",
     "youtube-player": "^5.5.2"
