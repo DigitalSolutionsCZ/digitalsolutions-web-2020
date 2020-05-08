@@ -14,7 +14,7 @@
                             <!-- Layout Component  -->
                             <template v-for="(row, index) in container.rows">
                                 <div :key="container.id + index" class="flex flex-wrap"
-                                     :class="containerClasses(row.typeHandle)">
+                                     :class="[containerClasses(row.typeHandle), toClass(row, ['typeHandle', 'columns'], true)]">
                                     <!-- Column Component  -->
                                     <template v-for="(column, columnIndex) in row.columns">
                                         <div
@@ -168,6 +168,11 @@ export default {
                             rows: children {
                                 ...on craft_block_layoutCustom_BlockType {
                                     typeHandle,
+                                    justifyContent,
+                                    justifyContentMedium,
+                                    justifyContentLarge,
+                                    justifyContentXLarge,
+                                    justifyContent2XLarge,
                                     columns: children {
                                         ...on craft_block_columnBreak_BlockType {
                                             typeHandle
@@ -189,6 +194,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -202,6 +211,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -229,6 +242,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -251,6 +265,7 @@ export default {
                                                     rounded,
                                                     buttonColor,
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -286,6 +301,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -299,6 +318,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -326,6 +349,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -346,8 +370,9 @@ export default {
                                                     hrefTarget,
                                                     shadow,
                                                     rounded,
-                                                    buttonColor
+                                                    buttonColor,,
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -383,6 +408,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -396,6 +425,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -423,6 +456,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -443,8 +477,9 @@ export default {
                                                     hrefTarget,
                                                     shadow,
                                                     rounded,
-                                                    buttonColor
+                                                    buttonColor,
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -480,6 +515,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -493,6 +532,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -520,6 +563,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -542,6 +586,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -577,6 +622,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -590,6 +639,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -617,6 +670,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -639,6 +693,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -674,6 +729,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -687,6 +746,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -714,6 +777,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -736,6 +800,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -771,6 +836,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -784,6 +853,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -811,6 +884,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -833,6 +907,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -868,6 +943,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -881,6 +960,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -908,6 +991,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -930,6 +1014,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -965,6 +1050,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -978,6 +1067,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1005,6 +1098,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -1027,6 +1121,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -1062,6 +1157,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1075,6 +1174,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1102,6 +1205,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -1124,6 +1228,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,
@@ -1159,6 +1264,10 @@ export default {
                                                     textRedactor,
                                                     headline,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1172,6 +1281,10 @@ export default {
                                                     typeHandle,
                                                     wysiwyg,
                                                     textAlign,
+                                                    textAlignMedium,
+                                                    textAlignLarge,
+                                                    textAlignXLarge,
+                                                    textAlign2XLarge,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1198,6 +1311,7 @@ export default {
                                                         xxlargeImage: url(transform: "xxlargeImage"),
                                                     }
                                                     aspectRatio,
+                                                    textAlign
                                                     href,
                                                     hrefTarget,
                                                     imgSize,
@@ -1220,6 +1334,7 @@ export default {
                                                     rounded,
                                                     buttonColor
                                                     buttonSize,
+                                                    textAlign,
                                                     marginT,
                                                     marginB,
                                                     width,

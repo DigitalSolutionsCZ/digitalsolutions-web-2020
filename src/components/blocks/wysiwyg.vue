@@ -1,7 +1,9 @@
 <template functional>
     <div class="wysiwyg-content" :class="parent.toClass(props.content, ['marginB', 'marginT'])">
-        <div v-html="props.content.wysiwyg"
-             :class="parent.toClass(props.content, ['wysiwyg', 'typeHandle', 'marginT', 'marginB'], true)"/>
+        <div
+            v-html="props.content.wysiwyg"
+            :class="parent.toClass(props.content, ['wysiwyg', 'typeHandle', 'marginT', 'marginB'], true)"
+        />
     </div>
 </template>
 
