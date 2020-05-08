@@ -92,6 +92,8 @@ import wysiwygBlock from '../components/blocks/wysiwyg.vue';
 import hrBlock from '../components/blocks/hr.vue';
 import buttonBlock from '../components/blocks/button.vue';
 import imageBlock from '../components/blocks/image.vue';
+import youtubeBlock from '../components/blocks/youtube.vue';
+import Youtube from "../components/Youtube";
 
 export default {
     components: {
@@ -100,6 +102,8 @@ export default {
         'hr-block': hrBlock,
         'button-block': buttonBlock,
         'image-block': imageBlock,
+        'youtube-block': youtubeBlock,
+        'youtube': Youtube
     },
     computed: {
         builder() {
@@ -278,6 +282,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -385,6 +403,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -492,6 +524,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -599,6 +645,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -706,6 +766,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -813,6 +887,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -920,6 +1008,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -1027,6 +1129,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -1134,6 +1250,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -1241,6 +1371,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
@@ -1347,6 +1491,20 @@ export default {
                                                     fontSizeLarge,
                                                     fontSizeXLarge,
                                                     fontSize2XLarge,
+                                                },
+                                                ...on craft_block_youtube_BlockType {
+                                                    typeHandle,
+                                                    href,
+                                                    aspectRatio,
+                                                    shadow,
+                                                    rounded,
+                                                    marginT,
+                                                    marginB,
+                                                    width,
+                                                    widthMedium,
+                                                    widthLarge,
+                                                    widthXLarge,
+                                                    width2XLarge,
                                                 }
                                             }
                                         }
