@@ -164,25 +164,25 @@ module.exports = function (api) {
         allNews(data, createPage)
     });
 
-    api.afterBuild(async () => {
-        const purgeCSSResults = await new PurgeCSS().purge({
-            content: ["./dist/**/*.html"],
-            css: ["./dist/assets/css/*.css"],
-            extractors: [
-                {
-                    extractor: tailwindExtractor,
-                    extensions: ['vue', 'js', 'jsx', 'md', 'html', 'pug'],
-                },
-            ]
-        });
-        purgeCSSResults.map((purgedCss) => {
-            fs.writeFile(purgedCss.file, purgedCss.css, "utf8", (err) => {
-                if (err) {
-                    console.log(err);
-                    return;
-                }
-            });
-        });
-    });
+    // api.afterBuild(async () => {
+    //     const purgeCSSResults = await new PurgeCSS().purge({
+    //         content: ["./dist/**/*.html"],
+    //         css: ["./dist/assets/css/*.css"],
+    //         extractors: [
+    //             {
+    //                 extractor: tailwindExtractor,
+    //                 extensions: ['vue', 'js', 'jsx', 'md', 'html', 'pug'],
+    //             },
+    //         ]
+    //     });
+    //     purgeCSSResults.map((purgedCss) => {
+    //         fs.writeFile(purgedCss.file, purgedCss.css, "utf8", (err) => {
+    //             if (err) {
+    //                 console.log(err);
+    //                 return;
+    //             }
+    //         });
+    //     });
+    // });
 }
 
