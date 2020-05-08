@@ -156,7 +156,7 @@ export default {
                 slug
                 id
                 title,
-                ...on craft_news_article_Entry {
+                ...on craft_pageItems_pageItems_Entry {
                     contentBuilder: block {
                         __typename,
                         ...on craft_block_container_BlockType {

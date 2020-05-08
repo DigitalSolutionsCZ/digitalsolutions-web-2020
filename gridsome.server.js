@@ -1,6 +1,6 @@
 const {referencePage} = require("./server/references");
 const {allPages} = require("./server/pages");
-const {allNews} = require('./server/news');
+const {allPageBuilders} = require('./server/pageBuilder');
 const PurgeCSS = require("purgecss").default;
 const fs = require("fs");
 
@@ -152,16 +152,28 @@ module.exports = function (api) {
                         }
                     }
                 },
-                articles: entries(section: "news") {
+                customPages: entries(section: "pageItems") {
+                    title,
                     slug,
-                    id
+                    id,
+                    ...on craft_pageItems_pageItems_Entry {
+                        itemUrl,
+                        seoTitle,
+                        seoKeywords,
+                        seoDescription,
+                        ogTitle,
+                        ogDescription,
+                        ogImage {
+                            url
+                        }
+                    }
                 }
               }
             }
         `);
         allPages(data, createPage);
         referencePage(data, createPage);
-        allNews(data, createPage)
+        allPageBuilders(data, createPage)
     });
 
     api.afterBuild(async () => {
