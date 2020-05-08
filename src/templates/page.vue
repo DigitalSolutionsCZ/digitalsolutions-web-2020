@@ -94,8 +94,12 @@ import buttonBlock from '../components/blocks/button.vue';
 import imageBlock from '../components/blocks/image.vue';
 import youtubeBlock from '../components/blocks/youtube.vue';
 import Youtube from "../components/Youtube";
+import { metaInfo } from  '~/components/utils';
 
 export default {
+    metaInfo() {
+        return metaInfo({title: this.$context.seoTitle}, this.$context);
+    },
     components: {
         'headline-block': headlineBlock,
         'wysiwyg-block': wysiwygBlock,
