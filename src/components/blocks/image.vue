@@ -1,11 +1,11 @@
 <template functional>
-    <div :class="parent.toClass(props.content, ['marginB', 'marginT'])">
+    <div :class="parent.toClass(props.content, ['marginB', 'marginT', 'width', 'widthMedium', 'widthLarge', 'widthXLarge', 'width2XLarge'])">
         <component
             :is="props.content.href && props.content.hrefTarget !== 'lightbox' ? 'a' : 'div'"
             :href="props.content.href || false"
             :target="props.content.href && props.content.hrefTarget === 'blank' ? '_blank': false"
             class="relative overflow-hidden block"
-            :class="parent.toClass(props.content, ['aspectRatio', 'shadow', 'rounded', 'width', 'widthMedium', 'widthLarge', 'widthXLarge', 'width2XLarge'])"
+            :class="parent.toClass(props.content, ['aspectRatio', 'shadow', 'rounded'])"
         >
             <!-- v-img directive doesnt support disable option -->
             <component
@@ -13,13 +13,13 @@
                 is="g-image"
                 v-img="{src: props.content.img[0].origin}"
                 :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
-                :class="{'absolute inset-0 w-full h-full object-cover': !props.content.aspectRatio }"
+                :class="{'absolute inset-0 w-full h-full object-cover': props.content.aspectRatio !== 'origin' }"
             />
             <component
                 v-else
                 is="g-image"
                 :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
-                :class="{'absolute inset-0 w-full h-full object-cover': !props.content.aspectRatio }"
+                :class="{'absolute inset-0 w-full h-full object-cover': props.content.aspectRatio !== 'origin' }"
             />
         </component>
     </div>

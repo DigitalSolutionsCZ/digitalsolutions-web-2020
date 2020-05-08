@@ -19,9 +19,9 @@
                                     <template v-for="(column, columnIndex) in row.columns">
                                         <div
                                             :key="container.id + index + columnIndex"
-                                            :class="[columnClasses(row.typeHandle, columnIndex), toClass(column, ['blocks', 'typeHandle', 'marginX', 'marginY'], true), {'w-full' :column.typeHandle === 'columnBreak'}]"
+                                            :class="[columnClasses(row.typeHandle, columnIndex), toClass(column, ['selfVerticalAlign']), {'w-full' :column.typeHandle === 'columnBreak'}]"
                                         >
-                                            <div :class="toClass(column, ['marginX', 'marginY'])">
+                                            <div :class="toClass(column, ['marginX', 'marginY', 'padding', 'shadow', 'rounded'])">
                                                 <template v-if="column.typeHandle !== 'columnBreak'">
                                                     <!-- Blocks Component  -->
                                                     <template v-for="block in column.blocks">
@@ -77,7 +77,7 @@ const layoutClassesPreset = {
     },
     layoutFourQuarter: {
         container: 'justify-center',
-        columns: 'w-full md:w-3/12'
+        columns: 'w-full md:w-6/12 lg:w-3/12'
     },
     layoutThirdAndTwoThirds: {
         columns: ['w-full md:w-4/12', 'w-full md:w-8/12']
@@ -177,6 +177,7 @@ export default {
                                             rounded,
                                             shadow,
                                             padding,
+                                            selfVerticalAlign,
                                             width,
                                             widthMedium,
                                             widthLarge,
@@ -187,6 +188,7 @@ export default {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -199,6 +201,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -210,9 +213,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -275,11 +279,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -292,6 +298,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -303,9 +310,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -368,11 +376,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -385,6 +395,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -396,9 +407,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -461,11 +473,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -478,6 +492,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -489,9 +504,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -554,11 +570,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -571,6 +589,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -582,9 +601,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -647,11 +667,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -664,6 +686,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -675,9 +698,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -740,11 +764,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -757,6 +783,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -768,9 +795,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -833,11 +861,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -850,6 +880,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -861,9 +892,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -926,11 +958,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -943,6 +977,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -954,9 +989,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -1019,11 +1055,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1036,6 +1074,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1047,9 +1086,10 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
+                                                    hrSize,
                                                 }
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
@@ -1112,11 +1152,13 @@ export default {
                                             shadow,
                                             rounded
                                             bgColor,
+                                            selfVerticalAlign,
                                             blocks: children {
                                                 ...on craft_block_headline_BlockType {
                                                     typeHandle,
                                                     textRedactor,
                                                     headline,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1129,6 +1171,7 @@ export default {
                                                 ...on craft_block_wysiwyg_BlockType {
                                                     typeHandle,
                                                     wysiwyg,
+                                                    textAlign,
                                                     color,
                                                     marginT,
                                                     marginB,
@@ -1140,7 +1183,7 @@ export default {
                                                 },
                                                 ...on craft_block_hr_BlockType {
                                                     typeHandle,
-                                                    color,
+                                                    bgColor,
                                                     marginT,
                                                     marginB,
                                                 }

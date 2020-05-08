@@ -1,6 +1,6 @@
 <template functional>
     <div :class="parent.toClass(props.content, ['marginB', 'marginT'])">
-        <component :is="props.content.headline" v-html="props.content.textRedactor" :class="[props.fontSizes[props.content.headline], parent.toClass(props.content, ['headline', 'typeHandle', 'marginT', 'marginB', 'textRedactor'], true)]">
+        <component :is="props.content.headline" v-html="props.content.textRedactor" :class="[props.fontSizes[props.content.headline], parent.toClass(props.content, ['headline', 'typeHandle', 'marginT', 'marginB', 'textRedactor', 'textAlign'], true)]">
         </component>
     </div>
 </template>
