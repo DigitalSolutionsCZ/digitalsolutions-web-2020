@@ -19,7 +19,7 @@
                                     <template v-for="(column, columnIndex) in row.columns">
                                         <div
                                             :key="container.id + index + columnIndex"
-                                            :class="[columnClasses(row.typeHandle, columnIndex), toClass(column, ['selfVerticalAlign']), {'w-full' :column.typeHandle === 'columnBreak'}]"
+                                            :class="[columnClasses(row.typeHandle, columnIndex), toClass(column, ['selfVerticalAlign', 'width', 'widthMedium', 'widthLarge', 'widthXLarge', 'width2XLarge']), {'w-full' :column.typeHandle === 'columnBreak'}]"
                                         >
                                             <div :class="toClass(column, ['marginX', 'marginY', 'padding', 'shadow', 'rounded'])">
                                                 <template v-if="column.typeHandle !== 'columnBreak'">
@@ -65,7 +65,7 @@ const layoutClassesPreset = {
     },
     layoutHalfCenter: {
         container: 'justify-center',
-        columns: 'w-full md:w-6/12'
+        columns: 'w-full lg:w-2/3 xl:w-6/12'
     },
     layoutThirdCenter: {
         container: 'justify-center',

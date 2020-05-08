@@ -1,5 +1,7 @@
 <template functional>
-    <hr class="border-current"  :class="parent.toClass(props.content, ['typeHandle'], true)">
+    <div :class="parent.toClass(props.content, ['bgColor'])">
+        <hr class="invisible"  :class="parent.toClass(props.content, ['typeHandle', 'bgColor'], true)">
+    </div>
 </template>
 
 <script>
