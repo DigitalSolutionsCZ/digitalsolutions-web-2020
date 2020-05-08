@@ -13,13 +13,13 @@
                 is="g-image"
                 v-img="{src: props.content.img[0].origin}"
                 :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
-                class="absolute inset-0 w-full h-full object-cover d"
+                :class="{'absolute inset-0 w-full h-full object-cover': !props.content.aspectRatio }"
             />
             <component
                 v-else
                 is="g-image"
                 :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
-                class="absolute inset-0 w-full h-full object-cover"
+                :class="{'absolute inset-0 w-full h-full object-cover': !props.content.aspectRatio }"
             />
         </component>
     </div>
