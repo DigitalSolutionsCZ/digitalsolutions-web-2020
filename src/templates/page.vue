@@ -95,6 +95,7 @@ import imageBlock from '../components/blocks/image.vue';
 import youtubeBlock from '../components/blocks/youtube.vue';
 import Youtube from "../components/Youtube";
 import { metaInfo } from  '~/components/utils';
+const kebabCase = string => string.replace(/([a-z])([A-Z])/g, '$1-$2').replace(/\s+/g, '-').toLowerCase()
 
 export default {
     metaInfo() {
@@ -143,7 +144,7 @@ export default {
         },
         _attributeToClass(key, attribute) {
             if (typeof attribute === 'boolean' && attribute) {
-                return key;
+                return kebabCase(key);
             }
             if (typeof attribute === 'string') {
                 return attribute
@@ -270,7 +271,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor,
                                                     buttonSize,
                                                     textAlign,
@@ -391,7 +392,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor,,
                                                     buttonSize,
                                                     textAlign,
@@ -512,7 +513,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor,
                                                     buttonSize,
                                                     textAlign,
@@ -633,7 +634,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -754,7 +755,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -875,7 +876,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -996,7 +997,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -1117,7 +1118,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -1238,7 +1239,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -1359,7 +1360,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
@@ -1479,7 +1480,7 @@ export default {
                                                     href,
                                                     hrefTarget,
                                                     shadow,
-                                                    rounded,
+                                                    roundedFull,
                                                     buttonColor
                                                     buttonSize,
                                                     textAlign,
