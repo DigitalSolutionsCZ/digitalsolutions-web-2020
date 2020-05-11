@@ -1,6 +1,7 @@
 <template functional>
-    <div class="wysiwyg-content" :class="parent.toClass(props.content, ['marginB', 'marginT'])">
+    <div :class="parent.toClass(props.content, ['marginB', 'marginT'])">
         <div
+            class="wysiwyg-content"
             v-html="props.content.wysiwyg"
             :class="parent.toClass(props.content, ['wysiwyg', 'typeHandle', 'marginT', 'marginB'], true)"
         />
@@ -19,6 +20,10 @@ export default {
 </script>
 
 <style>
+    .wysiwyg-content > :last-of-type {
+        margin-bottom: 0 !important;
+    }
+
     .wysiwyg-content p,
     .wysiwyg-content ul,
     .wysiwyg-content ol {

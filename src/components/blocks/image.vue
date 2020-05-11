@@ -8,22 +8,24 @@
                 :is="props.content.href && props.content.hrefTarget !== 'lightbox' ? 'a' : 'div'"
                 :href="props.content.href || false"
                 :target="props.content.href && props.content.hrefTarget === 'blank' ? '_blank': false"
-                class="relative overflow-hidden block w-full"
+                class="relative block w-full overflow-hidden"
                 :class="parent.toClass(props.content, ['aspectRatio', 'shadow', 'rounded'])"
             >
                 <!-- v-img directive doesnt support disable option -->
                 <component
                     v-if="props.content.hrefTarget === 'lightbox'"
-                    is="g-image"
+                    :is="'g-image'"
                     v-img="{src: props.content.img[0].origin}"
                     :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
                     :class="{'absolute inset-0 w-full h-full object-cover': props.content.aspectRatio !== 'origin' }"
+                    :alt="props.content.img[0].title"
                 />
                 <component
                     v-else
-                    is="g-image"
+                    :is="'g-image'"
                     :src="props.content.imgSize ? props.content.img[0][props.content.imgSize] : props.content.img[0].origin"
                     :class="{'absolute inset-0 w-full h-full object-cover': props.content.aspectRatio !== 'origin' }"
+                    :alt="props.content.img[0].title"
                 />
             </component>
         </div>

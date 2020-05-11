@@ -28,7 +28,7 @@
                                                         <component
                                                             :is="block.typeHandle + '-block'"
                                                             :content="block"
-                                                            :key="container.id + index + columnindex + blockIndex"
+                                                            :key="container.id + index + columnIndex + blockIndex"
                                                         />
                                                     </template>
                                                 </template>
@@ -246,6 +246,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -367,6 +368,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -488,6 +490,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -609,6 +612,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -730,6 +734,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -851,6 +856,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -972,6 +978,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -1093,6 +1100,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -1214,6 +1222,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -1335,6 +1344,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")
@@ -1455,6 +1465,7 @@ export default {
                                                 ...on craft_block_image_BlockType {
                                                     typeHandle,
                                                     img {
+                                                        title,
                                                         origin: url,
                                                         smallImage: url(transform: "smallImage"),
                                                         mediumImage: url(transform: "mediumImage")

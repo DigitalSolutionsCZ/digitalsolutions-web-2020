@@ -1,6 +1,11 @@
 <template functional>
     <div :class="parent.toClass(props.content, ['marginB', 'marginT'])">
-        <component :is="props.content.headline" v-html="props.content.textRedactor" :class="[props.fontSizes[props.content.headline], parent.toClass(props.content, ['headline', 'typeHandle', 'marginT', 'marginB', 'textRedactor'], true)]">
+        <component
+            :is="props.content.headline"
+            v-html="props.content.textRedactor"
+            class="headline"
+            :class="[(props.content.fontSize || props.content.fontSizeMedium || props.content.fontSizeLarge || props.content.fontSizeXLarge || props.content.fontSize2XLarge) ? null : props.fontSizes[props.content.headline], parent.toClass(props.content, ['headline', 'typeHandle', 'marginT', 'marginB', 'textRedactor'], true)]"
+        >
         </component>
     </div>
 </template>
@@ -22,7 +27,12 @@ export default {
                 h5: 'text-base md:text-lg',
                 h6: 'text-base lg:text-lg',
             })
-        }
+        },
     }
 }
 </script>
+<style>
+    .headline a {
+        color: #72bf44
+    }
+</style>
