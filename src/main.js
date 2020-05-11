@@ -11,6 +11,7 @@ import DefaultLayout from "~/layouts/Default.vue";
 import Icon from "~/components/Icon.vue";
 import VueKeyframes from "~/components/VueKeyframes";
 import VueScrollTo from 'vue-scrollto'
+import VueImg from 'v-img';
 
 const req = require.context("~/components/icons", true, /\.(js|vue)$/i);
 
@@ -42,6 +43,7 @@ export default function (Vue, {router, head, isClient}) {
     });
 
     Vue.use(VueKeyframes);
+    Vue.use(VueImg);
 
     Vue.use(VueScrollTo, {
         duration: 500,
@@ -51,7 +53,6 @@ export default function (Vue, {router, head, isClient}) {
 
     // Set default layout as a global component
     Vue.component("Layout", DefaultLayout);
-
     Vue.component("Icon", Icon);
 
     req.keys().map(key => {

@@ -137,6 +137,9 @@ module.exports = {
                 "screen-2xl": "1480px",
                 "screen-3xl": "1600px",
             },
+            borderColor: {
+                'current': 'currentColor'
+            },
             borderWidth: {
                 '3': '3px'
             },
