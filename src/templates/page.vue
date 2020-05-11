@@ -6,7 +6,7 @@
                 <div class="flex" :key="container.id" :class="toClass(container, ['bgColorContainer'])"
                      :style="backgroundImage(container.imgContainer)">
                     <div
-                        class="container mx-auto w-full"
+                        class="container w-full mx-auto"
                         :class="toClass(container, ['id', 'rows', 'typeHandle', '__typename', 'bgColorContainer'], true)"
                         :style="backgroundImage(container.img)"
                     >
@@ -24,10 +24,11 @@
                                             <div :class="toClass(column, ['marginX', 'marginY', 'padding', 'shadow', 'rounded'])">
                                                 <template v-if="column.typeHandle !== 'columnBreak'">
                                                     <!-- Blocks Component  -->
-                                                    <template v-for="block in column.blocks">
+                                                    <template v-for="(block, blockIndex) in column.blocks">
                                                         <component
                                                             :is="block.typeHandle + '-block'"
                                                             :content="block"
+                                                            :key="container.id + index + columnindex + blockIndex"
                                                         />
                                                     </template>
                                                 </template>
@@ -191,6 +192,8 @@ export default {
                                             rounded,
                                             shadow,
                                             padding,
+                                            marginX,
+                                            marginY,
                                             selfVerticalAlign,
                                             width,
                                             widthMedium,
