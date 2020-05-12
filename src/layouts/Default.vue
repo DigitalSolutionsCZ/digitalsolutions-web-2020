@@ -113,6 +113,9 @@ export default {
         ...on craft_referencesItem_referenceFullWidth_Entry {
             itemUrl
         }
+        ...on craft_pageItems_pageItems_Entry {
+            itemUrl
+        }
     }
     query {
         metadata {
