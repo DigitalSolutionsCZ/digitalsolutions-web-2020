@@ -179,7 +179,7 @@ module.exports = function (api) {
     api.afterBuild(async () => {
         if (process.env.GRIDSOME_LIVE_PREVIEW === 'false') {
             const purgeCSSResults = await new PurgeCSS().purge({
-                content: ["./dist/**/*.html"],
+                content: ["./dist/**/*.html", "./dist/**/*.js"],
                 css: ["./dist/assets/css/*.css"],
                 extractors: [
                     {
