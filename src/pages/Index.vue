@@ -183,6 +183,14 @@
     </Layout>
 </template>
 
+<static-query>
+query {
+    metadata {
+        siteUrl
+    }
+}
+</static-query>
+
 <page-query>
     query {
         craft {
@@ -300,7 +308,7 @@ export default {
             ogTitle: this.page.ogTitle || this.page.title,
             ogDescription: this.page.ogDescription,
             ogImage: this.page.ogImage,
-            ogUrl: this.metadata?.siteUrl || ""
+            ogUrl: this.metadata.siteUrl
         })
     },
     components: {
@@ -315,7 +323,7 @@ export default {
             return this.$page.craft.entry;
         },
         metadata() {
-            return this.$page.metadata;
+            return this.$static.metadata;
         },
         reference() {
             return this.mapObject(this.$page.craft.entry, ['referenceLink', 0]);
