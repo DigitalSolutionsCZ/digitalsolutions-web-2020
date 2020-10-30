@@ -184,28 +184,6 @@
 </template>
 
 <page-query>
-    fragment ItemUrlFragment on craft_EntryInterface {
-        slug,
-        title
-        ...on craft_referencePage_referencePage_Entry {
-            itemUrl
-        }
-        ...on craft_demandPage_demandPage_Entry {
-            itemUrl
-        }
-        ...on craft_contactPage_contactPage_Entry {
-            itemUrl
-        }
-        ...on craft_servicesPage_servicesPage_Entry {
-            itemUrl
-        }
-        ...on craft_referencePage_referencePage_Entry {
-            itemUrl
-        }
-        ...on craft_referencesItem_referenceFullWidth_Entry {
-            itemUrl
-        }
-    }
     query {
         metadata {
             siteUrl
@@ -272,7 +250,26 @@
                         ...on craft_odkaz_odkaz_BlockType {
                             linkTitle,
                             linkUrl {
-                                ...ItemUrlFragment
+                                slug,
+                                title
+                                ...on craft_referencePage_referencePage_Entry {
+                                    itemUrl
+                                }
+                                ...on craft_demandPage_demandPage_Entry {
+                                    itemUrl
+                                }
+                                ...on craft_contactPage_contactPage_Entry {
+                                    itemUrl
+                                }
+                                ...on craft_servicesPage_servicesPage_Entry {
+                                    itemUrl
+                                }
+                                ...on craft_referencePage_referencePage_Entry {
+                                    itemUrl
+                                }
+                                ...on craft_referencesItem_referenceFullWidth_Entry {
+                                    itemUrl
+                                }
                             }
                         }
                     }
