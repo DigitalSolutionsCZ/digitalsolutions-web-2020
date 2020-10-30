@@ -191,9 +191,9 @@
         craft {
             entry(slug: "homepage", site: "default") {
                 title
+                url
                 ... on craft_homepage_homepage_Entry {
                     heading
-                    url
                     homepageSubheader
                     homepageButtonText
                     homepageButtonLink
@@ -220,8 +220,8 @@
                             id
                             textTestemonial
                             testemonial {
+                                title
                                 ... on craft_testemonials_klients_Entry {
-                                    title
                                     position
                                     photo {
                                         url(transform: "smallImage")
