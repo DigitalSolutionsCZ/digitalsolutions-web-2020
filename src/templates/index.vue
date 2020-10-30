@@ -190,8 +190,8 @@
         },
         craft {
             entry(slug: "homepage", site: "default") {
+                title
                 ... on craft_homepage_homepage_Entry {
-                    title
                     heading
                     url
                     homepageSubheader
