@@ -1,4 +1,10 @@
+
 .wysiwyg-content {
+
+    > :last-of-type {
+        margin-bottom: 0 !important;
+    }
+
     p {
         @apply mb-4;
     }

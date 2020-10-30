@@ -73,7 +73,7 @@
                                                 <div class="mb-4 text-sm text-green-500 xl:text-base">
                                                     {{ mapObject(reference, ['client', 0 , 'title']) }}
                                                 </div>
-                                                <div class="text-sm wysiwyg-content md:text-base"
+                                                <div class="text-sm wysiwyg-content md:text-base mb-4 md:mb-5 xl:mb-8"
                                                      v-html="reference.description"></div>
                                                 <div
                                                     v-if="reference.textTestemonial"
@@ -353,4 +353,3 @@ export default {
     }
 }
 </script>
-
