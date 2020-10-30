@@ -185,9 +185,6 @@
 
 <page-query>
     query {
-        metadata {
-            siteUrl
-        },
         craft {
             entry(slug: "homepage", site: "default") {
                 title
@@ -303,7 +300,7 @@ export default {
             ogTitle: this.page.ogTitle || this.page.title,
             ogDescription: this.page.ogDescription,
             ogImage: this.page.ogImage,
-            ogUrl: this.metadata.siteUrl
+            ogUrl: this.metadata?.siteUrl || ""
         })
     },
     components: {
