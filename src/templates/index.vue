@@ -183,7 +183,7 @@
     </Layout>
 </template>
 
-<static-query>
+<page-query>
     query {
         metadata {
             siteUrl
@@ -285,7 +285,7 @@
             }
         }
     }
-</static-query>
+</page-query>
 
 <script>
 import SubLink from "./../components/SubLink.vue";
@@ -315,13 +315,13 @@ export default {
     },
     computed: {
         page() {
-            return this.$static.craft.entry;
+            return this.$page.craft.entry;
         },
         metadata() {
-            return this.$static.metadata;
+            return this.$page.metadata;
         },
         reference() {
-            return this.mapObject(this.$static.craft.entry, ['referenceLink', 0]);
+            return this.mapObject(this.$page.craft.entry, ['referenceLink', 0]);
         },
         referenceLink() {
             if (this.reference.url) return this.reference.url;
