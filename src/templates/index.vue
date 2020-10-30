@@ -183,7 +183,7 @@
     </Layout>
 </template>
 
-<page-query>
+<static-query>
     query {
         metadata {
             siteUrl
@@ -250,7 +250,7 @@
                         ...on craft_odkaz_odkaz_BlockType {
                             linkTitle,
                             linkUrl {
-                                slug,
+                                slug
                                 title
                                 ...on craft_referencePage_referencePage_Entry {
                                     itemUrl
@@ -285,7 +285,7 @@
             }
         }
     }
-</page-query>
+</static-query>
 
 <script>
 import SubLink from "./../components/SubLink.vue";
@@ -315,13 +315,13 @@ export default {
     },
     computed: {
         page() {
-            return this.$page.craft.entry;
+            return this.$static.craft.entry;
         },
         metadata() {
-            return this.$page.metadata;
+            return this.$static.metadata;
         },
         reference() {
-            return this.mapObject(this.$page.craft.entry, ['referenceLink', 0]);
+            return this.mapObject(this.$static.craft.entry, ['referenceLink', 0]);
         },
         referenceLink() {
             if (this.reference.url) return this.reference.url;

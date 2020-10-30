@@ -4,6 +4,12 @@ const stripHtml = require("string-strip-html");
 function allPages(data, createPage) {
     const siteUrl = data.metadata.siteUrl;
     const pages = data.craft.pages.filter( page => page.typeHandle.includes("Page") && page.typeHandle !== 'referencePage');
+
+    createPage({
+        path: "/",
+        component: `./src/templates/index.vue`,
+    })
+
     pages.map(page => {
         page.pathUrl = livePreviewEnabled
             ? '/' + page.slug
