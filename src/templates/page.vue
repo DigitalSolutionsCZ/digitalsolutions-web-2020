@@ -3,7 +3,7 @@
         <div>
             <!--    Container    -->
             <template v-for="container in builder">
-                <div class="flex" :key="container.id" :class="toClass(container, ['bgColorContainer'])"
+                <div class="flex" :key="container.id" :class="[toClass(container, ['bgColorContainer']), {'transform': toClass(container, ['bgColorContainer']) === 'bg-ds-code'}]"
                      :style="backgroundImage(container.imgContainer)">
                     <div
                         class="container w-full mx-auto"
