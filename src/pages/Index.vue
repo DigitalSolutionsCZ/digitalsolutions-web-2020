@@ -184,7 +184,7 @@
 </template>
 
 <page-query>
-    fragment ItemUrl on craft_EntryInterface {
+    fragment ItemUrlFragment on craft_EntryInterface {
         slug,
         title
         ...on craft_referencePage_referencePage_Entry {
@@ -211,7 +211,7 @@
             siteUrl
         },
         craft {
-            entry(slug: "homepage") {
+            entry(slug: "homepage", site: "default") {
                 ... on craft_homepage_homepage_Entry {
                     title
                     heading
@@ -272,7 +272,7 @@
                         ...on craft_odkaz_odkaz_BlockType {
                             linkTitle,
                             linkUrl {
-                                ...ItemUrl
+                                ...ItemUrlFragment
                             }
                         }
                     }
