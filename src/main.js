@@ -25,10 +25,10 @@ export default function (Vue, {router, head, isClient}) {
            '})(window,document,\'script\',\'dataLayer\',\'GTM-5PFW27N\');'
     });
     head.script.push({
-        innerHTML: 'window.intercomSettings = {\n' + 'app_id: "fw5rroiz"\n' + ' };'
+        innerHTML: 'window.intercomSettings = {\n' + 'app_id: "qbm24tn9"\n' + ' };'
     });
     head.script.push({
-        innerHTML: '(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic(\'reattach_activator\');ic(\'update\',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.async=true;s.src=\'https://widget.intercom.io/widget/fw5rroiz\';var x=d.getElementsByTagName(\'script\')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent(\'onload\',l);}else{w.addEventListener(\'load\',l,false);}}})();\n'
+        innerHTML: '(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic(\'reattach_activator\');ic(\'update\',w.intercomSettings);}else{var d=document;var i=function(){i.c(arguments);};i.q=[];i.c=function(args){i.q.push(args);};w.Intercom=i;var l=function(){var s=d.createElement(\'script\');s.type=\'text/javascript\';s.async=true;s.src=\'https://widget.intercom.io/widget/qbm24tn9\';var x=d.getElementsByTagName(\'script\')[0];x.parentNode.insertBefore(s,x);};if(w.attachEvent){w.attachEvent(\'onload\',l);}else{w.addEventListener(\'load\',l,false);}}})();\n'
     });
     head.link.push({
         rel: 'preconnect',
@@ -43,7 +43,7 @@ export default function (Vue, {router, head, isClient}) {
         name: 'viewport',
         content: 'width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'
     });
-    head.meta.push({
+    head.meta.push({qbm24tn9
         name: 'robots',
         content: 'index,follow'
     });
