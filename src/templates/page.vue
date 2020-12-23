@@ -21,7 +21,7 @@
                                             :key="container.id + index + columnIndex"
                                             :class="[columnClasses(row.typeHandle, columnIndex), toClass(column, ['selfVerticalAlign', 'width', 'widthMedium', 'widthLarge', 'widthXLarge', 'width2XLarge']), {'w-full' :column.typeHandle === 'columnBreak'}]"
                                         >
-                                            <div :class="toClass(column, ['marginX', 'marginY', 'padding', 'shadow', 'rounded'])">
+                                            <div :class="toClass(column, ['marginX', 'marginY', 'padding', 'shadow', 'rounded', 'bgColor'])">
                                                 <template v-if="column.typeHandle !== 'columnBreak'">
                                                     <!-- Blocks Component  -->
                                                     <template v-for="(block, blockIndex) in column.blocks">

@@ -23,7 +23,6 @@ function slugifyUrlEntry(itemUrl, title) {
  */
 function paginateEntries(createPage, {length, perPage, component, path, context, paginationLogic = '/'}) {
     const numPages = Math.ceil(length / perPage);
-
     if (length > 0) {
         Array.from({length: numPages}).forEach((_, i) => {
             const currentPage = i + 1;
@@ -37,7 +36,7 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
                 ? perPage
                 : (length % perPage);
             createPage({
-                path: i === 0 ? path : path + endingSlash(currentPage),
+                path: i === 0 ? path : path + endingSlash(currentPage.toString()),
                 component,
                 context: {
                     ...context,

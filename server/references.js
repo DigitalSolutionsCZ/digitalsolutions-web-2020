@@ -8,7 +8,7 @@ async function referencePage(data, createPage) {
     const categories = data.craft.categories;
     const referencePage = data.craft.referencePage;
     const references = data.craft.references;
-    const perPage = 10;
+    const perPage = 11;
     data.craft.referenceRecords.map((referenceRecord, index) => {
         const referenceDetailUrl = livePreviewEnabled
             ? referenceUrl + referenceRecord.slug
