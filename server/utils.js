@@ -7,7 +7,7 @@ function endingSlash(url) {
 }
 
 function slugifyUrlEntry(itemUrl, title) {
-    let slugUrl = itemUrl !== "" ? itemUrl : '/' + slugify(title);
+    let slugUrl = itemUrl && itemUrl !== "" ? itemUrl : '/' + slugify(title);
     return endingSlash(slugUrl);
 }
 
