@@ -101,7 +101,7 @@ export function shallowObjectValuesToInt(object) {
  */
 export function getUrl(url, title, slug = null) {
   if (livePreviewEnabled && slug) return '/' + slug;
-  let finalUrl = url !== "" ? url : '/' + slugify(title);
+  let finalUrl = url && url !== "" ? url : '/' + slugify(title);
   return endingSlash(finalUrl);
 }
 
