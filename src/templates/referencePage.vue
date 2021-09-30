@@ -207,9 +207,9 @@ export default {
 </script>
 
 <page-query>
-    query($slug: [String], $services: [craft_QueryArgument], $limit: Int, $skip: Int) {
+    query($site: [String], $slug: [String], $services: [craft_QueryArgument], $limit: Int, $skip: Int) {
         craft {
-            entry(slug: $slug) {
+            entry(slug: $slug, site: $site) {
                 ...on craft_referencePage_referencePage_Entry {
                     heading,
                     excerpt

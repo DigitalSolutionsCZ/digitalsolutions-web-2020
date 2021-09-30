@@ -12,9 +12,9 @@
                                 :page-slug="pageSlug"
                             >
                                 <template #logo>
-                                    <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56 mobileLandscape:w-40">
+                                    <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56.25 mobileLandscape:w-40">
                                         <img
-                                            src="../images/logo-ds.png"
+                                            src="../images/logo-ds-optimized.png"
                                             style="visibility: var(--logo-color-visibility)" class="absolute w-auto"
                                         />
                                     </g-link>

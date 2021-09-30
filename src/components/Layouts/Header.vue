@@ -7,8 +7,8 @@
             <div class="flex justify-between mx-auto max-w-screen-3xl h-13 mobileLandscape:h-19">
                 <div class="flex pl-4">
                     <slot name="logo">
-                        <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56 mobileLandscape:w-40">
-                            <g-image src="../../images/logo-ds.png" alt="absolute logo" class="w-auto"/>
+                        <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56.25 mobileLandscape:w-40">
+                            <g-image src="../../images/logo-ds-optimized.png" alt="absolute logo" class="w-auto"/>
                         </g-link>
                     </slot>
                 </div>

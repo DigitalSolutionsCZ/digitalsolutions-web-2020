@@ -23,7 +23,8 @@ function allPages(data, createPage) {
                 ogImage: page.ogImage,
                 ogUrl: siteUrl + page.pathUrl,
                 id: page.id,
-                slug: page.slug
+                slug: page.slug,
+                site: process.env.CRAFT_SITE_HANDLE || 'default',
             }
         })
     });

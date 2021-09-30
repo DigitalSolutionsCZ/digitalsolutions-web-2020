@@ -383,9 +383,9 @@
 </script>
 
 <page-query>
-    query CraftEntry($slug: [String]) {
+    query($slug: [String], $site: [String]) {
         craft {
-            entry(slug: $slug) {
+            entry(slug: $slug, site: $site) {
                 id
                 title
                 ... on craft_referencesItem_referenceFullWidth_Entry {

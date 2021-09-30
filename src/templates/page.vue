@@ -156,9 +156,9 @@ export default {
 </script>
 
 <page-query>
-    query($slug: [String]) {
+    query($slug: [String], $site: [String]) {
         craft {
-            entry(slug: $slug) {
+            entry(slug: $slug, site: $site) {
                 slug
                 id
                 title,

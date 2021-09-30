@@ -32,6 +32,7 @@ async function referencePage(data, createPage) {
                 baseSlug: data.craft.referencePage.slug,
                 referenceUrl,
                 nextReferenceUrl,
+                site: process.env.CRAFT_SITE_HANDLE || 'default',
             }
         })
     });
@@ -54,6 +55,7 @@ async function referencePage(data, createPage) {
             services: referenceUrl !== referenceUrl ? referencePage.id : null,
             baseUrl: referenceUrl,
             referenceId: referencePage.id,
+            site: process.env.CRAFT_SITE_HANDLE || 'default',
         }
     });
 
@@ -80,6 +82,7 @@ async function referencePage(data, createPage) {
                 services: `${referenceUrl}/${category.slug}` !== referenceUrl ? category.id : null,
                 baseUrl: referenceUrl,
                 referenceId: referencePage.id,
+                site: process.env.CRAFT_SITE_HANDLE || 'default',
             }
         });
     });

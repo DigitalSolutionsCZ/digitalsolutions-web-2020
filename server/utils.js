@@ -46,7 +46,8 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
                     totalPage: numPages,
                     prevUrl: prevUrl,
                     nextUrl: nextUrl,
-                    moreCount: moreCount
+                    moreCount: moreCount,
+                    site: process.env.CRAFT_SITE_HANDLE || 'default',
                 }
             })
         });
@@ -62,7 +63,8 @@ function paginateEntries(createPage, {length, perPage, component, path, context,
                 totalPage: 1,
                 prevUrl: null,
                 nextUrl: null,
-                moreCount: null
+                moreCount: null,
+                site: process.env.CRAFT_SITE_HANDLE || 'default',
             }
         });
     }

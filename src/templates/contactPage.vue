@@ -112,9 +112,9 @@
 </template>
 
 <page-query>
-    query($slug: [String]) {
+    query($slug: [String], $site: [String]) {
         craft {
-            entry(slug: $slug) {
+            entry(slug: $slug, site: $site) {
                 ... on craft_contactPage_contactPage_Entry {
                     heading
                     excerpt

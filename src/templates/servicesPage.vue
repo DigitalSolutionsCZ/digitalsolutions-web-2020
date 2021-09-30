@@ -118,9 +118,9 @@
 </template>
 
 <page-query>
-query {
+query($site: [String]) {
   craft {
-    entry(slug: "services") {
+    entry(slug: "services", site: $site) {
       ... on craft_servicesPage_servicesPage_Entry {
         heading
         developmentHeader

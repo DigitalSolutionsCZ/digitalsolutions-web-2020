@@ -11,14 +11,14 @@
                         :contact="contact"
                     >
                         <template #logo>
-                            <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56 mobileLandscape:w-40">
+                            <g-link to="/" class="relative flex items-center w-32 xs:w-40 lg:w-56.25 mobileLandscape:w-40">
                                 <img
-                                    src="../images/logo-ds.png"
+                                    src="../images/logo-ds-optimized.png"
                                     class="absolute w-auto logo-color"
                                     alt="Logo Digital Solutions s.r.o."
                                 />
                                 <img
-                                    src="../images/logo-ds-white.png"
+                                    src="../images/logo-ds-white-optimized.png"
                                     class="absolute hidden w-auto logo-white mobileLandscape:block"
                                     alt="Logo Digital Solutions s.r.o."
                                 />
@@ -192,9 +192,9 @@ query {
 </static-query>
 
 <page-query>
-    query {
+    query($site: [String]) {
         craft {
-            entry(slug: "homepage", site: "default") {
+            entry(slug: "homepage", site: $site) {
                 title
                 url
                 ... on craft_homepage_homepage_Entry {

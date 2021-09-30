@@ -35,9 +35,9 @@
 </template>
 
 <page-query>
-    query($slug: [String]) {
+    query($slug: [String], $site: [String]) {
         craft {
-            entry(slug: $slug) {
+            entry(slug: $slug, site: $site) {
                 ...on craft_demandPage_demandPage_Entry {
                     heading
                     description

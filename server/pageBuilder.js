@@ -20,6 +20,7 @@ function allPageBuilders(data, createPage) {
                ogDescription: page.ogDescription,
                ogImage: page.ogImage,
                ogUrl: siteUrl + page.pathUrl,
+               site: process.env.CRAFT_SITE_HANDLE || 'default',
            }
         });
     });
